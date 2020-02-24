@@ -6,13 +6,15 @@ date_default_timezone_set("America/New_York");
 $now = date("h:i:sa");
     
 // get temperature
-require_once('./views/temp.php');  
+require_once('./views/temp.php');
+require_once('./views/train.php');
 
 // assemble $msg
 $msg  = 'New York Consolidated . . . ';
 $msg .= $now;
 $msg .= ' currently ' . $output['wind_string'];
 $msg .= ' /// Currently ' . $output['temp_f'] . ' degrees.';
+$msg .= ' There are trains arriving at: ' . $output_train.".";
 $msg .= ' 0 1 2 3 4 5 6 7 8 9 Have a nice day.';
 ?>
 
