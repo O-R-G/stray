@@ -1,7 +1,7 @@
 <?
 
-    $now_hr = date(h);
-    $now_min = date(i);
+    $now_hr = date("h");
+    $now_min = date("i");
 
     // composing url with query
     $req_url = "http://mtaapi.herokuapp.com/times?hour=".$now_hr."&minute=".$now_min;
