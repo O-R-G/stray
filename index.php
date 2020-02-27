@@ -3,7 +3,7 @@ require_once('./views/head.php');
 
 // get time
 date_default_timezone_set("America/New_York");
-$now = date("h:i:sa");
+// $now = date("h:i:sa");
     
 // get temperature
 require_once('./views/temp.php');
@@ -34,7 +34,8 @@ $msg .= ' 0 1 2 3 4 5 6 7 8 9 Have a nice day.';
     
 <script src="./static/js/scroller.js"></script>
 <script>        
-    Scroller.init('scroller', 120,7);
+	// Wei: the third parameter is added to control speed. It's time interval so the smaller the faster.
+    Scroller.init('scroller', 80,7, 30);
     Scroller.enqueue('<?= $msg; ?>');
     Scroller.start();
 </script>

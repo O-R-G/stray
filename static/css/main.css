@@ -19,23 +19,73 @@ div#mask {
     transform: translate(-50%, -50%);
 }
 div#scroller {
-    width: 720px;
+    /*width: 720px;*/
+    width: 1200px;
     /* width is 6 x cols init() */
+    /* where 6 stands for 4px width + 2px margin, as in div#scroller div*/
+    /* width = cols * ( pixel.width + pxiel.margin * 2 )*/ 
     background:#000;
     overflow:hidden;
 }
 div#scroller div {
-    width: 4px;
-    height: 4px;
+    /*width: 4px;*/
+    /*height: 4px;*/
+    width: 12px;
+    height: 12px;
     float: left;
-    margin: 1px;
+    margin: 1.5px;
     background: #111;
-    -webkit-border-radius: 5px;
+/*    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px;*/
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }
 div#scroller div.on{
     /* filter: blur(1px); */
     background: #FFF;
+}
+
+/* Wei: say we want at least 40px on the sides of the marquee*/
+@media screen and (max-width: 1280px){
+    div#scroller div {
+        width: 9px;
+        height: 9px;
+        margin: 1.5px;
+        -webkit-border-radius: 11.25px;
+        -moz-border-radius: 11.25px;
+        border-radius: 11.25px;
+    }
+    div#scroller {
+        width: 960px;
+    }
+    
+}
+@media screen and (max-width: 1040px){
+    div#scroller div {
+        width: 6px;
+        height: 6px;
+        margin: 1px;
+        -webkit-border-radius: 7.5px;
+        -moz-border-radius: 7.5px;
+        border-radius: 7.5px;
+    }
+    div#scroller {
+        width: 640px;
+    }
+}
+@media screen and (max-width: 720px){
+    div#scroller div {
+        width: 4px;
+        height: 4px;
+        margin: 1px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    div#scroller {
+        width: 480px;
+    }
 }
 

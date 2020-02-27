@@ -23,6 +23,10 @@ var Scroller = (function(){
       emptyLetters = 0,
       letterSpaces;
 
+  var max_i = 7,
+      max_j = 7;
+
+
   scroll._messageQueue = [];
 
   (function(){
@@ -130,7 +134,8 @@ var Scroller = (function(){
   scroll.start = function(){
     if(!scroll.intervalTimer){
       scroll.appendMessages();
-      scroll.intervalTimer = window.setInterval(scroll.run, 50); // e3 to turn into miliseconds
+      // scroll.intervalTimer = window.setInterval(scroll.run, 50); // e3 to turn into miliseconds
+      scroll.intervalTimer = window.setInterval(scroll.run, scroll._timeInter);
     }
   };
   scroll.stop = function(){
@@ -195,13 +200,13 @@ var Scroller = (function(){
     messageOffset = messageOffset + 1;
   };
 
-  scroll.init = function(elm, cols, rows){
+  scroll.init = function(elm, cols, rows, timeInter){
     var i, j, elm;
 
     scroll._body = document.getElementById(elm);
     scroll._rows = rows;
     scroll._cols = cols;
-
+    scroll._timeInter = timeInter;
     letterSpaces = Math.ceil(cols / 7);
 
     // Fill all available spaces with blanks
@@ -221,7 +226,6 @@ var Scroller = (function(){
       }
     }
   };
-
   scroll.currentTime = function (date) {
     var d = new Date();
     var h = d.getHours();
