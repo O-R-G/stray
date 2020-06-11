@@ -28,7 +28,7 @@ $name = ltrim(strip_tags($item["name1"]), ".");
 // document title
 $item = $oo->get($uu->id);
 $title = $item["name1"];
-$site_name = "New York Consolidated";
+$site_name = "Stray";
 if ($title)
     $title = $site_name." | ".strip_tags($title);
 else
