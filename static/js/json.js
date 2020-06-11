@@ -62,7 +62,7 @@ function request_live(name, request_url, data_type,results_count = false, use_he
 	    }
 	};
 	httpRequest.open('GET', request_url);
-	httpRequest.setRequestHeader('Content-Type', 'application/json');
+	// httpRequest.setRequestHeader('Content-Type', 'application/json');
 	// httpRequest.setRequestHeader('Access-Control-Allow-Origin', '*');
 	httpRequest.send();
 }
