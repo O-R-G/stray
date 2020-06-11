@@ -1,11 +1,1 @@
-+ web-app
-+ time (o-r-g)
-+ weather (whether)
-x css 100% width
 
-- subway (heroku)
-  https://github.com/mimouncadosch/MTA-API
-  http://mtaapi.herokuapp.com/
-- 311 (open-data)
-  https://opendata.cityofnewyork.us
-- json parse (ica)
