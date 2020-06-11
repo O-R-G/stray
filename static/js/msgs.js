@@ -35,8 +35,8 @@ var now_min = now.minute();
 var req_array = [
 	{	
 		'name': 'wet-letters',
-		// 'req_url': 'http://wetwords.o-r-g.net/'
-		'req_url': '/static/data/dummy.json'
+		'req_url': 'http://wetwords.o-r-g.net/now'
+		// 'req_url': 'static/data/dummy.json'
 	}
 ];
 
@@ -121,7 +121,7 @@ function handle_msgs(name, response, results_count = false){
 	var response = response;
 	if(name == 'wet-letters'){
 		var poem = response['poem'];
-		var current_position = response['current_position'];
+		var current_position = response['current_letter'];
 		var poem_arr = poem.split('');
 		sDisplay.innerHTML = poem_arr[current_position];
 		current_position++;
