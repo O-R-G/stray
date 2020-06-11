@@ -47,7 +47,7 @@ function request_live(name, request_url, data_type,results_count = false, use_he
 	      	// 	console.log('reaches maximum');
 	      	// 	request_cache(name, data_type, results_count);
 	      	// }
-	      	console.log(httpRequest.responseText);
+	      	// console.log(httpRequest.responseText);
       		var response = JSON.parse(httpRequest.responseText);
       		
       		if(response){

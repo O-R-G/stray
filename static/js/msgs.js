@@ -34,8 +34,9 @@ var now_min = now.minute();
 
 var req_array = [
 	{	
-		'name': 'wetletters',
-		'req_url': 'http://wetwords.o-r-g.net/'
+		'name': 'wet-letters',
+		// 'req_url': 'http://wetwords.o-r-g.net/'
+		'req_url': '/static/data/dummy.json'
 	}
 ];
 
@@ -47,8 +48,7 @@ var msgs_array = [],
 	msgs_array_temp = [];
 
 var sDisplay = document.getElementById('display');
-
-var next_letter = 1000;
+var interval = 1000;
 // msgs_opening_1.push('––––––––––––––––––––'); // en-dash (S)
 // msgs_opening_1.push('————————————————————'); // em-dash (M)
 /*
@@ -119,19 +119,19 @@ function handle_msgs(name, response, results_count = false){
 	if(results_count == '')
 		results_count = false;
 	var response = response;
-	var this_msgs = [];
-
 	if(name == 'wet-letters'){
 		var poem = response['poem'];
 		var current_position = response['current_position'];
-		var poem_arr = poem.slice('');
-
+		var poem_arr = poem.split('');
 		sDisplay.innerHTML = poem_arr[current_position];
 		current_position++;
-		setTimeout(function(){
+		setInterval(function(){
 			sDisplay.innerHTML = poem_arr[current_position];
 			current_position++;
-		}, next_letter);
+			if(current_position >= poem_arr.length)
+				current_position = 0;
+		}, interval);
+
 	}
 
 	// opening msg for each section;
@@ -284,6 +284,10 @@ function handle_msgs(name, response, results_count = false){
 	// msgs_sections['mid'][name] = this_msgs;
 	
 	// update_msgs();
+}
+
+function next_letter(arr){
+	
 }
 
 // function shuffle(array) {
