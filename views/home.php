@@ -1,3 +1,6 @@
+<?  
+	
+?>
 <div id="mask">
     <div id="display"></div>   
 </div>
