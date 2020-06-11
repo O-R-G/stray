@@ -35,7 +35,7 @@ var now_min = now.minute();
 var req_array = [
 	{	
 		'name': 'wetletters',
-		'req_url': 'http://stray.o-r-g.net/'
+		'req_url': 'http://wetwords.o-r-g.net/'
 	}
 ];
 
