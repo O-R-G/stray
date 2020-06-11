@@ -123,7 +123,7 @@ function handle_msgs(name, response, results_count = false){
 		var poem = response['poem'];
 		var current_position = response['current_letter'];
 		var poem_arr = poem.split('');
-		sDisplay.innerHTML = poem_arr[current_position].toUpperCase();
+		sDisplay.innerHTML = poem_arr[current_position];
 		current_position++;
 		setInterval(function(){
 			sDisplay.innerHTML = poem_arr[current_position];
