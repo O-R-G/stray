@@ -35,7 +35,7 @@ var now_min = now.minute();
 var req_array = [
 	{	
 		'name': 'wetletters',
-		'req_url': ''
+		'req_url': 'http://stray.o-r-g.net/'
 	}
 ];
 
@@ -47,6 +47,8 @@ var msgs_array = [],
 	msgs_array_temp = [];
 
 var sDisplay = document.getElementById('display');
+
+var next_letter = 1000;
 // msgs_opening_1.push('––––––––––––––––––––'); // en-dash (S)
 // msgs_opening_1.push('————————————————————'); // em-dash (M)
 /*
@@ -120,7 +122,16 @@ function handle_msgs(name, response, results_count = false){
 	var this_msgs = [];
 
 	if(name == 'wet-letters'){
-		sDisplay.innerText = response;
+		var poem = response['poem'];
+		var current_position = response['current_position'];
+		var poem_arr = poem.slice('');
+
+		sDisplay.innerHTML = poem_arr[current_position];
+		current_position++;
+		setTimeout(function(){
+			sDisplay.innerHTML = poem_arr[current_position];
+			current_position++;
+		}, next_letter);
 	}
 
 	// opening msg for each section;

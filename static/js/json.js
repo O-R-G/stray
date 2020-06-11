@@ -47,23 +47,23 @@ function request_live(name, request_url, data_type,results_count = false, use_he
 	      	// 	console.log('reaches maximum');
 	      	// 	request_cache(name, data_type, results_count);
 	      	// }
+	      	console.log(httpRequest.responseText);
       		var response = JSON.parse(httpRequest.responseText);
       		
       		if(response){
       			now_timestamp = new Date().getTime();
     			now_timestamp = parseInt(now_timestamp/1000); // ms to s
-      			update_cache(name, response, data_type, now_timestamp); // updat
-      			ready_now ++;
-	        	handle_msgs(name, response, results_count); // static/js/msg.js
-	        	cache_mtime[name+'.'+data_type] = now_timestamp;
+      			// update_cache(name, response, data_type, now_timestamp); // updat
+      			// ready_now ++;
+	        	handle_msgs(name, response); // static/js/msg.js
+	        	// cache_mtime[name+'.'+data_type] = now_timestamp;
       		}
 	      }
 	    }
 	};
 	httpRequest.open('GET', request_url);
-	if(use_header)
-		httpRequest.setRequestHeader('Content-Type', 'application/'+data_type);
-
+	// httpRequest.setRequestHeader('Content-Type', 'text/html');
+	httpRequest.setRequestHeader('Access-Control-Allow-Origin', '*');
 	httpRequest.send();
 }
 

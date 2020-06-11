@@ -11,9 +11,7 @@ $now = date("h:i:sa");
 
 require_once('views/head.php');
 
-if ($uri[1] == 'receive-cache')	   
-    require_once('views/receive_cache.php');    
-else if ($uri[1] == 'blur')
+if ($uri[1] == 'blur')
     require_once('views/blur.php');
 else if (!$uri[1])
     require_once('views/home.php');
@@ -21,6 +19,6 @@ else
     require_once('views/main.php');
     
 require_once('views/json.php');
-require_once('views/menu.php');
+// require_once('views/menu.php');
 require_once('views/foot.php');
 ?>
