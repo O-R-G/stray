@@ -1,8 +1,6 @@
 <?  
 	
 ?>
-<div id="mask">
-    <div id="display"></div>   
-</div>
+    <div id="slide_display"><img id = 'display_img' src = ''></div>   
 <script src='/static/js/msgs.js'></script>
 <!-- <script src='/static/js/matrix.js'></script> -->

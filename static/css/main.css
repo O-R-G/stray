@@ -175,7 +175,21 @@ ul {
 .hidden {
     display: none;
 }
-
+#slide_display{
+    /*margin: 20px;*/
+    /*height: calc( 100vh - 40px);*/
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    
+    box-sizing: border-box;
+}
+#display_img{
+    position: absolute;
+    /*left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);*/
+}
 @media screen and (max-width: 768px) {
     #main {
         padding: 25px;
