@@ -58,10 +58,10 @@ var remain = interval;
 var img_src, current_position, slide_length;
 
 var speed_min = 10000;
-var speed_max = 500;
+var speed_max = 1;
 var speed_interval = 500;
 var current_speed = interval / speed_interval;
-var isPaused = false;
+var pause_start = false;
 var slide_start = new Date();
 function handle_msgs(name, response, results_count = false){
 	// console.log('handle_msgs...'+name);
@@ -118,6 +118,7 @@ function handle_msgs(name, response, results_count = false){
 					}
 				});
 				timer_timeout = setTimeout(function(){
+					slide_start = new Date();
 					sDisplay_img.src = img_src;
 		 			current_position++;
 		 			if(current_position > slide_length)
@@ -136,8 +137,11 @@ function handle_msgs(name, response, results_count = false){
 	}
 }
 function slide_speed_up(){
-	now = new Date();
+	if(pause_start)
+		slide_pause_play();
 
+	now = new Date();
+	now = now.getTime();
 	clearInterval(timer_interval);
 	clearTimeout(timer_timeout);
 	clearTimeout(timer_control);
@@ -181,8 +185,11 @@ function slide_speed_up(){
 
 }
 function slide_slow_down(){
-	now = new Date();
+	if(pause_start)
+		slide_pause_play();
 
+	now = new Date();
+	now = now.getTime();
 	clearInterval(timer_interval);
 	clearTimeout(timer_timeout);
 	clearTimeout(timer_control);
@@ -208,8 +215,9 @@ function slide_slow_down(){
 	
 
 	remain = interval - (now - slide_start);
-
+	console.log('remain in slow down: '+remain);
 	timer_timeout = setTimeout(function(){
+		console.log('timeout in slowdown');
 		sDisplay_img.src = img_src;
 		current_position++;
 		if(current_position > slide_length)
@@ -222,14 +230,16 @@ function slide_slow_down(){
 
 }
 function slide_pause_play(){
-	if(!isPaused){
-		isPaused = true;
+	if(!pause_start){
+		console.log('paused');
 		clearInterval(timer_interval);
 		clearTimeout(timer_timeout);
 		clearTimeout(timer_control);
 
-		now = new Date();
-		remain = interval - (now - slide_start);
+		pause_start = new Date();
+		pause_start = pause_start.getTime();
+		remain = interval - (pause_start - slide_start);
+		console.log(pause_start, slide_start);
 		console.log('remain = '+remain);
 
 		sControl_display.style.display = 'initial';
@@ -239,7 +249,16 @@ function slide_pause_play(){
 		}, 2000);
 	}
 	else{
-		isPaused = false;
+		console.log('resume');
+		now = new Date();
+		now = now.getTime();
+		var paused_time = now - pause_start;
+		console.log('paused_time = '+paused_time);
+		console.log('old slide_start = '+slide_start);
+		var temp = slide_start + paused_time;
+		slide_start = temp;
+		console.log('new slide_start = '+slide_start);
+		pause_start = false;
 		timer_timeout = setTimeout(function(){
 			sDisplay_img.src = img_src;
 			current_position++;
@@ -258,7 +277,9 @@ function slide_pause_play(){
 
 }
 function next_slide(){
+	console.log('next slide');
 	slide_start = new Date();
+	slide_start = slide_start.getTime();
 	sDisplay_img.src = img_src;
 	current_position++;
 	if(current_position > slide_length)
