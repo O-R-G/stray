@@ -35,7 +35,7 @@ $site_name = "Stray";
 //     $title = $site_name;
 
 // query strings        ** dev **
-
+$current_directory = 
 $devhash = rand();  // to force .css reloads
 
 ?><!DOCTYPE html>

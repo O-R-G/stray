@@ -35,7 +35,7 @@ var now_msec = now.getMilliseconds();
 
 var req_array = [
 	{
-		'name': 'slide',
+		'name': 'wetwords-image',
 		'req_url': 'http://stray.o-r-g.net/now'
 		// 'req_url': 'static/data/dummy.json'
 	}
@@ -63,14 +63,22 @@ var speed_interval = 500;
 var current_speed = interval / speed_interval;
 var pause_start = false;
 var slide_start = new Date();
+
+var poem_arr;
+
+var filenum_arr =
+
 function handle_msgs(name, response, results_count = false){
 	// console.log('handle_msgs...'+name);
 	if(results_count == '')
 		results_count = false;
 	var response = response;
-	if(name == 'slide'){
-		slide_length = response['slides'];
-		current_position = response['current_slide'];
+	if(name == 'wetwords-imag'){
+		
+		var poem = response['poem'];
+		poem_arr = poem.split('');
+		current_position = response['current_letter'];
+		slide_length = poem_arr.length;
 		// var current_position = 472;
 		img_src = format_img_src(current_position);
 
@@ -121,8 +129,8 @@ function handle_msgs(name, response, results_count = false){
 					slide_start = new Date();
 					sDisplay_img.src = img_src;
 		 			current_position++;
-		 			if(current_position > slide_length)
-		 				current_position = 1;
+		 			if(current_position >= slide_length)
+		 				current_position = 0;
 		 			img_src = format_img_src(current_position);
 					timer_interval = setInterval(next_slide, interval);
 				}, wait);
@@ -177,8 +185,8 @@ function slide_speed_up(){
 	timer_timeout = setTimeout(function(){
 		sDisplay_img.src = img_src;
 		current_position++;
-		if(current_position > slide_length)
-			current_position = 1;
+		if(current_position >= slide_length)
+			current_position = 0;
 		img_src = format_img_src(current_position);
 		timer_interval = setInterval(next_slide, interval);
 	}, remain);
@@ -220,8 +228,8 @@ function slide_slow_down(){
 		console.log('timeout in slowdown');
 		sDisplay_img.src = img_src;
 		current_position++;
-		if(current_position > slide_length)
-			current_position = 1;
+		if(current_position >= slide_length)
+			current_position = 0;
 		img_src = format_img_src(current_position);
 		timer_interval = setInterval(next_slide, interval);
 	}, remain);
@@ -259,8 +267,8 @@ function slide_pause_play(){
 		timer_timeout = setTimeout(function(){
 			sDisplay_img.src = img_src;
 			current_position++;
-			if(current_position > slide_length)
-				current_position = 1;
+			if(current_position >= slide_length)
+				current_position = 0;
 			img_src = format_img_src(current_position);
 			timer_interval = setInterval(next_slide, interval);
 		}, remain);
@@ -279,12 +287,26 @@ function next_slide(){
 	slide_start = slide_start.getTime();
 	sDisplay_img.src = img_src;
 	current_position++;
-	if(current_position > slide_length)
-		current_position = 1;
+	if(current_position >= slide_length)
+		current_position = 0;
 	img_src = format_img_src(current_position);
 }
 function format_img_src(i){
-	var output = ''
+	var this_letter = poem_arr[i].toUpperCase();
+	if(this_letter == '&')
+		this_letter = 'ampersand';
+	else if(this_letter == '.')
+		this_letter = 'period';
+	else if(this_letter == ',')
+		this_letter = 'comma';
+	else if(this_letter == '#')
+		this_letter = 'hash';
+	else if(this_letter == '/')
+		this_letter = 'slash';
+	else if(this_letter == ' ')
+		return false;
+
+	var output = '';
 	if(i<10){
 		output = 'media/slide/'+'00'+i+'.jpeg';
 	}
