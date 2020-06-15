@@ -175,7 +175,11 @@ ul {
 .hidden {
     display: none;
 }
-
+#control_display{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
 @media screen and (max-width: 768px) {
     #main {
         padding: 25px;

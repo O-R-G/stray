@@ -1,6 +1,7 @@
 <?  
 	
 ?>
+<div id = 'control_display'></div>
 <div id="mask">
     <div id="display"></div>   
 </div>
