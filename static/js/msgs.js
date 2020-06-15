@@ -52,7 +52,7 @@ var sSlide_display = document.getElementById('slide_display');
 // var img_preload = new Image();
 var img_preload = document.createElement('img');
 
-var interval = 1000;
+var interval = 2000;
 
 function handle_msgs(name, response, results_count = false){
 	// console.log('handle_msgs...'+name);
@@ -61,8 +61,8 @@ function handle_msgs(name, response, results_count = false){
 	var response = response;
 	if(name == 'slide'){
 		var slide_length = response['slides'];
-		// var current_position = parseInt(parseInt(slide_length) * Math.random())+1;
-		var current_position = 472;
+		var current_position = parseInt(parseInt(slide_length) * Math.random())+1;
+		// var current_position = 472;
 		var img_src = format_img_src(current_position);
 
 
