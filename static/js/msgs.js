@@ -61,7 +61,8 @@ function handle_msgs(name, response, results_count = false){
 	var response = response;
 	if(name == 'slide'){
 		var slide_length = response['slides'];
-		var current_position = parseInt(parseInt(slide_length) * Math.random())+1;
+		// var current_position = parseInt(parseInt(slide_length) * Math.random())+1;
+		var current_position = 472;
 		var img_src = format_img_src(current_position);
 
 
@@ -102,6 +103,8 @@ function handle_msgs(name, response, results_count = false){
 					setInterval(function(){
 						sDisplay_img.src = img_src;
 						current_position++;
+						if(current_position > slide_length)
+		 					current_position = 1;
 						img_src = format_img_src(current_position);
 
 						
