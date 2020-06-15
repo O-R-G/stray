@@ -55,6 +55,7 @@ function handle_msgs(name, response, results_count = false){
 	if(results_count == '')
 		results_count = false;
 	var response = response;
+	console.log(response);
 	if(name == 'wet-letters'){
 		var poem = response['poem'];
 		var current_position = response['current_letter'];
