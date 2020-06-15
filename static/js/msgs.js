@@ -22,7 +22,6 @@ Date.prototype.minute = function () {
 Date.prototype.second = function () {
     return ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
-
 function get_time(){
     var d = new Date();
 	return [d.today().toUpperCase(), d.now().toUpperCase()];
@@ -31,6 +30,8 @@ function get_time(){
 var now = new Date();
 var now_hr = now.hour();
 var now_min = now.minute();
+var now_sec = now.second();
+var now_msec = now.getMilliseconds();
 
 var req_array = [
 	{
@@ -58,18 +59,26 @@ function handle_msgs(name, response, results_count = false){
 		var poem = response['poem'];
 		var current_position = response['current_letter'];
 		var poem_arr = poem.split('');
-		sDisplay.innerHTML = poem_arr[current_position];
+
+		// wait until exactly next second to start
+		// advance currentLetter as required
+
+		var wait = 1000 - now.getMilliseconds();
+
+		if (wait > 500)
+			current_position++;
 		current_position++;
 
-		// wait until exactly next x seconds, advance current letter+=x
-		// see https://stackoverflow.com/questions/10795164/accurately-run-a-function-when-the-minute-changes
-
-		setInterval(function(){
+		setTimeout(function(){
 			sDisplay.innerHTML = poem_arr[current_position];
-			current_position++;
-			if(current_position >= poem_arr.length)
-				current_position = 0;
-		}, interval);
+ 			current_position++;
+			setInterval(function(){
+				sDisplay.innerHTML = poem_arr[current_position];
+				current_position++;
+				if(current_position >= poem_arr.length)
+					current_position = 0;
+			}, interval);
+		}, wait);
 	}
 }
 
