@@ -21,6 +21,7 @@ RewriteEngine On
 # direct everything to index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !=/wetwords*
 RewriteRule ^.*$ index.php [L]
 
 # change upload limit
