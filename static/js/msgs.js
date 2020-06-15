@@ -211,9 +211,6 @@ function slide_pause_play(){
 
 		sControl_display.style.display = 'initial';
 		sControl_display.innerHTML = 'paused';
-		timer_control = setTimeout(function(){
-			sControl_display.style.display = 'none';
-		}, 2000);
 	}
 	else{
 		console.log('resume');
