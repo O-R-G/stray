@@ -36,6 +36,8 @@ $site_name = "Stray";
 
 // query strings        ** dev **
 $current_directory = dirname($_SERVER['SCRIPT_NAME']);
+if($current_directory != '/')
+    $current_directory .= '/';
 $devhash = rand();  // to force .css reloads
 
 ?><!DOCTYPE html>
