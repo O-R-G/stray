@@ -49,21 +49,30 @@ var msgs_array = [],
 	msgs_array_temp = [];
 var sDisplay_img = document.getElementById('display_img');
 var sSlide_display = document.getElementById('slide_display');
-// var img_preload = new Image();
-var img_preload = document.createElement('img');
+var sControl_display = document.getElementById('control_display');
 
-var interval = 2000;
+var img_preload = new Image();
+var timer_interval, timer_timeout, timer_control;
+var interval = 1000;
+var remain = interval;
+var img_src, current_position, slide_length;
 
+var speed_min = 10000;
+var speed_max = 500;
+var speed_interval = 500;
+var current_speed = interval / speed_interval;
+var isPaused = false;
+var slide_start = new Date();
 function handle_msgs(name, response, results_count = false){
 	// console.log('handle_msgs...'+name);
 	if(results_count == '')
 		results_count = false;
 	var response = response;
 	if(name == 'slide'){
-		var slide_length = response['slides'];
-		var current_position = parseInt(parseInt(slide_length) * Math.random())+1;
+		slide_length = response['slides'];
+		current_position = response['current_slide'];
 		// var current_position = 472;
-		var img_src = format_img_src(current_position);
+		img_src = format_img_src(current_position);
 
 
 		var display_w = sSlide_display.offsetWidth;
@@ -72,43 +81,49 @@ function handle_msgs(name, response, results_count = false){
 		var img_r = 1;
 		var isStarted = false;
 		img_preload.onload = imgOnLoad;
+
 		function imgOnLoad(){
 			if(!isStarted){
 				isStarted = true;
 				img_r = img_preload.height / img_preload.width;
 				if( img_r < display_r ){
-					sDisplay_img.style.height = '100%';
+					// wider then slide_display
+					sDisplay_img.style.width = '100%';
 					var extra_width = display_h / img_r - display_w;
-					sDisplay_img.style.left = '-'+(extra_width/2)+'px';
+					// sDisplay_img.style.left = '-'+(extra_width/2)+'px';
 				}
 				else{
-					sDisplay_img.style.width = '100%';
+					// thiner then slide_display
+					sDisplay_img.style.height = '100%';
 					var extra_height = display_w * img_r - display_h;
-					console.log(display_w, img_r);
-					sDisplay_img.style.top = '-'+(extra_height/2)+'px';
+					// sDisplay_img.style.top = '-'+(extra_height/2)+'px';
 				}
-				var wait = 1000 - now.getMilliseconds();
+				var wait = interval - now.getMilliseconds();
 
 				if (wait > 500)
 					current_position++;
 				current_position++;
 				img_src = format_img_src(current_position);
+				document.addEventListener('keypress', function(e){
 
-				setTimeout(function(){
+					e = e || window.event;
+					if(e.charCode == '61' || e.charCode == '43'){
+						slide_speed_up();
+					}
+					else if(e.charCode == '45' || e.charCode == '95'){
+						slide_slow_down();
+					}
+					else if(e.charCode == '48' || e.charCode == '41'){
+						slide_pause_play();
+					}
+				});
+				timer_timeout = setTimeout(function(){
 					sDisplay_img.src = img_src;
 		 			current_position++;
 		 			if(current_position > slide_length)
 		 				current_position = 1;
 		 			img_src = format_img_src(current_position);
-					setInterval(function(){
-						sDisplay_img.src = img_src;
-						current_position++;
-						if(current_position > slide_length)
-		 					current_position = 1;
-						img_src = format_img_src(current_position);
-
-						
-					}, interval);
+					timer_interval = setInterval(next_slide, interval);
 				}, wait);
 			}
 			
@@ -120,7 +135,136 @@ function handle_msgs(name, response, results_count = false){
 		
 	}
 }
+function slide_speed_up(){
+	now = new Date();
 
+	clearInterval(timer_interval);
+	clearTimeout(timer_timeout);
+	clearTimeout(timer_control);
+
+	interval -= speed_interval;
+	if(interval < speed_max){
+		interval = speed_max;
+		sControl_display.style.display = 'initial';
+		sControl_display.innerHTML = '!reaches maximum speed: '+ speed_max +'ms / slide';
+		timer_control = setTimeout(function(){
+			sControl_display.style.display = 'none';
+		}, 2000);
+	}
+	else{
+		sControl_display.style.display = 'initial';
+		sControl_display.innerHTML = '- '+interval+'ms / slide';
+		timer_control = setTimeout(function(){
+			sControl_display.style.display = 'none';
+		}, 2000);
+	}
+	console.log('interval = '+interval);
+
+	sControl_display.style.display = 'initial';
+	sControl_display.innerHTML = '&uarr; '+interval+'ms / slide';
+	timer_control = setTimeout(function(){
+		sControl_display.style.display = 'none';
+	}, 2000);
+
+	remain = interval - (now - slide_start);
+	if(remain < 0)
+		remain = 200;
+	
+	timer_timeout = setTimeout(function(){
+		sDisplay_img.src = img_src;
+		current_position++;
+		if(current_position > slide_length)
+			current_position = 1;
+		img_src = format_img_src(current_position);
+		timer_interval = setInterval(next_slide, interval);
+	}, remain);
+
+}
+function slide_slow_down(){
+	now = new Date();
+
+	clearInterval(timer_interval);
+	clearTimeout(timer_timeout);
+	clearTimeout(timer_control);
+
+	interval += speed_interval;
+	if(interval > speed_min){
+		interval = speed_min;
+		sControl_display.style.display = 'initial';
+		sControl_display.innerHTML = '!reaches minimum speed: '+ speed_min +'ms / slide';
+		timer_control = setTimeout(function(){
+			sControl_display.style.display = 'none';
+		}, 2000);
+	}
+	else{
+		sControl_display.style.display = 'initial';
+		sControl_display.innerHTML = '&darr; '+interval+'ms / slide';
+		timer_control = setTimeout(function(){
+			sControl_display.style.display = 'none';
+		}, 2000);
+	}
+	console.log('interval = '+interval);
+
+	
+
+	remain = interval - (now - slide_start);
+
+	timer_timeout = setTimeout(function(){
+		sDisplay_img.src = img_src;
+		current_position++;
+		if(current_position > slide_length)
+			current_position = 1;
+		img_src = format_img_src(current_position);
+		timer_interval = setInterval(next_slide, interval);
+	}, remain);
+	
+
+
+}
+function slide_pause_play(){
+	if(!isPaused){
+		isPaused = true;
+		clearInterval(timer_interval);
+		clearTimeout(timer_timeout);
+		clearTimeout(timer_control);
+
+		now = new Date();
+		remain = interval - (now - slide_start);
+		console.log('remain = '+remain);
+
+		sControl_display.style.display = 'initial';
+		sControl_display.innerHTML = 'paused';
+		timer_control = setTimeout(function(){
+			sControl_display.style.display = 'none';
+		}, 2000);
+	}
+	else{
+		isPaused = false;
+		timer_timeout = setTimeout(function(){
+			sDisplay_img.src = img_src;
+			current_position++;
+			if(current_position > slide_length)
+				current_position = 1;
+			img_src = format_img_src(current_position);
+			timer_interval = setInterval(next_slide, interval);
+		}, remain);
+
+		sControl_display.style.display = 'initial';
+		sControl_display.innerHTML = 'resumed';
+		timer_control = setTimeout(function(){
+			sControl_display.style.display = 'none';
+		}, 2000);
+	}
+
+}
+function next_slide(){
+	slide_start = new Date();
+	sDisplay_img.src = img_src;
+	current_position++;
+	if(current_position > slide_length)
+		current_position = 1;
+	img_src = format_img_src(current_position);
+}
 function format_img_src(i){
 	var output = ''
 	if(i<10){
