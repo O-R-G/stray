@@ -18,5 +18,5 @@
 <script>
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
 </script>
-<script src='/static/js/msgs.js'></script>
+<script src='<? echo $current_directory; ?>static/js/msgs.js'></script>
 <!-- <script src='/static/js/matrix.js'></script> -->
