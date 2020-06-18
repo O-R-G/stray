@@ -211,8 +211,6 @@ function slide_slow_down(){
 	}
 	console.log('interval = '+interval);
 
-	
-
 	remain = interval - (now - slide_start);
 	console.log('remain in slow down: '+remain);
 	timer_timeout = setTimeout(function(){
