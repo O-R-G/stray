@@ -98,10 +98,7 @@ function handle_msgs(name, response, results_count = false){
 		});
 
 		timer_timeout = setTimeout(function(){
-			sDisplay.innerHTML = poem_arr[current_position];
- 			current_position++;
- 			if(current_position >= poem_arr.length)
-				current_position = 0;
+			next_slide();
 			timer_interval = setInterval(next_slide, interval);
 		}, wait);
 	}
@@ -145,10 +142,7 @@ function slide_speed_up(){
 		remain = 200;
 	
 	timer_timeout = setTimeout(function(){
-		sDisplay.innerHTML = poem_arr[current_position];
-		current_position++;
-		if(current_position >= poem_arr.length)
-			current_position = 0;
+		next_slide();
 		timer_interval = setInterval(next_slide, interval);
 	}, remain);
 
@@ -186,11 +180,7 @@ function slide_slow_down(){
 	remain = interval - (now - slide_start);
 	console.log('remain in slow down: '+remain);
 	timer_timeout = setTimeout(function(){
-		console.log('timeout in slowdown');
-		sDisplay.innerHTML = poem_arr[current_position];
-		current_position++;
-		if(current_position >= poem_arr.length)
-			current_position = 0;
+		next_slide();
 		timer_interval = setInterval(next_slide, interval);
 	}, remain);
 	
@@ -224,10 +214,7 @@ function slide_pause_play(){
 		console.log('new slide_start = '+slide_start);
 		pause_start = false;
 		timer_timeout = setTimeout(function(){
-			sDisplay.innerHTML = poem_arr[current_position];
-			current_position++;
-			if(current_position >= poem_arr.length)
-				current_position = 0;
+			next_slide();
 			timer_interval = setInterval(next_slide, interval);
 		}, remain);
 
