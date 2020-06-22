@@ -11,6 +11,5 @@ $now = date("h:i:sa");
 
 require_once('views/head.php');
 require_once('views/home.php');
-// require_once('views/json.php');
 require_once('views/foot.php');
 ?>
