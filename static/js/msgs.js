@@ -41,6 +41,7 @@ var req_array = [
 ];
 
 var sDisplay = document.getElementById('display');
+var sDisplay_text = document.getElementById('display_text');
 var sControl_display = document.getElementById('control_display');
 
 var timer_interval, timer_timeout, timer_control;
@@ -215,7 +216,7 @@ function slide_pause_play(){
 function next_slide(){
 	slide_start = new Date();
 	slide_start = slide_start.getTime();
-	sDisplay.innerHTML = poem_arr[current_position];
+	sDisplay_text.innerHTML = poem_arr[current_position];
 	current_position++;
 	if(current_position >= poem_arr.length)
 		current_position = 0;
