@@ -16,8 +16,8 @@
 <div id="display"><img id = 'display_img' src = ''></div>
 <script>
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
-	window.open('/wetwords-image', 'wetwords-image', 'width=200,height=200');
-	window.open('/wetwords-slide', 'wetwords-slide', 'width=200,height=200');
+	window.open('/wetwords-image', 'wetwords-image', 'top=0,left=0,width=200,height=200, resizable=no,scrollbars=no');
+	window.open('/wetwords-slide', 'wetwords-slide', 'top=0,left=200,width=200,height=200, resizable=no,scrollbars=no');
 </script>
 <script src='<? echo $current_directory; ?>static/js/json.js'></script>
 <script src='<? echo $current_directory; ?>static/js/msgs.js'></script>
