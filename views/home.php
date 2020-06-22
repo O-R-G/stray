@@ -11,12 +11,12 @@
 				$filenum_arr[$this_key] = 1;
 		}
 	}
-
 ?>
 <div id = 'control_display'></div>
-<div id="slide_display"><img id = 'display_img' src = ''></div>
+<div id="display"><img id = 'display_img' src = ''></div>
 <script>
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
 </script>
-<script src='<? echo $current_directory; ?>static/js/msgs.js'></script>
-<!-- <script src='/static/js/matrix.js'></script> -->
+<script src='/static/js/json.js'></script>
+<script src='/static/js/msgs.js'></script>
+

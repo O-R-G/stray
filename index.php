@@ -10,20 +10,7 @@ date_default_timezone_set("America/New_York");
 $now = date("h:i:sa");
 
 require_once('views/head.php');
-
-/*
-if ($uri[1] == 'blur')
-    require_once('views/blur.php');
-else if (!$uri[1])
-    require_once('views/home.php');
-else
-    require_once('views/main.php');
-*/
-
-// force onsly show views/home
-
 require_once('views/home.php');
-require_once('views/json.php');
-// require_once('views/menu.php');
+// require_once('views/json.php');
 require_once('views/foot.php');
 ?>
