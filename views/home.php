@@ -5,5 +5,6 @@
 <div id="mask">
     <div id="display"></div>   
 </div>
-<script src='<? echo $current_directory; ?>static/js/msgs.js'></script>
-<!-- <script src='/static/js/matrix.js'></script> -->
+<script src='/static/js/json.js'></script>
+<script src='/static/js/msgs.js'></script>
+

@@ -37,16 +37,9 @@ var req_array = [
 	{
 		'name': 'wet-letters',
 		'req_url': 'http://stray.o-r-g.net/now'
-		// 'req_url': 'static/data/dummy.json'
 	}
 ];
 
-var now_msg = get_time();
-var msgs, // the final msgs for display. array of letters
-	msgs_sections = {}, // the kept msgs in the form of opening, mid, ending. it needs to stay array so that it has the flexibility to be updated.
-	msgs_temp = []; // the intermediate msgs to hold updated msgs, and wait until the current frame is settled. 
-var msgs_array = [],
-	msgs_array_temp = [];
 var sDisplay = document.getElementById('display');
 var sControl_display = document.getElementById('control_display');
 
@@ -55,6 +48,7 @@ var interval = 1000;
 var remain = interval;
 var current_position, slide_length;
 
+// slideshow control
 var speed_min = 10000;
 var speed_max = 1;
 var speed_interval = 500;
@@ -65,11 +59,7 @@ var slide_start;
 var poem_arr;
 
 function handle_msgs(name, response, results_count = false){
-	// console.log('handle_msgs...'+name);
-	if(results_count == '')
-		results_count = false;
 	var response = response;
-	console.log(response);
 	if(name == 'wet-letters'){
 		var poem = response['poem'];
 		current_position = response['current_letter'];
@@ -114,6 +104,7 @@ function slide_speed_up(){
 	clearTimeout(timer_control);
 
 	interval -= speed_interval;
+
 	if(interval < speed_max){
 		interval = speed_max;
 		sControl_display.style.display = 'initial';
@@ -158,6 +149,10 @@ function slide_slow_down(){
 	clearTimeout(timer_control);
 
 	interval += speed_interval;
+	// in case when speed is up to 1 ms / slide then slow down, it becomes 501 ms / slide
+	if(interval != 1 == interval % speed_interval != 0)
+		interval = parseInt( interval / speed_interval ) * speed_interval;
+
 	if(interval > speed_min){
 		interval = speed_min;
 		sControl_display.style.display = 'initial';
@@ -173,12 +168,8 @@ function slide_slow_down(){
 			sControl_display.style.display = 'none';
 		}, 2000);
 	}
-	console.log('interval = '+interval);
-
 	
-
 	remain = interval - (now - slide_start);
-	console.log('remain in slow down: '+remain);
 	timer_timeout = setTimeout(function(){
 		next_slide();
 		timer_interval = setInterval(next_slide, interval);
@@ -189,7 +180,6 @@ function slide_slow_down(){
 }
 function slide_pause_play(){
 	if(!pause_start){
-		console.log('paused');
 		clearInterval(timer_interval);
 		clearTimeout(timer_timeout);
 		clearTimeout(timer_control);
@@ -203,15 +193,11 @@ function slide_pause_play(){
 		sControl_display.innerHTML = 'paused';
 	}
 	else{
-		console.log('resume');
 		now = new Date();
 		now = now.getTime();
 		var paused_time = now - pause_start;
-		console.log('paused_time = '+paused_time);
-		console.log('old slide_start = '+slide_start);
 		var temp = slide_start + paused_time;
 		slide_start = temp;
-		console.log('new slide_start = '+slide_start);
 		pause_start = false;
 		timer_timeout = setTimeout(function(){
 			next_slide();
@@ -227,12 +213,14 @@ function slide_pause_play(){
 
 }
 function next_slide(){
-	console.log('next slide');
-	console.log(current_position);
 	slide_start = new Date();
 	slide_start = slide_start.getTime();
 	sDisplay.innerHTML = poem_arr[current_position];
 	current_position++;
 	if(current_position >= poem_arr.length)
 		current_position = 0;
+}
+
+for(i = 0 ; i < req_array.length ; i++){
+	request_json(req_array[i]['name'], req_array[i]['req_url']);
 }
