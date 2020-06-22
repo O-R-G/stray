@@ -16,7 +16,9 @@
 <div id="display"><img id = 'display_img' src = ''></div>
 <script>
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
+	window.open('/wetwords-image', 'wetwords-image', 'width=200,height=200');
+	window.open('/wetwords-slide', 'wetwords-slide', 'width=200,height=200');
 </script>
-<script src='/static/js/json.js'></script>
-<script src='/static/js/msgs.js'></script>
+<script src='<? echo $current_directory; ?>static/js/json.js'></script>
+<script src='<? echo $current_directory; ?>static/js/msgs.js'></script>
 
