@@ -33,31 +33,16 @@ var now_min = now.minute();
 var now_sec = now.second();
 var now_msec = now.getMilliseconds();
 
-function format_img_src(i){
-	var this_letter = poem_arr[i].toUpperCase();
-	console.log(this_letter);
-	if(this_letter == '&')
-		this_letter = 'ampersand';
-	else if(this_letter == '.')
-		this_letter = 'period';
-	else if(this_letter == ',')
-		this_letter = 'comma';
-	else if(this_letter == '#')
-		this_letter = 'hash';
-	else if(this_letter == '/')
-		this_letter = 'slash';
-	else if(this_letter == ' ')
-		return '';
-	var this_letter_variation = filenum_arr[this_letter];
-	var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
-	var output = 'media/letters/'+this_letter+'-'+letter_order+'.jpg';
-	return output;
-}
+var req_array = [
+	{
+		'name': 'wet-letters',
+		'req_url': 'http://stray.o-r-g.net/now'
+	}
+];
 
-var sDisplay_img = document.getElementById('display_img');
 var sDisplay = document.getElementById('display');
+var sDisplay_text = document.getElementById('display_text');
 var sControl_display = document.getElementById('control_display');
-var img_preload = new Image();
 
 var timer_interval, timer_timeout, timer_control;
 var interval = 1000;
@@ -76,65 +61,39 @@ var poem_arr;
 
 function handle_msgs(name, response, results_count = false){
 	var response = response;
-	// if(name == 'wetwords-image'){
-	var poem = response['poem'];
-	poem_arr = poem.split('');
-	current_position = response['current_letter'];
-	slide_length = poem_arr.length;
-	img_src = format_img_src(current_position);
+	if(name == 'wet-letters'){
+		var poem = response['poem'];
+		current_position = response['current_letter'];
+		poem_arr = poem.split('');
 
-	var display_w = sDisplay.offsetWidth;
-	var display_h = sDisplay.offsetHeight;
-	var display_r = display_h / display_w;
-	var img_r = 1;
-	var isStarted = false;
-	img_preload.onload = imgOnLoad;
+		// wait until exactly next second to start
+		// advance currentLetter as required
 
-	function imgOnLoad(){
-		if(!isStarted){
-			isStarted = true;
-			img_r = img_preload.height / img_preload.width;
-			if( img_r < display_r ){
-				// wider then slide_display
-				sDisplay_img.style.width = '100%';
-				var extra_width = display_h / img_r - display_w;
-			}
-			else{
-				// thiner then slide_display
-				sDisplay_img.style.height = '100%';
-				var extra_height = display_w * img_r - display_h;
-			}
-			var wait = interval - now.getMilliseconds();
+		var wait = 1000 - now.getMilliseconds();
 
-			if (wait > 500)
-				current_position++;
+		if (wait > 500)
 			current_position++;
-			img_src = format_img_src(current_position);
-			document.addEventListener('keypress', function(e){
+		current_position++;
+		document.addEventListener('keypress', function(e){
 
-				e = e || window.event;
-				if(e.charCode == '61' || e.charCode == '43'){
-					slide_speed_up();
-				}
-				else if(e.charCode == '45' || e.charCode == '95'){
-					slide_slow_down();
-				}
-				else if(e.charCode == '48' || e.charCode == '41'){
-					slide_pause_play();
-				}
-			});
-			timer_timeout = setTimeout(function(){
-				next_slide();
-				timer_interval = setInterval(next_slide, interval);
-			}, wait);
-		}
-		
+			e = e || window.event;
+			if(e.charCode == '61' || e.charCode == '43'){
+				slide_speed_up();
+			}
+			else if(e.charCode == '45' || e.charCode == '95'){
+				slide_slow_down();
+			}
+			else if(e.charCode == '48' || e.charCode == '41'){
+				slide_pause_play();
+			}
+		});
+
+		timer_timeout = setTimeout(function(){
+			next_slide();
+			timer_interval = setInterval(next_slide, interval);
+		}, wait);
 	}
-	img_preload.src = img_src;
-	// }
 }
-
-// slide controls
 function slide_speed_up(){
 	if(pause_start)
 		slide_pause_play();
@@ -162,6 +121,7 @@ function slide_speed_up(){
 			sControl_display.style.display = 'none';
 		}, 2000);
 	}
+	console.log('interval = '+interval);
 
 	sControl_display.style.display = 'initial';
 	sControl_display.innerHTML = '&uarr; '+interval+'ms / slide';
@@ -215,6 +175,9 @@ function slide_slow_down(){
 		next_slide();
 		timer_interval = setInterval(next_slide, interval);
 	}, remain);
+	
+
+
 }
 function slide_pause_play(){
 	if(!pause_start){
@@ -253,13 +216,12 @@ function slide_pause_play(){
 function next_slide(){
 	slide_start = new Date();
 	slide_start = slide_start.getTime();
-	sDisplay_img.src = img_src;
+	sDisplay_text.innerHTML = poem_arr[current_position];
 	current_position++;
-	if(current_position > slide_length)
-		current_position = 1;
-	img_src = format_img_src(current_position);
+	if(current_position >= poem_arr.length)
+		current_position = 0;
 }
-// -------- end slide controls ----------
 
-// -------- request json       ----------
-request_json('slide', 'http://stray.o-r-g.net/now');
+for(i = 0 ; i < req_array.length ; i++){
+	request_json(req_array[i]['name'], req_array[i]['req_url']);
+}
