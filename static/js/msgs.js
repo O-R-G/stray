@@ -132,9 +132,10 @@ function handle_msgs(name, response, results_count = false){
 
 // letter
 function format_img_src(i){
+	var output = '';
+
 	if(this_page == 'letter'){
 		var this_letter = poem_arr[i].toUpperCase();
-		console.log(this_letter);
 		if(this_letter == '&')
 			this_letter = 'ampersand';
 		else if(this_letter == '.')
@@ -149,13 +150,20 @@ function format_img_src(i){
 			return '';
 		var this_letter_variation = filenum_arr[this_letter];
 		var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
-		var output = '/media/letters/'+this_letter+'-'+letter_order+'.jpg';
+		output = '/media/letters/'+this_letter+'-'+letter_order+'.jpg';
 	}
-	else if(this_page == 'letter-image'){
+	else if(this_page == 'slide-image' || this_page == 'slide-text'){
+		output = '/media/'+this_page+'/';
+		if(i<10){
+			output += '00' + i + '.jpeg';
+		}
+		else if(i<100){
+			output += '0' + i + '.jpeg';
+		}
+		else{
+			output += i + '.jpeg';
+		}
 
-	}
-	else if(this_page == 'letter-text'){
-		
 	}
 	
 	return output;
