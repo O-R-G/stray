@@ -9,19 +9,19 @@
 		{
 			'url': '/slide-image',
 			'name': 'wetwords-image',
-			'param': 'width=600,height=450',
+			'param': 'width=850,height=600',
 			'repeat': 1
 		},
 		{
 			'url': '/slide-text',
 			'name': 'wetwords-slide',
-			'param': 'width=450,height=300',
+			'param': 'width=650,height=450',
 			'repeat': 1
 		},
 		{
 			'url': '/letter',
 			'name': 'letter',
-			'param': 'width=450,height=300',
+			'param': 'width=505,height=650',
 			'repeat': 1
 		}
 	];

@@ -17,6 +17,7 @@ body {
 #display {
     text-align: center;
     font-size: 60px;
+    overflow: hidden;
 }
 
 #slide_display{
