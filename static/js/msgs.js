@@ -37,6 +37,9 @@ var sDisplay = document.getElementById('display');
 var sDisplay_text = document.getElementById('display_text');
 var sControl_display = document.getElementById('control_display');
 
+var img_preload = new Image();
+var img_src = '';
+
 var timer_interval, timer_timeout, timer_control;
 var interval = 1000;
 var remain = interval;
@@ -52,6 +55,7 @@ var slide_start;
 
 var poem_arr;
 var full_length;
+
 
 function handle_msgs(name, response, results_count = false){
 	var response = response;
@@ -73,13 +77,60 @@ function handle_msgs(name, response, results_count = false){
 		duration = response['letter_duration'];
 		full_length = response['letter_length'];
 	}
+	img_src = format_img_src(current_position);
+
+	var display_w = sDisplay.offsetWidth;
+	var display_h = sDisplay.offsetHeight;
+	var display_r = display_h / display_w;
+	var img_r = 1;
+	var isStarted = false;
+	img_preload.onload = imgOnLoad;
+
+	function imgOnLoad(){
+		if(!isStarted){
+			isStarted = true;
+			img_r = img_preload.height / img_preload.width;
+			if( img_r < display_r ){
+				// wider then slide_display
+				sDisplay_img.style.width = '100%';
+				var extra_width = display_h / img_r - display_w;
+			}
+			else{
+				// thiner then slide_display
+				sDisplay_img.style.height = '100%';
+				var extra_height = display_w * img_r - display_h;
+			}
+			var wait = duration - ((now.second() + now.getMilliseconds()) % duration);
+			if (wait > duration / 2 )
+				current_position++;
+			current_position++;	
+
+			img_src = format_img_src(current_position);
+			document.addEventListener('keypress', function(e){
+
+				e = e || window.event;
+				if(e.charCode == '61' || e.charCode == '43'){
+					slide_speed_up();
+				}
+				else if(e.charCode == '45' || e.charCode == '95'){
+					slide_slow_down();
+				}
+				else if(e.charCode == '48' || e.charCode == '41'){
+					slide_pause_play();
+				}
+			});
+			timer_timeout = setTimeout(function(){
+				next_slide();
+				timer_interval = setInterval(next_slide, interval);
+			}, wait);
+		}
+		
+	}
+	img_preload.src = img_src;
 
 	// wait until exactly next second to start
 	// advance currentLetter as required
-	var wait = duration - (now.second(); + now.getMilliseconds());
-	if (wait > duration / 2 )
-		current_position++;
-	current_position++;	
+	
 
 	document.addEventListener('keypress', function(e){
 		e = e || window.event;
@@ -99,6 +150,31 @@ function handle_msgs(name, response, results_count = false){
 		timer_interval = setInterval(next_slide, interval);
 	}, wait);
 }
+
+// letter
+function format_img_src(i){
+	var this_letter = poem_arr[i].toUpperCase();
+	console.log(this_letter);
+	if(this_letter == '&')
+		this_letter = 'ampersand';
+	else if(this_letter == '.')
+		this_letter = 'period';
+	else if(this_letter == ',')
+		this_letter = 'comma';
+	else if(this_letter == '#')
+		this_letter = 'hash';
+	else if(this_letter == '/')
+		this_letter = 'slash';
+	else if(this_letter == ' ')
+		return '';
+	var this_letter_variation = filenum_arr[this_letter];
+	var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
+	var output = '/media/letters/'+this_letter+'-'+letter_order+'.jpg';
+	return output;
+}
+
+
+
 function slide_speed_up(){
 	if(pause_start)
 		slide_pause_play();
@@ -220,10 +296,12 @@ function slide_pause_play(){
 function next_slide(){
 	slide_start = new Date();
 	slide_start = slide_start.getTime();
-	sDisplay_text.innerHTML = poem_arr[current_position];
+	sDisplay_img.src = img_src;
 	current_position++;
 	if(current_position >= full_length)
 		current_position = 0;
+	img_src = format_img_src(current_position);
+
 }
 
 
