@@ -11,26 +11,30 @@ body {
     margin: 0px;    
     color: #000;
     font-weight: 400;
+    font-family: Helvetica, sans-serif;
+}
+#home_container{
+    padding: 50px;
+}
+#colophon_container{
+    width: 800px;
+    margin: 0 auto;
+}
+.colophon_row{
+    padding: 2px 0;
+}
+.colophon_row > p{
+    display: inline-block;
+    vertical-align: top;
+}
+.colophon_year{
+    width: 150px;
+}
+.colophon_text{
+    width: 650px;
 }
 
-#display {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-#display_text{
-    text-align: center;
-    font-size: 60px;
-    line-height: 1em;
-    padding-bottom: 60px;
-}
 
-#control_display{
-    position: fixed;
-    top: 20px;
-    right: 20px;
-}
 @media screen and (max-width: 768px) {
 
 }
