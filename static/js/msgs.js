@@ -41,15 +41,15 @@ var img_preload = new Image();
 var img_src = '';
 
 var timer_interval, timer_timeout, timer_control;
-var interval = 1000;
-var remain = interval;
+var interval;
+var remain;
 var current_position, slide_length;
 
 // slideshow control
 var speed_min = 10000;
 var speed_max = 1;
 var speed_interval = 500;
-var current_speed = interval / speed_interval;
+var current_speed;
 var pause_start = false;
 var slide_start;
 
@@ -61,12 +61,12 @@ function handle_msgs(name, response, results_count = false){
 	var response = response;
 	if(name == 'slide-text'){
 		current_position = response['current_slide_text'];
-		duration = response['slide_text_duration'];
+		interval = response['slide_text_duration'];
 		full_length = response['slide_text_length'];
 	}
 	else if(name == 'slide-image'){
 		current_position = response['current_slide_image'];
-		duration = response['slide_image_duration'];
+		interval = response['slide_image_duration'];
 		full_length = response['slide_image_length'];
 	}
 	else if(name == 'letter'){
@@ -74,9 +74,12 @@ function handle_msgs(name, response, results_count = false){
 		poem_arr = poem.split('');
 
 		current_position = response['current_letter'];
-		duration = response['letter_duration'];
+		interval = response['letter_duration'];
 		full_length = response['letter_length'];
 	}
+	remain = interval;
+	current_speed = interval / speed_interval;
+
 	img_src = format_img_src(current_position);
 
 	var display_w = sDisplay.offsetWidth;
@@ -100,8 +103,8 @@ function handle_msgs(name, response, results_count = false){
 				sDisplay_img.style.height = '100%';
 				var extra_height = display_w * img_r - display_h;
 			}
-			var wait = duration - ((now.second() + now.getMilliseconds()) % duration);
-			if (wait > duration / 2 )
+			var wait = interval - ((now.second() + now.getMilliseconds()) % interval);
+			if (wait > interval / 2 )
 				current_position++;
 			current_position++;	
 
