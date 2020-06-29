@@ -1,8 +1,6 @@
 <?  
 	
 ?>
-<<<<<<< HEAD
-=======
 <script type="text/javascript">
 	var wW = window.innerWidth;
 	var wH = window.innerHeight;
@@ -44,7 +42,6 @@
 	}
 	
 </script>
->>>>>>> f3504eb1bbdce5bed3af0e5a7a212b31185b3cff
 <div id = 'control_display'></div>
 <div id="display"><div id = 'display_text'></div></div>   
 <script src='/static/js/json.js'></script>
