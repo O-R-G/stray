@@ -34,7 +34,7 @@ var now_sec = now.second();
 var now_msec = now.getMilliseconds();
 
 var sDisplay = document.getElementById('display');
-var sDisplay_text = document.getElementById('display_text');
+var sDisplay_img = document.getElementById('display_img');
 var sControl_display = document.getElementById('control_display');
 
 var img_preload = new Image();
@@ -128,48 +128,36 @@ function handle_msgs(name, response, results_count = false){
 	}
 	img_preload.src = img_src;
 
-	// wait until exactly next second to start
-	// advance currentLetter as required
-	
-
-	document.addEventListener('keypress', function(e){
-		e = e || window.event;
-		if(e.charCode == '61' || e.charCode == '43'){
-			slide_speed_up();
-		}
-		else if(e.charCode == '45' || e.charCode == '95'){
-			slide_slow_down();
-		}
-		else if(e.charCode == '48' || e.charCode == '41'){
-			slide_pause_play();
-		}
-	});
-
-	timer_timeout = setTimeout(function(){
-		next_slide();
-		timer_interval = setInterval(next_slide, interval);
-	}, wait);
 }
 
 // letter
 function format_img_src(i){
-	var this_letter = poem_arr[i].toUpperCase();
-	console.log(this_letter);
-	if(this_letter == '&')
-		this_letter = 'ampersand';
-	else if(this_letter == '.')
-		this_letter = 'period';
-	else if(this_letter == ',')
-		this_letter = 'comma';
-	else if(this_letter == '#')
-		this_letter = 'hash';
-	else if(this_letter == '/')
-		this_letter = 'slash';
-	else if(this_letter == ' ')
-		return '';
-	var this_letter_variation = filenum_arr[this_letter];
-	var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
-	var output = '/media/letters/'+this_letter+'-'+letter_order+'.jpg';
+	if(this_page == 'letter'){
+		var this_letter = poem_arr[i].toUpperCase();
+		console.log(this_letter);
+		if(this_letter == '&')
+			this_letter = 'ampersand';
+		else if(this_letter == '.')
+			this_letter = 'period';
+		else if(this_letter == ',')
+			this_letter = 'comma';
+		else if(this_letter == '#')
+			this_letter = 'hash';
+		else if(this_letter == '/')
+			this_letter = 'slash';
+		else if(this_letter == ' ')
+			return '';
+		var this_letter_variation = filenum_arr[this_letter];
+		var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
+		var output = '/media/letters/'+this_letter+'-'+letter_order+'.jpg';
+	}
+	else if(this_page == 'letter-image'){
+
+	}
+	else if(this_page == 'letter-text'){
+		
+	}
+	
 	return output;
 }
 
