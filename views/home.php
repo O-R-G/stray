@@ -7,13 +7,19 @@
 
 	var popup = [
 		{
-			'url': '/wetwords-image',
+			'url': '/slide-image',
 			'name': 'wetwords-image',
 			'param': '',
 			'repeat': 1
 		},
 		{
-			'url': '/wetwords-slide',
+			'url': '/slide-text',
+			'name': 'wetwords-slide',
+			'param': '',
+			'repeat': 1
+		},
+		{
+			'url': '/letter',
 			'name': 'wetwords-slide',
 			'param': '',
 			'repeat': 1
@@ -33,10 +39,9 @@
 			
 			var this_w = parseInt( Math.random() * (popup_w_max - popup_w_min)) + popup_w_min;
 			var this_h = parseInt( Math.random() * (popup_h_max - popup_h_min)) + popup_h_min;
-			var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) +  + popup_top_min;
-			var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) +  + popup_left_min;
+			var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
+			var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
 			var this_param = 'width='+this_w+',height='+this_h+',top='+this_top+',left='+this_left;
-			console.log();
 			window.open(popup[i]['url'], popup[i]['name']+j, this_param);
 		}
 	}

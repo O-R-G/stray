@@ -33,13 +33,6 @@ var now_min = now.minute();
 var now_sec = now.second();
 var now_msec = now.getMilliseconds();
 
-var req_array = [
-	{
-		'name': 'wet-letters',
-		'req_url': 'http://stray.o-r-g.net/now'
-	}
-];
-
 var sDisplay = document.getElementById('display');
 var sDisplay_text = document.getElementById('display_text');
 var sControl_display = document.getElementById('control_display');
@@ -58,41 +51,53 @@ var pause_start = false;
 var slide_start;
 
 var poem_arr;
+var full_length;
 
 function handle_msgs(name, response, results_count = false){
 	var response = response;
-	if(name == 'wet-letters'){
+	if(name == 'slide-text'){
+		current_position = response['current_slide_text'];
+		duration = response['slide_text_duration'];
+		full_length = response['slide_text_length'];
+	}
+	else if(name == 'slide-image'){
+		current_position = response['current_slide_image'];
+		duration = response['slide_image_duration'];
+		full_length = response['slide_image_length'];
+	}
+	else if(name == 'letter'){
 		var poem = response['poem'];
-		current_position = response['current_letter'];
 		poem_arr = poem.split('');
 
-		// wait until exactly next second to start
-		// advance currentLetter as required
-
-		var wait = 1000 - now.getMilliseconds();
-
-		if (wait > 500)
-			current_position++;
-		current_position++;
-		document.addEventListener('keypress', function(e){
-
-			e = e || window.event;
-			if(e.charCode == '61' || e.charCode == '43'){
-				slide_speed_up();
-			}
-			else if(e.charCode == '45' || e.charCode == '95'){
-				slide_slow_down();
-			}
-			else if(e.charCode == '48' || e.charCode == '41'){
-				slide_pause_play();
-			}
-		});
-
-		timer_timeout = setTimeout(function(){
-			next_slide();
-			timer_interval = setInterval(next_slide, interval);
-		}, wait);
+		current_position = response['current_letter'];
+		duration = response['letter_duration'];
+		full_length = response['letter_length'];
 	}
+
+	// wait until exactly next second to start
+	// advance currentLetter as required
+	var wait = duration - (now.second(); + now.getMilliseconds());
+	if (wait > duration / 2 )
+		current_position++;
+	current_position++;	
+
+	document.addEventListener('keypress', function(e){
+		e = e || window.event;
+		if(e.charCode == '61' || e.charCode == '43'){
+			slide_speed_up();
+		}
+		else if(e.charCode == '45' || e.charCode == '95'){
+			slide_slow_down();
+		}
+		else if(e.charCode == '48' || e.charCode == '41'){
+			slide_pause_play();
+		}
+	});
+
+	timer_timeout = setTimeout(function(){
+		next_slide();
+		timer_interval = setInterval(next_slide, interval);
+	}, wait);
 }
 function slide_speed_up(){
 	if(pause_start)
@@ -188,7 +193,6 @@ function slide_pause_play(){
 		pause_start = new Date();
 		pause_start = pause_start.getTime();
 		remain = interval - (pause_start - slide_start);
-		
 
 		sControl_display.style.display = 'initial';
 		sControl_display.innerHTML = 'paused';
@@ -218,10 +222,9 @@ function next_slide(){
 	slide_start = slide_start.getTime();
 	sDisplay_text.innerHTML = poem_arr[current_position];
 	current_position++;
-	if(current_position >= poem_arr.length)
+	if(current_position >= full_length)
 		current_position = 0;
 }
 
-for(i = 0 ; i < req_array.length ; i++){
-	request_json(req_array[i]['name'], req_array[i]['req_url']);
-}
+
+request_json(this_page, 'http://stray.o-r-g.net/now');
