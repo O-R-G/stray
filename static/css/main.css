@@ -47,8 +47,16 @@ body {
     padding: 50px;
 }
 #colophon_container{
-    width: 800px;
+    width: 900px;
     margin: 0 auto;
+}
+.colophon_col{
+    display: inline-block;
+    width: calc((100% - 40px) / 2);
+    vertical-align: top;
+}
+.colophon_col:last-child{
+    margin-left: 40px;
 }
 .colophon_row{
     padding: 2px 0;
@@ -57,11 +65,25 @@ body {
     display: inline-block;
     vertical-align: top;
 }
-.colophon_year{
-    width: 150px;
+.colophon_bullet{
+    width: 40px;
 }
-.colophon_text{
-    width: 650px;
+.colophon_bullet + .colophon_text{
+    width: calc(100% - 60px);
+    margin-left: 20px;
+}
+.colophon_year{
+    width: 90px;
+}
+.colophon_year + .colophon_text{
+    width: calc(100% - 110px);
+    margin-left: 20px;
+}
+.indent-1{
+    margin-left: 40px;
+}
+.indent-2{
+    margin-left: 80px;
 }
 
 
