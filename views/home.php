@@ -1,6 +1,3 @@
-<?  
-	
-?>
 <script type="text/javascript">
 	var wW = window.innerWidth;
 	var wH = window.innerHeight;
