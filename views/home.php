@@ -49,7 +49,8 @@
 	<div id = 'colophon_container'>
 		<div class = 'colophon_col col_left'><b>EDWARDS, BRENT HAYES</b><br>
 Notes of Poetics Regarding Mackey’s Song<br>
-https://muse.jhu.edu/article/6217<br>
+<a href='https://muse.jhu.edu/article/6217'>https://muse.jhu.edu/article/6217</a>
+<br>
 <br>
 The French ethnologist Geneviève Calame-Griaule, in a work on door-lock mechanisms in Dogon culture, has noted that:<br>
 <br>
@@ -57,7 +58,7 @@ IN DOGON, AS IN SOME OTHER AFRICAN LANGUAGES, THE TERMS EXPRESSING THE NOTIONS O
 <br>
 <br>
 <b>TAGG, JOHN on WALKER EVANS</b><br>
-https://www.youtube.com/watch?v=XwDqQgVKx74<br>
+<a href='https://www.youtube.com/watch?v=XwDqQgVKx74'>https://www.youtube.com/watch?v=XwDqQgVKx74</a><br>
 <br>
 KNOCKING AROUND BETWEEN MONEY, SEX, AND BOREDOM: WALKER EVANS IN HAVANA AND NEW YORK<br>
 <br>
@@ -116,7 +117,7 @@ Interference<br>
 Disorder<br>
 <br>
 <b>TRANSDUCTION</b><br>
-https://en.wiktionary.org/wiki/transduction<br>
+<A href='https://en.wiktionary.org/wiki/transduction'>https://en.wiktionary.org/wiki/transduction</a><br>
 <br>
 <b>BLACK AND WHITE, adj. and n.</b><br>
 <br>
