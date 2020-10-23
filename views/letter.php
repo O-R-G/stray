@@ -15,7 +15,7 @@
 <div id = 'control_display'></div>
 <div id="display"><img id = 'display_img' src = ''></div>
 <script>
-	var this_page = 'letter';
+	var template = 'letter';
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
 </script>
 <script src='/static/js/json.js'></script>

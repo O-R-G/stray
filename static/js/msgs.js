@@ -137,7 +137,7 @@ function handle_msgs(name, response, results_count = false){
 function format_img_src(i){
 	var output = '';
 
-	if(this_page == 'letter'){
+	if(template == 'letter'){
 		var this_letter = poem_arr[i].toUpperCase();
 		if(this_letter == '&')
 			this_letter = 'ampersand';
@@ -155,8 +155,11 @@ function format_img_src(i){
 		var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
 		output = '/media/letters/'+this_letter+'-'+letter_order+'.jpg';
 	}
-	else if(this_page == 'slide-image' || this_page == 'slide-text'){
-		output = '/media/'+this_page+'/';
+	else if(template == 'slide-image' || template == 'slide-text'){
+        output = '/media/'+template+'/';
+        if (chapter) {
+		    output += chapter+'/';
+        }
 		if(i<10){
 			output += '00' + i + '.jpeg';
 		}
@@ -168,7 +171,8 @@ function format_img_src(i){
 		}
 
 	}
-	
+	console.log(i);
+	console.log(output);
 	return output;
 }
 
@@ -304,4 +308,4 @@ function next_slide(){
 }
 
 
-request_json(this_page, 'http://stray.o-r-g.net/now');
+request_json(template, 'http://stray.o-r-g.net/now');
