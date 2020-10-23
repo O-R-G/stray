@@ -5,7 +5,7 @@
 	var popup = [
 		{
 			'url': '/slide-text',
-			'name': 'wetwords-slide',
+			'name': 'slide-text',
 			'param': 'width=650,height=450',
 			'repeat': 1
 		},
@@ -33,17 +33,24 @@
 			window.open(popup[i]['url'], popup[i]['name']+j, this_param);
 		}
 	}
+
+    function popup_single(i,query){
+		var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
+		var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
+		var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
+		window.open(popup[i]['url']+query, popup[i]['name'], this_param);
+	}
 	
 </script>
 <div id="home_container">
 	<div id = 'colophon_container'>
 		<div class = 'colophon_col col_left'>
             <b>VERY MUCH IN PROGRESS . . .</b><br><br>
-            1. <a href='slide-text'>STRAY</a><br>
-            2. <a href='slide-text'>SEVEN SLEEPERS</a><br>
-            3. <a href='slide-text'>STEREOCILIA</a><br>
-            6. <a href='slide-text'>SPLAY ANTHEM</a><br>
-            8. <a href='slide-text'>WET WORDS IN A HOT FIELD</a>
+            1. <a href='javascript:popup_single(0,"?chapter=1");'>STRAY</a><br>
+            2. <a href='javascript:popup_single(0,"?chapter=2");'>SEVEN SLEEPERS</a><br>
+            3. <a href='javascript:popup_single(0,"?chapter=3");'>STEREOCILIA</a><br>
+            6. <a href='javascript:popup_single(0,"?chapter=6");'>SPLAY ANTHEM</a><br>
+            8. <a href='javascript:popup_single(0,"?chapter=8");'>WET WORDS IN A HOT FIELD</a>
 		</div>
 	</div>
 </div>   
