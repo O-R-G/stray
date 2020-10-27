@@ -19,6 +19,8 @@ elseif($uri[1] == 'slide-text')
 	require_once('views/slide-text.php');
 elseif($uri[1] == 'letter')
 	require_once('views/letter.php');
+elseif($uri[1] == 'colophon')
+	require_once('views/column.php');
 
 require_once('views/foot.php');
 ?>

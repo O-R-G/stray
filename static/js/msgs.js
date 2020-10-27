@@ -56,18 +56,64 @@ var slide_start;
 var poem_arr;
 var full_length;
 
+// formatting folio arrays for text and image
+var this_section_info = sections_info[chapter];
+var this_image_folios_raw = this_section_info['image'];
+var image_folios = [];
+var text_folios = [];
+
+this_image_folios_raw.forEach(function(el, i){
+	// console.log(isNaN(el));
+	if(isNaN(el)){
+		var hyphen_pos = el.indexOf('-');
+		if(hyphen_pos != -1){
+			var this_range = el.split('-');
+			for(i = parseInt(this_range[0]); i <= parseInt(this_range[1]); i++)
+				image_folios.push(i);
+		}
+		else 
+			image_folios.push(parseInt(el));
+	}
+	else
+		image_folios.push(el);
+});
 
 function handle_msgs(name, response, results_count = false){
 	var response = response;
 	if(name == 'slide-text'){
-		current_position = response['current_slide_text'];
-		interval = response['slide_text_duration'];
-		full_length = response['slide_text_length'];
+		if(chapter)
+		{
+			var this_chapter = response['chapter_'+chapter];
+			if(type == 'realtime')
+				current_position = this_chapter['current_slide'];
+			else if(type == 'static')
+				current_position = 0;
+			interval = response['slide_text_duration'];
+			full_length = this_chapter['length'];
+			console.log('current_slide = '+current_position);
+		}
+		else
+		{
+			current_position = response['current_slide_text'];
+			interval = response['slide_text_duration'];
+			full_length = response['slide_text_length'];
+		}
 	}
 	else if(name == 'slide-image'){
-		current_position = response['current_slide_image'];
-		interval = response['slide_image_duration'];
-		full_length = response['slide_image_length'];
+		if(chapter)
+		{
+			var this_chapter = response['chapter_'+chapter];
+			current_position = this_chapter['current_slide'];
+			interval = response['slide_image_duration'];
+			full_length = this_chapter['length'];
+			console.log('full_length = '+full_length);
+		}
+		else
+		{
+			current_position = response['current_slide_image'];
+			interval = response['slide_image_duration'];
+			full_length = response['slide_image_length'];
+		}
 	}
 	else if(name == 'letter'){
 		var poem = response['poem'];
@@ -81,7 +127,7 @@ function handle_msgs(name, response, results_count = false){
 	current_speed = interval / speed_interval;
 
 	img_src = format_img_src(current_position);
-
+	console.log(img_src);
 	var display_w = sDisplay.offsetWidth;
 	var display_h = sDisplay.offsetHeight;
 	var display_r = display_h / display_w;
@@ -104,9 +150,11 @@ function handle_msgs(name, response, results_count = false){
 				var extra_height = display_w * img_r - display_h;
 			}
 			var wait = interval - ((now.second() + now.getMilliseconds()) % interval);
-			if (wait > interval / 2 )
-				current_position++;
-			current_position++;	
+			if(type == 'realtime'){
+				if (wait > interval / 2 )
+					current_position++;
+				current_position++;	
+			}
 
 			img_src = format_img_src(current_position);
 			document.addEventListener('keypress', function(e){
@@ -171,8 +219,8 @@ function format_img_src(i){
 		}
 
 	}
-	console.log(i);
-	console.log(output);
+	// console.log(i);
+	// console.log(output);
 	return output;
 }
 
@@ -205,7 +253,7 @@ function slide_speed_up(){
 			sControl_display.style.display = 'none';
 		}, 2000);
 	}
-	console.log('interval = '+interval);
+	// console.log('interval = '+interval);
 
 	sControl_display.style.display = 'initial';
 	sControl_display.innerHTML = '&uarr; '+interval+'ms / slide';
@@ -299,13 +347,28 @@ function slide_pause_play(){
 function next_slide(){
 	slide_start = new Date();
 	slide_start = slide_start.getTime();
-	sDisplay_img.src = img_src;
-	current_position++;
-	if(current_position >= full_length)
+
+	if(section == 'image'){
+		if(image_folios.includes(current_position))
+			sDisplay_img.src = img_src;
+		// else
+	}
+	else{
+		if(image_folios.includes(current_position))
+			sDisplay_img.style.display = 'none';
+		else
+			sDisplay_img.style.display = 'initial';
+		sDisplay_img.src = img_src;
+	}
+	current_position++;	
+	if(current_position >= full_length){
 		current_position = 0;
+		if(section == 'image'){
+			sDisplay_img.src = '';
+		}
+	}
 	img_src = format_img_src(current_position);
-
 }
-
+// console.log('section = '+section);
 
 request_json(template, 'http://stray.o-r-g.net/now');

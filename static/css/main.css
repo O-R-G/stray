@@ -85,10 +85,31 @@ body {
 .indent-2{
     margin-left: 80px;
 }
-
+#column_container{
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.column {
+    width: 50%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    /* width: 33vw; */
+    white-space: initial;
+    padding: 20px;
+    padding-top: 0;
+    box-sizing: border-box;
+}
 
 @media screen and (max-width: 768px) {
-
+    #column_container{
+        width: 100%;
+    }
+    .column {
+        display: block;
+        width: 100%;
+    }
 }
 
 

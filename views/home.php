@@ -25,20 +25,45 @@
 	var popup_left_min = 0.1 * wW;
 	var popup_left_max = 0.5 * wW;
 
-	for(i = 0; i < popup.length ; i++){
-		for(j = 0; j < popup[i]['repeat']; j++){
-			var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
-			var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
-			var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
-			window.open(popup[i]['url'], popup[i]['name']+j, this_param);
-		}
-	}
+	var popup_dimension_spread = 'width=650,height=450';
+
+	// for(i = 0; i < popup.length ; i++){
+	// 	for(j = 0; j < popup[i]['repeat']; j++){
+	// 		var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
+	// 		var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
+	// 		var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
+	// 		window.open(popup[i]['url'], popup[i]['name']+j, this_param);
+	// 	}
+	// }
 
     function popup_single(i,query){
 		var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
 		var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
-		var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
-		window.open(popup[i]['url']+query, popup[i]['name'], this_param);
+		
+		if(i == 'colophon'){
+			var this_param = 'width=650,height=450,top=0,left=0';
+			window.open('/colophon', i, this_param);
+		}
+		else{
+			var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
+			window.open(popup[i]['url']+query, popup[i]['name'], this_param);
+		}
+	}
+
+	function popup_spread(i,query){
+		// text
+		// var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
+		// var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
+		var this_top = -100;
+		var this_left = 0;
+		var this_param = popup_dimension_spread+',top='+this_top+',left='+this_left;
+		window.open('/slide-text'+query+'&section=text', 'Chapter '+i+'. Text', this_param);
+
+		// image
+		var this_top = -100;
+		var this_left = 650;
+		var this_param = popup_dimension_spread+',top='+this_top+',left='+this_left;
+		window.open('/slide-text'+query+'&section=image', 'Chapter '+i+'. Image', this_param);
 	}
 	
 </script>
@@ -46,11 +71,12 @@
 	<div id = 'colophon_container'>
 		<div class = 'colophon_col col_left'>
             <b>VERY MUCH IN PROGRESS . . .</b><br><br>
-            1. <a href='javascript:popup_single(0,"?chapter=1");'>STRAY</a><br>
-            2. <a href='javascript:popup_single(0,"?chapter=2");'>SEVEN SLEEPERS</a><br>
-            3. <a href='javascript:popup_single(0,"?chapter=3");'>STEREOCILIA</a><br>
-            6. <a href='javascript:popup_single(0,"?chapter=6");'>SPLAY ANTHEM</a><br>
-            8. <a href='javascript:popup_single(0,"?chapter=8");'>WET WORDS IN A HOT FIELD</a>
+            1. <a href='javascript:popup_spread(0,"?chapter=1&type=realtime");'>STRAY</a><a href = 'javascript:popup_spread(1,"?chapter=1&type=static");'>*</a><br>
+            2. <a href='javascript:popup_spread(0,"?chapter=2&type=realtime");'>SEVEN SLEEPERS</a><a href = 'javascript:popup_spread(2,"?chapter=2&type=static");'>*</a><br>
+            3. <a href='javascript:popup_spread(0,"?chapter=3&type=realtime");'>STEREOCILIA</a><a href = 'javascript:popup_spread(3,"?chapter=3&type=static");'>*</a><br>
+            6. <a href='javascript:popup_spread(0,"?chapter=6&type=realtime");'>SPLAY ANTHEM</a><a href = 'javascript:popup_spread(6,"?chapter=6&type=static");'>*</a><br>
+            8. <a href='javascript:popup_spread(0,"?chapter=8&type=realtime");'>WET WORDS IN A HOT FIELD<a href = 'javascript:popup_spread(8,"?chapter=8&type=static");'>*</a></a><br><br>
+            <a href='javascript:popup_single("colophon", "");'>Colophon</a>
 		</div>
 	</div>
 </div>   
