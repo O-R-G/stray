@@ -25,7 +25,7 @@
 	var popup_left_min = 0.1 * wW;
 	var popup_left_max = 0.5 * wW;
 
-	var popup_dimension_spread = 'innerWidth=650,innerHeight=450';
+	var popup_dimension_spread = 'width=650,height=450';
 
 	// for(i = 0; i < popup.length ; i++){
 	// 	for(j = 0; j < popup[i]['repeat']; j++){
