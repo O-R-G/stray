@@ -5,8 +5,14 @@
 	var popup = [
 		{
 			'url': '/slide-text',
-			'name': 'slide-text',
-			'param': 'width=650,height=450',
+			'name': 'Text',
+			'param': 'width=800,height=600',
+			'repeat': 1
+		},
+		{
+			'url': '/slide-image',
+			'name': 'Image',
+			'param': 'width=1000,height=1000',
 			'repeat': 1
 		},
 		{
@@ -27,28 +33,28 @@
 
 	var popup_dimension_spread = 'width=650,height=450';
 
-	// for(i = 0; i < popup.length ; i++){
-	// 	for(j = 0; j < popup[i]['repeat']; j++){
-	// 		var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
-	// 		var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
-	// 		var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
-	// 		window.open(popup[i]['url'], popup[i]['name']+j, this_param);
-	// 	}
-	// }
-
-    function popup_single(i,query){
+    function popup_single(i, chapter, query){
 		var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
-		var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;
-		
-		if(i == 'colophon'){
+		var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;		
+
+        var window_name = 'Chapter ' + chapter + '. ' + popup[i]['name'];
+
+		if(chapter == 'colophon'){
 			var this_param = 'width=650,height=450,top=0,left=0';
-			window.open('/colophon', i, this_param);
+			window.open('/colophon', 'Colophon', this_param);
 		}
 		else{
 			var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
-			window.open(popup[i]['url']+query, popup[i]['name'], this_param);
+			window.open(popup[i]['url']+query, window_name, this_param);
 		}
 	}
+
+	function popup_double(chapter, query){
+        text_query = '/slide-text'+query+'&section=text';
+        image_query = '/slide-text'+query+'&section=image';
+        popup_single(0, chapter, text_query);
+        popup_single(1, chapter, image_query);
+    }
 
 	function popup_spread(i,query){
 		// text
@@ -71,12 +77,12 @@
 	<div id = 'colophon_container'>
 		<div class = 'colophon_col col_left'>
             <b>VERY MUCH IN PROGRESS . . .</b><br><br>
-            1. <a href='javascript:popup_spread(0,"?chapter=1&type=realtime");'>STRAY</a><a href = 'javascript:popup_spread(1,"?chapter=1&type=static");'>*</a><br>
-            2. <a href='javascript:popup_spread(0,"?chapter=2&type=realtime");'>SEVEN SLEEPERS</a><a href = 'javascript:popup_spread(2,"?chapter=2&type=static");'>*</a><br>
-            3. <a href='javascript:popup_spread(0,"?chapter=3&type=realtime");'>STEREOCILIA</a><a href = 'javascript:popup_spread(3,"?chapter=3&type=static");'>*</a><br>
-            6. <a href='javascript:popup_spread(0,"?chapter=6&type=realtime");'>SPLAY ANTHEM</a><a href = 'javascript:popup_spread(6,"?chapter=6&type=static");'>*</a><br>
-            8. <a href='javascript:popup_spread(0,"?chapter=8&type=realtime");'>WET WORDS IN A HOT FIELD<a href = 'javascript:popup_spread(8,"?chapter=8&type=static");'>*</a></a><br><br>
-            <a href='javascript:popup_single("colophon", "");'>Colophon</a>
+            1. <a href='javascript:popup_double(1,"?chapter=1&type=realtime");'>STRAY</a><a href = 'javascript:popup_double(1,"?chapter=1&type=static");'>*</a><br>
+            2. <a href='javascript:popup_double(0,"?chapter=2&type=realtime");'>SEVEN SLEEPERS</a><a href = 'javascript:popup_double(2,"?chapter=2&type=static");'>*</a><br>
+            3. <a href='javascript:popup_double(0,"?chapter=3&type=realtime");'>STEREOCILIA</a><a href = 'javascript:popup_double(3,"?chapter=3&type=static");'>*</a><br>
+            6. <a href='javascript:popup_double(0,"?chapter=6&type=realtime");'>SPLAY ANTHEM</a><a href = 'javascript:popup_double(6,"?chapter=6&type=static");'>*</a><br>
+            8. <a href='javascript:popup_double(0,"?chapter=8&type=realtime");'>WET WORDS IN A HOT FIELD<a href = 'javascript:popup_double(8,"?chapter=8&type=static");'>*</a></a><br><br>
+            <a href='javascript:popup_single(0, "colophon", "");'>Colophon</a>
 		</div>
 	</div>
 </div>   
