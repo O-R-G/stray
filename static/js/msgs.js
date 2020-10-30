@@ -90,8 +90,11 @@ function handle_msgs(name, res, results_count = false){
 			interval = response['slide_text_duration'];
 			var pages_num_temp = 0;
 			
+			// for testing
 			if(testchapter == 2)
 				current_position = 587;
+			else if (testchapter == 'last')
+				current_position = 1435;
 			
 			for(i = 0 ; i < sections_info.length ; i++){
 				pages_num_temp += response['chapter_'+(i+1)]['length'];
@@ -100,12 +103,11 @@ function handle_msgs(name, res, results_count = false){
 					current_position = current_position - pages_num_temp + response['chapter_'+(i+1)]['length'];
 					full_length = response['chapter_'+current_chapter]['length'];
 					media_folios = get_media_folios(current_chapter);
-					console.log('media_folios = '+media_folios);
 					break;
 				}
 			}
-						
-			console.log('chapter position = '+current_position);
+			// console.log('current chapter = '+current_chapter);
+			// console.log('chapter position = '+current_position);
 		}
 		else
 		{
@@ -159,17 +161,17 @@ function handle_msgs(name, res, results_count = false){
 
 			adjust_img_proportion(img_preload, display_r);
 
-			if(chapter)
-				var wait = 0;
-			else if(type == 'entire'){
-				now = new Date();
-				// var wait = interval - (now_timestamp % full_loop_ms % interval);
-				var wait = interval - ((now.second() + now.getMilliseconds()) % interval);
+
+			now = new Date();
+			// var wait = interval - (now_timestamp % full_loop_ms % interval);
+			var wait = interval - ((now.second() + now.getMilliseconds()) % interval);
+			if(type == 'entire'){
 				if (wait > interval / 2 )
 					current_position++;
 				current_position++;	
 			}
-			
+				
+			console.log('wait = '+wait);
 			img_src = format_img_src(current_position);
 
 			document.addEventListener('keypress', function(e){
@@ -192,8 +194,7 @@ function handle_msgs(name, res, results_count = false){
 				}
 				else
 				{
-					next_slide();
-					timer_interval = setInterval(next_slide, interval);	
+					chapter_opening(chapter);	
 				}			
 			}, wait);
 		}
@@ -374,8 +375,7 @@ function slide_pause_play(){
 function next_slide(){
 	slide_start = new Date();
 	slide_start = slide_start.getTime();
-	if(current_position == 39)
-		console.log('current_position = '+current_position);
+
 	media_folios[1].forEach(function(el, i){
 		if(el[0] == current_position){
 			console.log('is audio');
@@ -415,7 +415,6 @@ function next_slide(){
 	}
 	else
 		current_position++;
-
 	
 	if(current_position >= full_length){
 		if(chapter)
@@ -457,7 +456,10 @@ function next_chapter(){
 
 	sDisplay_img.style.display = 'none';
 
-	sBlack_screen_text.innerText = current_chapter + '. ' + sections_info[(current_chapter-1)]['title'];
+	chapter_opening(current_chapter);
+}
+function chapter_opening(chapter){
+	sBlack_screen_text.innerText = chapter + '. ' + sections_info[(chapter-1)]['title'];
 	sBlack_screen.classList.add('flashing');
 	setTimeout(function(){
 		sBlack_screen.classList.remove('flashing');

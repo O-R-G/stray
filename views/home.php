@@ -84,7 +84,7 @@
             6. <a href='javascript:popup_double(6,"?chapter=6&type=individual");'>SPLAY ANTHEM</a><br>
             8. <a href='javascript:popup_double(8,"?chapter=8&type=individual");'>WET WORDS IN A HOT FIELD</a><br><br>
             <a href='javascript:popup_single(0, "colophon", "");'>Colophon</a><br>
-            <a href='javascript:popup_double(0, "?type=entire&testchapter=2");'>Autoplay</a>
+            <a href='javascript:popup_double(0, "?type=entire");'>Autoplay</a>
 		</div>
 	</div>
 </div>   
