@@ -106,6 +106,7 @@ function handle_msgs(name, res, results_count = false){
 					break;
 				}
 			}
+			sDisplay.setAttribute('chapter', current_chapter);
 			// console.log('current chapter = '+current_chapter);
 			// console.log('chapter position = '+current_position);
 		}
@@ -161,16 +162,16 @@ function handle_msgs(name, res, results_count = false){
 
 			adjust_img_proportion(img_preload, display_r);
 
-
-			now = new Date();
-			// var wait = interval - (now_timestamp % full_loop_ms % interval);
-			var wait = interval - ((now.second() + now.getMilliseconds()) % interval);
-			if(type == 'entire'){
+			if(chapter)
+				var wait = 0;
+			else if(type == 'entire'){
+				now = new Date();
+				// var wait = interval - (now_timestamp % full_loop_ms % interval);
+				var wait = interval - ((now.second() + now.getMilliseconds()) % interval);
 				if (wait > interval / 2 )
 					current_position++;
 				current_position++;	
 			}
-				
 			console.log('wait = '+wait);
 			img_src = format_img_src(current_position);
 
@@ -188,14 +189,23 @@ function handle_msgs(name, res, results_count = false){
 				}
 			});
 			timer_timeout = setTimeout(function(){
-				if(current_position >= full_length)
+				if(chapter)
 				{
-					next_chapter();
+					chapter_opening(chapter);
 				}
-				else
+				else if(type == 'entire')
 				{
-					chapter_opening(chapter);	
-				}			
+					if(current_position >= full_length)
+					{
+						next_chapter();
+					}
+					else
+					{
+						next_slide();
+						timer_interval = setInterval(next_slide, interval);	
+					}	
+				}
+						
 			}, wait);
 		}
 		else if(current_position == 0)
