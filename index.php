@@ -17,6 +17,8 @@ elseif($uri[1] == 'slide-image')
 	require_once('views/slide-image.php');
 elseif($uri[1] == 'slide-text')
 	require_once('views/slide-text.php');
+elseif($uri[1] == 'slide-audio')
+	require_once('views/slide-audio.php');
 elseif($uri[1] == 'letter')
 	require_once('views/letter.php');
 elseif($uri[1] == 'colophon')

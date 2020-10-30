@@ -1,35 +1,44 @@
 // key = chapter
 // image = array of folios of images, including blanks between images
 
-var sections_info = {
-	1: {
+var sections_info = [
+	{
+		'title': 'STRAY',
 		'image': ['119-134', '156-158', 359, 490, '494-509', '566-578', '581-587']
 	},
-	2: {
-		'image': ['26-28']
+	{
+		'title': 'SEVEN SLEEPERS',
+		'image': ['26-28'],
+		'audio': [[39, 'NATE_DogonEclipse_30minloop.mp3']]
 	}
 	,
-	3: {
+	{
+		'title': 'STEREOCILIA',
 		'image': [0, '289-308']
 	}
 	,
-	4: {
+	{
+		'title': '',
 		'image': []
 	}
 	,
-	5: {
+	{
+		'title': '',
 		'image': []
 	}
 	,
-	6: {
+	{
+		'title': 'SPLAY ANTHEM',
 		'image': [142, '242-243', '382-403']
 	}
 	,
-	7: {
+	{
+		'title': '',
 		'image': []
 	}
 	,
-	8: {
+	{
+		'title': 'WET WORDS IN A HOT FIELD',
 		'image': ['21-99']
 	}
-};
+];

@@ -6,6 +6,7 @@
 ?>
 <div id = 'control_display'></div>
 <div id="display"><img id = 'display_img' src = ''></div>
+<div id = 'black_screen'><p></p></div>
 <script>
 	function getParameterByName(name, url = window.location.href) {
 	    name = name.replace(/[\[\]]/g, '\\$&');
@@ -22,7 +23,7 @@
 	var chapter = getParameterByName('chapter');
 	var section = getParameterByName('section');
 	var type = getParameterByName('type');
-    // console.log(chapter);
+	var testchapter = getParameterByName('testchapter');
 </script>
 <script src='/static/js/section.js'></script>
 <script src='/static/js/json.js'></script>

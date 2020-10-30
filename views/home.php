@@ -37,23 +37,24 @@
 		var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
 		var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;		
 
-        var window_name = 'Chapter ' + chapter + '. ' + popup[i]['name'];
+        var window_name = ( chapter == '0' ) ? 'STRAY' + '. ' + popup[i]['name'] : 'Chapter ' + chapter + '. ' + popup[i]['name'];
 
 		if(chapter == 'colophon'){
 			var this_param = 'width=650,height=450,top=0,left=0';
-			window.open('/colophon', 'Colophon', this_param);
+			window_1 = window.open('/colophon', 'Colophon', this_param);
 		}
 		else{
 			var this_param = popup[i]['param']+',top='+this_top+',left='+this_left;
-			window.open(popup[i]['url']+query, window_name, this_param);
+			return window.open('/slide-text'+query, window_name, this_param);
 		}
 	}
 
 	function popup_double(chapter, query){
-        text_query = '/slide-text'+query+'&section=text';
-        image_query = '/slide-text'+query+'&section=image';
-        popup_single(0, chapter, text_query);
-        popup_single(1, chapter, image_query);
+        text_query = query+'&section=text';
+        image_query = query+'&section=image';
+        window_1 = popup_single(1, chapter, image_query);
+        window_2 = popup_single(0, chapter, text_query);
+        
     }
 
 	function popup_spread(i,query){
@@ -77,12 +78,13 @@
 	<div id = 'colophon_container'>
 		<div class = 'colophon_col col_left'>
             <b>VERY MUCH IN PROGRESS . . .</b><br><br>
-            1. <a href='javascript:popup_double(1,"?chapter=1&type=realtime");'>STRAY</a><a href = 'javascript:popup_double(1,"?chapter=1&type=static");'>*</a><br>
-            2. <a href='javascript:popup_double(0,"?chapter=2&type=realtime");'>SEVEN SLEEPERS</a><a href = 'javascript:popup_double(2,"?chapter=2&type=static");'>*</a><br>
-            3. <a href='javascript:popup_double(0,"?chapter=3&type=realtime");'>STEREOCILIA</a><a href = 'javascript:popup_double(3,"?chapter=3&type=static");'>*</a><br>
-            6. <a href='javascript:popup_double(0,"?chapter=6&type=realtime");'>SPLAY ANTHEM</a><a href = 'javascript:popup_double(6,"?chapter=6&type=static");'>*</a><br>
-            8. <a href='javascript:popup_double(0,"?chapter=8&type=realtime");'>WET WORDS IN A HOT FIELD<a href = 'javascript:popup_double(8,"?chapter=8&type=static");'>*</a></a><br><br>
-            <a href='javascript:popup_single(0, "colophon", "");'>Colophon</a>
+            1. <a href='javascript:popup_double(1,"?chapter=1&type=individual");'>STRAY</a><br>
+            2. <a href='javascript:popup_double(2,"?chapter=2&type=individual");'>SEVEN SLEEPERS</a><br>
+            3. <a href='javascript:popup_double(3,"?chapter=3&type=individual");'>STEREOCILIA</a><br>
+            6. <a href='javascript:popup_double(6,"?chapter=6&type=individual");'>SPLAY ANTHEM</a><br>
+            8. <a href='javascript:popup_double(8,"?chapter=8&type=individual");'>WET WORDS IN A HOT FIELD</a><br><br>
+            <a href='javascript:popup_single(0, "colophon", "");'>Colophon</a><br>
+            <a href='javascript:popup_double(0, "?type=entire&testchapter=2");'>Autoplay</a>
 		</div>
 	</div>
 </div>   
