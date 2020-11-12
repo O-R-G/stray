@@ -13,12 +13,14 @@ require_once('views/head.php');
 
 if(!$uri[1])
 	require_once('views/home.php');
-elseif($uri[1] == 'slide-image')
-	require_once('views/slide-image.php');
-elseif($uri[1] == 'slide-text')
-	require_once('views/slide-text.php');
-elseif($uri[1] == 'slide-audio')
-	require_once('views/slide-audio.php');
+// elseif($uri[1] == 'slide-image')
+// 	require_once('views/slide-image.php');
+// elseif($uri[1] == 'slide-text')
+// 	require_once('views/slide-text.php');
+// elseif($uri[1] == 'slide-audio')
+// 	require_once('views/slide-audio.php');
+elseif($uri[1] == 'chapter')
+	require_once('views/chapter.php');
 elseif($uri[1] == 'letter')
 	require_once('views/letter.php');
 elseif($uri[1] == 'colophon')
