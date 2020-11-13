@@ -32,7 +32,7 @@ var popup_left_max = 0.5 * wW;
 
 var popup_dimension_spread = 'width=650,height=450';
 
-function popup_single(chapter, query, type = false){
+function popup_single(chapter, query, type = false, path = false){
 	var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
 	var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;		
 
@@ -49,7 +49,10 @@ function popup_single(chapter, query, type = false){
     	var this_height = 600;
     }
 
-    query = '?'+query;
+    query = '?'+query+'&section='+type;
+    var p = '/'+chapter+'/'+type;
+    if(path)
+    	p += '/'+path;
 
 	if(chapter == 'colophon'){
 		var this_param = 'width=650,height=450,top=0,left=0';
@@ -61,7 +64,8 @@ function popup_single(chapter, query, type = false){
 	}
 	else{
 		var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left;
-		return window.open('/chapter'+query, window_name, this_param);
+		// return window.open('/chapter'+query, window_name, this_param);
+		return window.open('/chapter'+p, window_name, this_param);
 	}
 }
 

@@ -1,7 +1,7 @@
 <script src='/static/js/section.js'></script>
 <?
-$chapter = $_GET['chapter'];
-// $section = $_GET['sec'];
+$chapter = $uri[2];
+$section = $uri[3];
 ?>
 <script>
 	function get_media_folios(chapter, sections_info){
@@ -79,14 +79,13 @@ if($section == 'text')
 				    					if(image_viewing)
 				    						image_viewing.classList.remove('viewing');
 				    					if(image_folio[i]){
-				    						var query = 'chapter='+chapter+'&folio='+image_folio[i];
+				    						var path = image_folio[i];
 				    						if(i != 0)
 				    							sImage_anchor[i-1].classList.add('viewing');
 				    					}
 				    					else
-				    						var query = 'chapter='+chapter;
-				    					console.log(query);
-					    				window_1 = popup_single(chapter, query, 'image');
+				    						var path = false;
+					    				window_1 = popup_single(chapter, '', 'image', path);
 					    				current_image = i;
 				    				}
 				    				break;
@@ -104,7 +103,7 @@ if($section == 'text')
 }
 else if($section == 'image')
 {
-	$folio = $_GET['folio'];
+	$folio = $uri[4];
 	if(isset($folio)){
 		if($folio < 10)
 			$folio = '00' . $folio;
