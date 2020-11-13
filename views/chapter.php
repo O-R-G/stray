@@ -1,7 +1,7 @@
 <script src='/static/js/section.js'></script>
 <?
 $chapter = $_GET['chapter'];
-$section = $_GET['sec'];
+// $section = $_GET['sec'];
 ?>
 <script>
 	function get_media_folios(chapter, sections_info){

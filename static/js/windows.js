@@ -49,7 +49,7 @@ function popup_single(chapter, query, type = false){
     	var this_height = 600;
     }
 
-    query = '?'+query+'&sec='+type;
+    query = '?'+query;
 
 	if(chapter == 'colophon'){
 		var this_param = 'width=650,height=450,top=0,left=0';
