@@ -2,6 +2,8 @@
 <?
 $chapter = $_GET['chapter'];
 $section = $_GET['section'];
+var_dump($chapter);
+var_dump($section);
 ?>
 <script>
 	function get_media_folios(chapter, sections_info){
