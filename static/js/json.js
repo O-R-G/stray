@@ -13,7 +13,6 @@ function request_json(name, request_url) {
 		if (httpRequest.readyState === XMLHttpRequest.DONE) {
 			
 	      if (httpRequest.status === 200) {	
-	      	console.log(httpRequest.responseText);
       		var response = JSON.parse(httpRequest.responseText);
       		
       		if(response){

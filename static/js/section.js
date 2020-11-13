@@ -18,27 +18,19 @@ var sections_info = [
 	}
 	,
 	{
-		'title': '',
-		'image': []
-	}
-	,
-	{
-		'title': '',
-		'image': []
-	}
-	,
-	{
 		'title': 'SPLAY ANTHEM',
-		'image': [142, '242-243', '382-403']
+		'image': [142, '242-243']
+		// 'image': [142, '242-243', '382-403']
 	}
 	,
 	{
-		'title': '',
-		'image': []
+		'title': 'A GRAPHIC TONE',
+		'image': false
 	}
 	,
 	{
 		'title': 'WET WORDS IN A HOT FIELD',
 		'image': ['21-99']
 	}
+
 ];

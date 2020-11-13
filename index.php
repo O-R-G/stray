@@ -25,6 +25,8 @@ elseif($uri[1] == 'letter')
 	require_once('views/letter.php');
 elseif($uri[1] == 'colophon')
 	require_once('views/column.php');
+elseif($uri[1] == 'radio')
+	require_once('views/radio.php');
 
 require_once('views/foot.php');
 ?>
