@@ -19,7 +19,7 @@ var sections_info = [
 	,
 	{
 		'title': 'SPLAY ANTHEM',
-		'image': [142, '242-243']
+		'image': [142, '242-243', '382-403']
 		// 'image': [142, '242-243', '382-403']
 	}
 	,

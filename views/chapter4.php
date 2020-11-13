@@ -4,3 +4,25 @@
 <div class="image_anchor"></div>
 <div class="image_anchor"></div>
 <div>Perhaps one of the most consequential discoveries I made during the time I was preparing for SOIL EROSION, was from an archived lecture that I stumbled upon. Testing the whereabout of the eros, in Evans work, and after reading some letters that Evans had written to a male colleague in which he continually disparaged a string of aggrieved relationships with women, I found myself wondering about the nature of Evans sexuality, if what I was perceiving was a textbook example of closeted behaviorisms, not to mention the subtexts of certain images that longingly looked at other male subjects.&nbsp;</div><div><br></div><div>Was Evans infamous alienation, really just a beard for his own latent homosexuality? It suddenly seemed so visible that I turned to the internet with my query and to my surprise it sent me to the distinguished art historianJohn Tagg, and a lecture that he had delivered, called:</div><div><br></div><div>KNOCKING AROUND BETWEEN MONEY, SEX, AND BOREDOM: WALKER EVANS IN HAVANA AND NEW YORK</div><div><br></div><div>Tagg’s lecture was delivered on location at Yale Center for British Art and The Yale University Art Gallery where he was a visiting scholar at the time. When I wrote Tagg to ask him about the lecture and share my mutual intrigue, he thanked me for my response:</div><div><br></div><div>NOT LEAST SINCE THE YALE LECTURE ATTRACTED ITS SHARE OF OUTRAGE AND HATE MAIL. PERHAPS IT WAS TOO PROVOCATIVE FOR FORMER STUDENTS AND COLLEAGUES, RIGHT THERE WHERE HE HAD TAUGHT. YET, IT IS IN FACT THE HAGIOGRAPHIC VIEW OF EVANS THAT DIMINISHES HIM, RATHER THAN THE ATTEMPT TO PURSUE WHAT HAS BEEN EXCLUDED FROM THE APPROVED ENGAGEMENT WITH HIS PHOTOGRAPHS. HE IS SIMPLY NOT THE MONOLITHIC MORAL PARAGON OTHERS INVENTED––AND THAT, FOR ME, MAKES HIS WORK STRANGER AND MORE COMPELLING.</div><div><br></div><div>&nbsp;*</div><div><br></div><div>THE ORIGINAL CALL FOR SOIL EROSION SOUGHT TO MANEUVER AROUND ITS TITLE. IT SPOKE OF STATES EROSIONS, CLIMATE EROSIONS, CULTURAL EROSIONS AND SOCIAL EROSIONS.&nbsp;</div><div><br></div><div>SOIL AS LAND, BODY AND SOILING.&nbsp;</div><div><br></div><div>EROSION AS EROS, LOSS AND DESIRE AND ALSO THE POTENTIAL FOR NEW CLEARINGS.&nbsp;&nbsp;</div><div><br></div><div>IN THE DAYS, WEEKS AND NOW YEARS FOLLOWING THE 2016 PRESIDENTIAL ELECTION, THIS PHRASEOLOGY HAS ENTERED SHIFTING LANDSCAPES THAT WITH EACH PASSING DAY GROW MORE AND MORE UNIMAGINABLE, WHERE ANY IDEA OF GROUND OR GROUNDING IS UNCLEAR AT BEST.&nbsp;&nbsp;</div><div><br></div><div>TAKEN TOGETHER, THE WORK IN SOIL EROSION IS A COLLECTION OF THESE STARTING POINTS PLACED IN A LARGER NARRATIVE FIELD WHERE MEANING PLUS THE CULTURAL AND POLITICAL CIRCUMSTANCES OF OUR LIVING CONDITIONS GO TO WORK ON EACH OTHER TO CAST DOUBT AND SHORE UP NEW CERTAINTIES.&nbsp;&nbsp;</div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>
+<div class="image_anchor"></div>

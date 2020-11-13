@@ -28,7 +28,8 @@ body {
 {
     background-color: #000;
 }
-#text-container[chapter='3']
+#text-container[chapter='3'],
+#text-container[chapter='4']
 {
     padding-bottom: 100vh;
 }
