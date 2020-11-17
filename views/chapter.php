@@ -1,7 +1,15 @@
 <script src='/static/js/section.js'></script>
 <?
-$chapter = $uri[2];
-$section = $uri[3];
+if ($_GET){
+	$chapter = $_GET['chapter'];
+	$section = $_GET['section'];
+}
+else
+{
+	$chapter = 0;
+	$section = 0;
+}
+
 ?>
 <script>
 	function get_media_folios(chapter, sections_info){
@@ -32,7 +40,7 @@ $section = $uri[3];
 		
 		return output;
 	}
-	var chapter = '<?= $chapter ?>';
+	var chapter = <?= $chapter ?>;
 	var media_folio = get_media_folios(chapter, sections_info);
 	var image_folio = media_folio[0];
 </script>
@@ -47,11 +55,13 @@ if($section == 'text')
 		<script>
 			var sText_container = document.getElementById('text-container');
 			var image_position = [];
+			var allcaps_position = [];
 			var ticking = false;
 			var current_image = 0;
 			var sTop = window.scrollY;
 			
 			var current_image = 0;
+			var current_allcaps = 0;
 			
 			
 			image_folio.unshift(false);
@@ -62,19 +72,27 @@ if($section == 'text')
 					image_position.push(el.offsetTop);
 				});
 				image_position.push(sText_container.offsetHeight);
-				// console.log(image_position);
+
+				var sAllcaps = document.getElementsByClassName('allcaps');
+				[].forEach.call(sAllcaps, function(el, i){
+					allcaps_position.push(el.offsetTop);
+					console.log('idx = '+i);
+					console.log(el.innerText);
+					console.log(el.offsetTop);
+				});
+				allcaps_position.push(sText_container.offsetHeight);
+
 				window.addEventListener('scroll', function(){
 					sTop = window.scrollY;
 					if (!ticking) {
 					    window.requestAnimationFrame(function() {
+					    	// chekcing image_anchor positions
 				    		for(i = 0; i < image_position.length; i++)
 							{
 				    			if(sTop < image_position[i] )
 				    			{
 				    				if( i != current_image){
 				    					// when image changes
-				    					console.log('image changes');
-				    					console.log(image_folio[i]);
 				    					var image_viewing = document.querySelector('.image_anchor.viewing');
 				    					if(image_viewing)
 				    						image_viewing.classList.remove('viewing');
@@ -91,6 +109,26 @@ if($section == 'text')
 				    				break;
 				    			}
 				    		}
+				    		// chekcing allcaps positions
+				    		for(i = 0; i < allcaps_position.length; i++)
+							{
+				    			if(sTop < allcaps_position[i] )
+				    			{
+				    				if( i != current_allcaps){
+				    					// when image changes
+				    					console.log('scroll to: '+i);
+				    					var allcaps_viewing = document.querySelector('.allcaps.viewing');
+				    					if(allcaps_viewing)
+				    						allcaps_viewing.classList.remove('viewing');
+				    					// if(i != 0)
+				    					// 		sImage_anchor[i-1].classList.add('viewing');
+				    					
+					    				window_1 = popup_single(chapter, '&allcaps='+(i-1), 'text-allcaps');
+					    				current_allcaps = i;
+				    				}
+				    				break;
+				    			}
+				    		}
 					      	ticking = false;
 					    });
 					    ticking = false;
@@ -103,7 +141,7 @@ if($section == 'text')
 }
 else if($section == 'image')
 {
-	$folio = $uri[4];
+	$folio = $_GET['path'];
 	if(isset($folio)){
 		if($folio < 10)
 			$folio = '00' . $folio;
@@ -141,6 +179,31 @@ else if($section == 'image')
 		}
 		img_element.src = current_src;
 	</script>
+	<?
+}
+else if($section == 'text-allcaps')
+{
+	$allcaps = $_GET['allcaps'];
+	?>
+		<div id = 'allcaps-container' class = 'content-container' chapter = '<?= $chapter; ?>'>
+			<?
+				require_once('views/chapter'.$chapter.'.php');
+			?>
+		</div>
+		<script>
+			var allcaps_idx = <?= $allcaps; ?>;
+			var allcaps_position = [];
+			window.addEventListener('load', function(){
+				var sAllcaps = document.getElementsByClassName('allcaps');
+				[].forEach.call(sAllcaps, function(el, i){
+					allcaps_position.push(el.offsetTop);
+				});
+				sAllcaps[allcaps_idx].classList.add('viewing');
+				console.log(sAllcaps[allcaps_idx].offsetTop);
+				window.scrollTo(0, sAllcaps[allcaps_idx].offsetTop);
+			});
+
+		</script>
 	<?
 }
 ?>

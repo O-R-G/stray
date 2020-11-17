@@ -13,6 +13,4 @@
 		</div>
 	</div>
 </div>   
-<!-- <script src='/static/js/json.js'></script> -->
-<!-- <script src='/static/js/msgs.js'></script> -->
 

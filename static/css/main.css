@@ -33,7 +33,12 @@ body {
 {
     padding-bottom: 100vh;
 }
-
+#text-container:after{
+    content: ' ';
+    height: 100vh;
+    display: block;
+    background-color: #000;
+}
 #slide_display{
     /*margin: 20px;*/
     /*height: calc( 100vh - 40px);*/
@@ -207,6 +212,26 @@ body {
     padding-right: 100vw;
     padding-left: 100vw;
     animation: marquee 600s infinite linear;
+}
+.allcaps{
+    opacity: 0;
+}
+#allcaps-container
+{
+    color: #fff;
+    padding-top: 15px;
+}
+#allcaps-container > div
+{
+    padding: 0 12px;
+}
+#allcaps-container .image_anchor
+{
+    border: none;
+}
+.allcaps.viewing{
+    opacity: 1;
+    color: #000;
 }
 @keyframes flashing
 {

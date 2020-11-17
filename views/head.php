@@ -51,11 +51,6 @@ $devhash = rand();  // to force .css reloads
         <meta name="apple-mobile-web-app-title" content="nyc-led">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <link rel="apple-touch-icon" href="/media/png/apple-touch-icon.png" />
-        <!-- <link rel="stylesheet" href="/static/css/relative10_pitch.css?<?= $devhash; ?>">
-        <link rel="stylesheet" href="/static/css/helveticaocr.css?<?= $devhash; ?>">
-        <link rel="stylesheet" href="/static/css/helveticaneuer.css?<?= $devhash; ?>">
-        <link rel="stylesheet" href="/static/css/helveticaautospaced.css?<?= $devhash; ?>">
-        <link rel="stylesheet" href="/static/css/nycon.css?<?= $devhash; ?>"> -->
         <link rel="stylesheet" href="<? echo $current_directory; ?>static/css/main.css?<?= $devhash; ?>">    
         <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
         <script src="/static/js/windows.js"></script>
