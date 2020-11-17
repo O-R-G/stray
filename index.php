@@ -18,9 +18,11 @@ if(!$uri[1])
 // elseif($uri[1] == 'slide-text')
 // 	require_once('views/slide-text.php');
 // elseif($uri[1] == 'slide-audio')
-// 	require_once('views/slide-audio.php');
+// 	require_once('views/audio.php');
 elseif($uri[1] == 'chapter')
 	require_once('views/chapter.php');
+elseif($uri[1] == 'audio')
+	require_once('views/audio.php');
 elseif($uri[1] == 'letter')
 	require_once('views/letter.php');
 elseif($uri[1] == 'colophon')

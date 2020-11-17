@@ -31,6 +31,12 @@ function popup_single(chapter, query, type = false, path = false){
     	var this_height = 300;
 		p += '/'+(path-1);
     }
+    else if(type == 'audio')
+    {
+    	var this_width = 200;
+    	var this_height = 200;
+		p = '/audio';
+    }
 
     query = '?chapter='+chapter+'&section='+type+query;
     
@@ -44,6 +50,10 @@ function popup_single(chapter, query, type = false, path = false){
 	else if(chapter == 'radio'){
 		var this_param = 'width=600,height=100,top=0,left=0';
 		window_1 = window.open('/radio', window_name, this_param);
+	}
+	else if(chapter == 'audio'){
+		var this_param = 'width=100,height=100,top=0,left=0';
+		window.open('/audio', window_name, this_param);
 	}
 	else{
 		var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left;

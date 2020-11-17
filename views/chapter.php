@@ -137,6 +137,9 @@ if($section == 'text')
 					    ticking = false;
 					}
 				});
+				setTimeout(function(){
+					var window_audio = popup_single('audio', '', 'audio');
+				}, 5000);
 			});
 
 		</script>
