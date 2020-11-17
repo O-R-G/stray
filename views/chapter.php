@@ -1,14 +1,17 @@
 <script src='/static/js/section.js'></script>
 <?
-if ($_GET){
-	$chapter = $_GET['chapter'];
-	$section = $_GET['section'];
-}
-else
-{
-	$chapter = 0;
-	$section = 0;
-}
+// if ($_GET){
+// 	$chapter = $_GET['chapter'];
+// 	$section = $_GET['section'];
+// }
+// else
+// {
+// 	$chapter = 0;
+// 	$section = 0;
+// }
+
+$chapter = $uri[2];
+$section = $uri[3];
 
 ?>
 <script>
@@ -123,7 +126,7 @@ if($section == 'text')
 				    					// if(i != 0)
 				    					// 		sImage_anchor[i-1].classList.add('viewing');
 				    					
-					    				window_1 = popup_single(chapter, '&allcaps='+(i-1), 'text-allcaps');
+					    				window_1 = popup_single(chapter, '', 'text-allcaps', i);
 					    				current_allcaps = i;
 				    				}
 				    				break;
@@ -141,7 +144,8 @@ if($section == 'text')
 }
 else if($section == 'image')
 {
-	$folio = $_GET['path'];
+	// $folio = $_GET['path'];
+	$folio = $uri[4];
 	if(isset($folio)){
 		if($folio < 10)
 			$folio = '00' . $folio;
@@ -183,7 +187,8 @@ else if($section == 'image')
 }
 else if($section == 'text-allcaps')
 {
-	$allcaps = $_GET['allcaps'];
+	// $allcaps = $_GET['allcaps'];
+	$allcaps = $uri[4];
 	?>
 		<div id = 'allcaps-container' class = 'content-container' chapter = '<?= $chapter; ?>'>
 			<?

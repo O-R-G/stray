@@ -29,8 +29,8 @@
 // $item = $oo->get($uu->id);
 // $title = $item["name1"];
 $site_name = "Stray";
-require_once("config/url.php");
-$uu = new URL();
+// require_once("config/url.php");
+// $uu = new URL();
 // if ($title)
 //     $title = $site_name." | ".strip_tags($title);
 // else

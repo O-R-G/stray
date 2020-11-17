@@ -12,6 +12,7 @@ function popup_single(chapter, query, type = false, path = false){
 
     var window_name = ( isNaN(chapter) ) ? 'STRAY' + '. ' + chapter : 'Chapter ' + chapter + '. ' + type;
 
+    var p = '/'+chapter+'/'+type;
     if(type == 'text')
     {
     	var this_width = 450;
@@ -21,16 +22,20 @@ function popup_single(chapter, query, type = false, path = false){
     {
     	var this_width = 600;
     	var this_height = 600;
+    	if(path)
+    		p += '/'+path;
     }
     else if(type == 'text-allcaps')
     {
     	var this_width = 450;
     	var this_height = 300;
+		p += '/'+(path-1);
     }
 
     query = '?chapter='+chapter+'&section='+type+query;
-    if(path)
-    	query += '&path='+path;
+    
+ 
+    
 
 	if(chapter == 'colophon'){
 		var this_param = 'width=650,height=450,top=0,left=0';
@@ -43,7 +48,7 @@ function popup_single(chapter, query, type = false, path = false){
 	else{
 		var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left;
 		// return window.open('/chapter'+query, window_name, this_param);
-		return window.open('/chapter'+query, window_name, this_param);
+		return window.open('/chapter'+p, window_name, this_param);
 	}
 }
 
