@@ -106,7 +106,7 @@ if($section == 'text')
 				    					}
 				    					else
 				    						var path = false;
-					    				window_1 = popup_single(chapter, '', 'image', path);
+					    				window_image = popup(chapter, '', 'image', path);
 					    				current_image = i;
 				    				}
 				    				break;
@@ -126,7 +126,7 @@ if($section == 'text')
 				    					// if(i != 0)
 				    					// 		sImage_anchor[i-1].classList.add('viewing');
 				    					
-					    				window_1 = popup_single(chapter, '', 'text-allcaps', i);
+					    				window_allcaps = popup(chapter, '', 'allcaps', i);
 					    				current_allcaps = i;
 				    				}
 				    				break;
@@ -137,9 +137,7 @@ if($section == 'text')
 					    ticking = false;
 					}
 				});
-				setTimeout(function(){
-					var window_audio = popup_single('audio', '', 'audio');
-				}, 5000);
+				
 			});
 
 		</script>
@@ -188,7 +186,7 @@ else if($section == 'image')
 	</script>
 	<?
 }
-else if($section == 'text-allcaps')
+else if($section == 'allcaps')
 {
 	// $allcaps = $_GET['allcaps'];
 	$allcaps = $uri[4];
