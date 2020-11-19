@@ -17,7 +17,7 @@ function popup(chapter, query, type = false, path = false){
     var p = '/'+chapter+'/'+type;
     if(type == 'text')
     {
-    	var this_width = 660;
+    	var this_width = 650;
     	var this_height = 700;
     }
     else if(type == 'image')
@@ -29,8 +29,8 @@ function popup(chapter, query, type = false, path = false){
     }
     else if(type == 'allcaps')
     {
-    	var this_width = 450;
-    	var this_height = 300;
+    	var this_width = 650;
+    	var this_height = 450;
 		p += '/'+(path-1);
     }
     else if(type == 'audio')
@@ -46,15 +46,15 @@ function popup(chapter, query, type = false, path = false){
     
 
 	if(chapter == 'colophon'){
-		var this_param = 'width=650,height=450,top=0,left=0';
+		var this_param = 'width=650,height=450,top='+this_top+',left='+this_left;
 		window_text = window.open('/colophon', window_name, this_param);
 	}
 	else if(chapter == 'radio'){
-		var this_param = 'width=600,height=100,top=0,left=0';
+		var this_param = 'width=600,height=100,top='+this_top+',left='+this_left;
 		window_radio = window.open('/radio', window_name, this_param);
 	}
 	else if(chapter == 'audio'){
-		var this_param = 'width=100,height=100,top=0,left=0';
+		var this_param = 'width=100,height=100,top='+this_top+',left='+this_left;
 		window_radio  = window.open('/audio', window_name, this_param);
 	}
 	else{
@@ -67,10 +67,11 @@ function popup(chapter, query, type = false, path = false){
 function open_chapter(chapter, query = ''){
 	// query should be in the format "&query1=value1&query2=value2..."
     window_image = popup(chapter, query, 'image');
-    window_text = popup(chapter, query, 'text');
     window_allcaps = popup(chapter, query, 'allcaps');
-    setTimeout(function(){
-        console.log('popping audio');
-        window_audio = popup('audio', '', 'audio');
-    }, 5000);
+    window_text = popup(chapter, query, 'text');
+    window_audio = popup('audio', '', 'audio');
+    // setTimeout(function(){
+    //     console.log('popping audio');
+    //     window_audio = popup('audio', '', 'audio');
+    // }, 5000);
 }

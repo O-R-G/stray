@@ -199,14 +199,18 @@ else if($section == 'allcaps')
 		<script>
 			var allcaps_idx = <?= $allcaps; ?>;
 			var allcaps_position = [];
+			var viewing_allcaps_h = 0;
 			window.addEventListener('load', function(){
 				var sAllcaps = document.getElementsByClassName('allcaps');
 				[].forEach.call(sAllcaps, function(el, i){
 					allcaps_position.push(el.offsetTop);
 				});
 				sAllcaps[allcaps_idx].classList.add('viewing');
-				console.log(sAllcaps[allcaps_idx].offsetTop);
-				window.scrollTo(0, sAllcaps[allcaps_idx].offsetTop);
+				viewing_allcaps_h = sAllcaps[allcaps_idx].offsetHeight;
+				// console.log(sAllcaps[allcaps_idx].offsetTop);
+				console.log(viewing_allcaps_h);
+				wH = window.innerHeight;
+				window.scrollTo(0, sAllcaps[allcaps_idx].offsetTop - wH/2 + viewing_allcaps_h/2);
 			});
 
 		</script>
