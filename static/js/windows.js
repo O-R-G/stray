@@ -17,13 +17,13 @@ function popup(chapter, query, type = false, path = false){
     var p = '/'+chapter+'/'+type;
     if(type == 'text')
     {
-    	var this_width = 450;
+    	var this_width = 660;
     	var this_height = 700;
     }
     else if(type == 'image')
     {
-    	var this_width = 600;
-    	var this_height = 600;
+    	var this_width = 700;
+    	var this_height = 700;
     	if(path)
     		p += '/'+path;
     }
@@ -70,6 +70,7 @@ function open_chapter(chapter, query = ''){
     window_text = popup(chapter, query, 'text');
     window_allcaps = popup(chapter, query, 'allcaps');
     setTimeout(function(){
+        console.log('popping audio');
         window_audio = popup('audio', '', 'audio');
     }, 5000);
 }
