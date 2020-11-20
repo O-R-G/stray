@@ -22,29 +22,37 @@ $section = $uri[3];
 		output[1] = []; // audio
 
 		var this_image_folios_raw = sections_info[idx]['image'];
-		this_image_folios_raw.forEach(function(el, i){
-			if(isNaN(el)){
-				var hyphen_pos = el.indexOf('-');
-				if(hyphen_pos != -1){
-					var this_range = el.split('-');
-					for(i = parseInt(this_range[0]); i <= parseInt(this_range[1]); i++)
-						output[0].push(i);
+		if(this_image_folios_raw.length != 0)
+		{
+			this_image_folios_raw.forEach(function(el, i){
+				if(isNaN(el)){
+					var hyphen_pos = el.indexOf('-');
+					if(hyphen_pos != -1){
+						var this_range = el.split('-');
+						for(i = parseInt(this_range[0]); i <= parseInt(this_range[1]); i++)
+							output[0].push(i);
+					}
+					else 
+						output[0].push(parseInt(el));
 				}
-				else 
-					output[0].push(parseInt(el));
-			}
-			else{
-				output[0].push(el);
-			}
-		});
-		var this_audio_folios_raw = sections_info[idx]['audio'];
-		if(typeof this_audio_folios_raw != 'undefined')
-			output[1] = this_audio_folios_raw;
+				else{
+					output[0].push(el);
+				}
+			});
+			var this_audio_folios_raw = sections_info[idx]['audio'];
+			if(typeof this_audio_folios_raw != 'undefined')
+				output[1] = this_audio_folios_raw;
+			
+			return output;
+		}
+		else
+			return false;
 		
-		return output;
 	}
 	var chapter = <?= $chapter ?>;
 	var media_folio = get_media_folios(chapter, sections_info);
+	if(media_folio.length != 0)
+		image_folio.unshift(false);
 	var image_folio = media_folio[0];
 </script>
 <?
@@ -60,77 +68,88 @@ if($section == 'text')
 			var image_position = [];
 			var allcaps_position = [];
 			var ticking = false;
-			var current_image = 0;
+			// var current_image = false;
 			var sTop = window.scrollY;
 			
 			var current_image = 0;
 			var current_allcaps = 0;
 			
-			
-			image_folio.unshift(false);
-			
+
 			window.addEventListener('load', function(){
-				var sImage_anchor = document.getElementsByClassName('image_anchor');
-				[].forEach.call(sImage_anchor, function(el, i){
-					image_position.push(el.offsetTop);
-				});
-				image_position.push(sText_container.offsetHeight);
+				if(media_folio.length != 0)
+				{
+					var sImage_anchor = document.getElementsByClassName('image_anchor');
+					[].forEach.call(sImage_anchor, function(el, i){
+						image_position.push(el.offsetTop);
+					});
+					image_position.push(sText_container.offsetHeight);
+				}
+				
 
 				var sAllcaps = document.getElementsByClassName('allcaps');
-				[].forEach.call(sAllcaps, function(el, i){
-					allcaps_position.push(el.offsetTop);
-					console.log('idx = '+i);
-					console.log(el.innerText);
-					console.log(el.offsetTop);
-				});
-				allcaps_position.push(sText_container.offsetHeight);
+				if(sAllcaps.length != 0)
+				{
+					[].forEach.call(sAllcaps, function(el, i){
+						allcaps_position.push(el.offsetTop);
+					});
+					allcaps_position.push(sText_container.offsetHeight);
+				}
+				
 
 				window.addEventListener('scroll', function(){
 					sTop = window.scrollY;
 					if (!ticking) {
 					    window.requestAnimationFrame(function() {
 					    	// chekcing image_anchor positions
-				    		for(i = 0; i < image_position.length; i++)
-							{
-				    			if(sTop < image_position[i] )
-				    			{
-				    				if( i != current_image){
-				    					// when image changes
-				    					var image_viewing = document.querySelector('.image_anchor.viewing');
-				    					if(image_viewing)
-				    						image_viewing.classList.remove('viewing');
-				    					if(image_folio[i]){
-				    						var path = image_folio[i];
-				    						if(i != 0)
-				    							sImage_anchor[i-1].classList.add('viewing');
-				    					}
-				    					else
-				    						var path = false;
-					    				window_image = popup(chapter, '', 'image', path);
-					    				current_image = i;
-				    				}
-				    				break;
-				    			}
-				    		}
+					    	if(media_folio.length != 0)
+					    	{
+					    		for(i = 0; i < image_position.length; i++)
+								{
+					    			if(sTop < image_position[i] )
+					    			{
+					    				if( i != current_image){
+					    					// when image changes
+					    					var image_viewing = document.querySelector('.image_anchor.viewing');
+					    					if(image_viewing)
+					    						image_viewing.classList.remove('viewing');
+					    					if(image_folio[i] || image_folio[i] === 0){
+					    						var path = image_folio[i];
+					    						if(path == 0)
+					    							path = 'zero';
+					    						if(i != 0)
+					    							sImage_anchor[i-1].classList.add('viewing');
+					    					}
+					    					else
+					    						var path = false;
+						    				window_image = popup(chapter, '', 'image', path);
+						    				current_image = i;
+					    				}
+					    				break;
+					    			}
+					    		}
+					    	}
+				    		
 				    		// chekcing allcaps positions
-				    		for(i = 0; i < allcaps_position.length; i++)
-							{
-				    			if(sTop < allcaps_position[i] )
-				    			{
-				    				if( i != current_allcaps){
-				    					// when image changes
-				    					console.log('scroll to: '+i);
-				    					var allcaps_viewing = document.querySelector('.allcaps.viewing');
-				    					if(allcaps_viewing)
-				    						allcaps_viewing.classList.remove('viewing');
-				    					// if(i != 0)
-				    					// 		sImage_anchor[i-1].classList.add('viewing');
-				    					
-					    				window_allcaps = popup(chapter, '', 'allcaps', i);
-					    				current_allcaps = i;
-				    				}
-				    				break;
-				    			}
+				    		if(sAllcaps.length != 0)
+				    		{
+				    			for(i = 0; i < allcaps_position.length; i++)
+								{
+					    			if(sTop < allcaps_position[i] )
+					    			{
+					    				if( i != current_allcaps){
+					    					// when image changes
+					    					var allcaps_viewing = document.querySelector('.allcaps.viewing');
+					    					if(allcaps_viewing)
+					    						allcaps_viewing.classList.remove('viewing');
+					    					// if(i != 0)
+					    					// 		sImage_anchor[i-1].classList.add('viewing');
+					    					
+						    				window_allcaps = popup(chapter, '', 'allcaps', i);
+						    				current_allcaps = i;
+					    				}
+					    				break;
+					    			}
+					    		}
 				    		}
 					      	ticking = false;
 					    });
@@ -147,6 +166,9 @@ else if($section == 'image')
 {
 	// $folio = $_GET['path'];
 	$folio = $uri[4];
+	var_dump($folio);
+	if($folio == 'zero')
+		$folio = 0;
 	if(isset($folio)){
 		if($folio < 10)
 			$folio = '00' . $folio;
@@ -208,7 +230,6 @@ else if($section == 'allcaps')
 				sAllcaps[allcaps_idx].classList.add('viewing');
 				viewing_allcaps_h = sAllcaps[allcaps_idx].offsetHeight;
 				// console.log(sAllcaps[allcaps_idx].offsetTop);
-				console.log(viewing_allcaps_h);
 				wH = window.innerHeight;
 				if(viewing_allcaps_h < wH)
 					window.scrollTo(0, sAllcaps[allcaps_idx].offsetTop - wH/2 + viewing_allcaps_h/2);

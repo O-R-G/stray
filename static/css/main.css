@@ -173,6 +173,11 @@ body {
     transition: opacity .25s;
     background-color: #000;
 }
+#allcaps-container > div.image_anchor
+{
+    height: 300px;
+    margin: 20px 40px;
+}
 .image_anchor.viewing
 {
     opacity: 0;

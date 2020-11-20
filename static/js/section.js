@@ -25,7 +25,7 @@ var sections_info = [
 	,
 	{
 		'title': 'A GRAPHIC TONE',
-		'image': false
+		'image': []
 	}
 	,
 	{
