@@ -12,7 +12,8 @@ body {
     color: #000;
     font-weight: 400;
     font-family: Arial, sans-serif;
-    line-height: 1.2em;
+    line-height: 16px;
+    font-size: 14px;
 }
 .serif
 {
@@ -28,11 +29,6 @@ body {
 #image-container[chapter='3']
 {
     background-color: #000;
-}
-#text-container[chapter='3'],
-#text-container[chapter='4']
-{
-    padding-bottom: 100vh;
 }
 #text-container:after{
     content: ' ';
@@ -66,7 +62,8 @@ body {
 #home_container{
     padding: 50px;
 }
-#colophon_container{
+#colophon_container,
+#home_container{
     width: 900px;
     margin: 0 auto;
 }
@@ -151,6 +148,12 @@ body {
     width: 100%;
     height: 100%;
 }
+#text-container, 
+#allcaps-container
+{
+    font-size: 16px;
+    line-height: 20px
+}
 #text-container{
     padding-top: 15px;
 }
@@ -168,6 +171,7 @@ body {
     margin: 20px 40px;
     border: 1px solid #000;
     transition: opacity .25s;
+    background-color: #000;
 }
 .image_anchor.viewing
 {

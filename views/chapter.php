@@ -210,7 +210,10 @@ else if($section == 'allcaps')
 				// console.log(sAllcaps[allcaps_idx].offsetTop);
 				console.log(viewing_allcaps_h);
 				wH = window.innerHeight;
-				window.scrollTo(0, sAllcaps[allcaps_idx].offsetTop - wH/2 + viewing_allcaps_h/2);
+				if(viewing_allcaps_h < wH)
+					window.scrollTo(0, sAllcaps[allcaps_idx].offsetTop - wH/2 + viewing_allcaps_h/2);
+				else
+					window.scrollTo(0, sAllcaps[allcaps_idx].offsetTop);
 			});
 
 		</script>
