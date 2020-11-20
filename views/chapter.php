@@ -43,17 +43,17 @@ $section = $uri[3];
 			if(typeof this_audio_folios_raw != 'undefined')
 				output[1] = this_audio_folios_raw;
 			
-			return output;
+			
 		}
-		else
-			return false;
+		return output;
 		
 	}
 	var chapter = <?= $chapter ?>;
 	var media_folio = get_media_folios(chapter, sections_info);
-	if(media_folio.length != 0)
-		image_folio.unshift(false);
+	console.log(media_folio);
 	var image_folio = media_folio[0];
+	if(image_folio.length != 0)
+		image_folio.unshift(false);
 </script>
 <?
 if($section == 'text')
@@ -76,7 +76,7 @@ if($section == 'text')
 			
 
 			window.addEventListener('load', function(){
-				if(media_folio.length != 0)
+				if(image_folio.length != 0)
 				{
 					var sImage_anchor = document.getElementsByClassName('image_anchor');
 					[].forEach.call(sImage_anchor, function(el, i){
@@ -101,7 +101,7 @@ if($section == 'text')
 					if (!ticking) {
 					    window.requestAnimationFrame(function() {
 					    	// chekcing image_anchor positions
-					    	if(media_folio.length != 0)
+					    	if(image_folio.length != 0)
 					    	{
 					    		for(i = 0; i < image_position.length; i++)
 								{
@@ -166,7 +166,7 @@ else if($section == 'image')
 {
 	// $folio = $_GET['path'];
 	$folio = $uri[4];
-	var_dump($folio);
+
 	if($folio == 'zero')
 		$folio = 0;
 	if(isset($folio)){
