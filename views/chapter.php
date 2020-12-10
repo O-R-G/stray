@@ -41,9 +41,7 @@ $section = $uri[3];
 			});
 			var this_audio_folios_raw = sections_info[idx]['audio'];
 			if(typeof this_audio_folios_raw != 'undefined')
-				output[1] = this_audio_folios_raw;
-			
-			
+				output[1] = this_audio_folios_raw;			
 		}
 		return output;
 		
