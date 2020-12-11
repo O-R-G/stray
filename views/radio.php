@@ -18,6 +18,7 @@
 <script>
 	var current_letter;
 	var radio_words = '<?= $radio_words; ?>';
+	console.log(radio_words);
 	var sRadio_text = document.getElementById('radio_text');
 	// request json
 	if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
@@ -28,7 +29,7 @@
 	function loop_letters(c_letter, words){
 		sRadio_text.innerText = words[c_letter];
 		c_letter++;
-		if(c_letter > words.length)
+		if(c_letter >= words.length)
 			c_letter = 0;
 		return c_letter;
 	}
@@ -40,12 +41,21 @@
       		var response = JSON.parse(httpRequest.responseText);
       		
       		if(response){
-      			current_letter = response['current_letter'];
+      			current_letter = response['current_pos'];
+      			console.log(current_letter);
+      			
       			current_letter++;
-      			if(current_letter > radio_words.length)
+      			var wait = 1000 - (Date.now() % 1000);
+      			// if(wait > 500)
+      			// 	current_letter++;
+      			if(current_letter >= radio_words.length)
       				current_letter = 0;
-      			var wait = Date.now() % 1000;
+      			console.log(radio_words[current_letter]);
+      			console.log(radio_words[current_letter+1]);
+      			console.log(radio_words[current_letter+2]);
       			setTimeout(function(){
+      				console.log(current_letter)
+      				current_letter = loop_letters(current_letter, radio_words);
       				setInterval(function(){
       					current_letter = loop_letters(current_letter, radio_words);
       				}, 1000);
