@@ -15,6 +15,10 @@ body {
     line-height: 16px;
     font-size: 14px;
 }
+img
+{
+    width: 100%;
+}
 .serif
 {
     font-family: Times, serif;
@@ -25,17 +29,19 @@ body {
     overflow: hidden;
     height: 100vh;
 }
-#display[chapter='3'],
+/*#display[chapter='3'],
 #image-container[chapter='3']
 {
     background-color: #000;
-}
-#text-container:after{
-    content: ' ';
-    height: 100vh;
+}*/
+#text-container:after,
+#image-container:after
+{
+    /*content: ' ';
+    height: 200vh;
     display: block;
-    background-color: #000;
-}
+    background-color: #444;
+*/}
 #slide_display{
     /*margin: 20px;*/
     /*height: calc( 100vh - 40px);*/
@@ -60,7 +66,9 @@ body {
 }
 
 #home_container{
+    width: 1000px;
     padding: 50px;
+    text-align: center;
 }
 #colophon_container,
 #home_container{
@@ -154,13 +162,13 @@ body {
     font-size: 16px;
     line-height: 20px
 }
-#text-container{
+/*#text-container{
     padding-top: 15px;
-}
-#text-container > div
+}*/
+/*#text-container > div
 {
     margin: 0 12px;
-}
+}*/
 .justify_block{
     text-align: justify;
     text-justify: inter-word;
@@ -183,12 +191,12 @@ body {
     opacity: 0;
 
 }
-#image-container{
+/*#image-container{
     position: relative;
     height: 100vh;
-}
+}*/
 
-#image-container img{
+/*#image-container img{
     opacity: 0;
 }
 #image-container.viewing img{
@@ -206,22 +214,29 @@ body {
     left: 50%;
     transform: translateX(-50%);
     height: 100%;
-}
+}*/
 #radio_container{
-    overflow: hidden;
-    height: 100vh;
-    background-color: #000;
-    color: #fff;
+    /*overflow: hidden;*/
+    /*height: 100vh;*/
+    /*background-color: #000;*/
+    /*color: #fff;*/
 }
 #radio_text
 {
+    text-align: center;
+    font-size: 150px;
+    line-height: 100px;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*position: absolute;
     top: 50%;
     width: auto;
     white-space: nowrap;
     padding-right: 100vw;
     padding-left: 100vw;
-    animation: marquee 600s infinite linear;
+    animation: marquee 600s infinite linear;*/
 }
 #text-container span.allcaps,
 #text-container .allcaps span{
@@ -251,6 +266,16 @@ body {
     position: relative;
     top: -50%;
     /*transform: translate(0, -50%);*/
+}
+
+.main-link
+{
+    width: 50%;
+    display: inline-block;
+}
+#colophon-link{
+    display: inline-block;
+    margin-top: 50px;
 }
 @keyframes flashing
 {

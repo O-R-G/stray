@@ -13,30 +13,48 @@
 	}
 ?>
 <div id = 'radio_container'>
-	<div id = 'radio_text'><?= $radio_words ;?></div>
+	<div id = 'radio_text'></div>
 </div>
 <script>
+	var current_letter;
+	var radio_words = '<?= $radio_words; ?>';
+	var sRadio_text = document.getElementById('radio_text');
 	// request json
-	// if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
-	//     var httpRequest = new XMLHttpRequest();
-	// } else if (window.ActiveXObject) { // IE 6 and older
-	//     var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-	// }
-	// httpRequest.onreadystatechange = function(){
+	if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+	    var httpRequest = new XMLHttpRequest();
+	} else if (window.ActiveXObject) { // IE 6 and older
+	    var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	function loop_letters(c_letter, words){
+		sRadio_text.innerText = words[c_letter];
+		c_letter++;
+		if(c_letter > words.length)
+			c_letter = 0;
+		return c_letter;
+	}
+	httpRequest.onreadystatechange = function(){
 		
-	// 	if (httpRequest.readyState === XMLHttpRequest.DONE) {
+		if (httpRequest.readyState === XMLHttpRequest.DONE) {
 			
-	//       if (httpRequest.status === 200) {	
- //      		var response = JSON.parse(httpRequest.responseText);
+	      if (httpRequest.status === 200) {	
+      		var response = JSON.parse(httpRequest.responseText);
       		
- //      		if(response){
- //      			var marquee_remain = response['marquee_remain'];
- //      			var marquee_progress = marquee_remain / 600;
-      			
- //      		}
-	//       }
-	//     }
-	// };
-	// httpRequest.open('GET', 'http://stray.o-r-g.net/now');
-	// httpRequest.send();
+      		if(response){
+      			current_letter = response['current_letter'];
+      			current_letter++;
+      			if(current_letter > radio_words.length)
+      				current_letter = 0;
+      			var wait = Date.now() % 1000;
+      			setTimeout(function(){
+      				setInterval(function(){
+      					current_letter = loop_letters(current_letter, radio_words);
+      				}, 1000);
+      				
+      			}, wait);
+      		}
+	      }
+	    }
+	};
+	httpRequest.open('GET', 'http://stray.o-r-g.net/now');
+	httpRequest.send();
 </script>
