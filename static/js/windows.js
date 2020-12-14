@@ -54,7 +54,7 @@ function popup(chapter, query, type = false, path = false){
 		window_text = window.open('/colophon', window_name, this_param);
 	}
 	else if(chapter == 'radio'){
-		var this_param = 'width=400,height=400,top='+this_top+',left='+this_left;
+		var this_param = 'width=400,height=520,top='+this_top+',left='+this_left;
 		window_radio = window.open('/radio', window_name, this_param);
 	}
 	else if(chapter == 'audio'){

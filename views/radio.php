@@ -11,23 +11,101 @@
 		$chapter_temp = str_replace(' | ', ' ', $chapter);
 		$radio_words .= $chapter_temp . ' ';
 	}
+
+	$letter_image_filenames = scandir('media/letters');
+	$filenum_arr = array();
+	foreach($letter_image_filenames as $filename){
+		if(substr($filename, 0, 1) != '.'){
+			$this_key = explode('-', $filename);
+			$this_key = $this_key[0];
+			if(isset($filenum_arr[$this_key]))
+				$filenum_arr[$this_key] ++;
+			else
+				$filenum_arr[$this_key] = 1;
+		}
+	}
 ?>
 <div id = 'radio_container'>
-	<div id = 'radio_text'></div>
+	<img id = 'radio_image_0' class = 'radio_image not_current'>
+	<img id = 'radio_image_1' class = 'radio_image not_current'>
 </div>
 <script>
+	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
+	console.log(filenum_arr);
+	function format_img_src(letter){
+		var this_letter = letter.toUpperCase();
+		console.log(this_letter);
+		if(this_letter == '&')
+			this_letter = 'ampersand';
+		else if(this_letter == '.')
+			this_letter = 'period';
+		else if(this_letter == ',')
+			this_letter = 'comma';
+		else if(this_letter == '#')
+			this_letter = 'hash';
+		else if(this_letter == '/')
+			this_letter = 'slash';
+		else if(this_letter == ' ')
+			return 'whitespace';
+		var this_letter_variation = filenum_arr[this_letter];
+		var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
+		var output = 'media/letters/'+this_letter+'-'+letter_order+'.jpg';
+		return output;
+	}
 	var current_letter;
 	var radio_words = '<?= $radio_words; ?>';
-	console.log(radio_words);
-	var sRadio_text = document.getElementById('radio_text');
+
+	var radio_image = document.getElementsByClassName('radio_image');
+	var radio_image_0 = document.getElementById('radio_image_0');
+	var radio_image_1 = document.getElementById('radio_image_1');
+	var image_counter = 0;
 	// request json
 	if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
 	    var httpRequest = new XMLHttpRequest();
 	} else if (window.ActiveXObject) { // IE 6 and older
 	    var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	function loop_letters(c_letter, words){
-		sRadio_text.innerText = words[c_letter];
+	function loop_letters(c_letter, words, isInitialed = true){
+		if(!isInitialed)
+		{
+			var first_src = format_img_src(words[c_letter]);
+			c_letter++;
+			if(c_letter >= words.length)
+				c_letter = 0;
+			var next_src = format_img_src(words[c_letter]);
+			if(first_src == 'whitespace')
+				radio_image_0.classList.add('whitespace');
+			else
+				radio_image_0.src = first_src;
+			if(next_src == 'whitespace')
+				radio_image_1.classList.add('whitespace');
+			else
+				radio_image_1.src = next_src;
+
+			setTimeout(function(){
+				radio_image_0.classList.remove('not_current');
+			}, 0);
+		}
+		else
+		{
+			image_counter++;
+			console.log(image_counter%2);
+			var current_image = radio_image[image_counter%2];
+			
+			var next_image = radio_image[(image_counter + 1) % 2];
+			var next_src = format_img_src(words[c_letter]);
+
+			current_image.classList.remove('not_current');
+			next_image.classList.add('not_current');
+
+			if(next_src == 'whitespace')
+				next_image.classList.add('whitespace');
+			else{
+				next_image.classList.remove('whitespace');
+				next_image.src = next_src;
+			}
+		}
+		
 		c_letter++;
 		if(c_letter >= words.length)
 			c_letter = 0;
@@ -50,12 +128,15 @@
       			// 	current_letter++;
       			if(current_letter >= radio_words.length)
       				current_letter = 0;
-      			console.log(radio_words[current_letter]);
-      			console.log(radio_words[current_letter+1]);
-      			console.log(radio_words[current_letter+2]);
       			setTimeout(function(){
       				console.log(current_letter)
-      				current_letter = loop_letters(current_letter, radio_words);
+      				current_letter = loop_letters(current_letter, radio_words, false);
+
+      				// already current++ when initiating loop_letters();
+      				// so "current_letter" is actually the next index to preload
+      				current_letter++;
+      				if(current_letter >= radio_words.length)
+      					current_letter = 0;
       				setInterval(function(){
       					current_letter = loop_letters(current_letter, radio_words);
       				}, 1000);
