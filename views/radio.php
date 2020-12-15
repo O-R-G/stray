@@ -28,14 +28,16 @@
 <div id = 'radio_container'>
 	<img id = 'radio_image_0' class = 'radio_image not_current'>
 	<img id = 'radio_image_1' class = 'radio_image not_current'>
+	<img id = 'radio_image_2' class = 'radio_image not_current'>
 </div>
 <script>
 	var current_letter;
 	var radio_words = '<?= $radio_words; ?>';
-
+	console.log(radio_words.length);
 	var radio_image = document.getElementsByClassName('radio_image');
 	var radio_image_0 = document.getElementById('radio_image_0');
 	var radio_image_1 = document.getElementById('radio_image_1');
+	var radio_image_2 = document.getElementById('radio_image_2');
 	var image_counter = 0;
 
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
@@ -75,6 +77,10 @@
 			if(c_letter >= words.length)
 				c_letter = 0;
 			var next_src = srcs[c_letter];
+			c_letter++;
+			if(c_letter >= words.length)
+				c_letter = 0;
+			var nextnext_src = srcs[c_letter];
 			if(first_src == 'whitespace')
 				radio_image_0.classList.add('whitespace');
 			else
@@ -85,6 +91,11 @@
 			else
 				radio_image_1.src = next_src;
 
+			if(nextnext_src == 'whitespace')
+				radio_image_2.classList.add('whitespace');
+			else
+				radio_image_2.src = nextnext_src;
+
 			setTimeout(function(){
 				radio_image_0.classList.remove('not_current');
 			}, 0);
@@ -92,19 +103,20 @@
 		else
 		{
 			image_counter++;
-			var current_image = radio_image[image_counter%2];
-			
-			var next_image = radio_image[(image_counter + 1) % 2];
-			var next_src = srcs[c_letter];
+			var current_image = radio_image[image_counter%3];
+			// var last_image = radio_image[(image_counter - 1) % 3];
+			var nextnext_image = radio_image[(image_counter + 2) % 3];
+			var nextnext_src = srcs[c_letter];
 
 			current_image.classList.remove('not_current');
-			next_image.classList.add('not_current');
+			// next_image.classList.add('not_current');
+			nextnext_image.classList.add('not_current');
 
-			if(next_src == 'whitespace')
-				next_image.classList.add('whitespace');
+			if(nextnext_src == 'whitespace')
+				nextnext_image.classList.add('whitespace');
 			else{
-				next_image.classList.remove('whitespace');
-				next_image.src = next_src;
+				nextnext_image.classList.remove('whitespace');
+				nextnext_image.src = nextnext_src;
 			}
 		}
 		
@@ -146,21 +158,18 @@
       		
       		if(response){
       			current_letter = response['current_pos'];
-      			
-      			current_letter++;
+      			current_letter = 6105;
       			var wait = 1000 - (Date.now() % 1000);
-
+      			current_letter++;
       			if(current_letter >= radio_words.length)
       				current_letter = 0;
       			preload(current_letter, radio_words);
       			setTimeout(function(){
       				current_letter = loop_letters(current_letter, radio_words, src_arr, false);
-
       				// already current++ when initiating loop_letters();
-      				// so "current_letter" is actually the next index to preload
-      				current_letter++;
-      				if(current_letter >= radio_words.length)
-      					current_letter = 0;
+      				// so "current_letter" is actually the next next index to preload
+      				current_letter = (current_letter + 2) % radio_words.length;
+      				
       				setInterval(function(){
       					current_letter = loop_letters(current_letter, radio_words, src_arr);
       				}, 1000);
