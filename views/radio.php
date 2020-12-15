@@ -33,7 +33,7 @@
 <script>
 	var current_letter;
 	var radio_words = '<?= $radio_words; ?>';
-	console.log(radio_words.length);
+	// console.log(radio_words.length);
 	var radio_image = document.getElementsByClassName('radio_image');
 	var radio_image_0 = document.getElementById('radio_image_0');
 	var radio_image_1 = document.getElementById('radio_image_1');
@@ -69,7 +69,7 @@
 	    var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	function loop_letters(c_letter, words, srcs, isInitialed = true){
-		console.log(words[c_letter]);
+		// console.log(words[c_letter]);
 		if(!isInitialed)
 		{
 			var first_src = srcs[c_letter];
@@ -146,7 +146,7 @@
 				preload_img.src = src_arr[preload_index];
 			}
 		}
-		console.log(preload_index, src_arr[preload_index]);
+		// console.log(preload_index, src_arr[preload_index]);
 		preload_img.src = src_arr[preload_index];
 	}
 	httpRequest.onreadystatechange = function(){
