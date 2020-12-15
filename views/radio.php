@@ -158,7 +158,6 @@
       		
       		if(response){
       			current_letter = response['current_pos'];
-      			current_letter = 6105;
       			var wait = 1000 - (Date.now() % 1000);
       			current_letter++;
       			if(current_letter >= radio_words.length)
