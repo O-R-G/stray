@@ -30,11 +30,18 @@
 	<img id = 'radio_image_1' class = 'radio_image not_current'>
 </div>
 <script>
+	var current_letter;
+	var radio_words = '<?= $radio_words; ?>';
+
+	var radio_image = document.getElementsByClassName('radio_image');
+	var radio_image_0 = document.getElementById('radio_image_0');
+	var radio_image_1 = document.getElementById('radio_image_1');
+	var image_counter = 0;
+
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
-	console.log(filenum_arr);
+	var src_arr = [];
 	function format_img_src(letter){
 		var this_letter = letter.toUpperCase();
-		console.log(this_letter);
 		if(this_letter == '&')
 			this_letter = 'ampersand';
 		else if(this_letter == '.')
@@ -47,36 +54,32 @@
 			this_letter = 'slash';
 		else if(this_letter == ' ')
 			return 'whitespace';
-		var this_letter_variation = filenum_arr[this_letter];
-		var letter_order = parseInt(parseInt(this_letter_variation) * Math.random());
+		var this_max = filenum_arr[this_letter];
+		var letter_order = Math.floor(Math.random() * Math.floor(this_max));
 		var output = 'media/letters/'+this_letter+'-'+letter_order+'.jpg';
 		return output;
 	}
-	var current_letter;
-	var radio_words = '<?= $radio_words; ?>';
-
-	var radio_image = document.getElementsByClassName('radio_image');
-	var radio_image_0 = document.getElementById('radio_image_0');
-	var radio_image_1 = document.getElementById('radio_image_1');
-	var image_counter = 0;
+	
 	// request json
 	if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
 	    var httpRequest = new XMLHttpRequest();
 	} else if (window.ActiveXObject) { // IE 6 and older
 	    var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	function loop_letters(c_letter, words, isInitialed = true){
+	function loop_letters(c_letter, words, srcs, isInitialed = true){
+		console.log(words[c_letter]);
 		if(!isInitialed)
 		{
-			var first_src = format_img_src(words[c_letter]);
+			var first_src = srcs[c_letter];
 			c_letter++;
 			if(c_letter >= words.length)
 				c_letter = 0;
-			var next_src = format_img_src(words[c_letter]);
+			var next_src = srcs[c_letter];
 			if(first_src == 'whitespace')
 				radio_image_0.classList.add('whitespace');
 			else
 				radio_image_0.src = first_src;
+
 			if(next_src == 'whitespace')
 				radio_image_1.classList.add('whitespace');
 			else
@@ -89,11 +92,10 @@
 		else
 		{
 			image_counter++;
-			console.log(image_counter%2);
 			var current_image = radio_image[image_counter%2];
 			
 			var next_image = radio_image[(image_counter + 1) % 2];
-			var next_src = format_img_src(words[c_letter]);
+			var next_src = srcs[c_letter];
 
 			current_image.classList.remove('not_current');
 			next_image.classList.add('not_current');
@@ -107,9 +109,33 @@
 		}
 		
 		c_letter++;
-		if(c_letter >= words.length)
+		if(c_letter >= words.length){
+			preload(0, radio_words, filenum_arr);
 			c_letter = 0;
+		}
 		return c_letter;
+	}
+	function preload(init_index = 0, words, num_arr){
+		src_arr = [];
+		var words_length = words.length;
+		var preload_index = init_index;
+		for(i = 0; i < words_length; i++)
+		{
+			var this_letter = words[i].toUpperCase();
+			// console.log(this_letter);
+			src_arr.push(format_img_src(this_letter));
+		}
+		var preload_img = new Image();
+		preload_img.onload = function(){
+			console.log('preload onload');
+			preload_index++;
+			if(preload_index < words_length)
+			{
+				preload_img.src = src_arr[preload_index];
+			}
+		}
+		console.log(preload_index, src_arr[preload_index]);
+		preload_img.src = src_arr[preload_index];
 	}
 	httpRequest.onreadystatechange = function(){
 		
@@ -120,17 +146,15 @@
       		
       		if(response){
       			current_letter = response['current_pos'];
-      			console.log(current_letter);
       			
       			current_letter++;
       			var wait = 1000 - (Date.now() % 1000);
-      			// if(wait > 500)
-      			// 	current_letter++;
+
       			if(current_letter >= radio_words.length)
       				current_letter = 0;
+      			preload(current_letter, radio_words);
       			setTimeout(function(){
-      				console.log(current_letter)
-      				current_letter = loop_letters(current_letter, radio_words, false);
+      				current_letter = loop_letters(current_letter, radio_words, src_arr, false);
 
       				// already current++ when initiating loop_letters();
       				// so "current_letter" is actually the next index to preload
@@ -138,7 +162,7 @@
       				if(current_letter >= radio_words.length)
       					current_letter = 0;
       				setInterval(function(){
-      					current_letter = loop_letters(current_letter, radio_words);
+      					current_letter = loop_letters(current_letter, radio_words, src_arr);
       				}, 1000);
       				
       			}, wait);
