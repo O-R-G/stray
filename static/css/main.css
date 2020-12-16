@@ -19,6 +19,16 @@ img
 {
     width: 100%;
 }
+
+blockquote {
+    margin-left: 80px;
+    margin-right: 0px;
+}
+
+#main {
+    margin: 20px;
+}
+
 .serif
 {
     font-family: Times, serif;

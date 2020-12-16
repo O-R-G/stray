@@ -13,12 +13,6 @@ require_once('views/head.php');
 
 if(!$uri[1])
 	require_once('views/home.php');
-// elseif($uri[1] == 'slide-image')
-// 	require_once('views/slide-image.php');
-// elseif($uri[1] == 'slide-text')
-// 	require_once('views/slide-text.php');
-// elseif($uri[1] == 'slide-audio')
-// 	require_once('views/audio.php');
 elseif($uri[1] == 'text')
 	require_once('views/text.php');
 elseif($uri[1] == 'image')
@@ -31,6 +25,8 @@ elseif($uri[1] == 'colophon')
 	require_once('views/column.php');
 elseif($uri[1] == 'radio')
 	require_once('views/radio.php');
+else if($uri[1] == 'source')
+	require_once('views/main.php');
 
 require_once('views/foot.php');
 ?>
