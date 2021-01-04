@@ -90,6 +90,7 @@ function open_chapter(chapter, query = ''){
     // }, 5000);
 }
 function open_duo(){
+    console.log('open duo');
     window_image = popup('image', '', 'image');
     window_text = popup('text', '', 'text');
     var window_text_top = 0;
@@ -105,10 +106,11 @@ function open_duo(){
     // };
 
     window_text.onload = function(){
+        console.log('text is onload');
         // window_text_isLoaded = true;
-        window_text_height = window_text.document.body.querySelector('#text-image').offsetHeight;
+        window_text_height = window_text.document.body.querySelector('#main').offsetHeight;
         window_text.onscroll = function(){
-            console.log(current_scroll);
+            console.log('text is scrolling');
             if(current_scroll != 'image'){
                 current_scroll = 'text';
                 if (!ticking) {
@@ -131,6 +133,7 @@ function open_duo(){
         };
     };
     window_image.onload = function(){
+        console.log('image is onload');
         // window_text_isLoaded = true;
         window_image_height = window_image.document.body.querySelector('#image-container img').offsetHeight;
         window_image.onscroll = function(){
@@ -140,6 +143,7 @@ function open_duo(){
                 if (!ticking) {
                     window.requestAnimationFrame(function() {
                         window_image_top = window_image.scrollY;
+                        console.log(window_image_top);
                         window_text.scrollTo(0,window_image_top);
                         // detect when scroll stops
                         if(scroll_timer !== null)
