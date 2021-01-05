@@ -276,7 +276,7 @@ blockquote {
     left:0;
     margin: 20px;
     color: #00f;
-    color: rgba(0,0,0,0);
+    /*color: rgba(0,0,0,0);*/
     /*z-index: -1;*/
 }
 #image-text-container .section,
@@ -439,6 +439,7 @@ blockquote {
 }
 #image-holder-14
 {
+    padding-top: 120px;
     width: 700px;
 }
 #image-holder-14 img:last-of-type
@@ -470,7 +471,7 @@ blockquote {
 }
 #image-holder-16
 {
-    padding-top: 900px;
+    padding-top: 780px;
     width: 600px;
 }
 #image-holder-17{
@@ -508,6 +509,10 @@ blockquote {
 {
     padding-top: 50px;
     padding-left: 550px;
+}
+#image-holder-24
+{
+    margin-top: 450px;
 }
 #image-holder-24 img:first-of-type
 {
@@ -606,7 +611,7 @@ blockquote {
 }
 #image-holder-28
 {
-    padding-top: 1700px;
+    padding-top: 1250px;
 }
 @keyframes flashing
 {
