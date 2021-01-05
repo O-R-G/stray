@@ -275,8 +275,8 @@ blockquote {
     top: 0;
     left:0;
     margin: 20px;
-    color: #00f;
-    /*color: rgba(0,0,0,0);*/
+    /*color: #00f;*/
+    color: rgba(0,0,0,0);
     /*z-index: -1;*/
 }
 #image-text-container .section,
