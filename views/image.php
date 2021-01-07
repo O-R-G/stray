@@ -4,7 +4,10 @@
 ?>
 <script>
 </script>
-
+<section id ='main'>
+<ul id = 'chapter-nav'>
+		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
+	</ul>
 <div id = 'image-container' class = 'window-container'>
 	<div id = 'image-text-container'><?= $text; ?></div>
 	<div id = 'image-chapter-1' class= 'image-chapter'>
@@ -94,3 +97,4 @@
 		</div>
 	</div>
 </div>
+</section>

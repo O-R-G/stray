@@ -24,7 +24,10 @@ blockquote {
     margin-left: 80px;
     margin-right: 0px;
 }
-
+a{
+    text-decoration: none;
+    color: #000;
+}
 #main {
     margin: 20px;
 }
@@ -280,7 +283,7 @@ blockquote {
     /*z-index: -1;*/
 }
 #image-text-container .section,
-#image-text-container .chapter
+#image-text-container .chapter-number
 {
     color: #000;
 }
@@ -612,6 +615,35 @@ blockquote {
 #image-holder-28
 {
     padding-top: 1250px;
+}
+#chapter-nav
+{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    list-style: none;
+    font-size: 16px;
+    line-height: 16px;
+    z-index: 1000;
+}
+#chapter-nav li
+{
+    display: inline-block;
+    padding: 0 5px 0px 5px;
+    cursor: pointer;
+}
+#chapter-nav a:hover
+{
+    /*text-decoration: underline;*/
+    border-bottom: 2px solid #000;
+}
+.head
+{
+    padding-top: 10px;
+    margin-top: -10px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
 }
 @keyframes flashing
 {
