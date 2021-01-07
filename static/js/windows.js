@@ -134,6 +134,7 @@ function open_duo(){
     };
     window_image.onload = function(){
         console.log('image is onload');
+        
         // window_text_isLoaded = true;
         window_image_height = window_image.document.body.querySelector('#image-container img').offsetHeight;
         window_image.onscroll = function(){

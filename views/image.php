@@ -3,6 +3,10 @@
 	$text = $oo->get($text_id)['body'];
 ?>
 <script>
+	window.addEventListener('load', function(){
+		console.log('image on load from /image');
+	});
+	
 </script>
 <section id ='main'>
 <ul id = 'chapter-nav'>
@@ -25,6 +29,11 @@
 		</div>
 		<div id = 'image-holder-5' class = 'image-holder inline-image-holder' images='8'>
 			<img class = '' src = 'media/jpg/6-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/1-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/7-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/FRIENDS-IN-DEED-63x-fnl_10-inch.jpg'><img class = '' src = 'media/jpg/3-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/5-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/4-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/2-FRIENDS-IN-DEED_10-inch.jpg'>
+		</div>
+		<div id = 'audio-holder-1'>
+			<audio controls>
+				<source src="media/audio/NATE_DogonEclipse_30minloop.mp3" type="audio/mp3">
+			</audio>
 		</div>
 		<div id = 'image-holder-6' class = 'image-holder' images=''>
 			<img class = '' src = 'media/jpg/Grace-Walking-and-Talking.jpg'>
