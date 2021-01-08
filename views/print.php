@@ -133,118 +133,118 @@
 	 //    ], 
 
 	});
-	// window.addEventListener('load', function(){
-	// 	setTimeout(function(){
-	// 		var spread = document.getElementsByClassName('📖-spread-wrapper');
-	// 	var left_pages = [];
-	// 	var left_pages_div = document.createElement('DIV');
-	// 	var right_pages = [];
-	// 	var right_pages_div = document.createElement('DIV');
-	// 	var cover = document.createElement('DIV');
-	// 	cover.innerHTML = '<h1>COVER</h1>';
-	// 	cover.className = '📖-page 📖-right';
-	// 	right_pages_div.appendChild(cover);
-	// 	// right_pages.push(cover);
-	// 	var last = document.createElement('DIV');
-	// 	last.innerHTML = '<h1>BACK</h1>';
-	// 	last.className = '📖-page 📖-left';
+	window.addEventListener('load', function(){
+		setTimeout(function(){
+			var spread = document.getElementsByClassName('📖-spread-wrapper');
+		var left_pages = [];
+		var left_pages_div = document.createElement('DIV');
+		var right_pages = [];
+		var right_pages_div = document.createElement('DIV');
+		var cover = document.createElement('DIV');
+		cover.innerHTML = '<h1>COVER</h1>';
+		cover.className = '📖-page 📖-right';
+		right_pages_div.appendChild(cover);
+		// right_pages.push(cover);
+		var last = document.createElement('DIV');
+		last.innerHTML = '<h1>BACK</h1>';
+		last.className = '📖-page 📖-left';
 		
-	// 	console.log('spread length = '+spread.length);
-	// 	if(spread.length % 2 != 0){
-	// 		for(i = 0; i < parseInt(spread.length / 2 - 1); i++)
-	// 		{
-	// 			var pages = spread[i].querySelectorAll('.📖-page');
-	// 			[].forEach.call(pages, function(el, i){
-	// 				// console.log(el);
-	// 				var thisPage = el.cloneNode(true);
-	// 				if(thisPage.classList.contains('📖-right')){
-	// 					thisPage.classList.remove('📖-right');
-	// 					thisPage.classList.add('📖-left');
-	// 				}
-	// 				left_pages_div.appendChild(thisPage);
-	// 				// left_pages.push(thisPage);
-	// 			});
-	// 		}
-	// 		console.log('left pages length after first loop = '+left_pages_div.childNodes.length);
-	// 		var pages = spread[parseInt((spread.length / 2))+1].querySelectorAll('.📖-page');
-	// 		[].forEach.call(pages, function(el, i){
-	// 			// console.log(el);
-	// 			var thisPage = el.cloneNode(true);
-	// 			console.log(thisPage);
-	// 			if(thisPage.classList.contains('📖-right'))
-	// 				right_pages_div.appendChild(thisPage);
-	// 				// right_pages.push(thisPage);
-	// 			else
-	// 				left_pages_div.appendChild(thisPage);
-	// 				// left_pages.push(thisPage);
-	// 		});
-	// 		left_pages_div.appendChild(last);
-	// 		// left_pages.push(last);
-	// 		for(i = parseInt((spread.length / 2))+2; i < spread.length; i++)
-	// 		{
-	// 			var pages = spread[i].querySelectorAll('.📖-page');
-	// 			[].forEach.call(pages, function(el, i){
-	// 				// console.log(el);
-	// 				var thisPage = el.cloneNode(true);
-	// 				if(thisPage.classList.contains('📖-left')){
-	// 					thisPage.classList.remove('📖-left');
-	// 					thisPage.classList.add('📖-right');
-	// 				}
-	// 				right_pages_div.appendChild(thisPage);
-	// 				// right_pages.push(thisPage);
-	// 			});
-	// 		}
-	// 		console.log('left pages length = '+left_pages_div.childNodes.length);
-	// 		console.log('right pages length = '+right_pages_div.childNodes.length);
-	// 		console.log('spread length = '+spread.length);
-	// 		var left_pages_div_clone = left_pages_div.cloneNode(true);
-	// 		var right_pages_div_clone = right_pages_div.cloneNode(true);
-	// 		console.log(right_pages_div_clone.childNodes[1]);
-	// 		[].forEach.call(spread, function(el, i){
-	// 			// console.log(i);
-	// 			// var left_page = document.createElement('DIV');
-	// 			// left_page.innerHTML = left_pages[i];
-	// 			// el.appendChild(left_page);
-	// 			// console.log(left_pages_div.childNodes.length);
-	// 			el.innerHTML = '';
-	// 			// console.log(left_pages_div_clone.firstChild);
-	// 			if(left_pages_div_clone.firstChild !== null)
-	// 				el.appendChild(left_pages_div_clone.firstChild);
-	// 			if(right_pages_div_clone.firstChild !== null)
-	// 				el.appendChild(right_pages_div_clone.firstChild);
-	// 			// el.innerHTML = el.innerHTML + right_pages[i];
-	// 			// el.appendChild(left_pages[i]);
-	// 			// el.appendChild(right_pages[i]);
-	// 		});
+		console.log('spread length = '+spread.length);
+		if(spread.length % 2 != 0){
+			for(i = 0; i < parseInt(spread.length / 2 - 1); i++)
+			{
+				var pages = spread[i].querySelectorAll('.📖-page');
+				[].forEach.call(pages, function(el, i){
+					// console.log(el);
+					var thisPage = el.cloneNode(true);
+					if(thisPage.classList.contains('📖-right')){
+						thisPage.classList.remove('📖-right');
+						thisPage.classList.add('📖-left');
+					}
+					left_pages_div.appendChild(thisPage);
+					// left_pages.push(thisPage);
+				});
+			}
+			console.log('left pages length after first loop = '+left_pages_div.childNodes.length);
+			var pages = spread[parseInt((spread.length / 2))+1].querySelectorAll('.📖-page');
+			[].forEach.call(pages, function(el, i){
+				// console.log(el);
+				var thisPage = el.cloneNode(true);
+				console.log(thisPage);
+				if(thisPage.classList.contains('📖-right'))
+					right_pages_div.appendChild(thisPage);
+					// right_pages.push(thisPage);
+				else
+					left_pages_div.appendChild(thisPage);
+					// left_pages.push(thisPage);
+			});
+			left_pages_div.appendChild(last);
+			// left_pages.push(last);
+			for(i = parseInt((spread.length / 2))+2; i < spread.length; i++)
+			{
+				var pages = spread[i].querySelectorAll('.📖-page');
+				[].forEach.call(pages, function(el, i){
+					// console.log(el);
+					var thisPage = el.cloneNode(true);
+					if(thisPage.classList.contains('📖-left')){
+						thisPage.classList.remove('📖-left');
+						thisPage.classList.add('📖-right');
+					}
+					right_pages_div.appendChild(thisPage);
+					// right_pages.push(thisPage);
+				});
+			}
+			console.log('left pages length = '+left_pages_div.childNodes.length);
+			console.log('right pages length = '+right_pages_div.childNodes.length);
+			console.log('spread length = '+spread.length);
+			var left_pages_div_clone = left_pages_div.cloneNode(true);
+			var right_pages_div_clone = right_pages_div.cloneNode(true);
+			console.log(right_pages_div_clone.childNodes[1]);
+			[].forEach.call(spread, function(el, i){
+				// console.log(i);
+				// var left_page = document.createElement('DIV');
+				// left_page.innerHTML = left_pages[i];
+				// el.appendChild(left_page);
+				// console.log(left_pages_div.childNodes.length);
+				el.innerHTML = '';
+				// console.log(left_pages_div_clone.firstChild);
+				if(left_pages_div_clone.firstChild !== null)
+					el.appendChild(left_pages_div_clone.firstChild);
+				if(right_pages_div_clone.firstChild !== null)
+					el.appendChild(right_pages_div_clone.firstChild);
+				// el.innerHTML = el.innerHTML + right_pages[i];
+				// el.appendChild(left_pages[i]);
+				// el.appendChild(right_pages[i]);
+			});
 			
-	// 	}
-	// 	else
-	// 	{
+		}
+		else
+		{
 
-	// 	}
-	// 	var print_button = document.querySelector('button.📖-btn-print');
-	// 	print_button.addEventListener('click', function(){
-	// 		console.log('click print');
-	// 		left_pages_div_clone = left_pages_div.cloneNode(true);
-	// 		right_pages_div_clone = right_pages_div.cloneNode(true);
+		}
+		var print_button = document.querySelector('button.📖-btn-print');
+		print_button.addEventListener('click', function(){
+			console.log('click print');
+			left_pages_div_clone = left_pages_div.cloneNode(true);
+			right_pages_div_clone = right_pages_div.cloneNode(true);
 
-	// 		var print_sheet_right = document.getElementsByClassName('📖-print-sheet-right');
-	// 		console.log(print_sheet_right.length);
-	// 		[].forEach.call(print_sheet_right, function(el, i){
-	// 			console.log('raplaceing');
-	// 			var toReplace = el.getElementsByClassName('📖-right');
-	// 			el.parentNode.replaceChild(right_pages_div_clone.firstChild, toReplace);
-	// 		});
+			var print_sheet_right = document.getElementsByClassName('📖-print-sheet-right');
+			console.log(print_sheet_right.length);
+			[].forEach.call(print_sheet_right, function(el, i){
+				console.log('raplaceing');
+				var toReplace = el.getElementsByClassName('📖-right');
+				el.parentNode.replaceChild(right_pages_div_clone.firstChild, toReplace);
+			});
 
-	// 		var print_sheet_left = document.getElementsByClassName('📖-print-sheet-left');
-	// 		[].forEach.call(print_sheet_left, function(el, i){
-	// 			var toReplace = el.getElementsByClassName('📖-left');
-	// 			el.parentNode.replaceChild(left_pages_div_clone.firstChild, toReplace);
-	// 		});
-	// 	});
-	// 	}, 2000);
+			var print_sheet_left = document.getElementsByClassName('📖-print-sheet-left');
+			[].forEach.call(print_sheet_left, function(el, i){
+				var toReplace = el.getElementsByClassName('📖-left');
+				el.parentNode.replaceChild(left_pages_div_clone.firstChild, toReplace);
+			});
+		});
+		}, 2000);
 		
 		
-	// });
+	});
 	
 </script>
