@@ -3,8 +3,28 @@
 	$text = $oo->get($text_id)['body'];
 ?>
 <script>
+	var audio_position = [];
+	var wH = window.innerHeight;
+	var ticking = false;
+	var playing = false;
 	window.addEventListener('load', function(){
-		console.log('image on load from /image');
+		var audio = document.querySelectorAll('#image-container audio');
+		[].forEach.call(audio, function(el, i){
+			audio_position.push(el.offsetTop);
+		});
+		console.log(audio_position);
+		window.addEventListener('scroll', function(){
+			if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    if(window.scrollY > audio_position[0]-wH/2 && !playing){
+                    	audio[0].play();
+                    	playing = true;
+                    }
+                });
+                ticking = true;
+            }
+            ticking = false;
+		});
 	});
 	
 </script>
@@ -30,7 +50,7 @@
 		<div id = 'image-holder-5' class = 'image-holder inline-image-holder' images='8'>
 			<img class = '' src = 'media/jpg/6-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/1-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/7-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/FRIENDS-IN-DEED-63x-fnl_10-inch.jpg'><img class = '' src = 'media/jpg/3-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/5-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/4-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/2-FRIENDS-IN-DEED_10-inch.jpg'>
 		</div>
-		<div id = 'audio-holder-1'>
+		<div id = 'audio-holder-1' class = 'audio-holder'>
 			<audio controls>
 				<source src="media/audio/NATE_DogonEclipse_30minloop.mp3" type="audio/mp3">
 			</audio>
@@ -107,3 +127,30 @@
 	</div>
 </div>
 </section>
+<button id = 'print'></button>
+<script src="/static/js/bindery.min.js"></script>
+<script>
+	var print = document.getElementById('print');
+	print.addEventListener('click', function(){
+		Bindery.makeBook({ 
+			content: '#main',
+			pageSetup: {
+				size: { width: '8.5in', height: '11in' },
+				margin: { top: '0.5in', inner: '1.25in', outer: '0.25in', bottom: '0.5in' },
+			},
+			printSetup: {
+			    // layout: Bindery.Layout.BOOKLET,
+			    // paper: Bindery.Paper.LETTER_PORTRAIT,
+			    marks: Bindery.Marks.CROP,
+			    bleed: '12pt',
+			},
+			rules: [
+		      Bindery.PageBreak(
+		      	{ selector: '.page-breaker', position: 'before', continue:'right' }
+	      	),
+		    ], 
+		});
+
+	});
+  
+</script>

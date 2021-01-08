@@ -108,9 +108,9 @@ function open_duo(){
     window_text.onload = function(){
         console.log('text is onload');
         // window_text_isLoaded = true;
-        window_text_height = window_text.document.body.querySelector('#main').offsetHeight;
+        // window_text_height = window_text.document.body.querySelector('#main').offsetHeight;
         window_text.onscroll = function(){
-            console.log('text is scrolling');
+            // console.log('text is scrolling');
             if(current_scroll != 'image'){
                 current_scroll = 'text';
                 if (!ticking) {
@@ -121,7 +121,7 @@ function open_duo(){
                         if(scroll_timer !== null)
                             clearTimeout(scroll_timer);
                         scroll_timer = setTimeout(function(){
-                            console.log('scroll stops');
+                            // console.log('scroll stops');
                             current_scroll = false;
                         }, 150);
                     });
@@ -136,21 +136,21 @@ function open_duo(){
         console.log('image is onload');
         
         // window_text_isLoaded = true;
-        window_image_height = window_image.document.body.querySelector('#image-container img').offsetHeight;
+        // window_image_height = window_image.document.body.querySelector('#image-container img').offsetHeight;
         window_image.onscroll = function(){
-            console.log(current_scroll);
+            // console.log(current_scroll);
             if(current_scroll != 'text'){
                 current_scroll = 'image';
                 if (!ticking) {
                     window.requestAnimationFrame(function() {
                         window_image_top = window_image.scrollY;
-                        console.log(window_image_top);
+                        // console.log(window_image_top);
                         window_text.scrollTo(0,window_image_top);
                         // detect when scroll stops
                         if(scroll_timer !== null)
                             clearTimeout(scroll_timer);
                         scroll_timer = setTimeout(function(){
-                            console.log('scroll stops');
+                            // console.log('scroll stops');
                             current_scroll = false;
                         }, 150);
                     });

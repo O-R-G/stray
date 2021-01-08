@@ -24,11 +24,16 @@ blockquote {
     margin-left: 80px;
     margin-right: 0px;
 }
+h1, h2{
+    font-size: 1em;
+    font-weight: normal;
+}
 a{
     text-decoration: none;
     color: #000;
 }
-#main {
+#main,
+.print-content {
     margin: 20px;
 }
 
@@ -622,7 +627,7 @@ a{
 }
 #audio-holder-1
 {
-    padding-top: 100px;
+    margin-top: 100px;
 }
 #chapter-nav
 {
@@ -653,6 +658,42 @@ a{
     position: sticky;
     top: 10px;
 }
+#print
+{
+    cursor:pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    bottom: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-image: url(../../media/svg/bindery-logo40.svg);
+}
+.indent
+{
+    margin-left: 50px;
+}
+.audio-holder
+{
+    text-align: center;
+    /*position: sticky;*/
+    /*position: -webkit-sticky;*/
+    /*top: 10px;*/
+}
+.📖-root .print-content
+{
+    margin: 0;
+}
+/*div > div
+{
+    margin-left: 50px;
+}*/
 @keyframes flashing
 {
     0%{
