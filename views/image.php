@@ -127,7 +127,9 @@
 	</div>
 </div>
 </section>
-<button id = 'print'></button>
+<a id = 'print' href = '/print'></a>
+
+<!-- <button id = 'print'></button>
 <script src="/static/js/bindery.min.js"></script>
 <script>
 	var print = document.getElementById('print');
@@ -153,4 +155,4 @@
 
 	});
   
-</script>
+</script> -->
