@@ -93,6 +93,12 @@ a{
     width: 900px;
     margin: 0 auto;
 }
+#nav
+{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
 .colophon_col{
     display: inline-block;
     width: calc((100% - 40px) / 2);
@@ -215,29 +221,11 @@ a{
     /*height: 100vh;*/
 }
 
-/*#image-container img{
-    opacity: 0;
-}
-#image-container.viewing img{
-    opacity: 1;
-    transition: opacity .5s;
-}
-#image-container img.landscape{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-}
-#image-container img.portrait{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-}*/
 #radio_container{
     overflow: hidden;
     height: 100vh;
-    background-color: #000;
+    background-color: #CCC;
+    text-align: center;
     /*color: #fff;*/
 }
 #radio_text
@@ -311,7 +299,13 @@ a{
     display: inline-block;
     margin-top: 50px;
 }
-
+.radio_image
+{
+    width: initial;
+    height: calc(100% - 40px);
+    margin-top: 20px;
+    cursor: pointer;
+}
 .radio_image.not_current
 {
     display: none;
@@ -690,6 +684,8 @@ a{
 {
     margin: 0;
 }
+
+
 /*div > div
 {
     margin-left: 50px;
