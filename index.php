@@ -27,8 +27,10 @@ elseif($uri[1] == 'radio')
 	require_once('views/radio.php');
 else if($uri[1] == 'source')
 	require_once('views/main.php');
-else if($uri[1] == 'print')
+else if(strpos($uri[1], 'print') !== false)
 	require_once('views/print.php');
+else if($uri[1] == 'measure')
+	require_once('views/measure.php');
 
 require_once('views/foot.php');
 ?>

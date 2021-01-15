@@ -43,6 +43,12 @@ function popup(chapter, query, type = false, path = false){
     	var this_height = 200;
 		p = '/audio';
     }
+    else if(type == 'print')
+    {
+        var this_width = 800;
+        var this_height = 700;
+        p = '/audio';
+    }
 
     // query = '?chapter='+chapter+'&section='+type+query;
     
@@ -70,6 +76,11 @@ function popup(chapter, query, type = false, path = false){
         var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/image', 'STRAY. IMAGE', this_param);
+    }
+    else if(chapter == 'print'){
+        var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left+',scrollbars=yes';
+        // return window.open('/chapter'+query, window_name, this_param);
+        return window.open('/print', 'STRAY. PRINT', this_param);
     }
     else{
 		var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left;

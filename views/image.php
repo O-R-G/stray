@@ -127,7 +127,7 @@
 	</div>
 </div>
 </section>
-<a id = 'print' href = '/print'></a>
+<a id = 'print' href = "javascript:popup('print', '', 'print');"></a>
 
 <!-- <button id = 'print'></button>
 <script src="/static/js/bindery.min.js"></script>

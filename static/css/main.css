@@ -32,6 +32,13 @@ a{
     text-decoration: none;
     color: #000;
 }
+:root {
+  --print-margin-top: 17.5mm;
+  --print-margin-outer: 10mm;
+  --print-margin-bottom: 17.5mm;
+  --print-margin-inner: 30mm;
+
+}
 #main,
 .print-content {
     margin: 20px;
@@ -182,7 +189,9 @@ a{
 }
 #text-container, 
 #allcaps-container,
-#image-text-container
+#image-text-container,
+.text-container,
+.image-text-container
 {
     font-size: 16px;
     line-height: 20px
@@ -275,8 +284,14 @@ a{
     color: rgba(0,0,0,0);
     /*z-index: -1;*/
 }
+.image-text-container
+{
+    color: rgba(0,0,0,0);
+}
 #image-text-container .section,
-#image-text-container .chapter-number
+#image-text-container .chapter-number,
+.image-text-container .chapter-number,
+.image-text-container .section
 {
     color: #000;
 }
@@ -669,9 +684,26 @@ a{
     background-size: 100%;
     background-image: url(../../media/svg/bindery-logo40.svg);
 }
-.indent
+.text-indent
 {
-    margin-left: 50px;
+    padding-left: 50px;
+}
+.text-indent-2
+{
+    padding-left: 100px;
+}
+.text-indent-3
+{
+    padding-left: 150px;
+}
+.text-indent-4
+{
+    padding-left: 200px;
+}
+.text-indent, .text-indent-2, .text-indent-3, .text-indent-4
+{
+    /*display: inline-block;*/
+    /*position: absolute;*/
 }
 .audio-holder
 {
@@ -684,15 +716,131 @@ a{
 {
     margin: 0;
 }
-
-/*style for print layout*/
-#print_content #text-container,
-#print_content #image-text-container,
-#print_content #allcaps-container
+#measure-container .print-content
 {
-  font-size: 32px;
-  line-height: 40px;
+
 }
+.print-image-holder
+{
+    position: absolute;
+}
+.print-image-holder.fullWidth
+{
+    width: calc(210mm - (var(--print-margin-outer) + var(--print-margin-inner)));
+}
+
+.print-image-holder.halfWidth
+{
+    width: calc( (210mm - 10mm - ( var(--print-margin-outer) + var(--print-margin-inner))) / 2);
+}
+.print-image-holder.twoThirdWidth
+{
+    width: 66%;
+}
+.print-image-holder.centeredHorizontal
+{
+    left: 50%;
+    transform: translate(-50%);
+}
+.print-image-holder.centeredFullPage
+{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#print-image-holder-1
+{
+    top: 36mm;
+    left: var(--print-margin-outer);
+}
+#print-image-holder-2
+{
+    top: 36mm;
+    left: 100mm;
+}
+#print-image-holder-3
+{
+    /* h = 131.37mm */
+    right: 30mm;
+    bottom: -40mm;
+}
+#print-image-holder-4
+{
+    /* h = 131.37mm */
+    right: 30mm;
+    top: -91mm;
+}
+#print-image-holder-5
+{
+    top: 50mm;
+    left: var(--print-margin-outer);
+}
+#print-image-holder-6
+{
+    top: 60mm;
+}
+#print-image-holder-9
+{
+    top: 80mm;
+    left: var(--print-margin-outer);
+}
+#print-image-holder-10
+{
+    top: 30mm;
+    right: var(--print-margin-inner);
+}
+#print-image-holder-11
+{
+    width: 100mm;
+    top: 13mm;
+    left: 0mm;
+}
+#print-image-holder-12
+{
+    top: 120mm;
+    width: 45mm;
+    left: 50mm;
+}
+#print-image-holder-13
+{
+    top: 120mm;
+    width: 45mm;
+    left: 100mm;
+}
+#print-image-holder-14
+{
+    top: 120mm;
+    width: 45mm;
+    left: 150mm;
+}
+#print_mask
+{
+    background-color: rgba(255, 255, 255, .9);
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+}
+.readyForPrint #print_mask
+{
+    display: none;
+}
+#print_mask p
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.print-cover-img
+{
+    position: absolute;
+    top:0;
+    height: 100%;
+    left: 0;
+}
+/*style for print layout*/
 
 /*div > div
 {
