@@ -132,10 +132,7 @@
 		<!-- </div> -->
 	<!-- </section> -->
 	<section id="" class = 'print-content'>
-		<!-- <ul id = 'chapter-nav'>
-			<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
-		</ul> -->
-	    <div id = '' class = 'text-container window-container'><?
+		<div id = '' class = 'text-container window-container'><?
 	            echo $text;
 	    ?></div>
 	</section>

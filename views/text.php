@@ -9,7 +9,8 @@ $date = $item['begin'];
 $find = '/<div><br><\/div>/';
 $replace = '';
 $body = preg_replace($find, $replace, $body);
-?><section id="print-content-text" class = 'print-content'>
+?>
+<section id="main" class = ''>
 	<ul id = 'chapter-nav'>
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>
