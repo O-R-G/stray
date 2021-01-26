@@ -757,7 +757,7 @@ a{
 }
 #image-holder-38
 {
-    
+    float: right;
     padding-top: 100px;
 }
 #image-holder-38 img
@@ -767,10 +767,11 @@ a{
 }
 #audio-holder-3
 {
-    position: absolute;
-    bottom: 10px;
-    left: 200px;
-    transform: translate(-50%, 0);
+    padding-top: 520px;
+    /*position: absolute;*/
+    /*bottom: 10px;*/
+    /*left: 200px;*/
+    /*transform: translate(-50%, 0);*/
 }
 #chapter-nav
 {
