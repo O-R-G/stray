@@ -1,4 +1,13 @@
 wetwords/
 wetwords-image/
 wetwords-slide/
+media/*.gif
+media/*.jpg
+media/*.jpeg
+media/*.png
+media/*.pdf
+media/*.svg
+media/*.tif
+media/*.tiff
+media/*.mp4
 # open-records-generator/

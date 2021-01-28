@@ -68,6 +68,14 @@ a{
     display: block;
     background-color: #444;
 */}
+#text-container a
+{
+    text-decoration: underline;
+}
+#text-container a:hover
+{
+    text-decoration: none;
+}
 #slide_display{
     /*margin: 20px;*/
     /*height: calc( 100vh - 40px);*/
@@ -751,14 +759,20 @@ a{
     top: 400px;
     width: 140px;
 }
+#image-holder-39
+{
+    padding-top: 750px;
+}
 #image-holder-28
 {
-    padding-top: 1300px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 #image-holder-38
 {
     float: right;
-    padding-top: 100px;
+    padding-top: 500px;
 }
 #image-holder-38 img
 {
@@ -767,7 +781,7 @@ a{
 }
 #audio-holder-3
 {
-    padding-top: 520px;
+    padding-top: 920px;
     /*position: absolute;*/
     /*bottom: 10px;*/
     /*left: 200px;*/

@@ -12,80 +12,52 @@ var ticking = false;
 var current_scroll = false;
 var scroll_timer = null;
 
-function popup(chapter, query, type = false, path = false){
+function popup(name){
 	var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
 	var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;		
+    var window_name = 'STRAY. ';
+    var name_temp = name;
+    var name_cat = '';
+    if( name.indexOf('/') !== false )
+    {
+        name_cat = name_temp.substring(0, name_temp.indexOf('/'));
+        name_temp = name_temp.substring(name_temp.indexOf('/'));
+        window_name += name_cat.substring(0, 1).toUpperCase() + name_cat.substring(1);
+    }
+    window_name += name_temp.substring(0, 1).toUpperCase() + name_temp.substring(1);
 
-    var window_name = ( isNaN(chapter) ) ? 'STRAY' + '. ' + chapter : 'Chapter ' + chapter + '. ' + type;
-
-    var p = '/'+chapter+'/'+type;
-    if(type == 'text')
-    {
-    	var this_width = 800;
-    	var this_height = 700;
-    }
-    else if(type == 'image')
-    {
-    	var this_width = 800;
-    	var this_height = 700;
-    	if(path)
-    		p += '/'+path;
-    }
-    else if(type == 'allcaps')
-    {
-    	var this_width = 650;
-    	var this_height = 450;
-		p += '/'+(path-1);
-    }
-    else if(type == 'audio')
-    {
-    	var this_width = 200;
-    	var this_height = 200;
-		p = '/audio';
-    }
-    else if(type == 'print')
-    {
-        var this_width = 800;
-        var this_height = 700;
-        p = '/audio';
-    }
-
-    // query = '?chapter='+chapter+'&section='+type+query;
-    
- 
-    
-
-	if(chapter == 'colophon'){
+	if(name == 'colophon'){
 		var this_param = 'width=650,height=450,top='+this_top+',left='+this_left;
 		window_text = window.open('/colophon', window_name, this_param);
 	}
-	else if(chapter == 'radio'){
-		var this_param = 'width=400,height=520,top='+this_top+',left='+this_left;
-		window_radio = window.open('/radio', window_name, this_param);
-	}
-	else if(chapter == 'audio'){
-		var this_param = 'width=100,height=100,top='+this_top+',left='+this_left;
-		window_radio  = window.open('/audio', window_name, this_param);
-	}
-    else if(chapter == 'text'){
-        var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left+',scrollbars=yes';
+	
+    else if(name == 'text'){
+        var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/text', 'STRAY. TEXT', this_param);
     }
-    else if(chapter == 'image'){
-        var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left+',scrollbars=yes';
+    else if(name == 'image'){
+        var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/image', 'STRAY. IMAGE', this_param);
     }
-    else if(chapter == 'print'){
+    else if(name == 'print'){
         var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/print', 'STRAY. PRINT', this_param);
     }
+    // else if(name == 'radio'){
+    //     var this_param = 'width=400,height=520,top='+this_top+',left='+this_left;
+    //     window_radio = window.open('/radio', window_name, this_param);
+    // }
+    // else if(name == 'audio'){
+    //     var this_param = 'width=100,height=100,top='+this_top+',left='+this_left;
+    //     window_radio  = window.open('/audio', window_name, this_param);
+    // }
     else{
-		var this_param = 'width='+this_width+',height='+this_height+',top='+this_top+',left='+this_left;
+		var this_param = 'width=800,height=700,top='+this_top+',left='+this_left;
 		// return window.open('/chapter'+query, window_name, this_param);
-		return window.open('/chapter'+p, window_name, this_param);
+		return window.open('/'+name, window_name, this_param);
 	}
 }
 

@@ -17,20 +17,16 @@ elseif($uri[1] == 'text')
 	require_once('views/text.php');
 elseif($uri[1] == 'image')
 	require_once('views/image.php');
-elseif($uri[1] == 'audio')
-	require_once('views/audio.php');
 elseif($uri[1] == 'letter')
 	require_once('views/letter.php');
 elseif($uri[1] == 'colophon')
 	require_once('views/column.php');
-elseif($uri[1] == 'radio')
-	require_once('views/radio.php');
+elseif($uri[1] == 'appendix')
+	require_once('views/appendix.php');
 else if($uri[1] == 'source')
 	require_once('views/main.php');
 else if(strpos($uri[1], 'print') !== false)
 	require_once('views/print.php');
-else if($uri[1] == 'measure')
-	require_once('views/measure.php');
 
 require_once('views/foot.php');
 ?>

@@ -20,7 +20,7 @@
 		[].forEach.call(audio_rearranged, function(el, i){
 			audio_position.push(el.offsetTop);
 		});
-		console.log(audio_position);
+
 		window.addEventListener('scroll', function(){
 			if (!ticking) {
                 window.requestAnimationFrame(function() {
@@ -180,6 +180,12 @@
 		</div>
 		<div id = 'image-holder-27' class = 'image-holder overlap-image-holder' zindex='1'>
 			<img class = '' src = 'media/jpg/SE_Record_IMG_5615_V2_42x50_Final.jpg'><img class = '' src = 'media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_no_VOG_15x18_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_no_VOG_15x18_Final_1.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_pass_V2_15x31_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_tres_VOG_15x32_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_Sing_V3_15x30_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_ing_V2_15x22_Final.jpg'>
+		</div>
+		<div id = 'image-holder-39' class = 'image-holder' images=''>
+			<img class = '' src = 'media/jpg/hot-field-sec-1.jpg'>
+		</div>
+		<div id = 'image-holder-40' class = 'image-holder' images=''>
+			<img class = '' src = 'media/jpg/hot-field-sec-2.jpg'>
 		</div>
 		<div id = 'image-holder-28' class = 'image-holder' images=''>
 			<img class = '' src = 'media/jpg/SE_Section_3_WetWords_V3_118x178.jpg'>
