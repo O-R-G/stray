@@ -182,7 +182,7 @@
 	      }
 	    }
 	};
-	httpRequest.open('GET', 'http://stray.o-r-g.net/now');
+	httpRequest.open('GET', 'https://stray.o-r-g.net/now');
 	httpRequest.send();
 	[].forEach.call(radio_image, function(el, i){
 		el.addEventListener('click', ()=>open_duo());

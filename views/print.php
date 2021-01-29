@@ -548,7 +548,7 @@
 		      }
 		    }
 		};
-		httpRequest.open('GET', 'http://stray.o-r-g.net/now');
+		httpRequest.open('GET', 'https://stray.o-r-g.net/now');
 		httpRequest.send();
 		
 	}
