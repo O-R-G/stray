@@ -1283,6 +1283,16 @@ a{
 {
     width: 185mm;
 }
+#print-image-holder-68
+{
+    width: 185mm;
+}
+#print-image-holder-69
+{
+    width: 80mm;
+    right: var(--print-margin-inner);
+    top: 150mm;
+}
 
 #print_mask
 {

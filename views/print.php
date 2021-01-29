@@ -459,6 +459,13 @@
 				url: 'SE_Section_3_WetWords_V3_118x178.jpg',
 				class: ['centeredFullPage']
 			}
+		],
+		[
+			{ 
+				id:69,
+				url: 'quick_IMG_6114.jpg',
+				class: false
+			}
 		]
 
 		
