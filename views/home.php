@@ -40,6 +40,8 @@
 	var radio_image_1 = document.getElementById('radio_image_1');
 	var radio_image_2 = document.getElementById('radio_image_2');
 	var image_counter = 0;
+	var loop_timer = null;
+	var isPlaying = false;
 
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
 	var src_arr = [];
@@ -57,6 +59,7 @@
 			this_letter = 'slash';
 		else if(this_letter == ' ')
 			return 'whitespace';
+
 		var this_max = filenum_arr[this_letter];
 		var letter_order = Math.floor(Math.random() * Math.floor(this_max));
 		var output = 'media/letters/'+this_letter+'-'+letter_order+'.jpg';
@@ -140,7 +143,6 @@
 		}
 		var preload_img = new Image();
 		preload_img.onload = function(){
-			console.log('preload onload');
 			preload_index++;
 			if(preload_index < words_length)
 			{
@@ -170,7 +172,8 @@
       				// so "current_letter" is actually the next next index to preload
       				current_letter = (current_letter + 2) % radio_words.length;
       				
-      				setInterval(function(){
+      				loop_timer = setInterval(function(){
+      					isPlaying = true;
       					current_letter = loop_letters(current_letter, radio_words, src_arr);
       				}, 1000);
       				
@@ -182,6 +185,29 @@
 	httpRequest.open('GET', 'http://stray.o-r-g.net/now');
 	httpRequest.send();
 	[].forEach.call(radio_image, function(el, i){
-		el.addEventListener('click', open_duo);
+		el.addEventListener('click', ()=>open_duo());
 	});
+
+	window.addEventListener('keydown', event => {
+		if(event.keyCode == '32'){
+			loop_timer = pauseplay();
+		}
+	});
+
+	function pauseplay(){
+		if(isPlaying)
+		{
+			isPlaying = false;
+			clearInterval(loop_timer);
+			return null;
+		}
+		else
+		{
+			isPlaying = true;
+			return setInterval(function(){
+      					current_letter = loop_letters(current_letter, radio_words, src_arr);
+      			    }, 1000);
+		}
+	}
+
 </script>

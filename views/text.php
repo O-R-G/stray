@@ -19,7 +19,7 @@ $body = preg_replace($find, $replace, $body);
     ?></div>
 </section>
 <!-- <button id = 'print'><img src = '/media/svg/bindery-logo40.svg'></button> -->
-<a id = 'print' href = "javascript:popup('print', '', 'print');"></a>
+<a id = 'print' href = "javascript:popup('print');"></a>
 
 <script>
   

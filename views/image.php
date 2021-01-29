@@ -45,7 +45,7 @@
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>
 	<div id = 'image-container' class = 'window-container'>
-		<div id = 'mask-text-container'><?= $text; ?></div>
+		<div class = 'mask-text-container'><?= $text; ?></div>
 		<!-- <div id = 'image-holder-1' class = 'image-holder inline-image-holder' images='2'>
 			<img class = '' src = 'media/jpg/STRAY-NM.jpg'><img class = '' src = 'media/jpg/STRAY-SH.jpg'>
 		</div> -->
@@ -103,7 +103,7 @@
 		</div>
 		<!-- II-1 -->
 		<div id = 'image-holder-34' class = 'image-holder centered' images=''>
-			<img class = '' src = 'media/jpg/Elliman_LB18-scrambled-bag-2.jpg'>
+			<a href="javascript:popup('appendix/paul-elliman')"><img class = '' src = 'media/jpg/Elliman_LB18-scrambled-bag-2.jpg'></a>
 		</div>
 		<div id = 'audio-holder-2' class = 'audio-holder'>
 			<audio controls>
@@ -200,7 +200,7 @@
 		</div>
 	</div>
 </section>
-<a id = 'print' href = "javascript:popup('print', '', 'print');"></a>
+<a id = 'print' href = "javascript:popup('print');"></a>
 
 <!-- <button id = 'print'></button>
 <script src="/static/js/bindery.min.js"></script>
