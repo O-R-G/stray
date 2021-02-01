@@ -23,10 +23,11 @@ elseif($uri[1] == 'colophon')
 	require_once('views/column.php');
 elseif($uri[1] == 'appendix')
 	require_once('views/appendix.php');
-else if($uri[1] == 'source')
+elseif($uri[1] == 'source')
 	require_once('views/main.php');
-else if(strpos($uri[1], 'print') !== false)
+elseif(strpos($uri[1], 'print') !== false)
 	require_once('views/print.php');
-
+elseif($uri[1] == 'zoom-in')
+	require_once('views/zoom-in.php');
 require_once('views/foot.php');
 ?>

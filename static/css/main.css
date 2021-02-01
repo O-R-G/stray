@@ -1325,6 +1325,17 @@ a{
 {
 
 }
+#zoom-in-container{
+    white-space: nowrap;
+}
+#zoom-in-container img
+{
+    display: block;
+}
+body.overflow-hidden
+{
+    overflow: visible;
+}
 /*style for print layout*/
 
 /*div > div

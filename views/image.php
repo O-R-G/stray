@@ -201,7 +201,26 @@
 	</div>
 </section>
 <a id = 'print' href = "javascript:popup('print');"></a>
-
+<form id="filename-form" method="post" action="/zoom-in" >
+	<input id="filename-input" type="hidden" name="image-filename">
+</form>
+<script>
+	var imgs = document.querySelectorAll('#image-container img');
+	[].forEach.call(imgs, function(el, i){
+		el.addEventListener('click', function(){
+			var thisSrc = el.src;
+			if(thisSrc !== null)
+			{
+				var sFilenameForm = document.getElementById('filename-form');
+				var sFilenameInput = document.getElementById('filename-input');
+				var last_slash_pos = thisSrc.lastIndexOf('/');
+				var thisFilename = thisSrc.substring(last_slash_pos+1);
+				sFilenameInput.value = thisFilename;
+				sFilenameForm.submit();
+			}
+		});
+	});
+</script>
 <!-- <button id = 'print'></button>
 <script src="/static/js/bindery.min.js"></script>
 <script>

@@ -56,4 +56,4 @@ $devhash = rand();  // to force .css reloads
         <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
         <script src="/static/js/windows.js"></script>
     </head>
-    <body>
+    <body class = '<?= $uri == 'zoom-in' ? 'overflow-hidden' : ''; ?>'>
