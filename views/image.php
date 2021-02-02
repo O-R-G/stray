@@ -56,7 +56,7 @@
 			<img class = '' src = 'media/jpg/TEMPLE-HIGH-AND-LO-20x13_10-inches.jpg'>
 		</div>
 		<div id = 'image-holder-29' class = 'image-holder centered' images=''>
-			<img class = '' src = 'media/jpg/pp_to print_IMG_0423.jpg'>
+			<img class = '' src = 'media/jpg/pp_to-print_IMG_0423.jpg'>
 		</div>
 		<div id = 'image-holder-4' class = 'image-holder inline-image-holder' images='2'>
 			<img class = '' src = 'media/jpg/STRAY-SH.jpg'><img class = '' src = 'media/jpg/STRAY-NM.jpg'>
@@ -82,7 +82,7 @@
 			</div>
 			<!-- I-8 -->
 			<div id = 'image-holder-30' class = 'image-holder' images=''>
-				<img class = '' src = 'media/jpg/BOMBARDO_fnl_10 inch.jpg'>
+				<img class = '' src = 'media/jpg/BOMBARDO_fnl_10-inch.jpg'>
 			</div>
 			<!-- I-9 -->
 			<div id = 'image-holder-31' class = 'image-holder inline-image-holder' images='2'>
@@ -119,7 +119,7 @@
 		<div id = 'image-holder-12' class = 'image-holder image-float-container' images=''>
 			<img class = '' src = 'media/jpg/quick_IMG_2222.jpg'>
 		</div>
-		<div id = 'image-holder-11' class = 'image-holder overlap-image-holder' zindex='-1' images=''>
+		<div id = 'image-holder-11' class = 'image-holder overlap-image-holder' zindex='1' images=''>
 			<img class = '' src = 'media/jpg/SE_Shaker_HIRES_LAYOUT_V2_57x78_Final.jpg'>
 		</div>
 		<div id = 'image-holder-10' class = 'image-holder image-float-container' >
@@ -201,11 +201,12 @@
 	</div>
 </section>
 <a id = 'print' href = "javascript:popup('print');"></a>
-<form id="filename-form" method="post" action="/zoom-in" >
+<form id="filename-form" method="post" action="/zoom-in" target="_blank">
 	<input id="filename-input" type="hidden" name="image-filename">
 </form>
 <script>
 	var imgs = document.querySelectorAll('#image-container img');
+	var zoom_window;
 	[].forEach.call(imgs, function(el, i){
 		el.addEventListener('click', function(){
 			var thisSrc = el.src;
@@ -215,8 +216,9 @@
 				var sFilenameInput = document.getElementById('filename-input');
 				var last_slash_pos = thisSrc.lastIndexOf('/');
 				var thisFilename = thisSrc.substring(last_slash_pos+1);
-				sFilenameInput.value = thisFilename;
-				sFilenameForm.submit();
+				// sFilenameInput.value = thisFilename;
+				// sFilenameForm.submit();
+				zoom_window = popup('zoom', thisFilename);
 			}
 		});
 	});

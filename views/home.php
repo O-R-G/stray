@@ -4,12 +4,18 @@
 
 	$radio_words_raw = $text_item['body'];
 	$radio_words_raw = str_replace("</div><div>", " ", $radio_words_raw);
+	$radio_words_raw = str_replace("&nbsp;", " ", $radio_words_raw);
 	$radio_words_raw = preg_replace("/<br\W*?\/?>/", " ", $radio_words_raw);
 	$radio_words_raw = strip_tags($radio_words_raw);
-	$radio_words_raw = str_replace(", ", ",,, ", $radio_words_raw);
+	// $radio_words_raw = str_replace(", ", ",,, ", $radio_words_raw);
+	$radio_words_raw = preg_replace("/(\w)(,)( |”)/", '\1,,,\3', $radio_words_raw);
+	$radio_words_raw = preg_replace("/(\w[^I ])(\.)( |”)/", '\1...\3', $radio_words_raw);
+	// var_dump($radio_words_raw);
+	// die();
 	// $radio_words_raw = preg_replace("/\w\./", "... ", $radio_words_raw);
 	// $radio_words_raw = str_replace(". ", "... ", $radio_words_raw);
 	$radio_words = htmlspecialchars($radio_words_raw, ENT_QUOTES);
+	$radio_words = 'ABSBASABC ... '.$radio_words;
 	// var_dump(strlen($radio_words));
 	while(ord(substr($radio_words, strlen($radio_words)-1)) == 9  || 
 		  ord(substr($radio_words, strlen($radio_words)-1)) == 10  || 
@@ -18,9 +24,9 @@
 		$radio_words = substr($radio_words, 0, strlen($radio_words)-1);
 	}
 
-	$radio_words = substr($radio_words, 0, 50942);
-	$test = "'";
-	$test_2 = htmlspecialchars($test, ENT_QUOTES);
+	// $radio_words = substr($radio_words, 0, 50942);
+	// $test = "'";
+	// $test_2 = htmlspecialchars($test, ENT_QUOTES);
 	// var_dump($test_2);
 	// var_dump($radio_words);
 	// for($i = 0; $i < )
@@ -64,6 +70,8 @@
 
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
 	var src_arr = [];
+	var previous_char = '';
+	var saved_order = [];
 	function format_img_src(letter){
 		var this_letter = letter.toUpperCase();
 		if(this_letter == '&')
@@ -81,6 +89,12 @@
 
 		var this_max = filenum_arr[this_letter];
 		var letter_order = Math.floor(Math.random() * Math.floor(this_max));
+		var fuse = 0;
+		while(saved_order.includes(letter_order) && fuse < 20){
+			letter_order = Math.floor(Math.random() * Math.floor(this_max));
+			fuse++;
+		}
+		saved_order.push(letter_order);
 		var output = 'media/letters/'+this_letter+'-'+letter_order+'.jpg';
 		return output;
 	}
@@ -92,7 +106,6 @@
 	    var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	function loop_letters(c_letter, words, srcs, isInitialed = true){
-		// console.log(words[c_letter]);
 		if(!isInitialed)
 		{
 			var first_src = srcs[c_letter];
@@ -145,18 +158,21 @@
 		
 		c_letter++;
 		if(c_letter >= words.length){
-			preload(0, radio_words, filenum_arr);
+			preload(0, radio_words, filenum_arr, previous_char);
 			c_letter = 0;
 		}
 		return c_letter;
 	}
-	function preload(init_index = 0, words, num_arr){
+	function preload(init_index = 0, words, num_arr, prev_char){
 		src_arr = [];
 		var words_length = words.length;
 		var preload_index = init_index;
 		for(i = 0; i < words_length; i++)
 		{
 			var this_letter = words[i].toUpperCase();
+			if(this_letter !== prev_char)
+				saved_order = [];
+			prev_char = this_letter;
 			// console.log(this_letter);
 			src_arr.push(format_img_src(this_letter));
 		}
@@ -184,13 +200,12 @@
       			current_letter++;
       			if(current_letter >= radio_words.length)
       				current_letter = 0;
-      			preload(current_letter, radio_words);
+      			preload(current_letter, radio_words, previous_char);
       			setTimeout(function(){
       				current_letter = loop_letters(current_letter, radio_words, src_arr, false);
       				// already current++ when initiating loop_letters();
       				// so "current_letter" is actually the next next index to preload
-      				current_letter = (current_letter + 2) % radio_words.length;
-      				
+      				// current_letter = (current_letter + 2) % radio_words.length;
       				loop_timer = setInterval(function(){
       					isPlaying = true;
       					current_letter = loop_letters(current_letter, radio_words, src_arr);
@@ -224,8 +239,8 @@
 		{
 			isPlaying = true;
 			return setInterval(function(){
-      					current_letter = loop_letters(current_letter, radio_words, src_arr);
-      			    }, 1000);
+					current_letter = loop_letters(current_letter, radio_words, src_arr);
+			    }, 1000);
 		}
 	}
 

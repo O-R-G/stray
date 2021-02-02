@@ -528,6 +528,8 @@ a{
 {
     margin-top: 450px;
     margin-right: 50px;   
+    position: relative;
+    z-index: 5;
 }
 #image-holder-10 img
 {
@@ -1332,10 +1334,22 @@ a{
 {
     display: block;
 }
-body.overflow-hidden
+#image-container img
+{
+    cursor: pointer;
+}
+#image-container .image-holder
+{
+    pointer-events: none;
+}
+#image-container .image-holder img
+{
+    pointer-events: initial;
+}
+/*body.overflow-hidden
 {
     overflow: visible;
-}
+}*/
 /*style for print layout*/
 
 /*div > div

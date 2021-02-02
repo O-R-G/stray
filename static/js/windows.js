@@ -12,7 +12,7 @@ var ticking = false;
 var current_scroll = false;
 var scroll_timer = null;
 
-function popup(name){
+function popup(name, param =false){
 	var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
 	var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;		
     var window_name = 'STRAY. ';
@@ -48,6 +48,12 @@ function popup(name){
         var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/print', 'STRAY. PRINT', this_param);
+    }
+    else if(name == 'zoom')
+    {
+        var this_param = 'top='+this_top+',left='+this_left+',scrollbars=yes';
+        // return window.open('/chapter'+query, window_name, this_param);
+        return window.open('/zoom-in?filename='+param, 'STRAY. ZOOM-IN', this_param);
     }
     // else if(name == 'radio'){
     //     var this_param = 'width=400,height=520,top='+this_top+',left='+this_left;
