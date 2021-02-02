@@ -1,4 +1,4 @@
-var window_text, window_image, window_allcaps, window_audio, window_radio;
+var window_text, window_image, window_allcaps, window_audio, window_radio, window_zoom;
 
 var wW = window.innerWidth;
 var wH = window.innerHeight;
@@ -51,7 +51,7 @@ function popup(name, param =false){
     }
     else if(name == 'zoom')
     {
-        var this_param = 'top='+this_top+',left='+this_left+',scrollbars=yes';
+        var this_param = 'resizable,width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/zoom-in?filename='+param, 'STRAY. ZOOM-IN', this_param);
     }
@@ -131,5 +131,21 @@ function open_duo(){
                 ticking = false;
             }
         };
+        // var imgs = window_image.document.querySelectorAll('#image-container img');
+        
+        // [].forEach.call(imgs, function(el, i){
+        //     el.addEventListener('click', function(){
+        //         console.log('click');
+        //         var thisSrc = el.src;
+        //         if(thisSrc !== null)
+        //         {
+        //             var last_slash_pos = thisSrc.lastIndexOf('/');
+        //             var thisFilename = thisSrc.substring(last_slash_pos+1);
+        //             // sFilenameInput.value = thisFilename;
+        //             // sFilenameForm.submit();
+        //             window_zoom = popup('zoom', thisFilename);
+        //         }
+        //     });
+        // });
     };
 }

@@ -8,6 +8,7 @@ $image_h = $imagesize[1];
 ?>
 <div id = 'zoom-in-container'><img src = '<?= $src; ?>'></div>
 <script>
+	console.log('zoom in');
 	var image_w = <?= $image_w; ?>;
 	var image_h = <?= $image_h; ?>;
 	var image_r = <?= $image_r; ?>;
@@ -46,6 +47,7 @@ $image_h = $imagesize[1];
 	}
 	resize_w = 4*resize_w/5;
 	resize_h = 4*resize_h/5;
+	
 	var resizeViewPort = function(width, height) {
 	    if (window.outerWidth) {
 	        window.resizeTo(

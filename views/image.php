@@ -212,8 +212,6 @@
 			var thisSrc = el.src;
 			if(thisSrc !== null)
 			{
-				var sFilenameForm = document.getElementById('filename-form');
-				var sFilenameInput = document.getElementById('filename-input');
 				var last_slash_pos = thisSrc.lastIndexOf('/');
 				var thisFilename = thisSrc.substring(last_slash_pos+1);
 				// sFilenameInput.value = thisFilename;
