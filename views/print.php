@@ -1,10 +1,11 @@
 <?
 	$text = $item['body'];
-	$text .= '<div class = "appendix-begin"></div>';
+	$text .= '<div class = "appendix-begin"></div><div class = "appendix-container">';
 	$appendix_id = end($oo->urls_to_ids(array('appendix')));
 	$appendix_children = $oo->children($appendix_id);
 	foreach($appendix_children as $child)
 		$text .= $child['body'];
+	$text .= '</div>';
 	$radio_words_raw = array(
 		'STRAY ERR | STRAY (STRĀ) INTR.V. STRAYED, STRAY•ING, STRAYS 1A. TO MOVE AWAY FROM A GROUP, DEVIATE FROM THE CORRECT COURSE, OR GO BEYOND ESTABLISHED LIMITS. B. TO BECOME LOST. 2. TO WANDER ABOUT WITHOUT A DESTINATION OR PURPOSE; ROAM. SEE SYNONYMS AT WANDER. 3. TO FOLLOW A WINDING COURSE; MEANDER. 4. TO DEVIATE FROM A MORAL, PROPER, OR RIGHT COURSE; ERR. 5. TO BECOME DIVERTED FROM A SUBJECT OR TRAIN OF THOUGHT; DIGRESS: STRAYED FROM THE TOPIC. SEE SYNONYMS AT SWERVE. ◊ N. ONE THAT HAS STRAYED, ESPECIALLY A DOMESTIC ANIMAL WANDERING ABOUT. ◊ ADJ. 1. STRAYING OR HAVING STRAYED; WANDERING OR LOST: STRAY CATS AND DOGS. 2. SCATTERED OR SEPARATE: A FEW STRAY CRUMBS. [MIDDLE ENGLISH STRAIEN, FROM OLD FRENCH ESTRAIER, FROM ESTREE, HIGHWAY, FROM LATIN STRĀTA. SEE STREET.] — STRAY’ER | ENTER THE PHOTORAMA ΦΩΤΟΣ (PHŌTOS) GENITIVE OF ΦΩ͂ (PHŌS) LIGHT ΓΡΑΦΗ (GRAPHÉ) REPRESENTATION BY MEANS OF LINES" OR "DRAWING", TOGETHER MEANING DRAWING WITH LIGHT. MODIFICATION OF - ORAMA FROM ANCIENT GREEK ὍΡᾹΜᾸ, (HÓRĀMA, “SIGHT, SPECTACLE”) TEMPLE HI LO | STRAY | INDEFINITE TIME INDETERMINATE TIME DISPLACED TIME ABSTRACT TIME BILATERAL TIME TRANSMISSION TIME TRANSDUCED TIME | SINGULARITIES | ARTICULATION OF SOUND FORMS IN TIME | WHEN YOU WRITE A POEM YOU USE SOUNDS AND WORDS OUTSIDE TIME. YOU USE TIMELESS ARTICULATIONS. | SPLAY ANTHEM | SONG OF THE ANDOUMBOULOU 50 | ERODING WITNESS | SOUND AND SENTIMENT, SOUND AND SYMBOL | POETIC LANGUAGE IS LANGUAGE OWNING UP TO BEING AN ORPHAN, TO ITS TENUOUS KINSHIP WITH THE THINGS IT OSTENSIBLY REFERS TO. | THE POLITICS OF POETIC FORM: POETRY AND PUBLIC POLICY | FRIENDS IN DEED | FRIENDS IN DEED | FRIENDS IN DEED | GRACE WALKING AND TALKING | BOMBARDO | MY EMILY DICKINSON | MAGNALIA CHRISTI AMERICANA | BREATHING, BOMBS, SWORDS, DEATH, SPEARS AND FLAMES | WILL AND BE GOING TO | WILL | BE GOING TO | SIGNAL ESCAPES | SINGULARITIES | TREE ELLIPSES OR THE HOT WAR COUPLE',
 		'THE SEVEN SLEEPERS | SEPTET FOR THE END OF TIME | SEPTET FOR THE END OF TIME | SEPTET FOR THE END OF TIME | SPLAY ANTHEM | SPLAY ANTHEM | BYG | ',
@@ -73,7 +74,7 @@
 		// p3
 			{ 
 				id: 4,
-				url: 'pp_to print_IMG_0423.jpg',
+				url: 'pp_to-print_IMG_0423.jpg',
 				class: ['centeredHorizontal','halfWidth']
 			}
 		],
@@ -107,7 +108,7 @@
 			},
 			{
 				id: 9,
-				url: 'BOMBARDO_fnl_10 inch.jpg',
+				url: 'BOMBARDO_fnl_10-inch.jpg',
 				class: ['twoThirdWidth']
 
 			},
@@ -499,8 +500,21 @@
 		var blankPage_cloned = pageTemplate.cloneNode(true);
 		var backCover = pageTemplate.cloneNode(true);
 		
+		// changePageClass(cover, 'right');
+		cover.classList.remove('📖-print-sheet-left');
+		cover.classList.add('📖-print-sheet-right');
+		cover.id = 'cover';
+		var cover_page = cover.querySelector('.📖-page');
+		cover_page.classList.remove('📖-left');
+		cover_page.classList.add('📖-right');
+
 		// add covers and 2 bastard pages at the front
 		sheetsParent.insertBefore(blankPage_cloned, s[0]);
+		blankPage_cloned.classList.remove('📖-print-sheet-left');
+		blankPage_cloned.classList.add('📖-print-sheet-right');
+		blankPage_cloned_page = blankPage_cloned.querySelector('.📖-page');
+		blankPage_cloned_page.classList.remove('📖-left');
+		blankPage_cloned_page.classList.add('📖-right');
 		var blankPage_cloned = pageTemplate.cloneNode(true);
 		sheetsParent.insertBefore(blankPage_cloned, s[0]);
 		sheetsParent.insertBefore(cover, s[0]);
@@ -538,9 +552,11 @@
 	      				current_letter = 0;
 	      			var coverUrl = format_img_src(r_words[current_letter]);
 	      			var coverImg = document.createElement('IMG');
-	      			cover.appendChild(coverImg);
+	      			cover_page.appendChild(coverImg);
+	      			console.log(cover_page);
 	      			coverImg.onload = function(){
 	      				document.body.classList.add('readyForPrint');
+	      				prepareOtherViews(pageTemplate);
 	      			}
 	      			coverImg.className = 'print-cover-img';
 	      			coverImg.src = coverUrl;
@@ -558,17 +574,12 @@
 		Bindery.makeBook({ 
 			content: '.print-content',
 			view: Bindery.View.PRINT,
-			// rules: [
-			//     Bindery.PageBreak({ selector: '.page', position: 'before' }),
-		 //    ],
 			pageSetup: {
 				size: { width: '210mm', height: '297mm' },
 				margin: { top: '17.5mm', inner: '30mm', outer: '10mm', bottom: '17.5mm' },
 			},
 			printSetup: {
-			    // layout: Bindery.Layout.BOOKLET,
-			    // paper: Bindery.Paper.LETTER_PORTRAIT,
-			    marks: Bindery.Marks.CROP,
+			   	marks: Bindery.Marks.CROP,
 			    bleed: '12pt',
 			},
 			rules: [
@@ -580,14 +591,12 @@
 		});
 		setTimeout(function(){
 			var sheets = document.getElementsByClassName('📖-print-sheet');
-			console.log(sheets.length);
 			
 			if(sheets.length == 0)
 			{
 				console.log('Do something while it somehow doesnt get .sheets');
 				setTimeout(function(){
 					var sheets = document.getElementsByClassName('📖-print-sheet');
-					console.log(sheets.length);
 				}, 2000);
 			}
 			try{
@@ -609,17 +618,21 @@
 			{
 				var cloned = firstSheet.cloneNode(true);
 				var clonedText_container = cloned.querySelector('.text-container');
-				var isText = false;
+				var isAppendix = false;
+				var toClone = false;
 				// modify class
 				if(clonedText_container !== null){
 					clonedText_container.classList.add('mask-text-container');
 					clonedText_container.classList.remove('text-container');
-					isText = true;
 					if(firstSheet.classList.contains('📖-print-sheet-left'))
 						changePageClass(firstSheet, 'right');
 					else
 						changePageClass(cloned, 'left');
 				}
+
+				var clonedAppendix_container = cloned.querySelector('.appendix-container');
+				if(clonedAppendix_container !== null)
+					isAppendix = true;
 
 				// add image
 				if(print_image_arr[i] !== undefined && print_image_arr[i].length > 0)
@@ -627,13 +640,6 @@
 					print_image_arr[i].forEach(function(el, j){
 						var thisUrl = 'media/jpg/'+el.url;
 						var thisImg = document.createElement('IMG');
-						// if(el.id != 'undefined')
-						// if(i == print_image_arr.length - 1 && (print_image_arr[i].length == 0 || j == print_image_arr[i].length - 1))
-						// {
-						// 	thisImg.onload = function(){
-						// 		addCover(sheets, radio_words);
-						// 	};
-						// }
 
 						thisImg.src = thisUrl;
 						thisImg.id = 'print-image-holder-'+image_counter;
@@ -642,7 +648,7 @@
 						thisImg.classList.add('print-image-holder');
 						if(el.class)
 							el.class.forEach(cls=>thisImg.classList.add(cls));
-						cloned.appendChild(thisImg);
+						cloned.querySelector('.📖-page').appendChild(thisImg);
 						image_counter++;
 						
 					});
@@ -650,7 +656,7 @@
 				}
 				// append .text-containr and .mask-text-container to cloned_temp_container
 				// sheetsParent.insertBefore(firstSheet, cloned) makes the work harder cause it expands the sheets array and messes foreach().
-				if(isText)
+				if(!isAppendix)
 					cloned_temp_container.appendChild(cloned);
 				cloned_temp_container.appendChild(firstSheet);
 				firstSheet = sheetsParent.firstChild;
@@ -665,19 +671,14 @@
 			contentOfBlankPage.innerHTML = '';
 			var imgOfBlankPage = blankPage.querySelectorAll('img');
 			while(imgOfBlankPage.length != 0){
-				blankPage.removeChild(imgOfBlankPage[0]);
+				imgOfBlankPage[0].parentNode.removeChild(imgOfBlankPage[0]);
 				imgOfBlankPage = blankPage.querySelectorAll('img');
 			}
 
 			// add cover
 			addCover(sheets, radio_words, blankPage);
 
-			// add appendix
 			
-
-			// addCover(sheets, radio_words);
-
-
 		}, 4000);
 
 		function changePageClass(el, positionWanted)
@@ -698,5 +699,187 @@
 				return false;
 		}
 	});
+function prepareOtherViews(blank_page_template){
+				var book_root = document.querySelector('.📖-root');
+				var zoom_content_print = document.querySelector('.📖-zoom-content').cloneNode(true);
+				var current_book_root_class = '📖-view-print';
+				// prepare for grid/preview
+				var zoom_content_print_clone = zoom_content_print.cloneNode(true);
+				var zoom_content_preview = document.createElement('DIV');
+				zoom_content_preview.classList.add('📖-zoom-content');
+				var zoom_content_preview_spread_wrapper = zoom_content_print_clone.querySelectorAll('.📖-spread-wrapper');
+				[].forEach.call(zoom_content_preview_spread_wrapper, function(el, i){
+					el.classList.remove('📖-spread-wrapper');
+				});
+				var blankPage_temp = blank_page_template.cloneNode(true);
+				blankPage_temp.style.visibility = 'hidden';
+				zoom_content_print_clone.insertBefore(blankPage_temp, zoom_content_print_clone.firstChild);
+				var zoom_content_preview_sheet = zoom_content_print_clone.querySelectorAll('.📖-print-sheet');
+				var this_spread_wrapper;
+				[].forEach.call(zoom_content_preview_sheet, function(el, i){
+					if(i==1)
+						console.log(el);
+					if(i%2 == 0){
+						this_spread_wrapper = document.createElement('DIV');
+						this_spread_wrapper.classList.add('📖-spread-wrapper');
+						this_spread_wrapper.classList.add('📖-spread-centered');
+						this_spread_wrapper.classList.add('📖-spread-size');
+					}
+					this_spread_wrapper.appendChild(el);
+					if(i%2 == 1)
+						zoom_content_preview.appendChild(this_spread_wrapper);
+				});
+				// prepare for flipbook
+				zoom_content_print_clone = zoom_content_print.cloneNode(true);
+				var zoom_content_flipbook = document.createElement('DIV');
+				zoom_content_flipbook.classList.add('📖-zoom-content');
+				var flipbook_sizer = document.createElement('DIV');
+				flipbook_sizer.classList.add('📖-flipbook-sizer');
+				var spread_size = document.createElement('DIV');
+				spread_size.className = '📖-spread-size 📖-flap-holder';
+				spread_size.style.width = '60px';
+				zoom_content_flipbook_spread_wrapper = zoom_content_print_clone.querySelectorAll('.📖-spread-wrapper');
+				var zoom_content_flipbook_page = zoom_content_print_clone.querySelectorAll('.📖-page');
+				var page3d_template = document.createElement('DIV');
+				page3d_template.className = '📖-page3d 📖-doubleSided';
+				var this_page3d;
+				[].forEach.call(zoom_content_flipbook_page, function(el, i){
+					if(el.classList.contains('📖-left'))
+					{
+						el.classList.remove('📖-left');
+						el.classList.add('📖-right');
+						el.classList.add('📖-page3d-back');
+					}
+					else
+					{
+						el.classList.add('📖-page3d-front');
+					}
+					if(i%2 == 0){
+						this_page3d = page3d_template.cloneNode(true);
+					}
+					this_page3d.appendChild(el);
+					if(i%2 == 1)
+						spread_size.appendChild(this_page3d);
+				});
+				flipbook_sizer.appendChild(spread_size);
+				zoom_content_flipbook.appendChild(flipbook_sizer);
+				var page3d = zoom_content_flipbook.querySelectorAll('.📖-page3d');
+				var page3d_length = page3d.length;
+				var x_range = [5, 55];
+				var y_interval = 4;
+				var x_interval = parseInt((x_range[1] - x_range[0]) / (page3d_length - 1) * 1000) / 1000;
+				var y_range = [page3d_length * y_interval + 2, 2];
+				[].forEach.call(page3d, function(el, i){
+					el.style.left = x_range[0] + x_interval * i + 'px';
+					el.style.transform = 'translate3d(0px, 0px, ' + (y_range[0] - i * y_interval) + 'px)';
+					el.addEventListener('click', function(){
+						var thisTransform = el.style.transform;
+						console.log(thisTransform);
+						if(thisTransform.includes('-180deg')){
+							el.style.transform = 'translate3d(0px, 0px, ' + (y_range[0] - i * y_interval) + 'px) rotateY(0deg)';
+						}
+						else
+						{
+							el.style.transform = 'translate3d(0px, 0px, ' + (y_range[1] + i * y_interval) + 'px) rotateY(-180deg)';
+						}
+					});
+	 			});
+
+
+				var new_controls = document.createElement('DIV');
+				new_controls.id = 'custom-book-controls';
+				var new_controls_select = document.createElement('SELECT');
+				var select_options_arr = [ 
+					{
+						name:         'Print Preview',
+						value:        'print',
+						class:        '📖-view-print',
+						zoom_content: zoom_content_print
+					},
+					{   
+						name:         'Grid', 
+						value:        'preview',
+						class:        '📖-view-preview',
+						zoom_content: zoom_content_preview
+					},{
+						name:         'Flipbook',
+						value:        'flipbook',
+						class:        '📖-view-flip',
+						zoom_content: zoom_content_flipbook
+					}
+				];
+				var new_controls_select = document.createElement('SELECT');
+				new_controls.id = 'custom-book-controls';
+				select_options_arr.forEach(function(el, i){
+					var this_option = document.createElement('OPTION');
+					this_option.innerText = el.name;
+					this_option.value = el.value;
+					this_option.className = 'select-option';
+
+					new_controls_select.appendChild(this_option);
+				});
+				new_controls.appendChild(new_controls_select);
+				book_root.appendChild(new_controls);
+				var new_print_btn = document.createElement('DIV');
+				new_print_btn.id = 'print-btn';
+				new_print_btn.innerText = 'Print';
+				book_root.appendChild(new_print_btn);
+
+				var book_zoom_scaler = document.getElementsByClassName('📖-zoom-scaler')[0];
+
+				new_controls_select.addEventListener('change', function(){
+					var this_idx = new_controls_select.selectedIndex;
+					var this_option_object = select_options_arr[this_idx];
+					if(!book_root.classList.contains(this_option_object.class))
+					{
+						book_root.classList.remove(current_book_root_class);
+						current_book_root_class = this_option_object.class;
+						book_root.classList.add(current_book_root_class);
+						var current_zoom_content = book_root.querySelector('.📖-zoom-content');
+						current_zoom_content.parentNode.replaceChild(this_option_object.zoom_content, current_zoom_content);
+						if(this_option_object.value == 'preview')
+						{
+							book_root.classList.remove('📖-show-bleed');
+							var content_width = this_option_object.zoom_content.getElementsByClassName('📖-spread-wrapper')[0].offsetWidth;
+							var scale = (window.innerWidth - 20) / content_width;
+							book_zoom_scaler.style.transform = 'scale('+scale+')';
+						}
+						else if(this_option_object.value == 'flipbook')
+						{
+							book_root.classList.remove('📖-show-bleed');
+							var content_width = this_option_object.zoom_content.querySelector('.📖-flipbook-sizer').offsetWidth;
+							console.log(content_width);
+							var scale = (window.innerWidth - 60) / content_width;
+							book_zoom_scaler.style.transform = 'scale('+scale+')';
+						}
+						else if(this_option_object.value == 'print')
+						{
+							book_root.classList.add('📖-show-bleed');
+							var content_width = this_option_object.zoom_content.offsetWidth;
+							var scale = window.innerWidth / content_width;
+							book_zoom_scaler.style.transform = 'scale('+scale+')';
+						}
+						
+						
+					}
+				});
+				
+				var print_btn = document.querySelector('#print-btn');
+				print_btn.addEventListener('click', function(){
+					console.log('hihi');
+					var this_option_object = select_options_arr[0];
+					book_root.classList.remove(current_book_root_class);
+					current_book_root_class = this_option_object.class;
+					book_root.classList.add(current_book_root_class);
+					var current_zoom_content = book_root.querySelector('.📖-zoom-content');
+					current_zoom_content.parentNode.replaceChild(this_option_object.zoom_content, current_zoom_content);
+					book_root.classList.add('📖-show-bleed');
+					var content_width = this_option_object.zoom_content.offsetWidth;
+					var scale = window.innerWidth / content_width;
+					book_zoom_scaler.style.transform = 'scale('+scale+')';
+					setTimeout(()=>window.print(), 0);
+					
+				});
+			}
 	
 </script>

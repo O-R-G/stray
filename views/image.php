@@ -206,7 +206,7 @@
 </form>
 <script>
 	var imgs = document.querySelectorAll('#image-container img');
-	var zoom_window;
+	var window_zoom;
 	[].forEach.call(imgs, function(el, i){
 		el.addEventListener('click', function(){
 			var thisSrc = el.src;
@@ -216,7 +216,7 @@
 				var thisFilename = thisSrc.substring(last_slash_pos+1);
 				// sFilenameInput.value = thisFilename;
 				// sFilenameForm.submit();
-				zoom_window = popup('zoom', thisFilename);
+				window_zoom = popup('zoom', thisFilename);
 			}
 		});
 	});

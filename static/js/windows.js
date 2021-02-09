@@ -1,4 +1,4 @@
-var window_text, window_image, window_allcaps, window_audio, window_radio, window_zoom;
+var window_text, window_image, window_allcaps, window_audio, window_radio;
 
 var wW = window.innerWidth;
 var wH = window.innerHeight;
