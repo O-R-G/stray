@@ -1,10 +1,11 @@
 <?
 	$text = $item['body'];
-	$text .= '<div class = "appendix-begin"></div>';
+	$text .= '<div class = "appendix-begin"></div><div class = "appendix-container">';
 	$appendix_id = end($oo->urls_to_ids(array('appendix')));
 	$appendix_children = $oo->children($appendix_id);
 	foreach($appendix_children as $child)
 		$text .= $child['body'];
+	$text .= '</div>';
 	$radio_words_raw = array(
 		'STRAY ERR | STRAY (STRĀ) INTR.V. STRAYED, STRAY•ING, STRAYS 1A. TO MOVE AWAY FROM A GROUP, DEVIATE FROM THE CORRECT COURSE, OR GO BEYOND ESTABLISHED LIMITS. B. TO BECOME LOST. 2. TO WANDER ABOUT WITHOUT A DESTINATION OR PURPOSE; ROAM. SEE SYNONYMS AT WANDER. 3. TO FOLLOW A WINDING COURSE; MEANDER. 4. TO DEVIATE FROM A MORAL, PROPER, OR RIGHT COURSE; ERR. 5. TO BECOME DIVERTED FROM A SUBJECT OR TRAIN OF THOUGHT; DIGRESS: STRAYED FROM THE TOPIC. SEE SYNONYMS AT SWERVE. ◊ N. ONE THAT HAS STRAYED, ESPECIALLY A DOMESTIC ANIMAL WANDERING ABOUT. ◊ ADJ. 1. STRAYING OR HAVING STRAYED; WANDERING OR LOST: STRAY CATS AND DOGS. 2. SCATTERED OR SEPARATE: A FEW STRAY CRUMBS. [MIDDLE ENGLISH STRAIEN, FROM OLD FRENCH ESTRAIER, FROM ESTREE, HIGHWAY, FROM LATIN STRĀTA. SEE STREET.] — STRAY’ER | ENTER THE PHOTORAMA ΦΩΤΟΣ (PHŌTOS) GENITIVE OF ΦΩ͂ (PHŌS) LIGHT ΓΡΑΦΗ (GRAPHÉ) REPRESENTATION BY MEANS OF LINES" OR "DRAWING", TOGETHER MEANING DRAWING WITH LIGHT. MODIFICATION OF - ORAMA FROM ANCIENT GREEK ὍΡᾹΜᾸ, (HÓRĀMA, “SIGHT, SPECTACLE”) TEMPLE HI LO | STRAY | INDEFINITE TIME INDETERMINATE TIME DISPLACED TIME ABSTRACT TIME BILATERAL TIME TRANSMISSION TIME TRANSDUCED TIME | SINGULARITIES | ARTICULATION OF SOUND FORMS IN TIME | WHEN YOU WRITE A POEM YOU USE SOUNDS AND WORDS OUTSIDE TIME. YOU USE TIMELESS ARTICULATIONS. | SPLAY ANTHEM | SONG OF THE ANDOUMBOULOU 50 | ERODING WITNESS | SOUND AND SENTIMENT, SOUND AND SYMBOL | POETIC LANGUAGE IS LANGUAGE OWNING UP TO BEING AN ORPHAN, TO ITS TENUOUS KINSHIP WITH THE THINGS IT OSTENSIBLY REFERS TO. | THE POLITICS OF POETIC FORM: POETRY AND PUBLIC POLICY | FRIENDS IN DEED | FRIENDS IN DEED | FRIENDS IN DEED | GRACE WALKING AND TALKING | BOMBARDO | MY EMILY DICKINSON | MAGNALIA CHRISTI AMERICANA | BREATHING, BOMBS, SWORDS, DEATH, SPEARS AND FLAMES | WILL AND BE GOING TO | WILL | BE GOING TO | SIGNAL ESCAPES | SINGULARITIES | TREE ELLIPSES OR THE HOT WAR COUPLE',
 		'THE SEVEN SLEEPERS | SEPTET FOR THE END OF TIME | SEPTET FOR THE END OF TIME | SEPTET FOR THE END OF TIME | SPLAY ANTHEM | SPLAY ANTHEM | BYG | ',
@@ -558,17 +559,12 @@
 		Bindery.makeBook({ 
 			content: '.print-content',
 			view: Bindery.View.PRINT,
-			// rules: [
-			//     Bindery.PageBreak({ selector: '.page', position: 'before' }),
-		 //    ],
 			pageSetup: {
 				size: { width: '210mm', height: '297mm' },
 				margin: { top: '17.5mm', inner: '30mm', outer: '10mm', bottom: '17.5mm' },
 			},
 			printSetup: {
-			    // layout: Bindery.Layout.BOOKLET,
-			    // paper: Bindery.Paper.LETTER_PORTRAIT,
-			    marks: Bindery.Marks.CROP,
+			   	marks: Bindery.Marks.CROP,
 			    bleed: '12pt',
 			},
 			rules: [
@@ -609,17 +605,23 @@
 			{
 				var cloned = firstSheet.cloneNode(true);
 				var clonedText_container = cloned.querySelector('.text-container');
-				var isText = false;
+				var isAppendix = false;
+				var toClone = false;
 				// modify class
 				if(clonedText_container !== null){
 					clonedText_container.classList.add('mask-text-container');
 					clonedText_container.classList.remove('text-container');
-					isText = true;
 					if(firstSheet.classList.contains('📖-print-sheet-left'))
 						changePageClass(firstSheet, 'right');
 					else
 						changePageClass(cloned, 'left');
 				}
+
+				var clonedAppendix_container = cloned.querySelector('.appendix-container');
+				console.log();
+				if(clonedAppendix_container !== null)
+					isAppendix = true;
+				console.log(isAppendix);
 
 				// add image
 				if(print_image_arr[i] !== undefined && print_image_arr[i].length > 0)
@@ -627,13 +629,6 @@
 					print_image_arr[i].forEach(function(el, j){
 						var thisUrl = 'media/jpg/'+el.url;
 						var thisImg = document.createElement('IMG');
-						// if(el.id != 'undefined')
-						// if(i == print_image_arr.length - 1 && (print_image_arr[i].length == 0 || j == print_image_arr[i].length - 1))
-						// {
-						// 	thisImg.onload = function(){
-						// 		addCover(sheets, radio_words);
-						// 	};
-						// }
 
 						thisImg.src = thisUrl;
 						thisImg.id = 'print-image-holder-'+image_counter;
@@ -650,7 +645,7 @@
 				}
 				// append .text-containr and .mask-text-container to cloned_temp_container
 				// sheetsParent.insertBefore(firstSheet, cloned) makes the work harder cause it expands the sheets array and messes foreach().
-				if(isText)
+				if(!isAppendix)
 					cloned_temp_container.appendChild(cloned);
 				cloned_temp_container.appendChild(firstSheet);
 				firstSheet = sheetsParent.firstChild;
@@ -677,7 +672,18 @@
 
 			// addCover(sheets, radio_words);
 
-
+			var btn_flipbook = document.querySelector('#bindery-choose-view option[value="flipbook"]');
+			var test = document.querySelector('.📖-flipbook-sizer');
+			btn_flipbook.addEventListener('click', function(){
+				console.log('hehe');
+			}); 
+			var controls = document.querySelector('div.📖-controls');
+			controls.addEventListener('click', function(){
+				console.log('hehe');
+			}); 
+			btn_flipbook.innerText = 'hehe';
+			var time = new Date;
+			console.log(time);
 		}, 4000);
 
 		function changePageClass(el, positionWanted)

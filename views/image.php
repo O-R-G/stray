@@ -184,8 +184,13 @@
 		<div id = 'image-holder-39' class = 'image-holder' images=''>
 			<img class = '' src = 'media/jpg/hot-field-sec-1.jpg'>
 		</div>
-		<div id = 'image-holder-40' class = 'image-holder' images=''>
-			<img class = '' src = 'media/jpg/hot-field-sec-2.jpg'>
+		<div id = 'image-holder-40' class = 'image-holder image-float-container' images=''>
+			<img class = '' src = 'media/jpg/SE_Section_2_1_V1_33x95_File.jpg'>
+			<img class = '' src = 'media/jpg/SE_Section_2_2_V1_44x106_File.jpg'>
+			<img class = '' src = 'media/jpg/SE_Section_2_3_V3_44x116_File.jpg'>
+			<img class = '' src = 'media/jpg/SE_Section_2_4_V2_33x135_File.jpg'>
+			<img class = '' src = 'media/jpg/SE_Section_2_5_V1_33x100_File.jpg'>
+			<img class = '' src = 'media/jpg/SE_Section_2_6_V1C_33x66_File.jpg'>
 		</div>
 		<div id = 'image-holder-28' class = 'image-holder' images=''>
 			<img class = '' src = 'media/jpg/SE_Section_3_WetWords_V3_118x178.jpg'>
@@ -206,7 +211,7 @@
 </form>
 <script>
 	var imgs = document.querySelectorAll('#image-container img');
-	var zoom_window;
+	var window_zoom;
 	[].forEach.call(imgs, function(el, i){
 		el.addEventListener('click', function(){
 			var thisSrc = el.src;
@@ -216,7 +221,7 @@
 				var thisFilename = thisSrc.substring(last_slash_pos+1);
 				// sFilenameInput.value = thisFilename;
 				// sFilenameForm.submit();
-				zoom_window = popup('zoom', thisFilename);
+				window_zoom = popup('zoom', thisFilename);
 			}
 		});
 	});

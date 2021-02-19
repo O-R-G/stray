@@ -1,41 +1,59 @@
 <? 
 	$text_id = end($oo->urls_to_ids(array('text-radio')));
 	$text_item = $oo->get($text_id);
-
-	$radio_words_raw = $text_item['body'];
-	$radio_words_raw = str_replace("</div><div>", " ", $radio_words_raw);
-	$radio_words_raw = str_replace("&nbsp;", " ", $radio_words_raw);
-	$radio_words_raw = preg_replace("/<br\W*?\/?>/", " ", $radio_words_raw);
-	$radio_words_raw = strip_tags($radio_words_raw);
-	// $radio_words_raw = str_replace(", ", ",,, ", $radio_words_raw);
-	$radio_words_raw = preg_replace("/(\w)(,)( |”)/", '\1,,,\3', $radio_words_raw);
-	$radio_words_raw = preg_replace("/(\w[^I ])(\.)( |”)/", '\1...\3', $radio_words_raw);
-	// var_dump($radio_words_raw);
-	// die();
-	// $radio_words_raw = preg_replace("/\w\./", "... ", $radio_words_raw);
-	// $radio_words_raw = str_replace(". ", "... ", $radio_words_raw);
-	$radio_words = htmlspecialchars($radio_words_raw, ENT_QUOTES);
-	$radio_words = 'ABSBASABC ... '.$radio_words;
-	// var_dump(strlen($radio_words));
-	while(ord(substr($radio_words, strlen($radio_words)-1)) == 9  || 
-		  ord(substr($radio_words, strlen($radio_words)-1)) == 10  || 
-		  ord(substr($radio_words, strlen($radio_words)-1)) == 13)
+	$text_raw = strip_tags($text_item['body']);
+	// $text_raw = str_replace("</div><div>", " ", $text_raw);
+	$text_raw = str_replace("&nbsp;", " ", $text_raw);
+	/*
+	// duplicate periods and commas only
+	$text_raw = preg_replace("/<br\W*?\/?>/", " ", $text_raw);
+	$text_raw = strip_tags($text_raw);
+	$text_raw = preg_replace("/(\w)(,)( |”)/", '\1,,,\3', $text_raw);
+	$text_raw = preg_replace("/(\w[^I ])(\.)( |”)/", '\1...\3', $text_raw);
+	*/
+	// $text = htmlspecialchars($text_raw, ENT_QUOTES);
+	if(!function_exists('mb_str_split'))
 	{
-		$radio_words = substr($radio_words, 0, strlen($radio_words)-1);
+		function mb_str_split( $string ) {
+		    # Split at all position not after the start: ^
+		    # and not before the end: $
+		    return preg_split('/(?<!^)(?!$)/u', $string );
+		}
 	}
-
-	// $radio_words = substr($radio_words, 0, 50942);
-	// $test = "'";
-	// $test_2 = htmlspecialchars($test, ENT_QUOTES);
-	// var_dump($test_2);
-	// var_dump($radio_words);
-	// for($i = 0; $i < )
-
 	
-	// foreach($radio_words_raw as $chapter){
-	// 	$chapter_temp = str_replace(' | ', ' ', $chapter);
-	// 	$radio_words .= $chapter_temp . ' ';
-	// }
+	$text = $text_raw;
+	while(ord(substr($text, strlen($text)-1)) == 9  || 
+		  ord(substr($text, strlen($text)-1)) == 10  || 
+		  ord(substr($text, strlen($text)-1)) == 13)
+	{
+		$text = substr($text, 0, strlen($text)-1);
+	}
+	$text_arr = mb_str_split($text);
+	$text_extended = '';
+	foreach($text_arr as $letter)
+	{
+		if($letter != ' ')
+		{
+			$text_extended .= $letter . $letter . $letter;
+		}
+		else
+		{
+			$text_extended .= ' ';
+		}
+	}
+	
+	/*
+	// export txt files for stray-server
+	$radio_word_extended_text_file = fopen("static/data/text_extended.txt", "w") or die ("Unable to opeb file!");
+	fwrite($radio_word_extended_text_file, $text_extended);
+	fclose($radio_word_extended_text_file);
+
+	$radio_word_text_file = fopen("static/data/text.txt", "w") or die ("Unable to opeb file!");
+	fwrite($radio_word_text_file, $text);
+	fclose($radio_word_text_file);
+	*/
+	$text_escape = htmlspecialchars($text, ENT_QUOTES);
+	$text_extended_escape = htmlspecialchars($text_extended, ENT_QUOTES);
 
 	$letter_image_filenames = scandir('media/letters');
 	$filenum_arr = array();
@@ -49,17 +67,20 @@
 				$filenum_arr[$this_key] = 1;
 		}
 	}
+
+	$textIsExtended = isset($_GET['textIsExtended']);
 ?>
 <div id = 'radio_container'>
 	<img id = 'radio_image_0' class = 'radio_image not_current'>
 	<img id = 'radio_image_1' class = 'radio_image not_current'>
 	<img id = 'radio_image_2' class = 'radio_image not_current'>
 </div>
+<div id = "text" style="display:none"><?= $text; ?></div>
 <div id = 'nav'><a href = 'javascript:popup("colophon", "", "")'>COLOPHON</a></div>
 <script>
 	var current_letter;
-	var radio_words = '<?= $radio_words; ?>';
-	// console.log(radio_words.length);
+	var text = '<?= $text_escape; ?>';
+	var text_extended = '<?= $text_extended_escape; ?>';
 	var radio_image = document.getElementsByClassName('radio_image');
 	var radio_image_0 = document.getElementById('radio_image_0');
 	var radio_image_1 = document.getElementById('radio_image_1');
@@ -72,6 +93,10 @@
 	var src_arr = [];
 	var previous_char = '';
 	var saved_order = [];
+
+	var textIsExtended = <?= json_encode($textIsExtended); ?>;
+	var textToFeed = textIsExtended ? text_extended : text;
+
 	function format_img_src(letter){
 		var this_letter = letter.toUpperCase();
 		if(this_letter == '&')
@@ -158,7 +183,7 @@
 		
 		c_letter++;
 		if(c_letter >= words.length){
-			preload(0, radio_words, filenum_arr, previous_char);
+			preload(0, textToFeed, filenum_arr, previous_char);
 			c_letter = 0;
 		}
 		return c_letter;
@@ -195,20 +220,25 @@
       		var response = JSON.parse(httpRequest.responseText);
       		
       		if(response){
-      			current_letter = response['current_pos'];
+      			if(textIsExtended)
+      				current_letter = response['current_pos_extended'];
+  				else
+      				current_letter = response['current_pos'];
       			var wait = 1000 - (Date.now() % 1000);
       			current_letter++;
-      			if(current_letter >= radio_words.length)
+      			console.log(current_letter);
+      			if(current_letter >= textToFeed.length)
       				current_letter = 0;
-      			preload(current_letter, radio_words, previous_char);
+      			
+      			preload(current_letter, textToFeed, previous_char);
       			setTimeout(function(){
-      				current_letter = loop_letters(current_letter, radio_words, src_arr, false);
+      				current_letter = loop_letters(current_letter, textToFeed, src_arr, false);
       				// already current++ when initiating loop_letters();
       				// so "current_letter" is actually the next next index to preload
-      				// current_letter = (current_letter + 2) % radio_words.length;
+      				// current_letter = (current_letter + 2) % text.length;
       				loop_timer = setInterval(function(){
       					isPlaying = true;
-      					current_letter = loop_letters(current_letter, radio_words, src_arr);
+      					current_letter = loop_letters(current_letter, textToFeed, src_arr);
       				}, 1000);
       				
       			}, wait);
@@ -239,7 +269,7 @@
 		{
 			isPlaying = true;
 			return setInterval(function(){
-					current_letter = loop_letters(current_letter, radio_words, src_arr);
+					current_letter = loop_letters(current_letter, textToFeed, src_arr);
 			    }, 1000);
 		}
 	}
