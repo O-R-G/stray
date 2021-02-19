@@ -4,7 +4,7 @@
 	$appendix_id = end($oo->urls_to_ids(array('appendix')));
 	$appendix_children = $oo->children($appendix_id);
 	foreach($appendix_children as $child)
-		$text .= $child['body'];
+		$text .= '<div class="appendix_section">'.$child['body'].'</div>';
 	$text .= '</div>';
 	$radio_words_raw = array(
 		'STRAY ERR | STRAY (STRĀ) INTR.V. STRAYED, STRAY•ING, STRAYS 1A. TO MOVE AWAY FROM A GROUP, DEVIATE FROM THE CORRECT COURSE, OR GO BEYOND ESTABLISHED LIMITS. B. TO BECOME LOST. 2. TO WANDER ABOUT WITHOUT A DESTINATION OR PURPOSE; ROAM. SEE SYNONYMS AT WANDER. 3. TO FOLLOW A WINDING COURSE; MEANDER. 4. TO DEVIATE FROM A MORAL, PROPER, OR RIGHT COURSE; ERR. 5. TO BECOME DIVERTED FROM A SUBJECT OR TRAIN OF THOUGHT; DIGRESS: STRAYED FROM THE TOPIC. SEE SYNONYMS AT SWERVE. ◊ N. ONE THAT HAS STRAYED, ESPECIALLY A DOMESTIC ANIMAL WANDERING ABOUT. ◊ ADJ. 1. STRAYING OR HAVING STRAYED; WANDERING OR LOST: STRAY CATS AND DOGS. 2. SCATTERED OR SEPARATE: A FEW STRAY CRUMBS. [MIDDLE ENGLISH STRAIEN, FROM OLD FRENCH ESTRAIER, FROM ESTREE, HIGHWAY, FROM LATIN STRĀTA. SEE STREET.] — STRAY’ER | ENTER THE PHOTORAMA ΦΩΤΟΣ (PHŌTOS) GENITIVE OF ΦΩ͂ (PHŌS) LIGHT ΓΡΑΦΗ (GRAPHÉ) REPRESENTATION BY MEANS OF LINES" OR "DRAWING", TOGETHER MEANING DRAWING WITH LIGHT. MODIFICATION OF - ORAMA FROM ANCIENT GREEK ὍΡᾹΜᾸ, (HÓRĀMA, “SIGHT, SPECTACLE”) TEMPLE HI LO | STRAY | INDEFINITE TIME INDETERMINATE TIME DISPLACED TIME ABSTRACT TIME BILATERAL TIME TRANSMISSION TIME TRANSDUCED TIME | SINGULARITIES | ARTICULATION OF SOUND FORMS IN TIME | WHEN YOU WRITE A POEM YOU USE SOUNDS AND WORDS OUTSIDE TIME. YOU USE TIMELESS ARTICULATIONS. | SPLAY ANTHEM | SONG OF THE ANDOUMBOULOU 50 | ERODING WITNESS | SOUND AND SENTIMENT, SOUND AND SYMBOL | POETIC LANGUAGE IS LANGUAGE OWNING UP TO BEING AN ORPHAN, TO ITS TENUOUS KINSHIP WITH THE THINGS IT OSTENSIBLY REFERS TO. | THE POLITICS OF POETIC FORM: POETRY AND PUBLIC POLICY | FRIENDS IN DEED | FRIENDS IN DEED | FRIENDS IN DEED | GRACE WALKING AND TALKING | BOMBARDO | MY EMILY DICKINSON | MAGNALIA CHRISTI AMERICANA | BREATHING, BOMBS, SWORDS, DEATH, SPEARS AND FLAMES | WILL AND BE GOING TO | WILL | BE GOING TO | SIGNAL ESCAPES | SINGULARITIES | TREE ELLIPSES OR THE HOT WAR COUPLE',
@@ -59,11 +59,11 @@
 		],
 		[
 		// p2
-			{ 
-				id: 2,
-				url: 'PHOTORAMA_10-inch.jpg',
-				class: ['twoThirdWidth']
-			}, 
+			// { 
+			// 	id: 2,
+			// 	url: 'PHOTORAMA_10-inch.jpg',
+			// 	class: ['twoThirdWidth']
+			// }, 
 			{
 				id: 3,
 				url: 'TEMPLE-HIGH-AND-LO-20x13_10-inches.jpg',
@@ -156,6 +156,7 @@
 			}
 		
 		],
+		[],
 		[
 		// p9
 			{ 
@@ -579,13 +580,18 @@
 				margin: { top: '17.5mm', inner: '30mm', outer: '10mm', bottom: '17.5mm' },
 			},
 			printSetup: {
-			   	marks: Bindery.Marks.CROP,
-			    bleed: '12pt',
+			   	// marks: Bindery.Marks.CROP,
+			    // bleed: '12pt',
+			    marks: 'NONE',
+			    bleed: '0pt',
 			},
 			rules: [
-		      Bindery.PageBreak(
-		      	{ selector: '.hotfield-break', position: 'after', continue:'left' }
-	      	),
+			    Bindery.PageBreak(
+			    	{ selector: '.hotfield-break, .new_page', position: 'before'}
+	      		),
+	      		Bindery.FullBleedPage({
+				  selector: '#cover'
+				}),
 		    ], 
 
 		});
@@ -614,6 +620,7 @@
 			var i = 0;
 			var image_counter = 1;
 			document.body.classList.add('readyForPrint');
+			
 			while(firstSheet !== null)
 			{
 				var cloned = firstSheet.cloneNode(true);
@@ -634,7 +641,9 @@
 
 				if(clonedAppendix_container !== null)
 					isAppendix = true;
-
+				else
+					console.log(cloned);
+				console.log(isAppendix);
 				// add image
 				if(print_image_arr[i] !== undefined && print_image_arr[i].length > 0)
 				{
@@ -683,18 +692,18 @@
 
 			// addCover(sheets, radio_words);
 
-			var btn_flipbook = document.querySelector('#bindery-choose-view option[value="flipbook"]');
-			var test = document.querySelector('.📖-flipbook-sizer');
-			btn_flipbook.addEventListener('click', function(){
-				console.log('hehe');
-			}); 
-			var controls = document.querySelector('div.📖-controls');
-			controls.addEventListener('click', function(){
-				console.log('hehe');
-			}); 
-			btn_flipbook.innerText = 'hehe';
-			var time = new Date;
-			console.log(time);
+			// var btn_flipbook = document.querySelector('#bindery-choose-view option[value="flipbook"]');
+			// var test = document.querySelector('.📖-flipbook-sizer');
+			// btn_flipbook.addEventListener('click', function(){
+			// 	console.log('hehe');
+			// }); 
+			// var controls = document.querySelector('div.📖-controls');
+			// controls.addEventListener('click', function(){
+			// 	console.log('hehe');
+			// }); 
+			// btn_flipbook.innerText = 'hehe';
+			// var time = new Date;
+			// console.log(time);
 		}, 4000);
 
 		function changePageClass(el, positionWanted)
@@ -835,11 +844,11 @@ function prepareOtherViews(blank_page_template){
 					new_controls_select.appendChild(this_option);
 				});
 				new_controls.appendChild(new_controls_select);
-				book_root.appendChild(new_controls);
+				document.body.appendChild(new_controls);
 				var new_print_btn = document.createElement('DIV');
 				new_print_btn.id = 'print-btn';
 				new_print_btn.innerText = 'Print';
-				book_root.appendChild(new_print_btn);
+				document.body.appendChild(new_print_btn);
 
 				var book_zoom_scaler = document.getElementsByClassName('📖-zoom-scaler')[0];
 
@@ -882,7 +891,6 @@ function prepareOtherViews(blank_page_template){
 				
 				var print_btn = document.querySelector('#print-btn');
 				print_btn.addEventListener('click', function(){
-					console.log('hihi');
 					var this_option_object = select_options_arr[0];
 					book_root.classList.remove(current_book_root_class);
 					current_book_root_class = this_option_object.class;
@@ -893,9 +901,14 @@ function prepareOtherViews(blank_page_template){
 					var content_width = this_option_object.zoom_content.offsetWidth;
 					var scale = window.innerWidth / content_width;
 					book_zoom_scaler.style.transform = 'scale('+scale+')';
+					document.body.classList.add('printing');
 					setTimeout(()=>window.print(), 0);
 					
 				});
+
+				window.onafterprint = (event) => {
+					document.body.classList.remove('printing');
+				};
 			}
 	
 </script>

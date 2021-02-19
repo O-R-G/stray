@@ -511,7 +511,7 @@ a{
 }
 #image-holder-8
 {
-    padding-top: 0px;
+    padding-top: 770px;
     width: 400px;
     /*margin-top: -50px;*/
 }
@@ -642,7 +642,16 @@ a{
     padding-left: 160px;
     padding-right: 0;
 }
-
+#image-holder-17 img,
+#image-holder-18 img:first-child, #image-holder-18 img:nth-child(3),
+#image-holder-19 img,
+#image-holder-20 img:first-child, #image-holder-20 img:nth-child(3),
+#image-holder-21 img:first-child, #image-holder-21 img:nth-child(3),
+#image-holder-22 img,
+#image-holder-23 img
+{
+    visibility: hidden;
+}
 #image-holder-21
 {
     padding-left: 100px;
@@ -960,7 +969,7 @@ a{
 {
     /* h = 131.37mm */
     right: 30mm;
-    bottom: -40mm;
+    bottom: 15mm;
 }
 #print-image-holder-2
 {
@@ -1134,6 +1143,23 @@ a{
 .print-americanphotographs-item
 {
     width: 45mm;
+}
+#print-image-holder-32,
+#print-image-holder-33,
+#print-image-holder-34,
+#print-image-holder-35,
+#print-image-holder-37,
+#print-image-holder-38,
+#print-image-holder-39,
+#print-image-holder-40,
+#print-image-holder-41,
+#print-image-holder-43,
+#print-image-holder-44,
+#print-image-holder-46,
+#print-image-holder-47,
+#print-image-holder-48
+{
+    visibility: hidden;
 }
 #print-image-holder-32
 {
@@ -1359,6 +1385,12 @@ a{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.📖-controls
+{
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
 .print-cover-img
 {
     position: absolute;
@@ -1397,6 +1429,12 @@ a{
     transform: translate(-50%, 0);
     z-index: 500;
 }
+.printing #custom-book-controls,
+.printing #print-btn
+{
+    display: none;
+}
+
 .📖-controls .📖-btn.📖-btn-print
 {
     display: none;
@@ -1424,6 +1462,9 @@ a{
 {
     margin-left: 50px;
 }*/
+@page {
+margin: 0cm !important;
+}
 @keyframes flashing
 {
     0%{
