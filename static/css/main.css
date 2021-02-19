@@ -1389,6 +1389,31 @@ a{
 {
     pointer-events: initial;
 }
+#custom-book-controls
+{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 500;
+}
+.📖-controls .📖-btn.📖-btn-print
+{
+    display: none;
+}
+#print-btn
+{
+    color: #fff;
+    background-color: #000;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    padding: 8px 12px;
+    z-index: 1000;
+    cursor: pointer;
+
+}
+
 /*body.overflow-hidden
 {
     overflow: visible;
