@@ -14,4 +14,36 @@ function get_cookie($name)
 	else
 		return null;
 }
+if(!function_exists('mb_str_split'))
+{
+	function mb_str_split( $string ) {
+	    # Split at all position not after the start: ^
+	    # and not before the end: $
+	    return preg_split('/(?<!^)(?!$)/u', $string );
+	}
+}
+function getPlainRadioText($escape = false){
+	global $oo;
+	$text_id = end($oo->urls_to_ids(array('text-radio')));
+	$text_item = $oo->get($text_id);
+	$text_raw = strip_tags($text_item['body']);
+	$text_raw = str_replace("&nbsp;", " ", $text_raw);
+
+	$text = $text_raw;
+	while(ord(substr($text, strlen($text)-1)) == 9  || 
+		  ord(substr($text, strlen($text)-1)) == 10  || 
+		  ord(substr($text, strlen($text)-1)) == 13)
+	{
+		$text = substr($text, 0, strlen($text)-1);
+	}
+	while(ord(substr($text, 0, 1)) == 9  || 
+		  ord(substr($text, 0, 1)) == 10  || 
+		  ord(substr($text, 0, 1)) == 13)
+	{
+		$text = substr($text, 1);
+	}
+	if($escape)
+		$text = htmlspecialchars($text, ENT_QUOTES);
+	return $text;
+}
 ?>

@@ -1,11 +1,11 @@
 <?
 	$text = $item['body'];
-	$text .= '<div class = "appendix-begin"></div><div class = "appendix-container">';
+	$appendix .= '<div class = "new_page"></div><div class = "appendix-container">';
 	$appendix_id = end($oo->urls_to_ids(array('appendix')));
 	$appendix_children = $oo->children($appendix_id);
 	foreach($appendix_children as $child)
-		$text .= '<div class="appendix_section">'.$child['body'].'</div>';
-	$text .= '</div>';
+		$appendix .= '<div class="appendix_section">'.$child['body'].'</div>';
+	$appendix .= '</div>';
 
 	$text_plain = getPlainRadioText(true);
 
@@ -26,11 +26,168 @@
 <div id ='print_mask'>
 	<p>PREPARING FOR PRINTING...</p>
 </div>
-<div class = 'print_content'>
+<div>
 	<section id="" class = 'print-content'>
 		<div id = '' class = 'text-container window-container'><?
 	            echo $text;
-	    ?></div>
+	    ?></div><div class="new_page"></div>
+	    <div id = '' class = 'image-container window-container'>
+	    	<div class = 'mask-text-container'><?= $text; ?></div>
+	    	<div id = 'image-holder-2' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/PHOTORAMA_10-inch.jpg'>
+			</div>
+			<div id = 'image-holder-3' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/TEMPLE-HIGH-AND-LO-20x13_10-inches.jpg'>
+			</div>
+			<div id = 'image-holder-29' class = 'image-holder centered' images=''>
+				<img class = '' src = 'media/jpg/pp_to-print_IMG_0423.jpg'>
+			</div>
+			<div id = 'image-holder-4' class = 'image-holder inline-image-holder' images='2'>
+				<img class = '' src = 'media/jpg/STRAY-SH.jpg'><img class = '' src = 'media/jpg/STRAY-NM.jpg'>
+				<!-- <img class = '' src = 'media/jpg/signal-escapes-2.jpg'> -->
+			</div>
+			<div id = 'audio-holder-1' class = 'audio-holder image-float-container'>
+				<audio id = 'audio-1' controls>
+					<source src="media/audio/Left_SUSAN_HUMAN_30minloop.mp3" type = 'audio/mp3'>
+				</audio>
+				<audio id = 'audio-2' controls>
+					<source src="media/audio/Right_B5-Lone.mp3" type = 'audio/mp3'>
+				</audio>
+			</div>
+			<div id = 'image-holder-5' class = 'image-holder' images=''>
+				<!-- <img class = '' src = 'media/jpg/6-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/1-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/7-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/FRIENDS-IN-DEED-63x-fnl_10-inch.jpg'><img class = '' src = 'media/jpg/3-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/5-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/4-FRIENDS-IN-DEED_10-inch.jpg'><img class = '' src = 'media/jpg/2-FRIENDS-IN-DEED_10-inch.jpg'> -->
+				<img class = '' src = 'media/jpg/friendsInDeedHouse-1.jpg'>
+			</div>
+			
+			<div class = 'image-float-container'>
+				<!-- I-7 -->
+				<div id = 'image-holder-6' class = 'image-holder' images=''>
+					<img class = '' src = 'media/jpg/Grace-Walking-and-Talking.jpg'>
+				</div>
+				<!-- I-8 -->
+				<div id = 'image-holder-30' class = 'image-holder' images=''>
+					<img class = '' src = 'media/jpg/BOMBARDO_fnl_10-inch.jpg'>
+				</div>
+				<!-- I-9 -->
+				<div id = 'image-holder-31' class = 'image-holder inline-image-holder' images='2'>
+					<img class = '' src = 'media/jpg/WILL-AND-BE-GOING-1-v2-fnl_10-inch.jpg'><img class = '' src = 'media/jpg/WILL-AND-BE-GOING-2-v2-fnl_10-inch.jpg'>
+				</div>
+			</div>
+			<!-- I-10 -->
+			<div id = 'image-holder-32' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/signal-escapes-v1.jpg'>
+			</div>
+			<!-- I-11 -->
+			<div id = 'image-holder-7' class = 'image-holder inline-image-holder' images='2'>
+				<img class = '' src = 'media/jpg/TREE-ELLIPSE-1-IMG_0431-fnl-16INCHES_10-inches.jpg'><img class = '' src = 'media/jpg/TREE-ELLIPSE-2_10-inches.jpg'>
+			</div>
+			<!-- I-12 -->
+			<div id = 'image-holder-33' class = 'image-holder image-float-container' images=''>
+				<img class = '' src = 'media/jpg/Exh-view_Ebner_GEP_NY_2017_08.jpg'>
+			</div>
+			<!-- II-1 -->
+			<div id = 'image-holder-34' class = 'image-holder centered' images=''>
+				<a href="javascript:popup('appendix/paul-elliman')"><img class = '' src = 'media/jpg/Elliman_LB18-scrambled-bag-2.jpg'></a>
+			</div>
+			<div id = 'audio-holder-2' class = 'audio-holder'>
+				<audio controls>
+					<source src="media/audio/NATE_DogonEclipse_30minloop.mp3" type="audio/mp3">
+				</audio>
+			</div>
+			<div id = 'image-holder-8' class = 'image-holder overlap-image-holder'>
+				<img class = '' src = 'media/jpg/SEVEN-SLEEPERS-DOOR.jpg'>
+			</div>
+			<div id = 'image-holder-9' class = 'image-holder inline-image-holder' images='3'>
+				<img class = '' src = 'media/jpg/seven-sleepers-FNL-1-working-FNL-FNL.jpg'><img class = '' src = 'media/jpg/seven-sleepers-FNL-2-working-FNL-FNL.jpg'><img class = '' src = 'media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg'>
+			</div>
+			<div id = 'image-holder-12' class = 'image-holder image-float-container' images=''>
+				<img class = '' src = 'media/jpg/quick_IMG_2222.jpg'>
+			</div>
+			<div id = 'image-holder-11' class = 'image-holder overlap-image-holder' zindex='1' images=''>
+				<img class = '' src = 'media/jpg/SE_Shaker_HIRES_LAYOUT_V2_57x78_Final.jpg'>
+			</div>
+			<div id = 'image-holder-10' class = 'image-holder image-float-container' >
+				<img class = '' src = 'media/jpg/SE_bside_INVERTED_V3_16x18_Final.jpg'>
+			</div>
+			
+			<div id = 'image-holder-13' class = 'image-holder centered' images=''>
+				<img class = '' src = 'media/jpg/ghost-song.jpg'>
+			</div>
+			<div id = 'image-holder-35' class = 'image-holder centered' images=''>
+				<img class = '' src = 'media/jpg/SE_Record_IMG_5615_V2_42x50_Final.jpg'>
+			</div>
+			<div id = 'image-holder-36' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/on-trespassing.png'>
+			</div>
+			
+			<!-- <div id = 'image-holder-14' class = 'image-holder inline-image-holder' images='3'>
+				<img class = '' src = 'media/jpg/bird-1_10-inch.jpg'><img class = '' src = 'media/jpg/bird-2_10-inch.jpg'><img class = '' src = 'media/jpg/bird-3_10-inch.jpg'><img class = '' src = 'media/jpg/bird-4_10-inch.jpg'><img class = '' src = 'media/jpg/bird-5_10-inch.jpg'><img class = '' src = 'media/jpg/bird-6_10-inch.jpg'><img class = '' src = 'media/jpg/bird-7_10-inch.jpg'>
+			</div> -->
+			<div id = 'image-holder-15' class = 'image-holder image-float-container' zindex='1'>
+				<img class = '' src = 'media/jpg/SE_cc_ps_grain_IMG_5756_VOG_26x40_Final.jpg'><img class = '' src = 'media/jpg/SE_cc_ps_grain_IMG_5762_V1_26x40_Final.jpg'><img class = '' src = 'media/jpg/SE_cc_ps_grain_IMG_5758_V1_26x40_Final.jpg'>
+			</div>
+			<div id = 'image-holder-37' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/signal-escapes-2-v2.png'>
+			</div>
+			<div id = 'image-holder-16' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/STUDIO-PLACARD_10-inches.jpg'>
+			</div>
+			<div id = 'image-holder-17' class = 'image-holder inline-image-holder' images='3'>
+				<img class = '' src = 'media/jpg/4_Shannon_26.jpg'><img class = '' src = 'media/jpg/4_Shannon_30.jpg'><img class = '' src = 'media/jpg/2_Shannon_25.jpg'>
+			</div>
+			<div id = 'image-holder-18' class = 'image-holder inline-image-holder' images='3'>
+				<img class = '' src = 'media/jpg/2_Shannon_18.jpg'><img class = '' src = 'media/jpg/1_Shannon_6.jpg'><img class = '' src = 'media/jpg/1_Shannon_17.jpg'>
+			</div>
+			<div id = 'image-holder-19' class = 'image-holder inline-image-holder' images='3'>
+				<img class = '' src = 'media/jpg/4_Shannon_19.jpg'><img class = '' src = 'media/jpg/2_Shannon_31.jpg'><img class = '' src = 'media/jpg/4_Shannon_2.jpg'>
+			</div>
+			<div id = 'image-holder-20' class = 'image-holder inline-image-holder' images='3'>
+				<img class = '' src = 'media/jpg/1_Shannon_1.jpg'><img class = '' src = 'media/jpg/2_Shannon_9.jpg'><img class = '' src = 'media/jpg/1_Shannon_12.jpg'>
+			</div>
+			<div id = 'image-holder-21' class = 'image-holder inline-image-holder' images='3'>
+				<img class = '' src = 'media/jpg/1_Shannon_15.jpg'><img class = '' src = 'media/jpg/3_Shannon_9b.jpg'><img class = '' src = 'media/jpg/3_Shannon_5.jpg'>
+			</div>
+			<div id = 'image-holder-22' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/4_Shannon_21.jpg'>
+			</div>
+			<div id = 'image-holder-23' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/2_Shannon_29.jpg'>
+			</div>
+			<div id = 'image-holder-24' class = 'image-holder overlap-image-holder' zindex='1'>
+				<img class = '' src = 'media/jpg/SB_AGraphicTone_A_IMG_5449_V1_15x15_FInal.jpg'><img class = '' src = 'media/jpg/SE_AGraphicTone_IC_IMG_5464_V1_15x20_Final.jpg'><img class = '' src = 'media/jpg/SE_AGraphicTone_TO_IMG_5479_V1_15x29_Final.jpg'><img class = '' src = 'media/jpg/SE_AGraphicTone_GRAPH_IMG_5473_V1_15x65_Final.jpg'><img class = '' src = 'media/jpg/SE_AGraphicTone_E_IMG_5463_V1_13x15_Final.jpg'><img class = '' src = 'media/jpg/SE_AGraphicTone_N_IMG_5502_V1_15x15_Final.jpg'>
+			</div>
+			<div id = 'image-holder-25' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg'>
+			</div>
+			<div id = 'image-holder-26' class = 'image-holder centered' images=''>
+				<img class = '' src = 'media/jpg/SE_OnSong_song_G_V3_8x15_Final.jpg'>
+			</div>
+			<div id = 'image-holder-27' class = 'image-holder overlap-image-holder' zindex='1'>
+				<img class = '' src = 'media/jpg/SE_Record_IMG_5615_V2_42x50_Final.jpg'><img class = '' src = 'media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_no_VOG_15x18_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_no_VOG_15x18_Final_1.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_pass_V2_15x31_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_tres_VOG_15x32_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_Sing_V3_15x30_Final.jpg'><img class = '' src = 'media/jpg/SE_OnTrespassing_ing_V2_15x22_Final.jpg'>
+			</div>
+			<div id = 'image-holder-39' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/hot-field-sec-1.jpg'>
+			</div>
+			<div id = 'image-holder-40' class = 'image-holder image-float-container' images=''>
+				<img class = '' src = 'media/jpg/SE_Section_2_1_V1_33x95_File.jpg'>
+				<img class = '' src = 'media/jpg/SE_Section_2_2_V1_44x106_File.jpg'>
+				<img class = '' src = 'media/jpg/SE_Section_2_3_V3_44x116_File.jpg'>
+				<img class = '' src = 'media/jpg/SE_Section_2_4_V2_33x135_File.jpg'>
+				<img class = '' src = 'media/jpg/SE_Section_2_5_V1_33x100_File.jpg'>
+				<img class = '' src = 'media/jpg/SE_Section_2_6_V1C_33x66_File.jpg'>
+			</div>
+			<div id = 'image-holder-28' class = 'image-holder' images=''>
+				<img class = '' src = 'media/jpg/SE_Section_3_WetWords_V3_118x178.jpg'>
+			</div>
+			<div id = 'image-holder-38' class = 'image-holder image-float-container' images=''>
+				<img class = '' src = 'media/jpg/quick_IMG_6114.jpg'>
+			</div>
+			<div id = 'audio-holder-3' class = 'audio-holder'>
+				<audio id = 'audio-4' controls>
+					<source src="media/audio/all-at-once-1-4.mp3" type = 'audio/mp3'>
+				</audio>
+			</div>
+	    </div>
 	</section>
 </div>
 <script src="/static/js/bindery.min.js"></script>
@@ -506,8 +663,8 @@
 		blankPage_cloned_page.classList.remove('📖-left');
 		blankPage_cloned_page.classList.add('📖-right');
 		var blankPage_cloned = pageTemplate.cloneNode(true);
-		sheetsParent.insertBefore(blankPage_cloned, s[0]);
-		sheetsParent.insertBefore(cover, s[0]);
+		// sheetsParent.insertBefore(blankPage_cloned, s[0]);
+		// sheetsParent.insertBefore(cover, s[0]);
 
 		// calculate how many pages to add to make it multiple of 4
 		var sheets_temp = document.getElementsByClassName('📖-print-sheet');
@@ -570,6 +727,8 @@
 
 
 	window.addEventListener('load', function(){
+		// document.body.classList.add('readyForPrint');
+		// return false;
 		Bindery.makeBook({ 
 			content: '.print-content',
 			view: Bindery.View.PRINT,
@@ -578,9 +737,7 @@
 				margin: { top: '17.5mm', inner: '30mm', outer: '10mm', bottom: '17.5mm' },
 			},
 			printSetup: {
-			   	// marks: Bindery.Marks.CROP,
-			    // bleed: '12pt',
-			    marks: 'NONE',
+			   marks: 'NONE',
 			    bleed: '0pt',
 			},
 			rules: [
@@ -616,59 +773,59 @@
 			var image_counter = 1;
 			document.body.classList.add('readyForPrint');
 			
-			while(firstSheet !== null)
-			{
-				var cloned = firstSheet.cloneNode(true);
-				var clonedText_container = cloned.querySelector('.text-container');
-				var isAppendix = false;
-				var toClone = false;
-				// modify class
-				if(clonedText_container !== null){
-					clonedText_container.classList.add('mask-text-container');
-					clonedText_container.classList.remove('text-container');
-					if(firstSheet.classList.contains('📖-print-sheet-left'))
-						changePageClass(firstSheet, 'right');
-					else
-						changePageClass(cloned, 'left');
-				}
+			// while(firstSheet !== null)
+			// {
+			// 	var cloned = firstSheet.cloneNode(true);
+			// 	var clonedText_container = cloned.querySelector('.text-container');
+			// 	var isAppendix = false;
+			// 	var toClone = false;
+			// 	// modify class
+			// 	if(clonedText_container !== null){
+			// 		clonedText_container.classList.add('mask-text-container');
+			// 		clonedText_container.classList.remove('text-container');
+			// 		if(firstSheet.classList.contains('📖-print-sheet-left'))
+			// 			changePageClass(firstSheet, 'right');
+			// 		else
+			// 			changePageClass(cloned, 'left');
+			// 	}
 
-				var clonedAppendix_container = cloned.querySelector('.appendix-container');
+			// 	var clonedAppendix_container = cloned.querySelector('.appendix-container');
 
-				if(clonedAppendix_container !== null)
-					isAppendix = true;
-				else
-					console.log(cloned);
-				console.log(isAppendix);
-				// add image
-				if(print_image_arr[i] !== undefined && print_image_arr[i].length > 0)
-				{
-					print_image_arr[i].forEach(function(el, j){
-						var thisUrl = 'media/jpg/'+el.url;
-						var thisImg = document.createElement('IMG');
+			// 	if(clonedAppendix_container !== null)
+			// 		isAppendix = true;
+			// 	else
+			// 		console.log(cloned);
+			// 	console.log(isAppendix);
+			// 	// add image
+			// 	// if(print_image_arr[i] !== undefined && print_image_arr[i].length > 0)
+			// 	// {
+			// 	// 	print_image_arr[i].forEach(function(el, j){
+			// 	// 		var thisUrl = 'media/jpg/'+el.url;
+			// 	// 		var thisImg = document.createElement('IMG');
 
-						thisImg.src = thisUrl;
-						thisImg.id = 'print-image-holder-'+image_counter;
-						if(el.id != 'undefined')
-							thisImg.id = 'print-image-holder-'+el.id;
-						thisImg.classList.add('print-image-holder');
-						if(el.class)
-							el.class.forEach(cls=>thisImg.classList.add(cls));
-						cloned.querySelector('.📖-page').appendChild(thisImg);
-						image_counter++;
+			// 	// 		thisImg.src = thisUrl;
+			// 	// 		thisImg.id = 'print-image-holder-'+image_counter;
+			// 	// 		if(el.id != 'undefined')
+			// 	// 			thisImg.id = 'print-image-holder-'+el.id;
+			// 	// 		thisImg.classList.add('print-image-holder');
+			// 	// 		if(el.class)
+			// 	// 			el.class.forEach(cls=>thisImg.classList.add(cls));
+			// 	// 		cloned.querySelector('.📖-page').appendChild(thisImg);
+			// 	// 		image_counter++;
 						
-					});
+			// 	// 	});
 
-				}
-				// append .text-containr and .mask-text-container to cloned_temp_container
-				// sheetsParent.insertBefore(firstSheet, cloned) makes the work harder cause it expands the sheets array and messes foreach().
-				if(!isAppendix)
-					cloned_temp_container.appendChild(cloned);
-				cloned_temp_container.appendChild(firstSheet);
-				firstSheet = sheetsParent.firstChild;
-				i++;
-			}
-			while(cloned_temp_container.firstChild != null)
-				sheetsParent.appendChild(cloned_temp_container.firstChild);
+			// 	// }
+			// 	// append .text-containr and .mask-text-container to cloned_temp_container
+			// 	// sheetsParent.insertBefore(firstSheet, cloned) makes the work harder cause it expands the sheets array and messes foreach().
+			// 	if(!isAppendix)
+			// 		cloned_temp_container.appendChild(cloned);
+			// 	cloned_temp_container.appendChild(firstSheet);
+			// 	firstSheet = sheetsParent.firstChild;
+			// 	i++;
+			// }
+			// while(cloned_temp_container.firstChild != null)
+			// 	sheetsParent.appendChild(cloned_temp_container.firstChild);
 
 			// create blankPage as a template for inserting cover, appendix, etc
 			var blankPage = sheets[0].cloneNode(true);
@@ -679,7 +836,8 @@
 				imgOfBlankPage[0].parentNode.removeChild(imgOfBlankPage[0]);
 				imgOfBlankPage = blankPage.querySelectorAll('img');
 			}
-
+			return false;
+			
 			// add cover
 			addCover(sheets, text_plain, blankPage);
 

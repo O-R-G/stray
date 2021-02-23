@@ -25,9 +25,12 @@ elseif($uri[1] == 'appendix')
 	require_once('views/appendix.php');
 elseif($uri[1] == 'source')
 	require_once('views/main.php');
+elseif($uri[1] == 'print-test')
+	require_once('views/print-test.php');
 elseif(strpos($uri[1], 'print') !== false)
 	require_once('views/print.php');
 elseif($uri[1] == 'zoom-in')
 	require_once('views/zoom-in.php');
+
 require_once('views/foot.php');
 ?>
