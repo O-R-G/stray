@@ -1,13 +1,30 @@
+# machine-specific config files
+.htaccess
+.htpasswd
+
+# nano, emacs backups
+*~
+
+# media
+*.gif
+*.jpg
+*.jpeg
+*.png
+*.pdf
+*.svg
+*.tif
+*.tiff
+*.mp4
+
+# macos
+.DS_Store
+
+# bash
+backup
+sync
+log
+
+# other
 wetwords/
 wetwords-image/
 wetwords-slide/
-media/*.gif
-media/*.jpg
-media/*.jpeg
-media/*.png
-media/*.pdf
-media/*.svg
-media/*.tif
-media/*.tiff
-media/*.mp4
-# open-records-generator/
