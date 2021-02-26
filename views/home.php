@@ -70,7 +70,12 @@
 	var textIsExtended = <?= json_encode($text_plainIsExtended); ?>;
 	var textToFeed = textIsExtended ? text_plain_extended : text_plain;
 
+	var main_fuse = 0;
 	function format_img_src(letter){
+		// if(main_fuse > 100)
+			// return false;
+		// main_fuse++;
+		// console.log('format_img_src');
 		var this_letter = letter.toUpperCase();
 		if(this_letter == '&')
 			this_letter = 'ampersand';
@@ -82,18 +87,18 @@
 			this_letter = 'hash';
 		else if(this_letter == '/')
 			this_letter = 'slash';
-		else if(this_letter == ' ')
+		else if( !isAlphabetic(this_letter))
 			return 'whitespace';
 
 		var this_max = filenum_arr[this_letter];
 		var letter_order = Math.floor(Math.random() * Math.floor(this_max));
-		var fuse = 0;
-		while(saved_order.includes(letter_order) || isNaN(letter_order)){
+		
+		while( (saved_order.includes(letter_order) && saved_order.length < this_max-1) || isNaN(letter_order) ){
 			letter_order = Math.floor(Math.random() * Math.floor(this_max));
-			fuse++;
 		}
 		saved_order.push(letter_order);
 		var output = 'media/letters/'+this_letter+'-'+letter_order+'.jpg';
+
 		return output;
 	}
 	
@@ -200,7 +205,6 @@
       			current_letter = response['current_pos'];
       			var wait = 1000 - (Date.now() % 1000);
       			current_letter++;
-      			console.log(current_letter);
       			if(current_letter >= textToFeed.length)
       				current_letter = 0;
       			
@@ -233,7 +237,6 @@
 	};
 	httpRequest.open('GET', 'https://stray.o-r-g.net/now');
 	httpRequest.send();
-	console.log(hasTouchScreen);
 	[].forEach.call(radio_image, function(el, i){
 		if(!hasTouchScreen){
 			el.addEventListener('click', ()=>open_duo());
