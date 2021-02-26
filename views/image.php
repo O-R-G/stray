@@ -40,7 +40,7 @@
 	});
 	
 </script>
-<section id ='main' class="hasTouchScreen viewing-text">
+<section id ='main' class="">
 	<ul id = 'chapter-nav'>
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>
@@ -221,12 +221,11 @@
 	var window_zoom;
 	console.log(hasTouchScreen);
 	var sMain = document.getElementById('main');
-	// hasTouchScreen = true;
+	var body = document.body;
+	hasTouchScreen = true;
 	if(!hasTouchScreen)
 	{
 		
-		sMain.classList.remove('hasTouchScreen');
-		sMain.classList.remove('viewing-text');
 		[].forEach.call(imgs, function(el, i){
 			el.addEventListener('click', function(){
 				var thisSrc = el.src;
@@ -243,12 +242,22 @@
 	}
 	else
 	{
+		body.classList.add('hasTouchScreen');
+		body.classList.add('viewing-text');
 		var sText_image_toggle = document.getElementById('text-image-toggle');
 		sText_image_toggle.addEventListener('click', ()=>{
-			sMain.classList.toggle('viewing-text');
-			sMain.classList.toggle('viewing-image');
+			body.classList.toggle('viewing-text');
+			body.classList.toggle('viewing-image');
 		});
 		var sPrint = document.getElementById('print');
 		sPrint.style.display = 'none';
+
+		var wW = window.innerWidth;
+		console.log(wW);
+		if(wW < 800)
+		{
+			var scale = wW / 800;
+			sMain.style.transform = "scale(" + scale + ")";
+		}
 	}
 </script>
