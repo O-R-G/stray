@@ -221,7 +221,7 @@
 	var window_zoom;
 	console.log(hasTouchScreen);
 	var sMain = document.getElementById('main');
-	hasTouchScreen = true;
+	// hasTouchScreen = true;
 	if(!hasTouchScreen)
 	{
 		
