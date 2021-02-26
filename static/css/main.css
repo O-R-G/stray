@@ -1385,13 +1385,15 @@ a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+}    
+/* 
 .📖-controls
 {
-    visibility: hidden;
+    visibility: hidden; 
     height: 0;
     overflow: hidden;
 }
+*/
 .print-cover-img
 {
     position: absolute;
@@ -1435,11 +1437,20 @@ a{
 {
     display: none;
 }
-
-.📖-controls .📖-btn.📖-btn-print
-{
+/*
+.📖-controls .📖-btn.📖-btn-print {
     display: none;
 }
+*/
+
+/* 📖-page.📖-left.📖-page3d-back 📖-flow-box #print-container .page { */
+/* tmp to fix, should be better targeted */
+.📖-left #print-container, 
+.📖-left #print-container a {
+    background-color: #FFC;
+    color: #EEE;
+}
+
 #print-btn
 {
     color: #fff;
@@ -1450,7 +1461,6 @@ a{
     padding: 8px 12px;
     z-index: 1000;
     cursor: pointer;
-
 }
 .print-test-sheet
 {
