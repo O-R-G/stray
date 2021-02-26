@@ -222,7 +222,7 @@
 	console.log(hasTouchScreen);
 	var sMain = document.getElementById('main');
 	var body = document.body;
-	hasTouchScreen = true;
+	// hasTouchScreen = true;
 	if(!hasTouchScreen)
 	{
 		

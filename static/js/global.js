@@ -18,7 +18,8 @@ if ("maxTouchPoints" in navigator) {
         );
     }
 }
-
+if(hasTouchScreen)
+  console.log('hasTouchScreen');
 function isAlphabetic(str) {
   var code, i, len;
 

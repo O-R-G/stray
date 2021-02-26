@@ -241,8 +241,10 @@
 		if(!hasTouchScreen){
 			el.addEventListener('click', ()=>open_duo());
 		}
-		else
-			el.addEventListener('click', ()=>popup('mobile'));
+		else{
+			console.log('hihi');
+			el.addEventListener('click', ()=>{popup('mobile')});
+		}
 	});
 
 	window.addEventListener('keydown', event => {

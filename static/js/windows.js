@@ -42,7 +42,7 @@ function popup(name, param =false){
     else if(name == 'image' || name == 'mobile'){
         var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
-        return window.open('/image', 'STRAY. IMAGE', this_param);
+        return window.open('/'+name, 'STRAY. IMAGE', this_param);
     }
     else if(name == 'print'){
         var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
