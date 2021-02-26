@@ -28,6 +28,3 @@ log
 wetwords/
 wetwords-image/
 wetwords-slide/
-
-# database
-.sql
