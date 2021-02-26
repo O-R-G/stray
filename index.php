@@ -15,7 +15,8 @@ if(!$uri[1])
 	require_once('views/home.php');
 elseif($uri[1] == 'text')
 	require_once('views/text.php');
-elseif($uri[1] == 'image')
+elseif($uri[1] == 'image' ||
+	   $uri[1] == 'mobile' )
 	require_once('views/image.php');
 elseif($uri[1] == 'letter')
 	require_once('views/letter.php');

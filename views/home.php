@@ -4,14 +4,15 @@
 	$text_plain_extended = '';
 	foreach($text_plain_arr as $letter)
 	{
-		if($letter != ' ')
-		{
-			$text_plain_extended .= $letter . $letter . $letter;
-		}
-		else
-		{
-			$text_plain_extended .= ' ';
-		}
+		// if($letter != ' ')
+		// {
+		// 	$text_plain_extended .= $letter . $letter . $letter;
+		// }
+		// else
+		// {
+		// 	$text_plain_extended .= ' ';
+		// }
+		$text_plain_extended .= $letter . $letter . $letter;
 	}
 	
 	/*
@@ -86,8 +87,9 @@
 
 		var this_max = filenum_arr[this_letter];
 		var letter_order = Math.floor(Math.random() * Math.floor(this_max));
+		if()
 		var fuse = 0;
-		while(saved_order.includes(letter_order) && fuse < 20){
+		while(saved_order.includes(letter_order) || isNaN(letter_order)){
 			letter_order = Math.floor(Math.random() * Math.floor(this_max));
 			fuse++;
 		}
@@ -232,8 +234,13 @@
 	};
 	httpRequest.open('GET', 'https://stray.o-r-g.net/now');
 	httpRequest.send();
+	console.log(hasTouchScreen);
 	[].forEach.call(radio_image, function(el, i){
-		el.addEventListener('click', ()=>open_duo());
+		if(!hasTouchScreen){
+			el.addEventListener('click', ()=>open_duo());
+		}
+		else
+			el.addEventListener('click', ()=>popup('mobile'));
 	});
 
 	window.addEventListener('keydown', event => {

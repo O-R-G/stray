@@ -40,7 +40,7 @@
 	});
 	
 </script>
-<section id ='main'>
+<section id ='main' class="hasTouchScreen viewing-text">
 	<ul id = 'chapter-nav'>
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>
@@ -204,52 +204,51 @@
 			</audio>
 		</div>
 	</div>
+	<div id="text-image-toggle">
+		<div id="inner">
+			<div id="front"><img src = "/media/svg/text.svg" alt="text"></div>
+			<div id="back"><img src = "/media/svg/image.svg" alt="image"></div>
+		</div>
+	</div>
 </section>
 <a id = 'print' href = "javascript:popup('print');"></a>
 <form id="filename-form" method="post" action="/zoom-in" target="_blank">
 	<input id="filename-input" type="hidden" name="image-filename">
 </form>
+
 <script>
 	var imgs = document.querySelectorAll('#image-container img');
 	var window_zoom;
-	[].forEach.call(imgs, function(el, i){
-		el.addEventListener('click', function(){
-			var thisSrc = el.src;
-			if(thisSrc !== null)
-			{
-				var last_slash_pos = thisSrc.lastIndexOf('/');
-				var thisFilename = thisSrc.substring(last_slash_pos+1);
-				// sFilenameInput.value = thisFilename;
-				// sFilenameForm.submit();
-				window_zoom = popup('zoom', thisFilename);
-			}
+	console.log(hasTouchScreen);
+	var sMain = document.getElementById('main');
+	hasTouchScreen = true;
+	if(!hasTouchScreen)
+	{
+		
+		sMain.classList.remove('hasTouchScreen');
+		sMain.classList.remove('viewing-text');
+		[].forEach.call(imgs, function(el, i){
+			el.addEventListener('click', function(){
+				var thisSrc = el.src;
+				if(thisSrc !== null)
+				{
+					var last_slash_pos = thisSrc.lastIndexOf('/');
+					var thisFilename = thisSrc.substring(last_slash_pos+1);
+					// sFilenameInput.value = thisFilename;
+					// sFilenameForm.submit();
+					window_zoom = popup('zoom', thisFilename);
+				}
+			});
 		});
-	});
+	}
+	else
+	{
+		var sText_image_toggle = document.getElementById('text-image-toggle');
+		sText_image_toggle.addEventListener('click', ()=>{
+			sMain.classList.toggle('viewing-text');
+			sMain.classList.toggle('viewing-image');
+		});
+		var sPrint = document.getElementById('print');
+		sPrint.style.display = 'none';
+	}
 </script>
-<!-- <button id = 'print'></button>
-<script src="/static/js/bindery.min.js"></script>
-<script>
-	var print = document.getElementById('print');
-	print.addEventListener('click', function(){
-		Bindery.makeBook({ 
-			content: '#main',
-			pageSetup: {
-				size: { width: '8.5in', height: '11in' },
-				margin: { top: '0.5in', inner: '1.25in', outer: '0.25in', bottom: '0.5in' },
-			},
-			printSetup: {
-			    // layout: Bindery.Layout.BOOKLET,
-			    // paper: Bindery.Paper.LETTER_PORTRAIT,
-			    marks: Bindery.Marks.CROP,
-			    bleed: '12pt',
-			},
-			rules: [
-		      Bindery.PageBreak(
-		      	{ selector: '.page-breaker', position: 'before', continue:'right' }
-	      	),
-		    ], 
-		});
-
-	});
-  
-</script> -->
