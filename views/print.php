@@ -30,7 +30,7 @@
                 size: { width: '210mm', height: '297mm' },
                 margin: { 
                     top: '15mm', 
-                    inner: '40mm', 
+                    inner: '37mm', 
                     outer: '15mm', 
                     bottom: '5mm' 
                 },
