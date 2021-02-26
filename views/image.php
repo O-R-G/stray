@@ -256,8 +256,8 @@
 		console.log(wW);
 		if(wW < 800)
 		{
-			var scale = wW / 800;
-			sMain.style.transform = "scale(" + scale + ")";
+			// var scale = wW / 800;
+			// sMain.style.transform = "scale(" + scale + ")";
 		}
 	}
 </script>
