@@ -14,24 +14,25 @@ $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
 $body = $item['body'];
+/*
 $find = '/<div><br><\/div>/';
 $replace = '';
 $body = preg_replace($find, $replace, $body);
+*/
 $texts = explode('///', $item['body']);
 
 // 1. build $images[]
 
-/*
 $urls = explode('/', 'image');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
 $body = $item['body'];
+/*
 $find = '/<div><br><\/div>/';
 $replace = '';
 $body = preg_replace($find, $replace, $body);
-$images = explode('///', $item['body']);
-// '///' as explode key in open-rec-gen?
 */
+$images = explode('///', $item['body']);
 
 // 2. output alternating $texts[] and $images[]
 //    with page-breaking token in between each
@@ -40,28 +41,16 @@ $images = explode('///', $item['body']);
 $now = date('l, F j, Y') . ' at ' . date('h:i a');
 
 ?><div id='print-container'>
-    <div class='.page'>Printed on <?= $now; ?>.</div><?
+    <div class='page'>Printed on <?= $now; ?>.</div><?
+    $j = 0;
     for ($i=0; $i < count($texts); $i++) {
-        echo $texts[$i];
-        echo $texts[$i];    // stub for images
-        // echo '<div class="page-break"></div>';
-        // echo $images[$i];
-        // this causes overflow for now
-        // likely as /image in o-r-g is just rough
-        // will set that up so a series of divs
-        // which are really pages
-        // then each image is placed absolutely
-        // or padded within that container
-        // or even just done with <br>'s
-        // echo '<div class="page-break"></div>';
+        echo '<div class="page">' . $images[$j] . '</div>';
+        echo '<div class="page">' . $texts[$i] . '</div>';
+        // echo '<div class="page">' . $texts[$i] . '</div>';
+        // echo '<div class="page">' . $texts[$i] . $images[$j] . '</div>';
+
+        if ($j < count($images))
+            $j++;
     }
-
-    /* debug
-    foreach($texts as $text)   
-        echo $text . '<br><br><br>OOOOOOO';    
-    foreach($images as $image)   
-        echo $image;
-    */
-
 ?></div>
 

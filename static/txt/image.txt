@@ -1,56 +1,4 @@
-<?
-	$text_id = end($oo->urls_to_ids(array('text')));
-	$text = $oo->get($text_id)['body'];
-?>
-<script>
-	var audio_position = [];
-	var wH = window.innerHeight;
-	var ticking = false;
-	var playing = false;
-	var playing_now = 0;
-	window.addEventListener('load', function(){
-		var audio = document.querySelectorAll('#image-container audio');
-		// audio = audio.reserse();
-		[].forEach.call(audio, function(el, i){
-			el.addEventListener('pause', ()=>{playing=false; el.setAttribute('forcedPaused', true);});
-			el.addEventListener('play', ()=>{playing=true; el.setAttribute('forcedPaused', false); playing_now = i; });
-			el.addEventListener('ended', ()=>{playing_now++; if(playing_now > audio.length-1) playing_now = 0; audio[playing_now].play(); });
-		});
-		var audio_rearranged = [audio[3], audio[2], audio[0], audio[1]];
-		[].forEach.call(audio_rearranged, function(el, i){
-			audio_position.push(el.offsetTop);
-		});
-
-		window.addEventListener('scroll', function(){
-			if (!ticking) {
-                window.requestAnimationFrame(function() {
-                	[].forEach.call(audio_rearranged, function(el, i){
-                		var forcedPaused = el.getAttribute('forcedPaused');
-                		if(window.scrollY > audio_position[i]-wH && !playing && !forcedPaused){
-	                    	el.play();
-	                    	playing = true;
-	                    }
-                	});
-                });
-                ticking = true;
-            }
-            ticking = false;
-		});
-		
-	});
-	
-</script>
-<section id ='main' class="">
-	<ul id = 'chapter-nav'>
-		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
-	</ul>
-
-	<div id = 'image-container' class = 'window-container'>
-		<div class = 'mask-text-container'><?= $text; ?></div>
-
-
-
-    
+///
 <div id = 'image-holder-2' class = 'image-holder' images=''>	    
     <img class = '' src = '/media/jpg/PHOTORAMA_10-inch.jpg'>
 </div>
@@ -64,7 +12,8 @@
 </div>
 ///
 <div id = 'image-holder-4' class = 'image-holder inline-image-holder' images='2'>
-	<img class = '' src = '/media/jpg/STRAY-SH.jpg'><img class = '' src = '/media/jpg/STRAY-NM.jpg'>
+	<img class = '' src = '/media/jpg/STRAY-SH.jpg'>
+    <img class = '' src = '/media/jpg/STRAY-NM.jpg'>
 </div>
 <div id = 'audio-holder-1' class = 'audio-holder image-float-container'>
 	<audio id = 'audio-1' controls>
@@ -108,7 +57,9 @@
 </div>
 <!-- II-1 -->
 <div id = 'image-holder-34' class = 'image-holder centered' images=''>
-	<a href="javascript:popup('appendix/paul-elliman')"><img class = '' src = '/media/jpg/Elliman_LB18-scrambled-bag-2.jpg'></a>
+	<a href="javascript:popup('appendix/paul-elliman')">
+        <img class = '' src = '/media/jpg/Elliman_LB18-scrambled-bag-2.jpg'>
+    </a>
 </div>
 <div id = 'audio-holder-2' class = 'audio-holder'>
 	<audio controls>
@@ -227,64 +178,3 @@
 		<source src="/media/audio/all-at-once-1-4.mp3" type = 'audio/mp3'>
 	</audio>
 </div>
-
-    </div>
-
-
-	<div id="text-image-toggle">
-		<div id="inner">
-			<div id="front"><img src = "/media/svg/text.svg" alt="text"></div>
-			<div id="back"><img src = "/media/svg/image.svg" alt="image"></div>
-		</div>
-	</div>
-</section>
-<a id = 'print' href = "javascript:popup('print');"></a>
-<form id="filename-form" method="post" action="/zoom-in" target="_blank">
-	<input id="filename-input" type="hidden" name="image-filename">
-</form>
-
-<script>
-	var imgs = document.querySelectorAll('#image-container img');
-	var window_zoom;
-	console.log(hasTouchScreen);
-	var sMain = document.getElementById('main');
-	var body = document.body;
-	// hasTouchScreen = true;
-	if(!hasTouchScreen)
-	{
-		
-		[].forEach.call(imgs, function(el, i){
-			el.addEventListener('click', function(){
-				var thisSrc = el.src;
-				if(thisSrc !== null)
-				{
-					var last_slash_pos = thisSrc.lastIndexOf('/');
-					var thisFilename = thisSrc.substring(last_slash_pos+1);
-					// sFilenameInput.value = thisFilename;
-					// sFilenameForm.submit();
-					window_zoom = popup('zoom', thisFilename);
-				}
-			});
-		});
-	}
-	else
-	{
-		body.classList.add('hasTouchScreen');
-		body.classList.add('viewing-text');
-		var sText_image_toggle = document.getElementById('text-image-toggle');
-		sText_image_toggle.addEventListener('click', ()=>{
-			body.classList.toggle('viewing-text');
-			body.classList.toggle('viewing-image');
-		});
-		var sPrint = document.getElementById('print');
-		sPrint.style.display = 'none';
-
-		var wW = window.innerWidth;
-		console.log(wW);
-		if(wW < 800)
-		{
-			// var scale = wW / 800;
-			// sMain.style.transform = "scale(" + scale + ")";
-		}
-	}
-</script>
