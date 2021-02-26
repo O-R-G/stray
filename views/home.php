@@ -87,7 +87,6 @@
 
 		var this_max = filenum_arr[this_letter];
 		var letter_order = Math.floor(Math.random() * Math.floor(this_max));
-		if()
 		var fuse = 0;
 		while(saved_order.includes(letter_order) || isNaN(letter_order)){
 			letter_order = Math.floor(Math.random() * Math.floor(this_max));
