@@ -1384,13 +1384,15 @@ a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+}    
+/* 
 .📖-controls
 {
-    visibility: hidden;
+    visibility: hidden; 
     height: 0;
     overflow: hidden;
 }
+*/
 .print-cover-img
 {
     position: absolute;
@@ -1434,11 +1436,12 @@ a{
 {
     display: none;
 }
-
+/*
 .📖-controls .📖-btn.📖-btn-print
 {
     display: none;
 }
+*/
 #print-btn
 {
     color: #fff;
@@ -1449,7 +1452,6 @@ a{
     padding: 8px 12px;
     z-index: 1000;
     cursor: pointer;
-
 }
 .print-test-sheet
 {

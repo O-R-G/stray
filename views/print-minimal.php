@@ -9,7 +9,8 @@
     <style>
         /* 
             force hide text on /image 
-            src div for bindery.js must be position: relative
+            src div for bindery.js 
+            must be position: relative
             no explicit height set
         */
         .mask-text-container {
@@ -22,9 +23,15 @@
     <script>  
         Bindery.makeBook({
             content: {
+                selector: '#print-container',
+                url: '/print-minimal-content'
+            },
+            /*
+            content: {
                 selector: '#text-container',
                 url: '/text'
             },
+            */
             /*
             content: {
                 selector: '#image-container',
@@ -44,7 +51,7 @@
                 Bindery.View.FLIPBOOK,
             rules: [
                 Bindery.PageBreak({ 
-                    selector: '.head', 
+                    selector: '.page-break', 
                     position: 'both' 
                 })
             ],
