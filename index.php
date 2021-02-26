@@ -9,10 +9,10 @@ $uri = explode('/', $requestclean);
 date_default_timezone_set("America/New_York");
 $now = date("h:i:sa");
 
-if($uri[1] == 'print-minimal') {
-    require_once('views/print-minimal.php');
-} else if($uri[1] == 'print-minimal-content') {
-    require_once('views/print-minimal-content.php');
+if($uri[1] == 'print') {
+    require_once('views/print.php');
+} else if($uri[1] == 'book') {
+    require_once('views/book.php');
 } else {
     require_once('views/head.php');
     if(!$uri[1])
@@ -31,8 +31,10 @@ if($uri[1] == 'print-minimal') {
 	    require_once('views/main.php');
     elseif($uri[1] == 'print-test')
 	    require_once('views/print-test.php');
-    elseif(strpos($uri[1], 'print') !== false)
-	    require_once('views/print.php');
+    elseif($uri[1] == 'print-old')
+	    require_once('views/print-old.php');
+    elseif($uri[1] == 'print-new')
+	    require_once('views/print-new.php');
     elseif($uri[1] == 'zoom-in')
 	    require_once('views/zoom-in.php');
     require_once('views/foot.php');

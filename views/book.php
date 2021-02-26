@@ -8,6 +8,8 @@ require_once('views/head.php');
 
 // 0. build $texts[]
 
+// do we need to preprocess output?
+
 $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
@@ -16,10 +18,10 @@ $find = '/<div><br><\/div>/';
 $replace = '';
 $body = preg_replace($find, $replace, $body);
 $texts = explode('///', $item['body']);
-// '///' as explode key in open-rec-gen?
 
 // 1. build $images[]
 
+/*
 $urls = explode('/', 'image');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
@@ -29,16 +31,21 @@ $replace = '';
 $body = preg_replace($find, $replace, $body);
 $images = explode('///', $item['body']);
 // '///' as explode key in open-rec-gen?
+*/
 
 // 2. output alternating $texts[] and $images[]
 //    with page-breaking token in between each
-//    to pass to /print-minimal
+//    to pass to /print
 
-?><div id='print-container'><?
+$now = date('l, F j, Y') . ' at ' . date('h:i a');
+
+?><div id='print-container'>
+    <div class='.page'>Printed on <?= $now; ?>.</div><?
     for ($i=0; $i < count($texts); $i++) {
         echo $texts[$i];
-        echo '<div class="page-break"></div>';
-        echo $images[$i];
+        echo $texts[$i];    // stub for images
+        // echo '<div class="page-break"></div>';
+        // echo $images[$i];
         // this causes overflow for now
         // likely as /image in o-r-g is just rough
         // will set that up so a series of divs

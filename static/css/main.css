@@ -1437,11 +1437,19 @@ a{
     display: none;
 }
 /*
-.📖-controls .📖-btn.📖-btn-print
-{
+.📖-controls .📖-btn.📖-btn-print {
     display: none;
 }
 */
+
+/* 📖-page.📖-left.📖-page3d-back 📖-flow-box #print-container .page { */
+/* tmp to fix, should be better targeted */
+.📖-left #print-container, 
+.📖-left #print-container a {
+    background-color: #FFC;
+    color: #EEE;
+}
+
 #print-btn
 {
     color: #fff;
