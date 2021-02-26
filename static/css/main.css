@@ -1633,7 +1633,7 @@ margin: 0cm !important;
     {
         display: none;
     }
-    #text-container, 
+    /*#text-container, 
     #allcaps-container,
     .mask-text-container,
     .text-container,
@@ -1646,7 +1646,7 @@ margin: 0cm !important;
     {
         font-size: 13px;
         line-height: 13px;
-    }
+    }*/
 }
 
 
