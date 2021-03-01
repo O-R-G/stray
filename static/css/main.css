@@ -329,6 +329,16 @@ a{
     width: initial;
     height: calc(100% - 40px);
     margin-top: 20px;
+    
+}
+.window_btn
+{
+    height: calc( 100% - 40px);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
     cursor: pointer;
 }
 .radio_image.not_current
@@ -339,7 +349,10 @@ a{
 {
     display: none;
 }
-
+#mobile_btn
+{
+    display: none;
+}
 .image-holder
 {
     /*padding: 0 40px;*/
@@ -1666,6 +1679,14 @@ margin: 0cm !important;
         font-size: 13px;
         line-height: 13px;
     }*/
+    #mobile_btn
+    {
+        display: block;
+    }
+    #duo_btn
+    {
+        display: none;
+    }
 }
 
 

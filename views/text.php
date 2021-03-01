@@ -22,10 +22,10 @@ $body = preg_replace($find, $replace, $body);
 <a id = 'print' href = "javascript:popup('print');"></a>
 
 <script>
-	if(!hasTouchScreen){
-		var sPrint = document.getElementById('print');
-		sPrint.style.display = 'none';
-	}
+	// if(!hasTouchScreen){
+	// 	var sPrint = document.getElementById('print');
+	// 	sPrint.style.display = 'none';
+	// }
   
 </script>
 

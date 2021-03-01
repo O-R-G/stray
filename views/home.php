@@ -41,9 +41,17 @@
 		}
 	}
 
+	// get images size
+	$example_image_url = 'media/letters/A-0.jpg';
+	$example_image_size = getimagesize($example_image_url);
+	// h / w
+	$image_r = $example_image_size[1] / $example_image_size[0];
+
 	$text_plainIsExtended = isset($_GET['textIsExtended']);
 ?>
 <div id = 'radio_container'>
+	<div id="duo_btn" class="window_btn"></div>
+	<div id="mobile_btn" class="window_btn"></div>
 	<img id = 'radio_image_0' class = 'radio_image not_current'>
 	<img id = 'radio_image_1' class = 'radio_image not_current'>
 	<img id = 'radio_image_2' class = 'radio_image not_current'>
@@ -70,7 +78,25 @@
 	var textIsExtended = <?= json_encode($text_plainIsExtended); ?>;
 	var textToFeed = textIsExtended ? text_plain_extended : text_plain;
 
-	var main_fuse = 0;
+	var image_r = <?= $image_r; ?>;
+	var wH = window.innerHeight;
+	var image_h = wH - 40;
+	var image_w = image_h / image_r;
+
+	var sWindow_btn = document.getElementsByClassName('window_btn');
+	[].forEach.call(sWindow_btn, (el, i)=>{
+		el.style.width = image_w + 'px';
+		if(el.id == 'duo_btn')
+		{
+			el.addEventListener('click', ()=>open_duo());
+		}
+		else if(el.id == 'mobile_btn')
+		{
+			el.addEventListener('click', ()=>{popup('mobile')});
+		}
+	});
+
+
 	function format_img_src(letter){
 		// if(main_fuse > 100)
 			// return false;
@@ -237,15 +263,15 @@
 	};
 	httpRequest.open('GET', 'https://stray.o-r-g.net/now');
 	httpRequest.send();
-	[].forEach.call(radio_image, function(el, i){
-		if(!hasTouchScreen){
-			el.addEventListener('click', ()=>open_duo());
-		}
-		else{
-			console.log('hihi');
-			el.addEventListener('click', ()=>{popup('mobile')});
-		}
-	});
+	// [].forEach.call(radio_image, function(el, i){
+	// 	if(!hasTouchScreen){
+	// 		el.addEventListener('click', ()=>open_duo());
+	// 	}
+	// 	else{
+	// 		console.log('hihi');
+	// 		el.addEventListener('click', ()=>{popup('mobile')});
+	// 	}
+	// });
 
 	window.addEventListener('keydown', event => {
 		if(event.keyCode == '32'){
@@ -275,3 +301,4 @@
 	}
 
 </script>
+<script src="/static/js/resize.js"></script>

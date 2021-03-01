@@ -1,8 +1,12 @@
 <?
 	$text_id = end($oo->urls_to_ids(array('text')));
 	$text = $oo->get($text_id)['body'];
+	$isMobile = false;
+	if($uri[1] == 'mobile')
+		$isMobile = true;
 ?>
 <script>
+	var isMobile = <?= json_encode($isMobile); ?>;
 	var audio_position = [];
 	var wH = window.innerHeight;
 	var ticking = false;
@@ -246,11 +250,11 @@
 <script>
 	var imgs = document.querySelectorAll('#image-container img');
 	var window_zoom;
-	console.log(hasTouchScreen);
+	// console.log(hasTouchScreen);
 	var sMain = document.getElementById('main');
 	var body = document.body;
 	// hasTouchScreen = true;
-	if(!hasTouchScreen)
+	if(!isMobile)
 	{
 		
 		[].forEach.call(imgs, function(el, i){
