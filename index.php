@@ -9,7 +9,8 @@ $uri = explode('/', $requestclean);
 date_default_timezone_set("America/New_York");
 $now = date("h:i:sa");
 
-if($uri[1] == 'print') {
+if($uri[1] == 'print' || 
+   $uri[1] == 'preview' ) {
     require_once('views/print.php');
 } else if($uri[1] == 'book') {
     require_once('views/book.php');

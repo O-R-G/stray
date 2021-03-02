@@ -9,6 +9,11 @@ $date = $item['begin'];
 $find = '/<div><br><\/div>/';
 $replace = '';
 $body = preg_replace($find, $replace, $body);
+
+$browser = get_browser(null, true);
+$browser = $browser['browser'];
+$isSafari = strtolower($browser) === 'safari';
+
 ?>
 <section id="main" class = ''>
 	<ul id = 'chapter-nav'>
@@ -19,7 +24,11 @@ $body = preg_replace($find, $replace, $body);
     ?></div>
 </section>
 <!-- <button id = 'print'><img src = '/media/svg/bindery-logo40.svg'></button> -->
-<a id = 'print' href = "javascript:popup('print');"></a>
+<? if($isSafari){
+	?><a id = 'print' href = "javascript:popup('preview');"></a><?
+}else{
+	?><a id = 'print' href = "javascript:popup('print');"></a><?
+} ?>
 
 <script>
 	// if(!hasTouchScreen){

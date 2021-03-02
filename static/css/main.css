@@ -900,6 +900,7 @@ a{
     height: 40px;
     background-size: 100%;
     background-image: url(../../media/svg/bindery-logo40.svg);
+    z-index: 1000;
 }
 .text-indent
 {
@@ -1559,6 +1560,10 @@ a{
 .viewing-text .audio-holder
 {
     visibility: hidden;
+}
+.preview .📖-controls .📖-btn
+{
+    display: none;
 }
 @page {
 margin: 0cm !important;

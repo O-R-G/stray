@@ -44,10 +44,10 @@ function popup(name, param =false){
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/'+name, 'STRAY. IMAGE', this_param);
     }
-    else if(name == 'print'){
+    else if(name == 'print' || name == 'preview' ){
         var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
-        return window.open('/print', 'STRAY. PRINT', this_param);
+        return window.open('/'+name, 'STRAY. PRINT', this_param);
     }
     else if(name == 'zoom')
     {

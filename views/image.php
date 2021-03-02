@@ -4,6 +4,9 @@
 	$isMobile = false;
 	if($uri[1] == 'mobile')
 		$isMobile = true;
+	$browser = get_browser(null, true);
+	$browser = $browser['browser'];
+	$isSafari = strtolower($browser) === 'safari';
 ?>
 <script>
 	var isMobile = <?= json_encode($isMobile); ?>;
@@ -242,7 +245,12 @@
 		</div>
 	</div>
 </section>
-<a id = 'print' href = "javascript:popup('print');"></a>
+<? if($isMobile || $isSafari){
+	?><a id = 'print' href = "javascript:popup('preview');"></a><?
+}else{
+	?><a id = 'print' href = "javascript:popup('print');"></a><?
+} ?>
+
 <form id="filename-form" method="post" action="/zoom-in" target="_blank">
 	<input id="filename-input" type="hidden" name="image-filename">
 </form>
@@ -273,15 +281,15 @@
 	}
 	else
 	{
-		body.classList.add('hasTouchScreen');
+		// body.classList.add('hasTouchScreen');
 		body.classList.add('viewing-text');
 		var sText_image_toggle = document.getElementById('text-image-toggle');
 		sText_image_toggle.addEventListener('click', ()=>{
 			body.classList.toggle('viewing-text');
 			body.classList.toggle('viewing-image');
 		});
-		var sPrint = document.getElementById('print');
-		sPrint.style.display = 'none';
+		// var sPrint = document.getElementById('print');
+		// sPrint.style.display = 'none';
 
 		var wW = window.innerWidth;
 		console.log(wW);

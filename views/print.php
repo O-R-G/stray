@@ -2,6 +2,9 @@
 /*
     lo-fi strict test of bindery.js following docs
 */
+    $isPreview = false;
+    if($uri[1] == 'preview')
+        $isPreview = true;
 
 ?><head>
     <link rel='stylesheet' href='/static/css/main.css'>
@@ -19,7 +22,7 @@
         }
     </style>
 </head>
-<body>    
+<body class="<?= $isPreview ? 'preview' : ''; ?>">    
     <script>  
         Bindery.makeBook({
             content: {
