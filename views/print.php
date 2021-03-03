@@ -44,6 +44,8 @@
                 Bindery.PageBreak({ 
                     selector: '.page', 
                     position: 'both' 
+                }),
+                Bindery.RunningHeader({
                 })
             ],
         });

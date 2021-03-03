@@ -380,19 +380,19 @@ a {
 
 .inline-image-holder[images='2'] img {
     box-sizing: border-box;
-    width: 50%;
+    width: 49%;
     padding: 15px;
 }
 
 .inline-image-holder[images='3'] img {
     box-sizing: border-box;
-    width: 33%;
+    width: 32%;
     padding: 5px;
 }
 
 .inline-image-holder[images='8'] img {
     box-sizing: border-box;
-    width: 12.5%;
+    width: 12%;
     padding: 5px;
 }
 
@@ -427,8 +427,7 @@ a {
 #photorama {
     width: 500px;
     padding-top: 400px;
-    padding-left: 250px;
-    /* padding-top: 626px; */
+    padding-left: 150px;
     padding-right:0;
     /*margin-top: 566px;*/
 }
@@ -447,7 +446,6 @@ a {
 
 #stray-sh-nm {
     padding-top: 150px;
-    /*width: 400px;*/
 }
 
 #stray-sh-nm img {
@@ -475,48 +473,47 @@ a {
 }
 
 #friends-indeed-house {
-    padding-top: 145px;
-    padding-left: 45px;
-    /*width: 400px;*/
+    padding-top: 600px;
+    padding-left: 0;
+    width: 700px;
 }
 
 #grace-walking-and-talking {
     padding-top: 0px; 
-    /*width: 400px;*/
-    width: 100px;
+    width: 400px;
     float: left;
 }
 
 #bombardo {
     padding-top: 10px; 
     /*width: 300px;*/
-    width: 100px;
+    width: 300px;
     float: right;
 }
 
 #will-and-be-going-to {
-    padding-top: 10px; 
+    padding-top: 200px; 
     padding-left: 60px;
-    width: 280px;
-    float: left;
+    width: 200px;
+    /* float: left; */
 }
 
 #will-and-be-going-to > img:first-child {
-    padding-left: 0;
+    padding-left: 0; 
 }
 
 #will-and-be-going-to > img:last-child {
-    padding-right: 0;
+    /* padding-right: 0; */
 }
 
 #signal-escapes {
-    padding-top:100px;
-    padding-left: 100px;
+    padding-top:10px;
+    padding-left: 50px;
+    width: 700px;
 }
 
 #tree-ellipse {
     padding-top: 0px;
-    width: 200px;
 }
 
 #tree-ellipse img:first-of-type {
@@ -528,14 +525,14 @@ a {
 }
 
 #exh-view img {
-    width: 300px;
+    width: 400px;
     padding-right: 40px;
     float: right;
 }
 
 #elliman {
-    padding-top: 200px;
-    width: 350px;
+    padding-top: 100px;
+    width: 450px;
 }
 
 #audio-holder-2 {
@@ -543,7 +540,7 @@ a {
 }
 
 #seven-sleepers {
-    padding-top: 70px;
+    padding-top: 150px;
     width: 400px;
     /*margin-top: -50px;*/
 }
@@ -551,44 +548,43 @@ a {
 #seven-sleepers-1-2-3 {
     width: 600px;
     padding-left: 150px;
-    padding-top: 300px;
+    padding-top: 480px;
     z-index: 5;
     position: relative;
 }
 
 #performing-garage {
-    padding-top: 100px;
+    padding-top: 200px;
+    padding-left: 100px;
 }
 
 #performing-garage img {
     width: 550px;
-    float: right;
 }
 
 #shaker {
-    padding-top: 50px;
+    padding-top: 0px;
     /*margin-left: 200px;*/
     padding-left: 10px;
     padding-right: 0;
-    width: 550px;
+    width: 500px;
 }
 
 #bside {
-    padding-top: 350px;
-    padding-left: 350px;   
+    padding-top: 400px;
+    padding-left: 300px;   
     position: relative;
     z-index: 5;
 }
 
 #bside img {
     width: 300px;
-    /* float: right; */
+    float: right;
 }
 
 #ghost-song {
-    padding-top: 50px;
-    /*padding-left: 200px;*/
-    width: 650px;
+    padding-top: 80px;
+    width: 700px;
 }
 
 #record {
@@ -598,6 +594,7 @@ a {
 
 #on-trespassing {
     padding-top: 210px;
+    width: 700px;
 }
 
 #three-felled-trees {
@@ -605,20 +602,16 @@ a {
 }
 
 #three-felled-trees img {
-    width: 100px;
 }
 
 #signal-escapes-2 {
-    width: 500px;
-    margin-left: 50px;
-    /*top: -110px;*/
+    width: 600px;
+    padding-top: 50px;
+    padding-left: 150px;
     position: relative;
 }
 
 #signal-escapes-2 img {
-    top: -100px;
-    position: absolute;
-    /*float: left;*/
 }
 
 #studio-placard {
@@ -705,7 +698,7 @@ a {
 
 #earthly-trio {
     width: 75%;
-    padding-top:50px;
+    padding-top:300px;
 }
 
 #audio-holder-3 {
@@ -1323,16 +1316,15 @@ a {
 /* tmp to fix, should be better targeted */
 .📖-left #print-container, 
 .📖-left #print-container a {
-    background-color: #FFC;
+    /* background-color: #FFC; */
     color: #EEE;
 }
 
 /* debug */
 .page {
-    background-color: #CCC;
-    margin: 1px;
+    background-color: #EEE;
+    /* margin: 1px; */
 }
-
 
 #print-btn
 {

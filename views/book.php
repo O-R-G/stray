@@ -14,12 +14,7 @@ $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
 $body = $item['body'];
-/*
-$find = '/<div><br><\/div>/';
-$replace = '';
-$body = preg_replace($find, $replace, $body);
-*/
-$texts = explode('///', $item['body']);
+$texts = explode('///', $body);
 
 // 1. build $images[]
 
@@ -27,18 +22,15 @@ $urls = explode('/', 'image');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
 // $body = $item['body'];
-$body = file_get_contents('static/txt/image.txt');;
-/*
-$find = '/<div><br><\/div>/';
-$replace = '';
-$body = preg_replace($find, $replace, $body);
-*/
 // $images = explode('///', $item['body']);
+$body = file_get_contents('static/txt/image.txt');;
 $images = explode('///', $body);
 
 // 2. output alternating $texts[] and $images[]
 //    with page-breaking token in between each
 //    to pass to /print
+
+//    --> add appedices and cover (back)
 
 $now = date('l, F j, Y') . ' at ' . date('h:i a');
 
