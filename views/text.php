@@ -1,63 +1,31 @@
-<!-- text -->
-
 <?
-$name = $item['name1'];
-$deck = $item['deck'];
+/*
+    view for texts
+*/
+
+$urls = explode('/', 'text');
+$ids = $oo->urls_to_ids($urls);
+$item = $oo->get($ids[0]);
 $body = $item['body'];
-$notes = $item['notes'];
-$date = $item['begin'];
-$find = '/<div><br><\/div>/';
-$replace = '';
-$body = preg_replace($find, $replace, $body);
+$texts = explode('///', $body);
 
 $browser = get_browser(null, true);
 $browser = $browser['browser'];
 $isSafari = strtolower($browser) === 'safari';
 
-?>
-<section id="main" class = ''>
+?><section id="main" class = ''>
 	<ul id = 'chapter-nav'>
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>
     <div id = 'text-container' class = 'window-container'><?
-            echo $body;
+        foreach($texts as $text)
+            echo '<div class="page">' . $text . '</div>';
     ?></div>
-</section>
-<!-- <button id = 'print'><img src = '/media/svg/bindery-logo40.svg'></button> -->
-<? if($isSafari){
-	?><a id = 'print' href = "javascript:popup('preview');"></a><?
-}else{
-	?><a id = 'print' href = "javascript:popup('print');"></a><?
-} ?>
+</section><? 
+    if($isSafari){
+	    ?><a id = 'print' href = "javascript:popup('preview');"></a><?
+    } else {
+	    ?><a id = 'print' href = "javascript:popup('print');"></a><?
+    }
+?>
 
-<script>
-	// if(!hasTouchScreen){
-	// 	var sPrint = document.getElementById('print');
-	// 	sPrint.style.display = 'none';
-	// }
-  
-</script>
-
-<!-- text as jpeg -->
-<!--
-<div id = 'text-container' class = 'window-container'>
-	<img id = 'text-image' src = 'media/jpg/source.jpeg'>
-</div>
-
-<script>
-	// var ticking = false;
-	// var sTop = window.scrollY;
-	// window.addEventListener('load', function(){
-	// 	window.addEventListener('scroll', function(){
-	// 		sTop = window.scrollY;
-	// 		if (!ticking) {
-	// 		    window.requestAnimationFrame(function() {
-	// 		    	window_image.scrollTo(0, sTop);
-	// 		      	ticking = false;
-	// 		    });
-	// 		    ticking = false;
-	// 		}
-	// 	});
-	// });
-</script>
--->
