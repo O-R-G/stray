@@ -26,13 +26,15 @@ $texts = explode('///', $item['body']);
 $urls = explode('/', 'image');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
+// $body = $item['body'];
+$body = file_get_contents('static/txt/image.txt');;
 /*
 $find = '/<div><br><\/div>/';
 $replace = '';
 $body = preg_replace($find, $replace, $body);
 */
-$images = explode('///', $item['body']);
+// $images = explode('///', $item['body']);
+$images = explode('///', $body);
 
 // 2. output alternating $texts[] and $images[]
 //    with page-breaking token in between each
