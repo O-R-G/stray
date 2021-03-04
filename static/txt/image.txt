@@ -145,7 +145,7 @@ IV.
 V.
 ///
 
-<div id="a-graphic-tone" class="image-holder overlap-image-holder" zindex="1">
+<div id="a-graphic-tone" class="image-holder">
     <img class="" src="/media/jpg/SB_AGraphicTone_A_IMG_5449_V1_15x15_FInal.jpg">
     <img class="" src="/media/jpg/SE_AGraphicTone_IC_IMG_5464_V1_15x20_Final.jpg">
     <img class="" src="/media/jpg/SE_AGraphicTone_TO_IMG_5479_V1_15x29_Final.jpg">
@@ -153,6 +153,7 @@ V.
     <img class="" src="/media/jpg/SE_AGraphicTone_E_IMG_5463_V1_13x15_Final.jpg">
     <img class="" src="/media/jpg/SE_AGraphicTone_N_IMG_5502_V1_15x15_Final.jpg">
 </div>
+
 ///
 
 <div id="on-song-on" class="image-holder" images="">

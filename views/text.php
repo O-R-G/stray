@@ -3,11 +3,12 @@
     view for texts
 */
 
-// build $texts[chapters][pages]
+// build $texts[][]
+// chapter -> page
 
-$urls = explode('/', 'text');
-$ids = $oo->urls_to_ids($urls);
-$item = $oo->get($ids[0]);
+// $urls = explode('/', 'text');
+// $ids = $oo->urls_to_ids($urls);
+// $item = $oo->get($ids[0]);
 // $body = $item['body'];
 $body = file_get_contents('static/txt/text.txt');
 $texts = [];
@@ -15,12 +16,6 @@ $chapters = explode('+++', $body);
 foreach($chapters as $chapter) {
     $pages = explode('///', $chapter);
     $texts[] = $pages;
-    /*
-    var_dump(count($texts));
-    var_dump(count($pages));
-    var_dump($texts);
-    echo '<br><br>';
-    */
 }
 
 $browser = get_browser(null, true);

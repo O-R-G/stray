@@ -35,13 +35,14 @@ a {
     color: #000;
 }
 
+/*
 :root {
   --print-margin-top: 17.5mm;
   --print-margin-outer: 10mm;
   --print-margin-bottom: 17.5mm;
   --print-margin-inner: 30mm;
-
 }
+*/
 
 #main,
 .print-content {
@@ -160,6 +161,7 @@ a {
     margin: 0 auto;
     padding-top: 60px;
 }
+
 .column {
     width: 50%;
     position: relative;
@@ -171,6 +173,7 @@ a {
     padding-top: 0;
     box-sizing: border-box;
 }
+
 #black_screen{
     background-color: #000;
     color: #fff;
@@ -183,68 +186,75 @@ a {
     left: 0;
     z-index: 100;
 }
-#black_screen p{
+
+#black_screen p {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#black_screen.flashing{
+
+#black_screen.flashing {
     display: block;
     animation: flashing 6s linear;
 }
-#audio_container{
+
+#audio_container {
     height: 100vh;
     background-color: #00F;
 }
-#audio_container audio{
+
+#audio_container audio {
     width: 100%;
     height: 100%;
 }
+
 #text-container, 
 #allcaps-container,
 .mask-text-container,
 .text-container,
-#appendix-container
-{
+#appendix-container {
     font-size: 16px;
     line-height: 20px
 }
-/*#text-container{
-    padding-top: 15px;
-}*/
-/*#text-container > div
-{
-    margin: 0 12px;
-}*/
-.justify_block{
+
+.📖-page #text-container, 
+.📖-page #allcaps-container,
+.📖-page .mask-text-container,
+.📖-page .text-container,
+.📖-page #appendix-container {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.justify_block {
     text-align: justify;
     text-justify: inter-word;
 }
-#text-container > div.image_anchor
-{
+
+#text-container > div.image_anchor {
     height: 300px;
     margin: 20px 40px;
     border: 1px solid #000;
     transition: opacity .25s;
     background-color: #000;
 }
-#allcaps-container > div.image_anchor
-{
+
+#allcaps-container > div.image_anchor {
     height: 300px;
     margin: 20px 40px;
 }
-.image_anchor.viewing
-{
-    opacity: 0;
 
+.image_anchor.viewing {
+    opacity: 0;
 }
-#image-container{
+
+#image-container {
     position: relative;
     /*height: 100vh;*/
 }
 
-#radio_container{
+#radio_container {
     overflow: hidden;
     height: 100vh;
     background-color: #CCC;
@@ -291,15 +301,9 @@ a {
 }
 
 .mask-text-container {
-    /* position: absolute; 
-    top: 0;
-    left: 0;
-    */
-    /* color: rgba(0,0,0,0); */
-    color: #FFF;;
+    color: transparent;
     pointer-events: none;
     z-index: 100;
-    /* padding-bottom: 80px; */
     width: 100%;
 }
 
@@ -411,8 +415,8 @@ a {
 
 .overlap-image-holder img {
     position: absolute;
-    /*top: 0;*/
-    left: 0;
+    /* top: 0; */
+    /* left: 0; */
     width: 100%;
 }
 
@@ -553,13 +557,13 @@ a {
 }
 
 #performing-garage {
-    padding-top: 200px;
+    padding-top: 300px;
     padding-left: 20%;
-    margin-bottom: 400px;
+    margin-bottom: 300px;
 }
 
 #performing-garage img {
-    width: 90%;
+    width: 100%;
 }
 
 #shaker {
@@ -622,34 +626,44 @@ a {
 }
 
 #a-graphic-tone {
-    padding-top:150px;
 }
 
 #a-graphic-tone img {
-    width: 50%;    
 }
 
 #a-graphic-tone img:nth-child(1) {
-    padding-top:10px;
+    padding-top:0px;
+    width: 50%;
 }
 
 #a-graphic-tone img:nth-child(2) {
-    padding-top:10px;
-    top: -50px;
+    margin-top: -50px;
+    margin-left: 200px;
+    width: 50%;
 }
 
 #a-graphic-tone img:nth-child(3) {
-    padding-left: 25%;
+    margin-top: -10px;
+    margin-left: 20px;
+    width: 75%;
 }
 
 #a-graphic-tone img:nth-child(4) {
-    padding-left: 25%;
+    margin-top: -500px;
+    margin-left: 300px;
+    width: 75%;
 }
 
 #a-graphic-tone img:nth-child(5) {
+    margin-top: -100px;
+    margin-left: 100px;
+    width: 40%;
 }
 
 #a-graphic-tone img:nth-child(6) {
+    margin-top: -200px;
+    margin-left: 350px;
+    width: 25%;
 }
 
 #on-song-on {
@@ -819,433 +833,6 @@ a {
 #measure-container .print-content {
 }
 
-.print-image-holder {
-    position: absolute;
-    z-index: 1;
-}
-
-.print-image-holder.fullWidth {
-    width: calc(210mm - (var(--print-margin-outer) + var(--print-margin-inner)));
-}
-
-.print-image-holder.halfWidth {
-    width: calc( (210mm - 10mm - ( var(--print-margin-outer) + var(--print-margin-inner))) / 2);
-}
-
-.print-image-holder.twoThirdWidth {
-    width: 66%;
-}
-
-.print-image-holder.centeredHorizontal {
-    left: 50%;
-    transform: translate(-50%);
-}
-
-.print-image-holder.centeredFullPage {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#print-image-holder-1
-{
-    /* h = 131.37mm */
-    right: 30mm;
-    bottom: 15mm;
-}
-#print-image-holder-2
-{
-    /* h = 131.37mm */
-    right: 30mm;
-    top: -91mm;
-}
-#print-image-holder-3
-{
-    top: 50mm;
-    left: var(--print-margin-outer);
-}
-#print-image-holder-4
-{
-    top: 170mm;
-}
-#print-image-holder-5
-{
-    top: 75mm;
-    left: var(--print-margin-outer);
-}
-#print-image-holder-6
-{
-    top: 75mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-7
-{
-    top: 140mm;
-}
-#print-image-holder-8
-{
-    top: 12mm;
-    left: -5mm;
-}
-#print-image-holder-9
-{
-    bottom: 10mm;
-    right: -5mm;
-    width: 66%;
-}
-#print-image-holder-10
-{
-    top: 170mm;
-    width: 30mm;
-    left: var(--print-margin-outer);
-}
-#print-image-holder-11
-{
-    top: 170mm;
-    width: 30mm;
-    left: 43.25mm;
-}
-#print-image-holder-12
-{
-    width: 100%;
-    top: 20mm;
-}
-#print-image-holder-13
-{
-    left: var(--print-margin-outer);
-    top: 140mm;
-}
-#print-image-holder-14
-{
-    top: 110mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-15
-{
-    width: 30%;
-    right: var(--print-margin-inner);
-    top: 50mm;
-}
-#print-image-holder-16
-{
-    width: 60%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    top: 135mm;
-}
-
-#print-image-holder-17
-{
-    left: 0mm;
-    top: 70mm;
-    width: 120mm;
-}
-
-#print-image-holder-18
-{
-    width: 45mm;
-    top: 170mm;
-    right: calc( var(--print-margin-inner) + 90mm + 6mm);
-}
-
-#print-image-holder-19
-{
-    width: 45mm;
-    top: 170mm;
-    right: calc( var(--print-margin-inner) + 45mm + 3mm);
-}
-
-#print-image-holder-20
-{
-    width: 45mm;
-    top: 170mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-21
-{
-    top: 45mm;
-    right: -5mm;
-}
-#print-image-holder-22
-{
-    width: 65%;
-    top: 10mm;
-    left: var(--print-margin-outer);
-}
-#print-image-holder-23
-{
-    top: 115mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-24
-{
-    left: var(--print-margin-outer);
-    bottom: 30mm;
-}
-#print-image-holder-25
-{
-    width: 40%;
-    top: 80mm;
-}
-#print-image-holder-26
-{
-    width: 185mm;
-    left: 10mm;
-    top: 195mm;
-    
-}
-#print-image-holder-27
-{
-    width: 30mm;
-    bottom: 10mm;
-    right: calc( var(--print-margin-inner) + 60mm + 6mm);
-}
-#print-image-holder-28
-{
-    width: 30mm;
-    bottom: 10mm;
-    right: calc( var(--print-margin-inner) + 30mm + 3mm);
-}
-#print-image-holder-29
-{
-    width: 30mm;
-    bottom: 10mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-30
-{
-    top: 10mm;
-}
-#print-image-holder-31
-{
-    top: 120mm;
-    width: 66%;
-    left: var(--print-margin-outer);
-}
-.print-americanphotographs-item
-{
-    width: 45mm;
-}
-#print-image-holder-32,
-#print-image-holder-33,
-#print-image-holder-34,
-#print-image-holder-35,
-#print-image-holder-37,
-#print-image-holder-38,
-#print-image-holder-39,
-#print-image-holder-40,
-#print-image-holder-41,
-#print-image-holder-43,
-#print-image-holder-44,
-#print-image-holder-46,
-#print-image-holder-47,
-#print-image-holder-48
-{
-    visibility: hidden;
-}
-#print-image-holder-32
-{
-    top: 40mm;
-    right: calc( var(--print-margin-inner) + 90mm + 6mm);
-}
-#print-image-holder-33
-{
-    top: 40mm;
-    right: calc( var(--print-margin-inner) + 45mm + 3mm);
-}
-#print-image-holder-34
-{
-    top: 40mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-35
-{
-    top: 72mm;
-    left: var(--print-margin-outer);
-}
-#print-image-holder-36
-{
-    top: 72mm;
-    left: calc( var(--print-margin-outer) + 45mm + 3mm);
-}
-#print-image-holder-37
-{
-    top: 72mm;
-    left: calc( var(--print-margin-outer) + 90mm + 6mm);
-}
-#print-image-holder-38
-{
-    top: 104mm;
-    right: calc( var(--print-margin-inner) + 90mm + 6mm);
-}
-#print-image-holder-39
-{
-    top: 104mm;
-    right: calc( var(--print-margin-inner) + 45mm + 3mm);
-}
-#print-image-holder-40
-{
-    top: 104mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-41
-{
-    top: 136mm;
-    left: var(--print-margin-outer);
-}
-#print-image-holder-42
-{
-    top: 136mm;
-    left: calc( var(--print-margin-outer) + 45mm + 3mm);
-}
-#print-image-holder-43
-{
-    top: 136mm;
-    left: calc( var(--print-margin-outer) + 90mm + 6mm);
-}
-#print-image-holder-44
-{
-    top: 168mm;
-    right: calc( var(--print-margin-inner) + 90mm + 6mm);
-}
-#print-image-holder-45
-{
-    top: 168mm;
-    right: calc( var(--print-margin-inner) + 45mm + 3mm);
-}
-#print-image-holder-46
-{
-    top: 168mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-47
-{
-    top: 200mm;
-    left: calc( var(--print-margin-outer) + 90mm + 6mm);
-}
-#print-image-holder-48
-{
-    top: 240mm;
-    right: 15mm;
-}
-#print-image-holder-49
-{
-    width: 60mm;
-    top: 105mm;
-    left: 17mm;
-}
-#print-image-holder-50
-{
-    width: 60mm;
-    top: 140mm;
-    left: 85mm;
-}
-#print-image-holder-51
-{
-    width: 55mm;
-    top: 170mm;
-    left: 27mm
-}
-#print-image-holder-52
-{
-    width: 60mm;
-    top: 190mm;
-    right: 50mm;
-}
-#print-image-holder-53
-{
-    width: 57mm;
-    top: 208mm;
-    right: var(--print-margin-inner);
-}
-#print-image-holder-54
-{
-    width: 60mm;
-    bottom: -10mm;
-    right: calc( var(--print-margin-inner) + 65mm);
-}
-#print-image-holder-55
-{
-    width: 60mm;
-    top: -45mm;
-    right: calc( var(--print-margin-inner) + 65mm);
-}
-#print-image-holder-56
-{
-    top: 85mm;
-    right: 15mm
-}
-#print-image-holder-57
-{
-    width: 40mm;
-    bottom: 30mm;
-}
-#print-image-holder-58
-{
-    width: 60mm;
-    right: var(--print-margin-inner);
-    top: 10mm;
-}
-#print-image-holder-59
-{
-    width: 40mm;
-    left: 50mm;
-    top: 100mm;
-}
-#print-image-holder-60
-{
-    width: 40mm;
-    left: 85mm;
-    top: 115mm;
-}
-#print-image-holder-61
-{
-    width: 39mm;
-    left: 31mm;
-    top: 145mm;
-}
-#print-image-holder-62
-{
-    width: 65mm;
-    left: 68mm;
-    top: 150mm;
-}
-#print-image-holder-63
-{
-    width: 66mm;
-    left: 20mm;
-    top: 174mm;
-}
-#print-image-holder-64
-{
-    width: 62mm;
-    left: 23mm;
-    top: 210mm;
-}
-#print-image-holder-65
-{
-    width: 46mm;
-    left: 90mm;
-    top: 195mm;
-}
-#print-image-holder-66
-{
-    width: 185mm;
-}
-#print-image-holder-67
-{
-    width: 185mm;
-}
-#print-image-holder-68
-{
-    width: 185mm;
-}
-#print-image-holder-69
-{
-    width: 80mm;
-    right: var(--print-margin-inner);
-    top: 150mm;
-}
 
 #print_mask
 {
@@ -1286,6 +873,7 @@ a {
 {
     position: relative;
 }
+
 #zoom-in-container{
     white-space: nowrap;
 }
@@ -1337,7 +925,7 @@ a {
 .📖-left #print-container, 
 .📖-left #print-container a {
     /* background-color: #FFC; */
-    color: #CCC;
+    color: #000;
 }
 
 .chapter {
@@ -1356,16 +944,38 @@ a {
     margin-top: -10px;
     position: sticky;
     top: 10px;
-    background-color: #FFC;
+}
+
+
+/*
+    type styles
+*/
+
+.small {
+    font-size: 10px;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+#staple-container {
+    /* 
+        positioning could be handled much better
+        perhaps calc height of space where it goes?
+        or moving outside of page div
+    */
+    position: absolute;
+    top: 540px;
+    left: -140px;
+    transform: rotate(90deg);
 }
 
 
 
 
 
-
-#print-btn
-{
+#print-btn {
     color: #fff;
     background-color: #000;
     position: fixed;

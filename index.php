@@ -20,25 +20,14 @@ if($uri[1] == 'print' ||
 	    require_once('views/home.php');
     elseif($uri[1] == 'text')
 	    require_once('views/text.php');
-    elseif($uri[1] == 'image' || 
-		   $uri[1] == 'mobile' )
-    {
+    elseif($uri[1] == 'image' || $uri[1] == 'mobile' )
 	    require_once('views/image.php');
-    }
     elseif($uri[1] == 'letter')
 	    require_once('views/letter.php');
-    elseif($uri[1] == 'colophon')
-	    require_once('views/column.php');
     elseif($uri[1] == 'appendix')
 	    require_once('views/appendix.php');
     elseif($uri[1] == 'source')
 	    require_once('views/main.php');
-    elseif($uri[1] == 'print-test')
-	    require_once('views/print-test.php');
-    elseif($uri[1] == 'print-old')
-	    require_once('views/print-old.php');
-    elseif($uri[1] == 'print-new')
-	    require_once('views/print-new.php');
     elseif($uri[1] == 'zoom-in')
 	    require_once('views/zoom-in.php');
     require_once('views/foot.php');
