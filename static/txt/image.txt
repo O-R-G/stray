@@ -1,24 +1,16 @@
-<div class="chapter">
-<div class="page">
 I.
-</div>
 ///
 
-<div class="page">
 <div id="photorama" class="image-holder" images="">        
     <img class="" src="/media/jpg/PHOTORAMA_10-inch.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="temple-hi-lo" class="image-holder" images="">
     <img class="" src="/media/jpg/TEMPLE-HIGH-AND-LO-20x13_10-inches.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="circular-time" class="image-holder centered" images="">
     <img class="" src="/media/jpg/pp_to-print_IMG_0423.jpg">
 </div>
@@ -34,17 +26,13 @@ I.
         <source src="/media/audio/Right_B5-Lone.mp3" type="audio/mp3">
     </audio>
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="friends-indeed-house" class="image-holder" images="">
     <img class="" src="/media/jpg/friendsInDeedHouse-1.jpg">
 </div>      
-</div>
 ///
 
-<div class="page">
 <div class="image-float-container">
     <div id="grace-walking-and-talking" class="image-holder" images="">
         <img class="" src="/media/jpg/Grace-Walking-and-Talking.jpg">
@@ -60,10 +48,8 @@ I.
 <div id="signal-escapes" class="image-holder" images="">
     <img class="" src="/media/jpg/signal-escapes-v1.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="tree-ellipse" class="image-holder inline-image-holder" images="2">
     <img class="" src="/media/jpg/TREE-ELLIPSE-1-IMG_0431-fnl-16INCHES_10-inches.jpg">
     <img class="" src="/media/jpg/TREE-ELLIPSE-2_10-inches.jpg">
@@ -71,18 +57,12 @@ I.
 <div id="exh-view" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/Exh-view_Ebner_GEP_NY_2017_08.jpg">
 </div>
-</div>
 ///
++++
 
-</div>
-
-<div class="chapter">
-<div class="page">
 II.
-</div>
 ///
 
-<div class="page">
 <div id="elliman" class="image-holder centered" images="">
     <a href="javascript:popup('appendix/paul-elliman')">
         <img class="" src="/media/jpg/Elliman_LB18-scrambled-bag-2.jpg">
@@ -93,10 +73,8 @@ II.
         <source src="/media/audio/NATE_DogonEclipse_30minloop.mp3" type="audio/mp3">
     </audio>
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="seven-sleepers" class="image-holder overlap-image-holder">
     <img class="" src="/media/jpg/SEVEN-SLEEPERS-DOOR.jpg">
 </div>
@@ -105,25 +83,17 @@ II.
     <img class="" src="/media/jpg/seven-sleepers-FNL-2-working-FNL-FNL.jpg">
     <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
 </div>
-</div>
 ///
++++
 
-</div>
-
-<div class="chapter">
-<div class="page">
 III.
-</div>
 ///
 
-<div class="page">
 <div id="performing-garage" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/quick_IMG_2222.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="shaker" class="image-holder overlap-image-holder" zindex="1" images="">
     <img class="" src="/media/jpg/SE_Shaker_HIRES_LAYOUT_V2_57x78_Final.jpg">
 </div>
@@ -133,20 +103,16 @@ III.
 <div id="ghost-song" class="image-holder centered" images="">
     <img class="" src="/media/jpg/ghost-song.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="record" class="image-holder centered" images="">
     <img class="" src="/media/jpg/SE_Record_IMG_5615_V2_42x50_Final.jpg">
 </div>
 <div id="on-trespassing" class="image-holder" images="">
     <img class="" src="/media/jpg/on-trespassing.png">
 </div>      
-</div>
 ///
 
-<div class="page">
 <div id="three-felled-trees" class="image-holder inline-image-holder" zindex="1" images="3">
     <img class="" src="/media/jpg/SE_cc_ps_grain_IMG_5756_VOG_26x40_Final.jpg">
     <img class="" src="/media/jpg/SE_cc_ps_grain_IMG_5762_V1_26x40_Final.jpg">
@@ -155,46 +121,30 @@ III.
 <div id="signal-escapes-2" class="image-holder" images="">
     <img class="" src="/media/jpg/signal-escapes-2-v2.png">
 </div>
-</div>
 ///
++++
 
-</div>
-
-<div class="chapter">
-<div class="page">
 IV.
-</div>
 ///
 
-<div class="page">
 <div id="studio-placard" class="image-holder" images="">
     <img class="" src="/media/jpg/STUDIO-PLACARD_10-inches.jpg">
 </div>
 <div id="american-photographs" class="image-holder">
     <img class="" src="/media/jpg/1_2_3_4_Shannon.gif">
 </div>
-</div>
 ///
 
-<div class="page">
 &nbsp;
-</div>
 ///
 
-<div class="page">
 &nbsp;
-</div>
 ///
++++
 
-</div>
-
-<div class="chapter">
-<div class="page">
 V.
-</div>
 ///
 
-<div class="page">
 <div id="a-graphic-tone" class="image-holder overlap-image-holder" zindex="1">
     <img class="" src="/media/jpg/SB_AGraphicTone_A_IMG_5449_V1_15x15_FInal.jpg">
     <img class="" src="/media/jpg/SE_AGraphicTone_IC_IMG_5464_V1_15x20_Final.jpg">
@@ -203,17 +153,13 @@ V.
     <img class="" src="/media/jpg/SE_AGraphicTone_E_IMG_5463_V1_13x15_Final.jpg">
     <img class="" src="/media/jpg/SE_AGraphicTone_N_IMG_5502_V1_15x15_Final.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="on-song-on" class="image-holder" images="">
     <img class="" src="/media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="on-song-all" class="image-holder overlap-image-holder" zindex="1">
     <img class="" src="/media/jpg/SE_Record_IMG_5615_V2_42x50_Final.jpg">
     <img class="" src="/media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg">
@@ -227,30 +173,20 @@ V.
 <div id="on-song-g" class="image-holder centered" images="">
     <img class="" src="/media/jpg/SE_OnSong_song_G_V3_8x15_Final.jpg">
 </div>
-</div>
 ///
++++
 
-</div>
-
-<div class="chapter">
-<div class="page">
 VI.
-</div>
 ///
 
-<div class="page">
 <div id="wet-words-1" class="image-holder" images="">
     <img class="" src="/media/jpg/SE_Section_3_WetWords_V3_118x178.jpg">
 </div>
-<!-- ** fix **
 <div id="wet-words-2" class="image-holder" images="">
     <img class="" src="/media/jpg/hot-field-sec-1.jpg">
 </div>
--->
-</div>
 ///
 
-<div class="page">
 <div id="wet-words-2" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/SE_Section_2_1_V1_33x95_File.jpg">
     <img class="" src="/media/jpg/SE_Section_2_2_V1_44x106_File.jpg">
@@ -259,10 +195,8 @@ VI.
     <img class="" src="/media/jpg/SE_Section_2_5_V1_33x100_File.jpg">
     <img class="" src="/media/jpg/SE_Section_2_6_V1C_33x66_File.jpg">
 </div>
-</div>
 ///
 
-<div class="page">
 <div id="earthly-trio" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/quick_IMG_6114.jpg">
 </div>
@@ -271,6 +205,5 @@ VI.
         <source src="/media/audio/all-at-once-1-4.mp3" type="audio/mp3">
     </audio>
 </div>
-</div>
-
-</div>
+///
++++

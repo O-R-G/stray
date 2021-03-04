@@ -268,53 +268,58 @@ a {
     padding-left: 100vw;
     animation: marquee 600s infinite linear;*/
 }
+
 #text-container span.allcaps,
-#text-container .allcaps span{
+#text-container .allcaps span {
     /*opacity: 0;*/
     background-color: #000;
     /*color: transparent;*/
     /*border: 1px solid #000;*/
 }
-#allcaps-container
-{
+
+#allcaps-container {
     color: transparent;
     padding-top: calc(50vh + 15px);
 }
-#allcaps-container > div
-{
+
+#allcaps-container > div {
     padding: 0 12px;
 }
-#allcaps-container .image_anchor
-{
+
+#allcaps-container .image_anchor {
     border: none;
 }
-.mask-text-container
-{
-    position: absolute;
+
+.mask-text-container {
+    /* position: absolute; 
     top: 0;
-    left:0;
-    /*margin: 20px;*/
-    /*color: #00f;*/
-    color: rgba(0,0,0,0);
+    left: 0;
+    */
+    /* color: rgba(0,0,0,0); */
+    color: #FFF;;
     pointer-events: none;
     z-index: 100;
-    padding-bottom: 80px;
+    /* padding-bottom: 80px; */
     width: 100%;
 }
+
 .mask-text-container .chapter-number,
-.mask-text-container .section
-{
+.mask-text-container .section {
     color: #000;
 }
-.chapter {
-    /* background-color:#FF0; */
-}
 
-.mask-text-container a
-{
+.mask-text-container a {
     color: transparent;
 }
-.allcaps.viewing{
+
+.mask-image-container {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.allcaps.viewing {
     /*display: inline-block;*/
     opacity: 1;
     color: #000;
@@ -754,7 +759,6 @@ a {
 .head {
     padding-top: 10px;
     margin-top: -10px;
-    /* position: -webkit-sticky; */
     position: sticky;
     top: 10px;
 }
@@ -843,18 +847,6 @@ a {
     transform: translate(-50%, -50%);
 }
 
-/*#print-image-holder-1
-{
-    display: none;
-    top: 36mm;
-    left: var(--print-margin-outer);
-}
-#print-image-holder-2
-{
-    display: none;
-    top: 36mm;
-    left: 100mm;
-}*/
 #print-image-holder-1
 {
     /* h = 131.37mm */
@@ -1326,6 +1318,14 @@ a {
 {
     display: none;
 }
+
+
+
+
+/*
+    chapters & pages
+*/
+
 /*
 .📖-controls .📖-btn.📖-btn-print {
     display: none;
@@ -1337,15 +1337,32 @@ a {
 .📖-left #print-container, 
 .📖-left #print-container a {
     /* background-color: #FFC; */
-    color: #EEE;
+    color: #CCC;
 }
 
-/* debug */
-.page {
-    /* background-color: #EEE; */
-    /* padding: 50px; */
-    /* margin: 1px; */
+.chapter {
 }
+
+.page {
+    position: relative;
+    /*
+    background-color: #CCC;
+    margin: 2px;
+    */
+}
+
+.chapter .page:first-child {
+    padding-top: 10px;
+    margin-top: -10px;
+    position: sticky;
+    top: 10px;
+    background-color: #FFC;
+}
+
+
+
+
+
 
 #print-btn
 {

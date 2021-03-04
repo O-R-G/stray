@@ -3,27 +3,35 @@
     view for images    
 */
 
-// build $texts[]
+// build $texts[chapters][pages]
 
-$urls = explode('/', 'text');
-$ids = $oo->urls_to_ids($urls);
-$item = $oo->get($ids[0]);
+// $urls = explode('/', 'text');
+// $ids = $oo->urls_to_ids($urls);
+// $item = $oo->get($ids[0]);
 // $body = $item['body'];
-// $texts = explode('///', $body);
-// ** stub **
-$body = file_get_contents('static/txt/text.txt');;
-$texts = explode('///', $body);
+$body = file_get_contents('static/txt/text.txt');
+$texts = [];
+$chapters = explode('+++', $body);    
+foreach($chapters as $chapter) {
+    $pages = explode('///', $chapter);
+    $texts[] = $pages;
+}
 
-// build $images[]
+// build $images[chapters][pages]
 
-$urls = explode('/', 'image');
-$ids = $oo->urls_to_ids($urls);
-$item = $oo->get($ids[0]);
+// $urls = explode('/', 'image');
+// $ids = $oo->urls_to_ids($urls);
+// $item = $oo->get($ids[0]);
 // $body = $item['body'];
-// $images = explode('///', $item['body']);
-// ** stub **
-$body = file_get_contents('static/txt/image.txt');;
-$images = explode('///', $body);
+$body = file_get_contents('static/txt/image.txt');
+$images = [];
+$chapters = explode('+++', $body);
+foreach($chapters as $chapter) {
+    $pages = explode('///', $chapter);
+    $images[] = $pages;
+}
+
+// check browswer
 
 $isMobile = false;
 if($uri[1] == 'mobile')
@@ -73,14 +81,29 @@ $isSafari = strtolower($browser) === 'safari';
 	<ul id = 'chapter-nav'>
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>
-	<div id = 'image-container' class = 'window-container'>
-		<div class = 'mask-text-container'><?
-            foreach($texts as $text)
-                echo $text;
-        ?></div><?
-        foreach($images as $image)
-            echo $image;
+	<div id = 'image-container' class = 'window-container'><?
+        // output $texts as chapters->pages
+        // overlay $images
+        $i = 0;
+        foreach($texts as $chapter) {
+            $j = 0;
+            ?><div class="chapter"><?
+                foreach($chapter as $page) {
+                    ?><div class="page"><?
+                        ?><div class = 'mask-text-container'><?
+                            echo $page;
+                        ?></div><?
+                        ?><div class = 'mask-image-container'><?
+                            echo $images[$i][$j];
+                        ?></div><?
+                    ?></div><?
+                    $j++;
+                }
+            ?></div><?
+            $i++;
+        }
     ?></div>
+
 	<div id="text-image-toggle">
 		<div id="inner">
 			<div id="front"><img src = "/media/svg/text.svg" alt="text"></div>

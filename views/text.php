@@ -3,14 +3,25 @@
     view for texts
 */
 
+// build $texts[chapters][pages]
+
 $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
 // $body = $item['body'];
-// $texts = explode('///', $body);
-// ** stub **
-$body = file_get_contents('static/txt/text.txt');;
-$texts = explode('///', $body);
+$body = file_get_contents('static/txt/text.txt');
+$texts = [];
+$chapters = explode('+++', $body);
+foreach($chapters as $chapter) {
+    $pages = explode('///', $chapter);
+    $texts[] = $pages;
+    /*
+    var_dump(count($texts));
+    var_dump(count($pages));
+    var_dump($texts);
+    echo '<br><br>';
+    */
+}
 
 $browser = get_browser(null, true);
 $browser = $browser['browser'];
@@ -21,8 +32,12 @@ $isSafari = strtolower($browser) === 'safari';
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>
     <div id = 'text-container' class = 'window-container'><?
-        foreach($texts as $text)
-            echo $text;
+        foreach($texts as $chapter) {                
+            echo '<div class="chapter">';
+            foreach($chapter as $page)
+                echo '<div class="page">' . $page . '</div>';
+            echo '</div>';
+        }
     ?></div>
 </section><? 
     if($isSafari){
