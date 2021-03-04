@@ -306,6 +306,10 @@ a {
 {
     color: #000;
 }
+.chapter {
+    /* background-color:#FF0; */
+}
+
 .mask-text-container a
 {
     color: transparent;
@@ -422,42 +426,33 @@ a {
     height: 0;
 }
 
+#print-container .audio-holder {
+    display: none;
+}
+
 /* image ids */
 
 #photorama {
-    width: 500px;
-    padding-top: 400px;
+    width: 75%;
+    padding-top: 350px;
     padding-left: 150px;
     padding-right:0;
     /*margin-top: 566px;*/
 }
 
 #temple-hi-lo {
-    width: 500px;
-    /*margin-left: 250px;*/
-    /* margin-top: 60px; */
+    width: 85%;
     padding-top: 60px;
+    margin-bottom: 200px;
 }
 
 #circular-time {
-    width: 350px;
+    width: 50%;
     padding-top: 0px;
 }
 
 #stray-sh-nm {
     padding-top: 150px;
-}
-
-#stray-sh-nm img {
-    width: 290px;
-}
-
-#stray-sh-nm img:last-of-type {
-    float:right;
-}
-
-#print-container .audio-holder {
-    display: none;
 }
 
 #audio-holder-1 {
@@ -475,26 +470,26 @@ a {
 #friends-indeed-house {
     padding-top: 600px;
     padding-left: 0;
-    width: 700px;
+    width: 100%;
+    margin-bottom: 50px;
 }
 
 #grace-walking-and-talking {
     padding-top: 0px; 
-    width: 400px;
+    width: 60%;
     float: left;
 }
 
 #bombardo {
     padding-top: 10px; 
-    /*width: 300px;*/
-    width: 300px;
+    width: 45%;
     float: right;
 }
 
 #will-and-be-going-to {
     padding-top: 200px; 
     padding-left: 60px;
-    width: 200px;
+    width: 40%;
     /* float: left; */
 }
 
@@ -509,11 +504,11 @@ a {
 #signal-escapes {
     padding-top:10px;
     padding-left: 50px;
-    width: 700px;
+    width: 100%;
+    margin-bottom: 100px;
 }
 
 #tree-ellipse {
-    padding-top: 0px;
 }
 
 #tree-ellipse img:first-of-type {
@@ -525,8 +520,8 @@ a {
 }
 
 #exh-view img {
-    width: 400px;
-    padding-right: 40px;
+    width: 50%;
+    padding-right: 50px;
     float: right;
 }
 
@@ -536,13 +531,11 @@ a {
 }
 
 #audio-holder-2 {
-    /*margin-top: 100px;*/
 }
 
 #seven-sleepers {
     padding-top: 150px;
-    width: 400px;
-    /*margin-top: -50px;*/
+    width: 80%;
 }
 
 #seven-sleepers-1-2-3 {
@@ -551,23 +544,24 @@ a {
     padding-top: 480px;
     z-index: 5;
     position: relative;
+    margin-bottom: 800px;
 }
 
 #performing-garage {
     padding-top: 200px;
-    padding-left: 100px;
+    padding-left: 20%;
+    margin-bottom: 400px;
 }
 
 #performing-garage img {
-    width: 550px;
+    width: 90%;
 }
 
 #shaker {
     padding-top: 0px;
-    /*margin-left: 200px;*/
     padding-left: 10px;
     padding-right: 0;
-    width: 500px;
+    width: 70%;
 }
 
 #bside {
@@ -578,53 +572,79 @@ a {
 }
 
 #bside img {
-    width: 300px;
     float: right;
+    width: 80%;
 }
 
 #ghost-song {
     padding-top: 80px;
-    width: 700px;
+    width: 100%;
 }
 
 #record {
-    width: 300px;
     padding-top: 40px;
+    width: 40%;
 }
 
 #on-trespassing {
     padding-top: 210px;
-    width: 700px;
+    width: 45A%;
 }
 
 #three-felled-trees {
     padding-top: 20px;
 }
 
-#three-felled-trees img {
-}
-
 #signal-escapes-2 {
-    width: 600px;
     padding-top: 50px;
     padding-left: 150px;
     position: relative;
-}
-
-#signal-escapes-2 img {
+    width: 85%;
 }
 
 #studio-placard {
     padding-top: 420px;
-    width: 600px;
+    width: 75%;
 }
 
 #american-photographs {
-    background-color:#FF0;
+    padding-top: 10px;
+    padding-left: 65%;
+}
+
+#american-photographs img {
+    width: 85%;
 }
 
 #a-graphic-tone {
     padding-top:150px;
+}
+
+#a-graphic-tone img {
+    width: 50%;    
+}
+
+#a-graphic-tone img:nth-child(1) {
+    padding-top:10px;
+}
+
+#a-graphic-tone img:nth-child(2) {
+    padding-top:10px;
+    top: -50px;
+}
+
+#a-graphic-tone img:nth-child(3) {
+    padding-left: 25%;
+}
+
+#a-graphic-tone img:nth-child(4) {
+    padding-left: 25%;
+}
+
+#a-graphic-tone img:nth-child(5) {
+}
+
+#a-graphic-tone img:nth-child(6) {
 }
 
 #on-song-on {
@@ -632,8 +652,8 @@ a {
 }
 
 #on-song-g {
-    width: 250px;
     padding-top:300px;
+    width: 35%;
 }
 
 #on-song-all {
@@ -659,13 +679,13 @@ a {
 
 #wet-words-2 img {
     margin-top: 10px;
-    width: initial;
     display: block;
+    width: initial;
 }
 
 #wet-words-2 img:first-child {
     height: 96px;
-     margin-top: 0;
+    margin-top: 0;
 }
 
 #wet-words-2 img:nth-child(2) {
@@ -697,8 +717,8 @@ a {
 }
 
 #earthly-trio {
-    width: 75%;
     padding-top:300px;
+    width: 75%;
 }
 
 #audio-holder-3 {
@@ -734,7 +754,7 @@ a {
 .head {
     padding-top: 10px;
     margin-top: -10px;
-    position: -webkit-sticky;
+    /* position: -webkit-sticky; */
     position: sticky;
     top: 10px;
 }
@@ -1322,7 +1342,8 @@ a {
 
 /* debug */
 .page {
-    background-color: #EEE;
+    /* background-color: #EEE; */
+    /* padding: 50px; */
     /* margin: 1px; */
 }
 

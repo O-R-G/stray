@@ -6,7 +6,10 @@ require_once('views/head.php');
 $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
+// $body = $item['body'];
+// $texts = explode('///', $body);
+// ** stub **
+$body = file_get_contents('static/txt/text.txt');;
 $texts = explode('///', $body);
 
 // build $images[]
@@ -32,8 +35,8 @@ $now = date('l, F j, Y') . ' at ' . date('h:i a');
     <div class='page'>Printed on <?= $now; ?>.</div><?
     $j = 0;
     foreach($texts as $text) {
-        echo '<div class="page">' . $images[$j] . '</div>';
-        echo '<div class="page">' . $text . '</div>';
+        echo $images[$j];
+        echo $text;
         if ($j < count($images))
             $j++;
     }

@@ -33,19 +33,18 @@ function popup(name, param =false){
 		var this_param = 'width=650,height=450,top='+this_top+',left='+this_left;
 		window_text = window.open('/colophon', window_name, this_param);
 	}
-	
     else if(name == 'text'){
-        var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
+        var this_param = 'width=770,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/text', 'STRAY. TEXT', this_param);
     }
     else if(name == 'image' || name == 'mobile'){
-        var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
+        var this_param = 'width=770,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/'+name, 'STRAY. IMAGE', this_param);
     }
     else if(name == 'print' || name == 'preview' ){
-        var this_param = 'width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
+        var this_param = 'width=900,height=600,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
         return window.open('/'+name, 'STRAY. PRINT', this_param);
     }

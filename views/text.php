@@ -6,7 +6,10 @@
 $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
+// $body = $item['body'];
+// $texts = explode('///', $body);
+// ** stub **
+$body = file_get_contents('static/txt/text.txt');;
 $texts = explode('///', $body);
 
 $browser = get_browser(null, true);
@@ -19,7 +22,7 @@ $isSafari = strtolower($browser) === 'safari';
 	</ul>
     <div id = 'text-container' class = 'window-container'><?
         foreach($texts as $text)
-            echo '<div class="page">' . $text . '</div>';
+            echo $text;
     ?></div>
 </section><? 
     if($isSafari){

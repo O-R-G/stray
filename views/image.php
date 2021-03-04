@@ -8,7 +8,10 @@
 $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
+// $body = $item['body'];
+// $texts = explode('///', $body);
+// ** stub **
+$body = file_get_contents('static/txt/text.txt');;
 $texts = explode('///', $body);
 
 // build $images[]
@@ -76,7 +79,7 @@ $isSafari = strtolower($browser) === 'safari';
                 echo $text;
         ?></div><?
         foreach($images as $image)
-            echo '<div class="page">' . $image . '</div>';
+            echo $image;
     ?></div>
 	<div id="text-image-toggle">
 		<div id="inner">
