@@ -156,12 +156,12 @@ V.
 
 ///
 
-<div id="on-song-on" class="image-holder" images="">
+<div id="on-song-1" class="image-holder" images="">
     <img class="" src="/media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg">
 </div>
 ///
 
-<div id="on-song-all" class="image-holder overlap-image-holder" zindex="1">
+<div id="on-song-2" class="image-holder overlap-image-holder" zindex="1">
     <img class="" src="/media/jpg/SE_Record_IMG_5615_V2_42x50_Final.jpg">
     <img class="" src="/media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg">
     <img class="" src="/media/jpg/SE_OnTrespassing_no_VOG_15x18_Final.jpg">
@@ -170,8 +170,6 @@ V.
     <img class="" src="/media/jpg/SE_OnTrespassing_tres_VOG_15x32_Final.jpg">
     <img class="" src="/media/jpg/SE_OnTrespassing_Sing_V3_15x30_Final.jpg">
     <img class="" src="/media/jpg/SE_OnTrespassing_ing_V2_15x22_Final.jpg">
-</div>
-<div id="on-song-g" class="image-holder centered" images="">
     <img class="" src="/media/jpg/SE_OnSong_song_G_V3_8x15_Final.jpg">
 </div>
 ///
@@ -188,7 +186,7 @@ VI.
 </div>
 ///
 
-<div id="wet-words-2" class="image-holder image-float-container" images="">
+<div id="wet-words-3" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/SE_Section_2_1_V1_33x95_File.jpg">
     <img class="" src="/media/jpg/SE_Section_2_2_V1_44x106_File.jpg">
     <img class="" src="/media/jpg/SE_Section_2_3_V3_44x116_File.jpg">

@@ -31,14 +31,20 @@ foreach($chapters as $chapter) {
     $images[] = $pages;
 }
 
-// build $appendix[]
+// build $appendix[][]
 
 $urls = explode('/', 'appendix');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);    
 $children = $oo->children($item['id']);
-foreach($children as $child)
-    $appendix[] = '<div class="appendix_section">'.$child['body'].'</div>';
+foreach($children as $child) {
+    $pages = explode('///', $child['body']);
+    $appendix[] = $pages;
+}
+
+// var_dump(count($appendix));
+// die();
+// $appendix[] = '<div class="appendix_section">'.$child['body'].'</div>';
 
 /*
 // build $cover
@@ -109,14 +115,15 @@ $now = date('l, F j, Y') . ' at ' . date('h:i a');
     // appendix
 
     foreach($appendix as $append) {
-        // flowing, no need for page?
-        // let bindery work it out
         ?><div class = 'appendix-section'><?
-            echo $append;
+            foreach($append as $page) {
+                ?><div class="page"><?
+                    echo $page;
+                ?></div><?
+            }
         ?></div><?
     }
 
     // back cover
 
 ?></div>
-
