@@ -7,8 +7,8 @@ require_once('views/head.php');
 $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
-// $body = file_get_contents('static/txt/text.txt');
+// $body = $item['body'];
+$body = file_get_contents('static/txt/text.txt');
 $texts = [];
 $chapters = explode('+++', $body);
 foreach($chapters as $chapter) {
@@ -22,8 +22,8 @@ foreach($chapters as $chapter) {
 $urls = explode('/', 'image');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
-// $body = file_get_contents('static/txt/image.txt');
+// $body = $item['body'];
+$body = file_get_contents('static/txt/image.txt');
 $images = [];
 $chapters = explode('+++', $body);
 foreach($chapters as $chapter) {

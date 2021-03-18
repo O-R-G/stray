@@ -303,13 +303,21 @@ a {
 .mask-text-container {
     color: transparent;
     pointer-events: none;
-    z-index: 100;
     width: 100%;
+}
+
+.mask-text-container blockquote {
+    position: relative;
+    z-index: 100;
 }
 
 .mask-text-container .chapter-number,
 .mask-text-container .section {
     color: #000;
+}
+
+.📖-left .mask-text-container .chapter-number {
+    color: transparent;
 }
 
 .mask-text-container a {
@@ -443,7 +451,7 @@ a {
 
 #photorama {
     width: 75%;
-    padding-top: 350px;
+    padding-top: 460px;
     padding-left: 150px;
     padding-right:0;
     /*margin-top: 566px;*/
@@ -477,7 +485,7 @@ a {
 }
 
 #friends-indeed-house {
-    padding-top: 600px;
+    padding-top: 100px;
     padding-left: 0;
     width: 110%;
     margin-bottom: 50px;
@@ -490,42 +498,38 @@ a {
 }
 
 #bombardo {
-    padding-top: 10px; 
+    padding-top: 40px; 
     width: 45%;
     float: right;
 }
 
 #will-and-be-going-to {
-    padding-top: 200px; 
-    padding-left: 60px;
-    width: 40%;
-    /* float: left; */
+    width: 70%;
+    margin-left: 90px;
 }
 
 #will-and-be-going-to > img:first-child {
-    padding-left: 0; 
 }
 
 #will-and-be-going-to > img:last-child {
-    /* padding-right: 0; */
 }
 
 #signal-escapes {
-    padding-top:10px;
-    padding-left: 50px;
+    padding-top:0px;
+    padding-left: 0px;
     width: 100%;
     margin-bottom: 100px;
 }
 
 #tree-ellipse {
-}
-
-#tree-ellipse img:first-of-type {
     padding-top: 140px;
 }
 
+#tree-ellipse img:first-child {
+}
+
 #exh-view {
-    margin-top: -30px;
+    margin-top: 30px;
 }
 
 #exh-view img {
@@ -542,6 +546,7 @@ a {
 #audio-holder-2 {
 }
 
+/*
 #seven-sleepers {
     padding-top: 150px;
     width: 80%;
@@ -555,9 +560,24 @@ a {
     position: relative;
     margin-bottom: 800px;
 }
+*/
+
+#seven-sleepers {
+    padding-top: 0px;
+    width: 70%;
+}
+
+#seven-sleepers-1-2-3 {
+    width: 600px;
+    padding-left: 150px;
+    padding-top: 680px;
+    z-index: 5;
+    position: relative;
+    margin-bottom: 800px;
+}
 
 #performing-garage {
-    padding-top: 300px;
+    padding-top: 100px;
     padding-left: 20%;
     margin-bottom: 300px;
 }
@@ -591,13 +611,13 @@ a {
 }
 
 #record {
-    padding-top: 40px;
-    width: 40%;
+    padding-top: 290px;
+    width: 90%;
 }
 
 #on-trespassing {
-    padding-top: 210px;
-    width: 45A%;
+    padding-top: 20px;
+    width: 50%;
 }
 
 #three-felled-trees {
@@ -606,64 +626,65 @@ a {
 
 #signal-escapes-2 {
     padding-top: 50px;
-    padding-left: 150px;
+    padding-left: 170px;
     position: relative;
     width: 85%;
 }
 
+#on-song {
+    padding-top: 40px;
+    width: 70%;
+}
+
 #studio-placard {
-    padding-top: 420px;
+    padding-top: 20px;
     width: 75%;
 }
 
 #american-photographs {
-    padding-top: 10px;
-    padding-left: 65%;
+    padding-top: 300px;
+    padding-left: 300px;
 }
 
 #american-photographs img {
-    width: 85%;
+    width: 300px;
 }
 
 #a-graphic-tone {
 }
 
 #a-graphic-tone img {
+    height: 110px;
+    width: auto;
 }
 
 #a-graphic-tone img:nth-child(1) {
-    padding-top:50px;
-    width: 30%;
+    padding-top:30px;
 }
 
 #a-graphic-tone img:nth-child(2) {
-    margin-top: -150px;
-    margin-left: 200px;
-    width: 30%;
+    margin-left: 20px;
+    padding: 20px;
 }
 
 #a-graphic-tone img:nth-child(3) {
-    margin-top: -10px;
+    margin-top: 50px;
     margin-left: 20px;
-    width: 45%;
 }
 
 #a-graphic-tone img:nth-child(4) {
-    margin-top: -400px;
+    margin-top: -50px;
     margin-left: 300px;
-    width: 75%;
 }
 
 #a-graphic-tone img:nth-child(5) {
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 100px;
-    width: 40%;
 }
 
 #a-graphic-tone img:nth-child(6) {
-    margin-top: -300px;
-    margin-left: 450px;
-    width: 25%;
+    margin-top: -50px;
+    margin-left: 440px;
 }
 
 
@@ -680,73 +701,73 @@ a {
 }
 
 #on-song-2 img {
-    /* opacity:0.5; */
+    height: 110px;
+    width: auto;
 }
 
 #on-song-2 img:nth-child(1) {
     margin-top: 20px;
     margin-left: 20px;
-    width: 50%;
 }
 
 #on-song-2 img:nth-child(2) {
     margin-top: 250px;
     margin-left: 550px;
-    width: 30%;
 }
 
 #on-song-2 img:nth-child(3) {
     margin-top: 100px;
     margin-left: 380px;
-    width: 30%;
 }
 
 #on-song-2 img:nth-child(4) {
     margin-top: 50px;
     margin-left: 500px;
-    width: 20%;
 }
 
 #on-song-2 img:nth-child(5) {
     margin-top: 500px;
     margin-left: 0px;
-    width: 40%;
 }
 
 #on-song-2 img:nth-child(6) {
     margin-top: 350px;
     margin-left: 350px;
-    width: 50%;
 }
 
 #on-song-2 img:nth-child(7) {
     margin-top: 400px;
     margin-left: 50px;
-    width: 30%;
 }
 
 #on-song-2 img:nth-child(8) {
     margin-top: 550px;
     margin-left: 410px;
-    width: 50%;
 }
 
 #on-song-2 img:nth-child(9) {
     margin-top: 700px;
     margin-left: 300px;
-    width: 30%;
+}
+
+#tone-poem {
+    padding-top: 320px;
+    width: 120%;
 }
 
 #wet-words-1 {
+    width: 80%;
 }
 
 #wet-words-2 {
+    width: 115%;
 }
 
 #wet-words-2 img{
 }
 
 #wet-words-3 {
+    width: 115%;
 }
 
 #wet-words-3 img{
@@ -759,7 +780,7 @@ a {
 }
 
 #wet-words-3 img:first-child {
-    height: 96px;    
+    height: 72px;    
     margin-top: 0;
 }
 
@@ -774,19 +795,19 @@ a {
 }
 
 #wet-words-3 img:nth-child(4) {
-    height: 96px;
+    height: 72px;
     float: right;
     clear: both;
 }
 
 #wet-words-3 img:nth-child(5) {
-    height: 96px;
+    height: 72px;
     float: right;
     clear: both;
 }
 
 #wet-words-3 img:nth-child(6) {
-    height: 96px;
+    height: 72px;
     float: right;
     clear: both;
 }
@@ -978,11 +999,13 @@ a {
 
 /* 📖-page.📖-left.📖-page3d-back 📖-flow-box #print-container .page { */
 /* tmp to fix, should be better targeted */
+/*
 .📖-left #print-container, 
 .📖-left #print-container a {
     /* background-color: #FFC; */
     color: #000;
 }
+*/
 
 .chapter {
 }
@@ -1022,14 +1045,10 @@ a {
         or moving outside of page div
     */
     position: absolute;
-    top: 540px;
+    top: 480px;
     left: -140px;
     transform: rotate(90deg);
 }
-
-
-
-
 
 #print-btn {
     color: #fff;
