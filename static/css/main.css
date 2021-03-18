@@ -331,6 +331,11 @@ a {
     width: 100%;
 }
 
+.columns {
+    columns: 2;
+}
+
+
 .allcaps.viewing {
     /*display: inline-block;*/
     opacity: 1;
@@ -1025,6 +1030,18 @@ a {
     top: 10px;
 }
 
+#back-cover {
+    width: 100%;
+}
+
+#back-cover img {
+    width: 100%;
+}
+
+#back-cover div {
+    position: absolute;
+    bottom: -30px;
+}
 
 /*
     type styles

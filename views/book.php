@@ -42,10 +42,6 @@ foreach($children as $child) {
     $appendix[] = $pages;
 }
 
-// var_dump(count($appendix));
-// die();
-// $appendix[] = '<div class="appendix_section">'.$child['body'].'</div>';
-
 /*
 // build $cover
 // this uses extensive js, surely is a simpler way
@@ -124,6 +120,12 @@ $now = date('l, F j, Y') . ' at ' . date('h:i a');
         ?></div><?
     }
 
-    // back cover
+    // back cover (** stub **)
 
+    ?><div id="back-cover">
+        <img src='/media/letters/A-3.jpg'>
+        <div>
+            STRAY WORLD is published by Source Type, 2021.
+        </div>
+    </div><? 
 ?></div>
