@@ -70,6 +70,35 @@ die();
 
 $now = date('l, F j, Y') . ' at ' . date('h:i a');
 
+// build back cover
+
+$now_timestamp = time();
+$pure_text = file_get_contents('static/txt/pure-text.txt');
+$letter_length = strlen($pure_text);
+$current_pos = intval( $now_timestamp ) % $letter_length;
+$current_letter = substr($pure_text, $current_pos, 1);
+
+if(ctype_alpha($current_letter))
+    $current_filename = strtoupper($current_letter);
+elseif($current_letter == '&')
+    $current_filename = 'ampersand';
+elseif($current_letter == '.')
+    $current_filename = 'period';
+elseif($current_letter == ',')
+    $current_filename = 'comma';
+elseif($current_letter == '#')
+    $current_filename = 'hash';
+elseif($current_letter == '/')
+    $current_filename = 'slash';
+else
+    $current_filename = false;
+if($current_filename)
+{
+    $current_filename_arr = glob('media/letters/' . $current_filename. '*');
+    $current_filename_full = '/' . $current_filename_arr[array_rand($current_filename_arr)];
+}
+
+
 ?><div id='print-container'>
     <div class='page'>
         <div class='now-container'>
@@ -123,7 +152,7 @@ $now = date('l, F j, Y') . ' at ' . date('h:i a');
     // back cover (** stub **)
 
     ?><div id="back-cover">
-        <img src='/media/letters/A-3.jpg'>
+        <?= $current_filename_full ? '<img src="'. $current_filename_full . '" >' : ''; ?>
         <div>
             STRAY WORLD is published by Source Type, 2021.
         </div>

@@ -77,7 +77,7 @@ $isSafari = strtolower($browser) === 'safari';
 		});		
 	});
 </script>
-<section id ='main' class="">
+<section id ='main' class="image-main-container">
 	<ul id = 'chapter-nav'>
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li><li><a href = "#head6">VI.</a></li>
 	</ul>

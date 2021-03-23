@@ -1004,10 +1004,10 @@ a {
 
 /* 📖-page.📖-left.📖-page3d-back 📖-flow-box #print-container .page { */
 /* tmp to fix, should be better targeted */
-/*
+/* 
 .📖-left #print-container, 
 .📖-left #print-container a {
-    /* background-color: #FFC; */
+    background-color: #FFC; 
     color: #000;
 }
 */
@@ -1032,6 +1032,8 @@ a {
 
 #back-cover {
     width: 100%;
+    position: absolute;
+    width: calc( 210mm - 2 * var(--bindery-margin-outer) );
 }
 
 #back-cover img {
@@ -1157,9 +1159,13 @@ a {
 {
     display: none;
 }
-@page {
-margin: 0cm !important;
+.image-main-container .mask-image-container
+{
+    color: transparent;
 }
+/*@page {
+margin: 0cm !important;
+}*/
 @keyframes flashing
 {
     0%{

@@ -12,6 +12,12 @@ $now = date("h:i:sa");
 if($uri[1] == 'print' || 
    $uri[1] == 'preview' ) {
     require_once('views/print.php');
+} else if($uri[1] == 'print-test-1') {
+    require_once('views/print-test-1.php');
+}else if($uri[1] == 'book') {
+    require_once('views/book.php');
+} else if($uri[1] == 'book-test-1') {
+    require_once('views/book-test-1.php');
 } else if($uri[1] == 'book') {
     require_once('views/book.php');
 } else {

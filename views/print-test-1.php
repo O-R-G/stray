@@ -16,16 +16,15 @@ if($uri[1] == 'preview')
         Bindery.makeBook({
             content: {
                 selector: '#print-container',
-                url: '/book'
+                url: '/book-test-1'
             },
             pageSetup: {           
-                size: { width: '205mm', height: '297mm' },
-                // size: { width: '8.5in', height: '11in' },
+                size: { width: '210mm', height: '297mm' },
                 margin: { 
                     top: '15mm', 
                     inner: '37mm', 
                     outer: '15mm', 
-                    bottom: '0mm' 
+                    bottom: '15mm' ,
                 },
             },  
             view: 
