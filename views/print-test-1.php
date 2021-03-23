@@ -16,15 +16,24 @@ if($uri[1] == 'preview')
         Bindery.makeBook({
             content: {
                 selector: '#print-container',
-                url: '/book-test-1'
+                url: '/book-test-2'
             },
+            // pageSetup: {           
+            //     size: { width: '4.25in', height: '8in' },
+            //     margin: { 
+            //         top: '0.5in', 
+            //         inner: '0.5in', 
+            //         outer: '0.5in', 
+            //         bottom: '0.5in',
+            //     },
+            // }, 
             pageSetup: {           
-                size: { width: '210mm', height: '297mm' },
+                size: { width: '5.5in', height: '8.5in' },
                 margin: { 
-                    top: '15mm', 
-                    inner: '37mm', 
-                    outer: '15mm', 
-                    bottom: '15mm' ,
+                    top: '60pt', 
+                    inner: '48pt', 
+                    outer: '60pt', 
+                    bottom: '72pt' 
                 },
             },  
             view: 
@@ -32,7 +41,7 @@ if($uri[1] == 'preview')
             rules: [
                 Bindery.PageBreak({ 
                     selector: '.page', 
-                    position: 'both' 
+                    position: 'after' 
                 }),
                 Bindery.RunningHeader({
                 }),

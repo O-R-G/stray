@@ -42,6 +42,8 @@ if($current_directory != '/')
     $current_directory .= '/';
 $devhash = rand();  // to force .css reloads
 
+$isNoto = $_GET['noto'];
+
 ?><!DOCTYPE html>
 <html>
     <head>
