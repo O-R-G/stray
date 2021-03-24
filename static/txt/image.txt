@@ -78,8 +78,12 @@
 <div id="seven-sleepers" class="image-holder overlap-image-holder">
     <img class="" src="/media/jpg/SEVEN-SLEEPERS-DOOR.jpg">
 </div>
-<div id="seven-sleepers-1-2-3" class="image-holder inline-image-holder" images="3">
+<div id="seven-sleepers-1" class="image-holder inline-image-holder" images="3">
     <img class="" src="/media/jpg/seven-sleepers-FNL-1-working-FNL-FNL.jpg">
+</div>
+///
+
+<div id="seven-sleepers-2-3" class="image-holder inline-image-holder" images="3">
     <img class="" src="/media/jpg/seven-sleepers-FNL-2-working-FNL-FNL.jpg">
     <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
 </div>
@@ -137,9 +141,6 @@
 <div id="studio-placard" class="image-holder" images="">
     <img class="" src="/media/jpg/STUDIO-PLACARD_10-inches.jpg">
 </div>
-<div id="american-photographs" class="image-holder">
-    <img class="" src="/media/jpg/1_2_3_4_Shannon.gif">
-</div>
 ///
 
 &nbsp;
@@ -163,20 +164,14 @@
 </div>
 ///
 
-<div id="on-song-2" class="image-holder overlap-image-holder" zindex="1">
-    <img class="" src="/media/jpg/SE_OnSong_on_VOG_15x18_Final.jpg">
-    <img class="" src="/media/jpg/SE_OnTrespassing_no_VOG_15x18_Final.jpg">
-    <img class="" src="/media/jpg/SE_OnTrespassing_no_VOG_15x18_Final_1.jpg">
-    <img class="" src="/media/jpg/SE_OnTrespassing_pass_V2_15x31_Final.jpg">
-    <img class="" src="/media/jpg/SE_OnTrespassing_tres_VOG_15x32_Final.jpg">
-    <img class="" src="/media/jpg/SE_OnTrespassing_Sing_V3_15x30_Final.jpg">
-    <img class="" src="/media/jpg/SE_OnTrespassing_ing_V2_15x22_Final.jpg">
-    <img class="" src="/media/jpg/SE_OnSong_song_G_V3_8x15_Final.jpg">
-</div>
 ///
 
 <div id="tone-poem" class="image-holder" images="">
-    <img class="" src="/media/jpg/tone-poem.jpg">
+    <img class="" src="/media/jpg/tone-poem-1.jpg">
+    <img class="" src="/media/jpg/tone-poem-2.jpg">
+    <img class="" src="/media/jpg/tone-poem-3.jpg">
+    <img class="" src="/media/jpg/tone-poem-4.jpg">
+    <img class="" src="/media/jpg/tone-poem-5.jpg">
 </div>
 +++
 
