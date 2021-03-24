@@ -42,30 +42,6 @@ foreach($children as $child) {
     $appendix[] = $pages;
 }
 
-/*
-// build $cover
-// this uses extensive js, surely is a simpler way
-// see views/print-new
-// addCover
-
-$text_plain = getPlainRadioText(true);
-$letter_image_filenames = scandir('media/letters');
-$filenum_arr = array();
-foreach($letter_image_filenames as $filename){
-    if(substr($filename, 0, 1) != '.'){
-        $this_key = explode('-', $filename);
-        $this_key = $this_key[0];
-        if(isset($filenum_arr[$this_key]))
-            $filenum_arr[$this_key] ++;
-        else
-            $filenum_arr[$this_key] = 1;
-    }
-}
-foreach($filenum_arr as $f)
-    var_dump($f);
-die();
-*/
-
 // build $now
 
 $now = date('l, F j, Y') . ' at ' . date('h:i a');
@@ -73,10 +49,10 @@ $now = date('l, F j, Y') . ' at ' . date('h:i a');
 // build back cover
 
 $now_timestamp = time();
-$radio_text = file_get_contents('static/txt/radio-text.txt');
-$letter_length = strlen($radio_text);
+$text_radio = file_get_contents('static/txt/text-radio.txt');
+$letter_length = strlen($text_radio);
 $current_pos = intval( $now_timestamp ) % $letter_length;
-$current_letter = substr($radio_text, $current_pos, 1);
+$current_letter = substr($text_radio, $current_pos, 1);
 
 if(ctype_alpha($current_letter))
     $current_filename = strtoupper($current_letter);
