@@ -52,9 +52,18 @@
 <div id = 'radio_container'>
 	<div id="duo_btn" class="window_btn"></div>
 	<div id="mobile_btn" class="window_btn"></div>
-	<img id = 'radio_image_0' class = 'radio_image not_current'>
-	<img id = 'radio_image_1' class = 'radio_image not_current'>
-	<img id = 'radio_image_2' class = 'radio_image not_current'>
+	<div id="radio_slide_0" class="radio_slide not_current">
+		<p id='radio_text_0' class='radio_text'></p>
+		<img id = 'radio_image_0' class = 'radio_image'>
+	</div>
+	<div id="radio_slide_1" class="radio_slide not_current">
+		<p id='radio_text_1' class='radio_text'></p>
+		<img id = 'radio_image_1' class = 'radio_image'>
+	</div>
+	<div id="radio_slide_2" class="radio_slide not_current">
+		<p id='radio_text_2' class='radio_text'></p>
+		<img id = 'radio_image_2' class = 'radio_image'>
+	</div>
 </div>
 <div id = "text" style="display:none"><?= $text_plain; ?></div>
 <div id = 'nav'><a href = 'javascript:popup("colophon", "", "")'>COLOPHON</a></div>
@@ -63,15 +72,24 @@
 	var text_plain = '<?= $text_plain_escape; ?>';
 	var text_plain_extended = '<?= $text_plain_extended_escape; ?>';
 	var radio_image = document.getElementsByClassName('radio_image');
+	var radio_slide = document.getElementsByClassName('radio_slide');
+	var radio_slide_0 = document.getElementById('radio_slide_0');
+	var radio_slide_1 = document.getElementById('radio_slide_1');
+	var radio_slide_2 = document.getElementById('radio_slide_2');
 	var radio_image_0 = document.getElementById('radio_image_0');
 	var radio_image_1 = document.getElementById('radio_image_1');
 	var radio_image_2 = document.getElementById('radio_image_2');
+	var radio_text_0 = document.getElementById('radio_text_0');
+	var radio_text_1 = document.getElementById('radio_text_1');
+	var radio_text_2 = document.getElementById('radio_text_2');
 	var image_counter = 0;
 	var loop_timer = null;
 	var isPlaying = false;
 
+	console.log(radio_slide);
+
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
-	var src_arr = [];
+	var letter_display_arr = [];
 	var previous_char = '';
 	var saved_order = [];
 
@@ -82,6 +100,8 @@
 	var wH = window.innerHeight;
 	var image_h = wH - 40;
 	var image_w = image_h / image_r;
+
+	var isNoto = <?= json_encode($isNoto); ?>;
 
 	var sWindow_btn = document.getElementsByClassName('window_btn');
 	[].forEach.call(sWindow_btn, (el, i)=>{
@@ -97,11 +117,11 @@
 	});
 
 
-	function format_img_src(letter){
+	function format_img_display(letter){
 		// if(main_fuse > 100)
 			// return false;
 		// main_fuse++;
-		// console.log('format_img_src');
+		// console.log('format_img_display');
 		var this_letter = letter.toUpperCase();
 		if(this_letter == '&')
 			this_letter = 'ampersand';
@@ -114,7 +134,12 @@
 		else if(this_letter == '/')
 			this_letter = 'slash';
 		else if( !isAlphabetic(this_letter))
-			return 'whitespace';
+		{
+			if(isNoto)
+				return this_letter;
+			else
+				return ' ';
+		}
 
 		var this_max = filenum_arr[this_letter];
 		var letter_order = Math.floor(Math.random() * Math.floor(this_max));
@@ -134,54 +159,111 @@
 	} else if (window.ActiveXObject) { // IE 6 and older
 	    var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	function loop_letters(c_letter, words, srcs, isInitialed = true){
+	function loop_letters(c_letter, words, display_arr, isInitialed = true){
 		if(!isInitialed)
 		{
-			var first_src = srcs[c_letter];
+			var first_display = display_arr[c_letter];
 			c_letter++;
 			if(c_letter >= words.length)
 				c_letter = 0;
-			var next_src = srcs[c_letter];
+			var next_display = display_arr[c_letter];
 			c_letter++;
 			if(c_letter >= words.length)
 				c_letter = 0;
-			var nextnext_src = srcs[c_letter];
-			if(first_src == 'whitespace')
-				radio_image_0.classList.add('whitespace');
+			var nextnext_display = display_arr[c_letter];
+			if(first_display['type'] === 'whitespace'){
+				radio_slide_0.setAttribute('display_type', 'whitespace');
+			}
+			else if(first_display['type'] === 'image'){
+				radio_slide_0.setAttribute('display_type', 'image');
+				radio_image_0.src = first_display['content'];
+			}
 			else
-				radio_image_0.src = first_src;
+			{
+				if(isNoto)
+				{
+					radio_slide_0.setAttribute('display_type', 'text');
+					radio_text_0.innerText = first_display['content'];
+				}
+				else{
+					radio_slide_0.setAttribute('display_type', 'whitespace');
+				}
+			}
 
-			if(next_src == 'whitespace')
-				radio_image_1.classList.add('whitespace');
+			if(next_display['type'] === 'whitespace')
+				radio_slide_1.setAttribute('display_type', 'whitespace');
+			else if(next_display['type'] === 'image'){
+				radio_slide_1.setAttribute('display_type', 'image');
+				radio_image_1.src = next_display['content'];
+			}
 			else
-				radio_image_1.src = next_src;
+			{
+				if(isNoto)
+				{
+					radio_slide_1.setAttribute('display_type', 'text');
+					radio_text_1.innerText = next_display['content'];
+				}
+				else{
+					radio_slide_1.setAttribute('display_type', 'whitespace');
+				}
+			}
 
-			if(nextnext_src == 'whitespace')
-				radio_image_2.classList.add('whitespace');
+			if(nextnext_display['type'] === 'whitespace'){
+				radio_slide_2.setAttribute('display_type', 'whitespace');
+			}
+			else if(nextnext_display['type'] === 'image'){
+				radio_slide_2.setAttribute('display_type', 'image');
+				radio_image_2.src = nextnext_display['content'];
+			}
 			else
-				radio_image_2.src = nextnext_src;
+			{
+				if(isNoto)
+				{
+					radio_slide_2.setAttribute('display_type', 'text');
+					radio_text_2.innerText = nextnext_display['content'];
+				}
+				else
+					radio_slide_2.setAttribute('display_type', 'whitespace');
+			}
 
 			setTimeout(function(){
-				radio_image_0.classList.remove('not_current');
+				radio_slide_0.classList.remove('not_current');
 			}, 0);
 		}
 		else
 		{
 			image_counter++;
-			var current_image = radio_image[image_counter%3];
+			var current_slide = radio_slide[image_counter%3];
 			// var last_image = radio_image[(image_counter - 1) % 3];
-			var nextnext_image = radio_image[(image_counter + 2) % 3];
-			var nextnext_src = srcs[c_letter];
+			var nextnext_slide = radio_slide[(image_counter + 2) % 3];
+			var nextnext_display = display_arr[c_letter];
+			var nextnext_image = nextnext_slide.querySelector('img');
+			var nextnext_text = nextnext_slide.querySelector('p');
 
-			current_image.classList.remove('not_current');
+			current_slide.classList.remove('not_current');
 			// next_image.classList.add('not_current');
-			nextnext_image.classList.add('not_current');
+			nextnext_slide.classList.add('not_current');
 
-			if(nextnext_src == 'whitespace')
-				nextnext_image.classList.add('whitespace');
+			if(nextnext_display['type'] == 'whitespace'){
+				nextnext_slide.setAttribute('display_type', 'whitespace');
+				// nextnext_slide.classList.add('whitespace');
+			}
+			else if(nextnext_display['type'] === 'image'){
+				nextnext_slide.setAttribute('display_type', 'image');
+				nextnext_image.src = nextnext_display['content'];
+			}
 			else{
-				nextnext_image.classList.remove('whitespace');
-				nextnext_image.src = nextnext_src;
+				if(isNoto)
+				{
+					nextnext_slide.setAttribute('display_type', 'text');
+					nextnext_slide.classList.remove('whitespace');
+					nextnext_text.innerText = nextnext_display['content'];
+				}
+				else
+				{
+					nextnext_slide.setAttribute('display_type', 'whitespace');
+					// nextnext_slide.classList.add('whitespace');
+				}
 			}
 		}
 		
@@ -193,7 +275,7 @@
 		return c_letter;
 	}
 	function preload(init_index = 0, words, num_arr, prev_char){
-		src_arr = [];
+		letter_display_arr = [];
 		var words_length = words.length;
 		var preload_index = init_index;
 		for(i = 0; i < words_length; i++)
@@ -202,19 +284,39 @@
 			if(this_letter !== prev_char)
 				saved_order = [];
 			prev_char = this_letter;
-			// console.log(this_letter);
-			src_arr.push(format_img_src(this_letter));
+			
+			var this_letter_display = format_img_display(this_letter);
+			if(this_letter_display === ' '){
+				var this_display = {
+					'type': 'whitespace',
+					'content': ' '
+				};
+			}
+			else if(this_letter_display != this_letter){
+				var this_display = {
+					'type': 'image',
+					'content': this_letter_display
+				};
+			}
+			else
+			{
+				var this_display = {
+					'type': 'text',
+					'content': this_letter_display
+				};
+			}
+			letter_display_arr.push(this_display);
 		}
 		var preload_img = new Image();
 		preload_img.onload = function(){
 			preload_index++;
 			if(preload_index < words_length)
 			{
-				preload_img.src = src_arr[preload_index];
+				preload_img.src = letter_display_arr[preload_index];
 			}
 		}
-		// console.log(preload_index, src_arr[preload_index]);
-		preload_img.src = src_arr[preload_index];
+		// console.log(preload_index, letter_display_arr[preload_index]);
+		preload_img.src = letter_display_arr[preload_index];
 	}
 	httpRequest.onreadystatechange = function(){
 		
@@ -233,10 +335,9 @@
       			current_letter++;
       			if(current_letter >= textToFeed.length)
       				current_letter = 0;
-      			
       			preload(current_letter, textToFeed, previous_char);
       			setTimeout(function(){
-      				current_letter = loop_letters(current_letter, textToFeed, src_arr, false);
+      				current_letter = loop_letters(current_letter, textToFeed, letter_display_arr, false);
       				// already current++ when initiating loop_letters();
       				// so "current_letter" is actually the next next index to preload
       				// current_letter = (current_letter + 2) % text.length;
@@ -244,14 +345,14 @@
       				{
       					loop_timer = setInterval(function(){
 	      					isPlaying = true;
-	      					current_letter = loop_letters(current_letter, textToFeed, src_arr);
+	      					current_letter = loop_letters(current_letter, textToFeed, letter_display_arr);
 	      				}, 333);
       				}
       				else
       				{
       					loop_timer = setInterval(function(){
 	      					isPlaying = true;
-	      					current_letter = loop_letters(current_letter, textToFeed, src_arr);
+	      					current_letter = loop_letters(current_letter, textToFeed, letter_display_arr);
 	      				}, 1000);
       				}
       				
@@ -295,7 +396,7 @@
 				var interval = 1000;
 
 			return setInterval(function(){
-					current_letter = loop_letters(current_letter, textToFeed, src_arr);
+					current_letter = loop_letters(current_letter, textToFeed, letter_display_arr);
 			    }, interval);
 		}
 	}

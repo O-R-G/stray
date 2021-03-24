@@ -366,7 +366,28 @@ a {
 .radio_image
 {
     width: initial;
-    height: calc(100% - 40px);
+    height: 100%;
+    display: none;
+    margin: 0 auto;
+}
+.radio_text
+{
+    font-size: 80vh;
+    line-height: calc(100vh - 40px);
+    display: none;
+}
+.radio_slide[display_type='image'] .radio_image
+{
+    display: block;
+}
+.radio_slide[display_type='text'] .radio_text
+{
+    display: block;
+}
+.radio_slide
+{
+    height: calc(100vh - 40px);
+    /* height: calc(100% - 40px); */
     margin-top: 20px;
     
 }
@@ -380,11 +401,11 @@ a {
     z-index: 100;
     cursor: pointer;
 }
-.radio_image.not_current
+.not_current
 {
     display: none;
 }
-.radio_image.whitespace
+.radio_slide[display_type='whitespace']
 {
     display: none;
 }
