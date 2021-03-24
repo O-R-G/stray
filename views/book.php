@@ -70,7 +70,36 @@ die();
 
 $now = date('l, F j, Y') . ' at ' . date('h:i a');
 
-?><div id='print-container'>
+// build back cover
+
+$now_timestamp = time();
+$radio_text = file_get_contents('static/txt/radio-text.txt');
+$letter_length = strlen($radio_text);
+$current_pos = intval( $now_timestamp ) % $letter_length;
+$current_letter = substr($radio_text, $current_pos, 1);
+
+if(ctype_alpha($current_letter))
+    $current_filename = strtoupper($current_letter);
+elseif($current_letter == '&')
+    $current_filename = 'ampersand';
+elseif($current_letter == '.')
+    $current_filename = 'period';
+elseif($current_letter == ',')
+    $current_filename = 'comma';
+elseif($current_letter == '#')
+    $current_filename = 'hash';
+elseif($current_letter == '/')
+    $current_filename = 'slash';
+else
+    $current_filename = false;
+if($current_filename)
+{
+    $current_filename_arr = glob('media/letters/' . $current_filename. '*');
+    $current_filename_full = '/' . $current_filename_arr[array_rand($current_filename_arr)];
+}
+?>
+<!-- <script src='/static/js/bindery.min.js'></script> -->
+<div id='print-container'>
     <div class='page'>
         <div class='now-container'>
             Printed on <?= $now; ?>.
@@ -120,10 +149,18 @@ $now = date('l, F j, Y') . ' at ' . date('h:i a');
         ?></div><?
     }
 
-    // back cover (** stub **)
+    // inside back cover
+
+    ?><div id="inside-back-cover">
+        <div class='page'>
+            &nbsp;
+        </div>
+    </div><? 
+
+    // back cover
 
     ?><div id="back-cover">
-        <img src='/media/letters/A-3.jpg'>
+        <?= $current_filename_full ? '<img src="'. $current_filename_full . '" >' : ''; ?>
         <div>
             STRAY WORLD is published by Source Type, 2021.
         </div>
