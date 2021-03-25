@@ -219,7 +219,8 @@ a {
 
 .appendix-section img {
     padding: 20px;
-    width: 90%;
+    width: auto;
+    height: 900px;
 }
 
 #text-container, 
@@ -526,14 +527,23 @@ a {
 #friends-indeed-house {
     padding-top: 100px;
     padding-left: 0;
-    width: 110%;
     margin-bottom: 50px;
+    width: initial;
+}
+
+.📖-left #friends-indeed-house {
+    width: 110%;
 }
 
 #grace-walking-and-talking {
     padding-top: 0px; 
     width: 60%;
     float: left;
+    margin-top: -100px;
+}
+
+.📖-left #grace-walking-and-talking {
+    margin-top: 0px;
 }
 
 #bombardo {
@@ -562,6 +572,11 @@ a {
 
 #tree-ellipse {
     padding-top: 140px;
+    width: 75%;
+}
+
+.📖-left #tree-ellipse {
+    width: 100%;
 }
 
 #tree-ellipse img:first-child {
@@ -585,28 +600,22 @@ a {
 #audio-holder-2 {
 }
 
-/*
 #seven-sleepers {
-    padding-top: 150px;
-    width: 80%;
+    margin-top: -300px;
 }
 
-#seven-sleepers-1-2-3 {
-    width: 600px;
-    padding-left: 150px;
-    padding-top: 480px;
-    z-index: 5;
-    position: relative;
-    margin-bottom: 800px;
-}
-*/
-
-#seven-sleepers {
+.📖-left #seven-sleepers {
+    margin-top: 0px;
 }
 
 #seven-sleepers img {
     padding-top: 0px;
     padding-left: 100px;
+    width: 75%;
+}
+
+.📖-left #seven-sleepers img {
+    width: initial;
 }
 
 #seven-sleepers-1,
@@ -614,6 +623,11 @@ a {
     position: relative;
     padding-top: 100px;
     margin-bottom: 100px;    
+    margin-top:-550px;
+}
+
+.📖-left #seven-sleepers img {
+    margin-top:0px;
 }
 
 #seven-sleepers-1 img,
@@ -657,6 +671,10 @@ a {
 
 #record {
     padding-top: 290px;
+    width: 70%;
+}
+
+.📖-left #record {
     width: 90%;
 }
 
@@ -673,17 +691,25 @@ a {
     padding-top: 30px;
     padding-left: 170px;
     position: relative;
+    width: 75%;
+}
+
+.📖-left #signal-escapes-2 {
     width: 85%;
 }
 
 #on-song {
     padding-top: 40px;
+    width: 75%
+}
+
+.📖-left #on-song {
     width: 85%
 }
 
 #studio-placard {
     padding-top: 20px;
-    width: 90%;
+    width: 85%;
 }
 
 #american-photographs {
@@ -696,10 +722,15 @@ a {
 }
 
 #a-graphic-tone {
+    width: 75%;
+}
+
+.📖-left #signal-escapes-2 {
+    width: initial;
 }
 
 #a-graphic-tone img {
-    height: 125px;
+    height: 110px;
     width: auto;
 }
 
@@ -731,8 +762,6 @@ a {
     margin-top: -50px;
     margin-left: 440px;
 }
-
-
 
 #on-song-1 {
     padding-top:0px;
@@ -809,7 +838,7 @@ a {
 }
 
 #wet-words-2 {
-    width: 100%;
+    width: initial;
 }
 
 .📖-left #wet-words-2 {
@@ -820,6 +849,10 @@ a {
 }
 
 #wet-words-3 {
+    width: initial;
+}
+
+.📖-left #wet-words-3 {
     width: 115%;
 }
 
@@ -871,7 +904,7 @@ a {
 }
 
 #audio-holder-3 {
-    padding-top: 920px;
+    padding-top: 20px;
 }
 
 /*
@@ -1078,15 +1111,15 @@ a {
     top: 10px;
 }
 
-#back-cover {
+.📖-left #back-cover {
+    width: 115%;
+}
+
+.📖-left #back-cover img {
     width: 100%;
 }
 
-#back-cover img {
-    width: 100%;
-}
-
-#back-cover div {
+.📖-left #back-cover div {
     position: absolute;
     bottom: -30px;
 }
