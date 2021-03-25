@@ -121,6 +121,11 @@ a {
     top: 10px;
     right: 10px;
 }
+
+#nav a {
+    padding-left: 10px;
+}
+
 .colophon_col{
     display: inline-block;
     width: calc((100% - 40px) / 2);

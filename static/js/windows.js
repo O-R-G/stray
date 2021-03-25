@@ -33,6 +33,10 @@ function popup(name, param =false){
 		var this_param = 'width=650,height=450,top='+this_top+',left='+this_left;
 		window_text = window.open('/appendix/colophon', window_name, this_param);
 	}
+	else if(name == 'afterword'){
+		var this_param = 'width=650,height=450,top='+this_top+',left='+this_left;
+		window_text = window.open('/appendix/afterword', window_name, this_param);
+	}
     else if(name == 'text'){
         var this_param = 'width=770,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
         // return window.open('/chapter'+query, window_name, this_param);
