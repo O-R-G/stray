@@ -78,7 +78,7 @@ function open_chapter(chapter, query = ''){
     window_image = popup(chapter, query, 'image');
     window_allcaps = popup(chapter, query, 'allcaps');
     window_text = popup(chapter, query, 'text');
-    window_audio = popup('audio', '', 'audio');
+    // window_audio = popup('audio', '', 'audio');
     // setTimeout(function(){
     //     console.log('popping audio');
     //     window_audio = popup('audio', '', 'audio');
