@@ -42,7 +42,7 @@ if($uri[1] == 'preview')
                 marks: Bindery.Marks.NONE, 
             },
             view:
-                Bindery.View.FLIPBOOK,
+                Bindery.View.<?= ($isPreview) ? "FLIPBOOK" : "PRINT"; ?>,
         });
     </script>
     <style type="text/css">
@@ -59,6 +59,9 @@ if($uri[1] == 'preview')
             :root {
                 --bindery-sheet-width: 8.25in;
                 --bindery-sheet-height: 11.625in;
+            }
+            .📖-print-options {
+                display: none;
             }
         ";
         ?>
