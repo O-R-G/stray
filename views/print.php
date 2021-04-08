@@ -43,7 +43,6 @@ if($uri[1] == 'preview')
             },
             view:
                 Bindery.View.FLIPBOOK,
-                /* Bindery.View.PRINT,*/
         });
     </script>
     <style type="text/css">
@@ -52,19 +51,10 @@ if($uri[1] == 'preview')
                 --bindery-sheet-width: 210mm;
                 --bindery-sheet-height: 292mm;
             }
-            @media print {
-                .preview .📖-right .📖-flow-box, .📖-left .📖-footer,
-                .preview .📖-left .📖-flow-box, .📖-left .📖-footer {
-                    margin-top: calc(var(--bindery-margin-top) * 0.85);
-                    margin-left: calc(var(--bindery-margin-inner) * 0.85);
-                    margin-bottom: calc(var(--bindery-margin-bottom) * 0.85);
-                    margin-right: calc(var(--bindery-margin-right) * 0.85);
-                    background-color: #FF0;
-                }
-                .📖-page {
-                    background-color: #090;
-                }
-            }            
+            .📖-print-options,
+            .📖-controls .📖-btn {
+                display: none;
+            }
         " : "
             :root {
                 --bindery-sheet-width: 8.25in;
