@@ -41,6 +41,7 @@ $browser = $browser['browser'];
 $isSafari = strtolower($browser) === 'safari';
 
 ?><script>
+    /*
 	var isMobile = <?= json_encode($isMobile); ?>;
 	var audio_position = [];
 	var wH = window.innerHeight;
@@ -76,6 +77,7 @@ $isSafari = strtolower($browser) === 'safari';
             ticking = false;
 		});		
 	});
+    */
 </script>
 <section id ='main' class="">
 	<ul id = 'chapter-nav'>
