@@ -5,7 +5,7 @@
     
 $isPreview = false;
 if($uri[1] == 'preview')
-    $isPreview = true;
+    $isPreview = true;      // safari
 
 ?><head>
     <link rel='stylesheet' href='/static/css/main.css'>
@@ -13,51 +13,58 @@ if($uri[1] == 'preview')
 </head>
 <body class="<?= $isPreview ? 'preview' : ''; ?>">    
     <script>  
-        window.addEventListener('load', function(){
-            Bindery.makeBook({
-                content: {
-                    selector: '.print-container',
-                    url: '/book'
+        Bindery.makeBook({
+            content: {
+                selector: '#print-container',
+                url: '/book'
+            },
+            rules: [
+                Bindery.PageBreak({ 
+                    selector: '.page', 
+                    position: 'both' 
+                }),
+                Bindery.RunningHeader({
+                })
+            ],
+            pageSetup: {
+                size: { 
+                    width: <?= ($isPreview) ? "'210mm'" : "'8.25in'"; ?>,
+                    height: <?= ($isPreview) ? "'292mm'" : "'11.625in'"; ?>,  
                 },
-                // pageSetup: {           
-                //     size: { width: '208mm', height: '296mm' },
-                //     margin: { 
-                //         top: '15mm', 
-                //         inner: '37mm', 
-                //         outer: '15mm', 
-                //         bottom: '15mm' 
-                //     },
-                // },
-                pageSetup: {           
-                    size: { width: '8.25in', height: '11.625in' },
-                    margin: { 
-                        top: '0.6in', 
-                        inner: '1.45in', 
-                        outer: '0.6in', 
-                        bottom: '0.6in' 
-                    },
+                margin: { 
+                    top: '15mm', 
+                    inner: '37mm', 
+                    outer: '15mm', 
+                    bottom: '5mm' 
                 },
-                // pageSetup: {           
-                //     size: { width: '209.5mm', height: '295mm' },
-                //     margin: { 
-                //         top: '0.6in', 
-                //         inner: '1.45in', 
-                //         outer: '0.6in', 
-                //         bottom: '0.6in' 
-                //     },
-                // },  
-                view: 
-                    Bindery.View.FLIPBOOK,
-                rules: [
-                    Bindery.PageBreak({ 
-                        selector: '.page', 
-                        position: 'both' 
-                    }),
-                    Bindery.RunningHeader({
-                    }),
-                ],
-            });
+            },  
+            printSetup: {
+                marks: Bindery.Marks.NONE, 
+            },
+            view:
+                Bindery.View.<?= ($isPreview) ? "FLIPBOOK" : "PRINT"; ?>,
         });
         
     </script>
+    <style type="text/css">
+        <?= ($isPreview) ? "
+            :root {
+                --bindery-sheet-width: 210mm;
+                --bindery-sheet-height: 292mm;
+            }
+            .📖-print-options,
+            .📖-controls .📖-btn {
+                display: none;
+            }
+        " : "
+            :root {
+                --bindery-sheet-width: 8.25in;
+                --bindery-sheet-height: 11.625in;
+            }
+            .📖-print-options {
+                display: none;
+            }
+        ";
+        ?>
+    </style>
 </body>

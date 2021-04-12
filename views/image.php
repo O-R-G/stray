@@ -8,8 +8,8 @@
 $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
-// $body = file_get_contents('static/txt/text.txt');
+// $body = $item['body'];
+$body = file_get_contents('static/txt/text.txt');
 $texts = [];
 $chapters = explode('+++', $body);    
 foreach($chapters as $chapter) {
@@ -22,8 +22,8 @@ foreach($chapters as $chapter) {
 $urls = explode('/', 'image');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
-$body = $item['body'];
-// $body = file_get_contents('static/txt/image.txt');
+// $body = $item['body'];
+$body = file_get_contents('static/txt/image.txt');
 $images = [];
 $chapters = explode('+++', $body);
 foreach($chapters as $chapter) {
@@ -41,6 +41,7 @@ $browser = $browser['browser'];
 $isSafari = strtolower($browser) === 'safari';
 
 ?><script>
+    /*
 	var isMobile = <?= json_encode($isMobile); ?>;
 	var audio_position = [];
 	var wH = window.innerHeight;
@@ -76,6 +77,7 @@ $isSafari = strtolower($browser) === 'safari';
             ticking = false;
 		});		
 	});
+    */
 </script>
 <section id ='main' class="image-main-container">
 	<ul id = 'chapter-nav'>

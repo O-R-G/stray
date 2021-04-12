@@ -42,30 +42,6 @@ foreach($children as $child) {
     $appendix[] = $pages;
 }
 
-/*
-// build $cover
-// this uses extensive js, surely is a simpler way
-// see views/print-new
-// addCover
-
-$text_plain = getPlainRadioText(true);
-$letter_image_filenames = scandir('media/letters');
-$filenum_arr = array();
-foreach($letter_image_filenames as $filename){
-    if(substr($filename, 0, 1) != '.'){
-        $this_key = explode('-', $filename);
-        $this_key = $this_key[0];
-        if(isset($filenum_arr[$this_key]))
-            $filenum_arr[$this_key] ++;
-        else
-            $filenum_arr[$this_key] = 1;
-    }
-}
-foreach($filenum_arr as $f)
-    var_dump($f);
-die();
-*/
-
 // build $now
 
 $now = date('l, F j, Y') . ' at ' . date('h:i a');
@@ -73,10 +49,10 @@ $now = date('l, F j, Y') . ' at ' . date('h:i a');
 // build back cover
 
 $now_timestamp = time();
-$pure_text = file_get_contents('static/txt/pure-text.txt');
-$letter_length = strlen($pure_text);
+$text_radio = file_get_contents('static/txt/text-radio.txt');
+$letter_length = strlen($text_radio);
 $current_pos = intval( $now_timestamp ) % $letter_length;
-$current_letter = substr($pure_text, $current_pos, 1);
+$current_letter = substr($text_radio, $current_pos, 1);
 
 if(ctype_alpha($current_letter))
     $current_filename = strtoupper($current_letter);
@@ -97,17 +73,15 @@ if($current_filename)
     $current_filename_arr = glob('media/letters/' . $current_filename. '*');
     $current_filename_full = '/' . $current_filename_arr[array_rand($current_filename_arr)];
 }
-
-
 ?>
-<script src='/static/js/bindery.min.js'></script>
-<div class='print-container'>
+<!-- <script src='/static/js/bindery.min.js'></script> -->
+<div id='print-container'>
     <div class='page'>
         <div class='now-container'>
             Printed on <?= $now; ?>.
         </div>
         <div id='staple-container' class='small caps'>
-            STAPLE HERE 
+            BIND HERE 
         </div>
     </div><?
 
@@ -151,7 +125,15 @@ if($current_filename)
         ?></div><?
     }
 
-    // back cover (** stub **)
+    // inside back cover
+
+    ?><div id="inside-back-cover">
+        <div class='page'>
+            &nbsp;
+        </div>
+    </div><? 
+
+    // back cover
 
     ?><div id="back-cover">
         <?= $current_filename_full ? '<img src="'. $current_filename_full . '" >' : ''; ?>

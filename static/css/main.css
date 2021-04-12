@@ -12,8 +12,8 @@ body {
     color: #000;
     font-weight: 400;
     font-family: Arial, sans-serif;
-    line-height: 16px;
     font-size: 14px;
+    line-height: 16px;
 }
 
 img {
@@ -121,6 +121,11 @@ a {
     top: 10px;
     right: 10px;
 }
+
+#nav a {
+    padding-left: 10px;
+}
+
 .colophon_col{
     display: inline-block;
     width: calc((100% - 40px) / 2);
@@ -209,13 +214,22 @@ a {
     height: 100%;
 }
 
+.appendix-section div {
+}
+
+.appendix-section img {
+    padding: 20px;
+    width: auto;
+    height: 900px;
+}
+
 #text-container, 
 #allcaps-container,
 .mask-text-container,
 .text-container,
 #appendix-container {
     font-size: 16px;
-    line-height: 20px
+    line-height: 20px;
 }
 
 .📖-page #text-container, 
@@ -358,7 +372,28 @@ a {
 .radio_image
 {
     width: initial;
-    height: calc(100% - 40px);
+    height: 100%;
+    display: none;
+    margin: 0 auto;
+}
+.radio_text
+{
+    font-size: 80vh;
+    line-height: calc(100vh - 40px);
+    display: none;
+}
+.radio_slide[display_type='image'] .radio_image
+{
+    display: block;
+}
+.radio_slide[display_type='text'] .radio_text
+{
+    display: block;
+}
+.radio_slide
+{
+    height: calc(100vh - 40px);
+    /* height: calc(100% - 40px); */
     margin-top: 20px;
     
 }
@@ -372,11 +407,11 @@ a {
     z-index: 100;
     cursor: pointer;
 }
-.radio_image.not_current
+.not_current
 {
     display: none;
 }
-.radio_image.whitespace
+.radio_slide[display_type='whitespace']
 {
     display: none;
 }
@@ -492,14 +527,23 @@ a {
 #friends-indeed-house {
     padding-top: 100px;
     padding-left: 0;
-    width: 110%;
     margin-bottom: 50px;
+    width: initial;
+}
+
+.📖-left #friends-indeed-house {
+    width: 110%;
 }
 
 #grace-walking-and-talking {
     padding-top: 0px; 
     width: 60%;
     float: left;
+    margin-top: -100px;
+}
+
+.📖-left #grace-walking-and-talking {
+    margin-top: 0px;
 }
 
 #bombardo {
@@ -528,6 +572,11 @@ a {
 
 #tree-ellipse {
     padding-top: 140px;
+    width: 75%;
+}
+
+.📖-left #tree-ellipse {
+    width: 100%;
 }
 
 #tree-ellipse img:first-child {
@@ -551,34 +600,40 @@ a {
 #audio-holder-2 {
 }
 
-/*
 #seven-sleepers {
-    padding-top: 150px;
-    width: 80%;
+    margin-top: -300px;
 }
 
-#seven-sleepers-1-2-3 {
-    width: 600px;
-    padding-left: 150px;
-    padding-top: 480px;
-    z-index: 5;
-    position: relative;
-    margin-bottom: 800px;
+.📖-left #seven-sleepers {
+    margin-top: 0px;
 }
-*/
 
-#seven-sleepers {
+#seven-sleepers img {
     padding-top: 0px;
-    width: 70%;
+    padding-left: 100px;
+    width: 75%;
 }
 
-#seven-sleepers-1-2-3 {
-    width: 600px;
-    padding-left: 150px;
-    padding-top: 680px;
-    z-index: 5;
+.📖-left #seven-sleepers img {
+    width: initial;
+}
+
+#seven-sleepers-1,
+#seven-sleepers-2-3 {
     position: relative;
-    margin-bottom: 800px;
+    padding-top: 100px;
+    margin-bottom: 100px;    
+    margin-top:-550px;
+}
+
+.📖-left #seven-sleepers-1,
+.📖-left #seven-sleepers-2-3 {
+    margin-top:0px;
+}
+
+#seven-sleepers-1 img,
+#seven-sleepers-2-3 img {
+    width: 48%;
 }
 
 #performing-garage {
@@ -617,6 +672,10 @@ a {
 
 #record {
     padding-top: 290px;
+    width: 70%;
+}
+
+.📖-left #record {
     width: 90%;
 }
 
@@ -630,20 +689,28 @@ a {
 }
 
 #signal-escapes-2 {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-left: 170px;
     position: relative;
+    width: 75%;
+}
+
+.📖-left #signal-escapes-2 {
     width: 85%;
 }
 
 #on-song {
     padding-top: 40px;
-    width: 70%;
+    width: 75%
+}
+
+.📖-left #on-song {
+    width: 85%
 }
 
 #studio-placard {
     padding-top: 20px;
-    width: 75%;
+    width: 85%;
 }
 
 #american-photographs {
@@ -656,6 +723,11 @@ a {
 }
 
 #a-graphic-tone {
+    width: 75%;
+}
+
+.📖-left #signal-escapes-2 {
+    width: initial;
 }
 
 #a-graphic-tone img {
@@ -691,8 +763,6 @@ a {
     margin-top: -50px;
     margin-left: 440px;
 }
-
-
 
 #on-song-1 {
     padding-top:0px;
@@ -756,15 +826,23 @@ a {
 }
 
 #tone-poem {
-    padding-top: 320px;
-    width: 120%;
+}
+
+#tone-poem img {
+    padding-top: 10px;
+    padding-left: 120px;
+    width: 45%;
 }
 
 #wet-words-1 {
-    width: 80%;
+    width: 100%;
 }
 
 #wet-words-2 {
+    width: initial;
+}
+
+.📖-left #wet-words-2 {
     width: 115%;
 }
 
@@ -772,6 +850,10 @@ a {
 }
 
 #wet-words-3 {
+    width: initial;
+}
+
+.📖-left #wet-words-3 {
     width: 115%;
 }
 
@@ -779,40 +861,40 @@ a {
 }
 
 #wet-words-3 img {
-    margin-top: 10px;
+    margin-top: 15px;
     display: block;
     width: auto;
 }
 
 #wet-words-3 img:first-child {
-    height: 72px;    
+    height: 90px;    
     margin-top: 0;
 }
 
 #wet-words-3 img:nth-child(2) {
-    height: 96px;
+    height: 120px;
     margin-left: 15%;
 }
 
 #wet-words-3 img:nth-child(3) {
-    height: 96px;
+    height: 120px;
     margin-left: 30%;
 }
 
 #wet-words-3 img:nth-child(4) {
-    height: 72px;
+    height: 90px;
     float: right;
     clear: both;
 }
 
 #wet-words-3 img:nth-child(5) {
-    height: 72px;
+    height: 90px;
     float: right;
     clear: both;
 }
 
 #wet-words-3 img:nth-child(6) {
-    height: 72px;
+    height: 90px;
     float: right;
     clear: both;
 }
@@ -823,7 +905,7 @@ a {
 }
 
 #audio-holder-3 {
-    padding-top: 920px;
+    padding-top: 20px;
 }
 
 /*
@@ -1030,17 +1112,15 @@ a {
     top: 10px;
 }
 
-#back-cover {
-    width: 100%;
-    position: absolute;
-    width: calc( 210mm - 2 * var(--bindery-margin-outer) );
+.📖-left #back-cover {
+    width: 115%;
 }
 
-#back-cover img {
+.📖-left #back-cover img {
     width: 100%;
 }
 
-#back-cover div {
+.📖-left #back-cover div {
     position: absolute;
     bottom: -30px;
 }
@@ -1157,7 +1237,7 @@ a {
 }
 .preview .📖-controls .📖-btn
 {
-    display: none;
+    /* display: none; */
 }
 .image-main-container .mask-image-container
 {

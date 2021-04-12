@@ -12,15 +12,20 @@ $now = date("h:i:sa");
 if($uri[1] == 'print' || 
    $uri[1] == 'preview' ) {
     require_once('views/print.php');
-} else if($uri[1] == 'print-test-1') {
-    require_once('views/print-test-1.php');
-}else if($uri[1] == 'book') {
-    require_once('views/book.php');
-} else if($uri[1] == 'book-test-1') {
-    require_once('views/book-test-1.php');
-} else if($uri[1] == 'book-test-2') {
-    require_once('views/book-test-2.php');
-}else if($uri[1] == 'book') {
+
+
+/* print-dev */
+
+} else if($uri[1] == 'print-dev') {
+    require_once('views/print-dev.php');
+} else if($uri[1] == 'print-dev-mica') {
+    require_once('views/print-dev-mica.php');
+} else if($uri[1] == 'print-dev-vsco') {
+    require_once('views/print-dev-vsco.php');
+
+
+
+} else if($uri[1] == 'book') {
     require_once('views/book.php');
 } else {
     require_once('views/head.php');
