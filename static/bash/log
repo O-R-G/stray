@@ -50,3 +50,15 @@ mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privile
 2021-03-22
 mysqldump: [Warning] Using a password on the command line interface can be insecure.
 mysql: [Warning] Using a password on the command line interface can be insecure.
+
+2021-04-12
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+
+2021-04-12
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+
+2021-04-12
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.

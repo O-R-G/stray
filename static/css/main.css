@@ -222,7 +222,19 @@ a {
     width: auto;
     height: 900px;
 }
-
+.appendix-section img.trespassing-img
+{
+    height: 75mm;
+    position: absolute;
+}
+.appendix-section img.trespassing-img.reversed
+{
+    transform: rotate(180deg);
+}
+.📖-right .appendix-section img.trespassing-img
+{
+    right: 0;
+}
 #text-container, 
 #allcaps-container,
 .mask-text-container,
