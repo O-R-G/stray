@@ -81,7 +81,7 @@ if($current_filename)
             Printed on <?= $now; ?>.
         </div>
         <div id='staple-container' class='small caps'>
-            BIND HERE 
+            STAPLE HERE 
         </div>
     </div><?
 
@@ -138,7 +138,7 @@ if($current_filename)
     ?><div id="back-cover">
         <?= $current_filename_full ? '<img src="'. $current_filename_full . '" >' : ''; ?>
         <div>
-            STRAY WORLD is published by Source Type, 2021.
+            STRAY WORLD is published by SOURCE TYPE, 2021.
         </div>
     </div><? 
 ?></div>
