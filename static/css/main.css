@@ -495,10 +495,6 @@ a {
     height: 0;
 }
 
-#print-container .audio-holder {
-    display: none;
-}
-
 /* image ids */
 
 #photorama {
@@ -528,11 +524,13 @@ a {
     padding-top: 30px;
 }
 
-#audio-1 {
+#audio-1,
+#audio-1-print {
     float: left;
 }
 
-#audio-2 {
+#audio-2,
+#audio-2-print {
     float: right;
 }
 
@@ -1083,6 +1081,18 @@ a {
     display: none;
 }
 
+.audio-print {
+    display: none;
+}
+
+#print-container .audio-holder audio {
+    display: none;
+}
+
+#print-container .audio-print {
+    display: block;
+    width: 100px;
+}
 
 
 
