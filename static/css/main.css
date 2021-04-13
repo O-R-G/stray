@@ -1091,6 +1091,7 @@ a {
 
 #print-container .audio-print {
     display: block;
+    content: url(../../media/svg/lp.svg);
     width: 100px;
 }
 
