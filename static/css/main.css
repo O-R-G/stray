@@ -1092,7 +1092,7 @@ a {
 #print-container .audio-print {
     display: block;
     content: url(../../media/svg/lp.svg);
-    width: 100px;
+    width: 50px;
 }
 
 
@@ -1167,9 +1167,12 @@ a {
         or moving outside of page div
     */
     position: absolute;
-    top: 480px;
-    left: -140px;
-    transform: rotate(90deg);
+    top: 130mm;
+    left: -32mm;
+    width: 10px;
+    height: 26px;
+    border-left: 1px solid;
+    /* transform: rotate(90deg); */
 }
 
 #print-btn {

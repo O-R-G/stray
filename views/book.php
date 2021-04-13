@@ -81,7 +81,7 @@ if($current_filename)
             Printed on <?= $now; ?>.
         </div>
         <div id='staple-container' class='small caps'>
-            STAPLE HERE 
+            <!-- STAPLE HERE -->
         </div>
     </div><?
 
