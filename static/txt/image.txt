@@ -19,13 +19,11 @@
 </div>
 <div id="audio-holder-1" class="audio-holder image-float-container">
     <audio id="audio-1" controls="">
-        <source src="/media/audio/Left_SUSAN_HUMAN_30minloop.mp3" type="audio/mp3">
+        <source src="/media/audio/HOWE_Scattering as Behavior.mp3" type="audio/mp3">
     </audio>
     <audio id="audio-2" controls="">
         <source src="/media/audio/Right_B5-Lone.mp3" type="audio/mp3">
     </audio>
-    <img id="audio-1-print" class="audio-print">
-    <img id="audio-2-print" class="audio-print">
 </div>
 ///
 
@@ -74,7 +72,6 @@
     <audio controls="">
         <source src="/media/audio/NATE_DogonEclipse_30minloop.mp3" type="audio/mp3">
     </audio>
-    <img class="audio-print">
 </div>
 ///
 
@@ -89,6 +86,11 @@
 <div id="seven-sleepers-2-3" class="image-holder inline-image-holder" images="3">
     <img class="" src="/media/jpg/seven-sleepers-FNL-2-working-FNL-FNL.jpg">
     <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
+</div>
+<div id="audio-holder-2-2" class="audio-holder">
+    <audio controls="">
+        <source src="/media/audio/Mackey_SONG_50.mp3" type="audio/mp3">
+    </audio>
 </div>
 +++
 
@@ -130,9 +132,6 @@
 </div>
 <div id="signal-escapes-2" class="image-holder" images="">
     <img class="" src="/media/jpg/signal-escapes-2-v2.png">
-</div>
-<div id="on-song" class="image-holder" images="">
-    <img class="" src="/media/jpg/on-song.png">
 </div>
 +++
 
@@ -210,7 +209,6 @@
     <audio id="audio-4" controls="">
         <source src="/media/audio/all-at-once-1-4.mp3" type="audio/mp3">
     </audio>
-    <img class="audio-print">
 </div>
 +++
 
