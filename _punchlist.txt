@@ -1,4 +1,4 @@
 + add images in correct sequence
 - open-records-generator blockquote debug
 + bindery.js
-- adjust appendices
++ adjust appendices
