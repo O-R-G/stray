@@ -633,7 +633,7 @@ a {
     position: relative;
     padding-top: 100px;
     margin-bottom: 100px;    
-    margin-top:-550px;
+    margin-top:-500px;
 }
 
 .📖-left #seven-sleepers-1,
@@ -686,6 +686,7 @@ a {
 
 #record {
     padding-top: 290px;
+    margin-top: -140px;
     width: 70%;
 }
 
@@ -704,9 +705,9 @@ a {
 
 #signal-escapes-2 {
     padding-top: 30px;
-    padding-left: 170px;
+    padding-left: 120px;
     position: relative;
-    width: 75%;
+    width: 85%;
 }
 
 .📖-left #signal-escapes-2 {
