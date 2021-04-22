@@ -59,7 +59,7 @@ $isSafari = strtolower($browser) === 'safari';
 		[].forEach.call(audio_rearranged, function(el, i){
 			audio_position.push(el.offsetTop);
 		});
-
+        /*
 		window.addEventListener('scroll', function(){
 			if (!ticking) {
                 window.requestAnimationFrame(function() {
@@ -74,7 +74,8 @@ $isSafari = strtolower($browser) === 'safari';
                 ticking = true;
             }
             ticking = false;
-		});		
+		});
+        */		
 	});
 </script>
 <section id ='main' class="image-main-container">
