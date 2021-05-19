@@ -106,3 +106,7 @@ mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privile
 2021-04-21
 mysqldump: [Warning] Using a password on the command line interface can be insecure.
 mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
+
+2021-05-19
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces

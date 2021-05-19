@@ -80,9 +80,11 @@ if($current_filename)
         <div class='now-container'>
             Printed on <?= $now; ?>.
         </div>
+        <!--
         <div id='staple-container' class='small caps'>
-            <!-- STAPLE HERE -->
+            STAPLE HERE
         </div>
+        -->
     </div><?
 
     // add staple instructions

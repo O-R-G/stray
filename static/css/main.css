@@ -25,6 +25,10 @@ blockquote {
     margin-right: 0px;
 }
 
+p, blockquote, .section {
+    margin-bottom: 1em;
+}
+
 h1, h2{
     font-size: 1em;
     font-weight: normal;
