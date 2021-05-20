@@ -103,7 +103,7 @@ if($current_filename)
                     echo $page;
                 ?></div><?
                 ?><div class = 'mask-image-container'><?
-                    echo $images[$i][$j];
+                    // echo $images[$i][$j];
                 ?></div><?
             ?></div><?
             $j++;

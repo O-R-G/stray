@@ -25,7 +25,7 @@ blockquote {
     margin-right: 0px;
 }
 
-p, blockquote, .section {
+p, blockquote, .section, .head {
     margin-bottom: 1em;
 }
 
@@ -954,10 +954,13 @@ a {
 }
 
 .head {
+    /*
+    background-color: #FF0;
+    position: sticky; 
+    top: 10px;
     padding-top: 10px;
     margin-top: -10px;
-    position: sticky;
-    top: 10px;
+    */
 }
 
 #print {
@@ -1137,12 +1140,18 @@ a {
     */
 }
 
+/* 
+this is redundant to .head but for some reason not working for sticky
+head is not working for sticky either
+*/
+/*
 .chapter .page:first-child {
     padding-top: 10px;
     margin-top: -10px;
     position: sticky;
     top: 10px;
 }
+*/
 
 .📖-left #back-cover {
     width: 115%;
