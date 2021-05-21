@@ -2,3 +2,4 @@
 - open-records-generator blockquote debug
 + bindery.js
 + adjust appendices
+- sticky divs .head, first-child css

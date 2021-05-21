@@ -1,4 +1,5 @@
 ///
+///
 
 <div id="photorama" class="image-holder" images="">        
     <img class="" src="/media/jpg/PHOTORAMA_10-inch.jpg">
@@ -11,11 +12,18 @@
 ///
 
 <div id="circular-time" class="image-holder centered" images="">
-    <img class="" src="/media/jpg/pp_to-print_IMG_0423.jpg">
+    <img class="" src="/media/jpg/Aa_.jpg">
 </div>
-<div id="stray-sh-nm" class="image-holder inline-image-holder" images="2">
-    <img class="" src="/media/jpg/STRAY-SH.jpg">
+///
+
+<div id="stray-nm" class="image-holder" images="">
     <img class="" src="/media/jpg/STRAY-NM.jpg">
+</div>
+///
+
+<!-- // -->
+<div id="stray-sh" class="image-holder" images="">
+    <img class="" src="/media/jpg/STRAY-SH.jpg">
 </div>
 <div id="audio-holder-1" class="audio-holder image-float-container">
     <audio id="audio-1" controls="">
@@ -32,29 +40,36 @@
 </div>      
 ///
 
-<div class="image-float-container">
-    <div id="grace-walking-and-talking" class="image-holder" images="">
-        <img class="" src="/media/jpg/Grace-Walking-and-Talking.jpg">
-    </div>
-    <div id="bombardo" class="image-holder" images="">
-        <img class="" src="/media/jpg/BOMBARDO_fnl_10-inch.jpg">
-    </div>
-    <div id="will-and-be-going-to" class="image-holder inline-image-holder" images="2">
-        <img class="" src="/media/jpg/WILL-AND-BE-GOING-1-v2-fnl_10-inch.jpg">
-        <img class="" src="/media/jpg/WILL-AND-BE-GOING-2-v2-fnl_10-inch.jpg">
-    </div>
+<div id="tree-ellipse" class="image-holder inline-image-holder" images="2">
+    <img class="" src="/media/jpg/TREE-ELLIPSE-1-IMG_0431-fnl-16INCHES_10-inches.jpg">
+    <img class="" src="/media/jpg/TREE-ELLIPSE-2_10-inches.jpg">
+</div>
+<div id="bombardo" class="image-holder" images="">
+    <img class="" src="/media/jpg/BOMBARDO_fnl_10-inch.jpg">
+</div>
+///
+
+<div id="grace-walking-and-talking" class="image-holder" images="">
+    <img class="" src="/media/jpg/Grace-Walking-and-Talking.jpg">
 </div>
 <div id="signal-escapes" class="image-holder" images="">
     <img class="" src="/media/jpg/signal-escapes-v1.jpg">
 </div>
 ///
 
-<div id="tree-ellipse" class="image-holder inline-image-holder" images="2">
-    <img class="" src="/media/jpg/TREE-ELLIPSE-1-IMG_0431-fnl-16INCHES_10-inches.jpg">
-    <img class="" src="/media/jpg/TREE-ELLIPSE-2_10-inches.jpg">
+<div id="will-and-be-going-to-1" class="image-holder" images="">
+    <img class="" src="/media/jpg/WILL-AND-BE-GOING-1-v2-fnl_10-inch.jpg">    
 </div>
-<div id="exh-view" class="image-holder image-float-container" images="">
-    <img class="" src="/media/jpg/Exh-view_Ebner_GEP_NY_2017_08.jpg">
+///
+
+<!-- // -->
+<div id="will-and-be-going-to-2" class="image-holder" images="">
+    <img class="" src="/media/jpg/WILL-AND-BE-GOING-2-v2-fnl_10-inch.jpg">
+</div>
+///
+
+<div id="studio-placard" class="image-holder image-float-container" images="">
+    <img class="" src="/media/jpg/STUDIO-PLACARD_10-inches.jpg">
 </div>
 +++
 
@@ -75,15 +90,18 @@
 </div>
 ///
 
-<div id="seven-sleepers" class="image-holder overlap-image-holder">
+<div id="seven-sleepers" class="image-holder">
     <img class="" src="/media/jpg/SEVEN-SLEEPERS-DOOR.jpg">
 </div>
-<div id="seven-sleepers-1" class="image-holder inline-image-holder" images="3">
+///
+
+<!-- // -->
+<div id="seven-sleepers-1" class="image-holder" images="">
     <img class="" src="/media/jpg/seven-sleepers-FNL-1-working-FNL-FNL.jpg">
 </div>
 ///
 
-<div id="seven-sleepers-2-3" class="image-holder inline-image-holder" images="3">
+<div id="seven-sleepers-2-3" class="image-holder inline-image-holder" images="2">
     <img class="" src="/media/jpg/seven-sleepers-FNL-2-working-FNL-FNL.jpg">
     <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
 </div>
@@ -104,25 +122,27 @@
 </div>
 ///
 
-<div id="shaker" class="image-holder overlap-image-holder" zindex="1" images="">
+<div id="shaker" class="image-holder" zindex="1" images="">
     <img class="" src="/media/jpg/SE_Shaker_HIRES_LAYOUT_V2_57x78_Final.jpg">
 </div>
-<div id="bside" class="image-holder image-float-container">
+///
+
+<!-- // -->
+<div id="bside" class="image-holder" images="">
     <img class="" src="/media/jpg/SE_bside_INVERTED_V3_16x18_Final.jpg">
-</div>    
+</div> 
+///
+
 <div id="ghost-song" class="image-holder centered" images="">
     <img class="" src="/media/jpg/ghost-song.jpg">
 </div>
 ///
 
+///
+
 <div id="record" class="image-holder centered" images="">
     <img class="" src="/media/jpg/SE_Record_IMG_5615_V2_42x50_Final.jpg">
 </div>
-<!--
-<div id="on-trespassing" class="image-holder" images="">
-    <img class="" src="/media/jpg/on-trespassing.png">
-</div>
--->
 ///
 
 <div id="three-felled-trees" class="image-holder inline-image-holder" zindex="1" images="3">
@@ -140,22 +160,6 @@
 
 ///
 
-<div id="studio-placard" class="image-holder" images="">
-    <img class="" src="/media/jpg/STUDIO-PLACARD_10-inches.jpg">
-</div>
-///
-
-&nbsp;
-///
-
-&nbsp;
-+++
-
-
-
-
-///
-
 <div id="a-graphic-tone" class="image-holder">
     <img class="" src="/media/jpg/SB_AGraphicTone_A_IMG_5449_V1_15x15_FInal.jpg">
     <img class="" src="/media/jpg/SE_AGraphicTone_GRAPH_IMG_5473_V1_15x65_Final.jpg">
@@ -166,6 +170,9 @@
 </div>
 ///
 
+<div id="g-" class="image-holder" images="">
+    <img class="" src="/media/jpg/G_.jpg">
+</div>
 ///
 
 <div id="tone-poem" class="image-holder" images="">
@@ -211,4 +218,3 @@
     </audio>
 </div>
 +++
-

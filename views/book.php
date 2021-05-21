@@ -103,13 +103,21 @@ if($current_filename)
                     echo $page;
                 ?></div><?
                 ?><div class = 'mask-image-container'><?
-                    // echo $images[$i][$j];
+                    echo $images[$i][$j];
                 ?></div><?
             ?></div><?
-            $j++;
             // recto
+            $j++;
+            $spread = (strpos($images[$i][$j], '<!-- // -->'));
             ?><div class="page"><?
-                echo $page;
+                if ($spread) {
+                    ?><div class = 'mask-image-container'><?
+                        echo $images[$i][$j];
+                    ?></div><?
+                    $j++;
+                } else {
+                    echo $page;
+                }
             ?></div><?
         }
         $i++;

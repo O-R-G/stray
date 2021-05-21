@@ -341,13 +341,16 @@ a {
     z-index: 100;
 }
 
-.mask-text-container .chapter-number,
-.mask-text-container .section {
-    color: #000;
+.mask-text-container .chapter-number {
+    color: transparent;
 }
 
-.📖-left .mask-text-container .chapter-number {
+.mask-text-container .section {
     color: transparent;
+}
+
+.mask-text-container .section:first-line {
+    color: #000;
 }
 
 .mask-text-container a {
@@ -364,7 +367,6 @@ a {
 .columns {
     columns: 2;
 }
-
 
 .allcaps.viewing {
     /*display: inline-block;*/
@@ -502,26 +504,34 @@ a {
 /* image ids */
 
 #photorama {
-    width: 75%;
-    padding-top: 460px;
-    padding-left: 150px;
-    padding-right:0;
-    /*margin-top: 566px;*/
+    width: 85%;
+    padding-top: 20px;
+    padding-left: 100px;
 }
 
 #temple-hi-lo {
-    width: 85%;
-    padding-top: 60px;
-    margin-bottom: 200px;
+    width: 75%;
+    padding-top: 50px;
 }
 
 #circular-time {
-    width: 50%;
-    padding-top: 0px;
+    width: 60%;
+    padding-top: 40px;
+    padding-left: 100px;
 }
 
-#stray-sh-nm {
+#stray-nm {
+    width: 75%;
     padding-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#stray-sh {
+    width: 75%;    
+    padding-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #audio-holder-1 {
@@ -539,53 +549,16 @@ a {
 }
 
 #friends-indeed-house {
-    padding-top: 100px;
-    padding-left: 0;
-    margin-bottom: 50px;
+    padding-top: 530px;
     width: initial;
 }
 
 .📖-left #friends-indeed-house {
-    width: 110%;
-}
-
-#grace-walking-and-talking {
-    padding-top: 0px; 
-    width: 60%;
-    float: left;
-    margin-top: -100px;
-}
-
-.📖-left #grace-walking-and-talking {
-    margin-top: 0px;
-}
-
-#bombardo {
-    padding-top: 40px; 
-    width: 45%;
-    float: right;
-}
-
-#will-and-be-going-to {
-    width: 70%;
-    margin-left: 90px;
-}
-
-#will-and-be-going-to > img:first-child {
-}
-
-#will-and-be-going-to > img:last-child {
-}
-
-#signal-escapes {
-    padding-top:0px;
-    padding-left: 0px;
-    width: 100%;
-    margin-bottom: 100px;
+    width: 115%;
 }
 
 #tree-ellipse {
-    padding-top: 140px;
+    padding-top: 50px;
     width: 75%;
 }
 
@@ -596,14 +569,41 @@ a {
 #tree-ellipse img:first-child {
 }
 
-#exh-view {
-    margin-top: 30px;
+#bombardo {
+    padding-top: 100px; 
+    width: 50%;
+    float: right;
 }
 
-#exh-view img {
-    width: 50%;
-    padding-right: 50px;
-    float: right;
+#grace-walking-and-talking {
+    padding-top: 50px; 
+    width: 70%;
+    float: left;
+}
+
+.📖-left #grace-walking-and-talking {
+}
+
+#signal-escapes {
+    padding-top: 500px;
+    width: 100%;
+}
+
+.📖-left #signal-escapes {
+    width: 130%;
+}
+
+#will-and-be-going-to-1,
+#will-and-be-going-to-2 {
+    width: 75%;    
+    padding-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#studio-placard {
+    width: 80%;
+    padding-top: 220px;
 }
 
 #elliman {
@@ -615,39 +615,32 @@ a {
 }
 
 #seven-sleepers {
-    margin-top: -300px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .📖-left #seven-sleepers {
-    margin-top: 0px;
 }
 
-#seven-sleepers img {
-    padding-top: 0px;
-    padding-left: 100px;
-    width: 75%;
+#seven-sleepers-1 {
+    padding-top: 300px;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.📖-left #seven-sleepers img {
-    width: initial;
+.📖-left #seven-sleepers-1 {
 }
 
-#seven-sleepers-1,
 #seven-sleepers-2-3 {
-    position: relative;
-    padding-top: 100px;
-    margin-bottom: 100px;    
-    margin-top:-500px;
+    padding-top: 300px;
+    width: 100%;
+    display: inline-block;
 }
 
-.📖-left #seven-sleepers-1,
 .📖-left #seven-sleepers-2-3 {
-    margin-top:0px;
-}
-
-#seven-sleepers-1 img,
-#seven-sleepers-2-3 img {
-    width: 48%;
+    width: 120%;
 }
 
 #audio-holder-2-2 {
@@ -656,41 +649,35 @@ a {
 
 #performing-garage {
     padding-top: 100px;
-    padding-left: 20%;
-    margin-bottom: 300px;
-}
-
-#performing-garage img {
-    width: 100%;
+    padding-left: 120px;
+    width: 85%;
 }
 
 #shaker {
-    padding-top: 0px;
-    padding-left: 10px;
-    padding-right: 0;
-    width: 70%;
+    padding-top: 100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #bside {
-    padding-top: 400px;
-    padding-left: 300px;   
-    position: relative;
-    z-index: 5;
-}
-
-#bside img {
-    float: right;
-    width: 80%;
+    padding-top: 300px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #ghost-song {
-    padding-top: 80px;
+    padding-top: 400px;
     width: 100%;
 }
 
+.📖-left #ghost-song {
+    width: 110%;
+}
+
 #record {
-    padding-top: 290px;
-    margin-top: -140px;
+    padding-top: 250px;
     width: 70%;
 }
 
@@ -698,10 +685,12 @@ a {
     width: 90%;
 }
 
+/*
 #on-trespassing {
     padding-top: 20px;
     width: 50%;
 }
+*/
 
 #three-felled-trees {
     padding-top: 20px;
@@ -727,11 +716,6 @@ a {
     width: 85%
 }
 
-#studio-placard {
-    padding-top: 20px;
-    width: 85%;
-}
-
 #american-photographs {
     padding-top: 300px;
     padding-left: 300px;
@@ -743,10 +727,6 @@ a {
 
 #a-graphic-tone {
     width: 75%;
-}
-
-.📖-left #signal-escapes-2 {
-    width: initial;
 }
 
 #a-graphic-tone img {
@@ -781,6 +761,12 @@ a {
 #a-graphic-tone img:nth-child(6) {
     margin-top: -50px;
     margin-left: 440px;
+}
+
+#g- {
+    width: 60%;
+    padding-top: 400px;
+    float: right;
 }
 
 #on-song-1 {
