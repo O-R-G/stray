@@ -76,9 +76,10 @@
 <blockquote><div class="section">5<br><a href="javascript:popup('appendix/on-trespassing')">ON TRESPASSING</a></div><blockquote><blockquote>NO<br>NO ON<br>ON TRES<br>ON SONG<br>ON SINGING<br>ON PASSING<br>ON TRESPASS<br>ON TRESPASSING</blockquote></blockquote></blockquote>
 ///
 
-<blockquote><div class="section">6<br>THREE FELLED TREES</div><blockquote><p>Intersection of NY-199 + Salisbury Turnpike<br>lat 41.95078, long -73.8168</p></blockquote>
+<blockquote><div class="section">6<br>THREE FELLED TREES</div><blockquote><p>Intersection of NY-199 + Salisbury Turnpike<br>lat 41.95078, long -73.8168</p></blockquote></blockquote>
 <blockquote><div class="section">7<br>SIGNAL ESCAPES (REPRISE)</div></blockquote>
-<blockquote><div class="section">8<br>ON SONG</div><blockquote><p>See appendix.</p></blockquote>
+<blockquote><div class="section">8<br>ON SONG</div><blockquote><p>See appendix.</p></blockquote></blockquote>
+<blockquote><div class="section">9<br>SPLAY ANTHEM (REPRISE)</div><blockquote><p>See appendix.</p></blockquote></blockquote>
 +++
 
 

@@ -3,3 +3,4 @@
 + bindery.js
 + adjust appendices
 - sticky divs .head, first-child css
+- next pass image styling, match to layout

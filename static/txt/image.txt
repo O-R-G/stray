@@ -133,11 +133,11 @@
 </div> 
 ///
 
+///
+
 <div id="ghost-song" class="image-holder centered" images="">
     <img class="" src="/media/jpg/ghost-song.jpg">
 </div>
-///
-
 ///
 
 <div id="record" class="image-holder centered" images="">
