@@ -520,7 +520,14 @@ a {
     padding-left: 100px;
 }
 
+/* image-holder? */
+
 #stray-sh {
+    width: 45%;
+    float: left;
+}
+
+.📖-page #stray-sh {
     width: 75%;    
     padding-top: 150px;
     margin-left: auto;
@@ -528,6 +535,11 @@ a {
 }
 
 #stray-nm {
+    width: 45%;
+    float: right;
+}
+
+.📖-page #stray-nm {
     width: 75%;
     padding-top: 150px;
     margin-left: auto;

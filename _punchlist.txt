@@ -1,6 +1,6 @@
 + add images in correct sequence
-- open-records-generator blockquote debug
+x open-records-generator blockquote debug
 + bindery.js
 + adjust appendices
-- sticky divs .head, first-child css
 - next pass image styling, match to layout
+- sticky divs .head, first-child css
