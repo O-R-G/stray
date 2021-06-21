@@ -16,12 +16,6 @@
 </div>
 ///
 
-<div id="stray-nm" class="image-holder" images="">
-    <img class="" src="/media/jpg/STRAY-NM.jpg">
-</div>
-///
-
-<!-- // -->
 <div id="stray-sh" class="image-holder" images="">
     <img class="" src="/media/jpg/STRAY-SH.jpg">
 </div>
@@ -29,9 +23,24 @@
     <audio id="audio-1" controls="">
         <source src="/media/audio/HOWE_Scattering as Behavior.mp3" type="audio/mp3">
     </audio>
+</div>
+<div id="" class="page-image-caption" images="">
+    <p>Susan Howe, “Articulation of Sound Forms in Time” from SINGULARITIES (Wesleyan University Press), 1990. Audio: "Scattering As Behavior Toward Risk," from SINGULARITIES (Wesleyan University Press), 1991.</p>
+</div>
+///
+
+<!-- // -->
+<div id="stray-nm" class="image-holder" images="">
+    <img class="" src="/media/jpg/STRAY-NM.jpg">
+
+</div>
+<div id="audio-holder-1-2" class="audio-holder image-float-container">
     <audio id="audio-2" controls="">
         <source src="/media/audio/Right_B5-Lone.mp3" type="audio/mp3">
     </audio>
+</div>
+<div id="" class="page-image-caption" images="">
+    <p>Nathaniel Mackey, “Song of the Andoumboulou: 50” from SPLAY ANTHEM (New Directions), 2006. Audio: an excerpt from "Lone Coast Anacrusis," from NOD HOUSE (New Directions), 2011.</p>
 </div>
 ///
 
@@ -101,14 +110,19 @@
 </div>
 ///
 
-<div id="seven-sleepers-2-3" class="image-holder inline-image-holder" images="2">
+<div id="seven-sleepers-2" class="image-holder" images="">
     <img class="" src="/media/jpg/seven-sleepers-FNL-2-working-FNL-FNL.jpg">
-    <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
 </div>
 <div id="audio-holder-2-2" class="audio-holder">
     <audio controls="">
         <source src="/media/audio/Mackey_SONG_50.mp3" type="audio/mp3">
     </audio>
+</div>
+///
+
+<!-- // -->
+<div id="seven-sleepers-3" class="image-holder" images="">
+    <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
 </div>
 +++
 
@@ -125,12 +139,18 @@
 <div id="shaker" class="image-holder" zindex="1" images="">
     <img class="" src="/media/jpg/SE_Shaker_HIRES_LAYOUT_V2_57x78_Final.jpg">
 </div>
+<div id="" class="page-image-caption" images="">
+    <p>A-SIDE: Original floor design by Elizabeth LeCompte, from The Wooster Group's production EARLY SHAKER SPIRITUALS: A RECORD ALBUM INTERPRETATION. Photographed at the Performing Garage, New York, July 5, 2018.</p>
+</div>
 ///
 
 <!-- // -->
 <div id="bside" class="image-holder" images="">
     <img class="" src="/media/jpg/SE_bside_INVERTED_V3_16x18_Final.jpg">
 </div> 
+<div id="" class="page-image-caption" images="">
+    <p>B-SIDE: Original floor design by Elizabeth LeCompte, from The Wooster Group's production “NEGRO FOLKLORE FROM TEXAS STATE PRISONS”: A RECORD ALBUM INTERPRETATION. Photographed at the Creative Arts Initiative, University of Buffalo, February 9, 2018.</p>
+</div>
 ///
 
 ///

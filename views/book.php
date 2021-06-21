@@ -148,7 +148,7 @@ if($current_filename)
     ?><div id="back-cover">
         <?= $current_filename_full ? '<img src="'. $current_filename_full . '" >' : ''; ?>
         <div>
-            STRAY WORLD is published by SOURCE TYPE, 2021.
+            SHANNON EBNER: STRAY WORLD is published by SOURCE TYPE, 2021.
         </div>
     </div><? 
 ?></div>

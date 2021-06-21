@@ -520,13 +520,6 @@ a {
     padding-left: 100px;
 }
 
-#stray-nm {
-    width: 75%;
-    padding-top: 150px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #stray-sh {
     width: 75%;    
     padding-top: 150px;
@@ -534,7 +527,15 @@ a {
     margin-right: auto;
 }
 
-#audio-holder-1 {
+#stray-nm {
+    width: 75%;
+    padding-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#audio-holder-1,
+#audio-holder-1-2 {
     padding-top: 30px;
 }
 
@@ -549,7 +550,7 @@ a {
 }
 
 #friends-indeed-house {
-    padding-top: 530px;
+    padding-top: 330px;
     width: initial;
 }
 
@@ -623,9 +624,11 @@ a {
 .📖-left #seven-sleepers {
 }
 
-#seven-sleepers-1 {
-    padding-top: 300px;
-    width: 55%;
+#seven-sleepers-1,
+#seven-sleepers-2,
+#seven-sleepers-3 {
+    padding-top: 200px;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -633,6 +636,7 @@ a {
 .📖-left #seven-sleepers-1 {
 }
 
+/*
 #seven-sleepers-2-3 {
     padding-top: 300px;
     width: 100%;
@@ -642,6 +646,7 @@ a {
 .📖-left #seven-sleepers-2-3 {
     width: 120%;
 }
+*/
 
 #audio-holder-2-2 {
     margin-top: -80px;
@@ -668,7 +673,7 @@ a {
 }
 
 #ghost-song {
-    padding-top: 400px;
+    padding-top: 600px;
     width: 100%;
 }
 
@@ -677,12 +682,12 @@ a {
 }
 
 #record {
-    padding-top: 250px;
+    padding-top: 410px;
     width: 70%;
 }
 
 .📖-left #record {
-    width: 90%;
+    width: 80%;
 }
 
 /*
@@ -1005,9 +1010,7 @@ a {
 #measure-container .print-content {
 }
 
-
-#print_mask
-{
+#print_mask {
     background-color: rgba(255, 255, 255, .9);
     position: fixed;
     z-index: 100;
@@ -1125,6 +1128,13 @@ a {
     margin: 2px;
     */
 }
+
+.page-image-caption {
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+}
+
 
 /* 
 this is redundant to .head but for some reason not working for sticky
