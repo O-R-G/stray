@@ -1129,12 +1129,29 @@ a {
     */
 }
 
+/* add page left and right */
+
+
 .page-image-caption {
+    padding-top: 10px;
     width: 100%;
-    position: fixed;
-    bottom: 10px;
 }
 
+.📖-left .page-image-caption,
+.📖-right .page-image-caption {
+    position: absolute;
+    padding-top: 10px;
+    padding-right: 100px;
+    bottom: -250px;
+}
+
+.📖-left #shaker ~ .page-image-caption {
+    bottom: -190px;
+}
+
+.📖-right #bside ~ .page-image-caption {
+    bottom: -336px;
+}
 
 /* 
 this is redundant to .head but for some reason not working for sticky
