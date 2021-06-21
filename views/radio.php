@@ -178,6 +178,6 @@
 	      }
 	    }
 	};
-	httpRequest.open('GET', 'http://stray.o-r-g.net/now');
+	httpRequest.open('GET', 'https://strayworld.sourcetype.com/now');
 	httpRequest.send();
 </script>

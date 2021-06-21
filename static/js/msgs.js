@@ -533,4 +533,4 @@ function adjust_img_proportion(img_pre, d_ratio){
 }
 // console.log('section = '+section);
 
-request_json(template, 'http://stray.o-r-g.net/now');
+request_json(template, 'https://strayworld.sourcetype.com/now');
