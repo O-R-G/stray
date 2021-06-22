@@ -208,16 +208,6 @@ a {
     animation: flashing 6s linear;
 }
 
-#audio_container {
-    height: 100vh;
-    background-color: #00F;
-}
-
-#audio_container audio {
-    width: 100%;
-    height: 100%;
-}
-
 .appendix-section div {
 }
 
@@ -490,7 +480,7 @@ a {
 #photorama {
     width: 85%;
     padding-top: 20px;
-    padding-left: 100px;
+    padding-left: 15%;
 }
 
 #temple-hi-lo {
@@ -516,21 +506,6 @@ a {
     padding-top: 150px;
     margin-left: auto;
     margin-right: auto;
-}
-
-#audio-holder-1,
-#audio-holder-1-2 {
-    padding-top: 30px;
-}
-
-#audio-1,
-#audio-1-print {
-    float: left;
-}
-
-#audio-2,
-#audio-2-print {
-    float: right;
 }
 
 #friends-indeed-house {
@@ -589,9 +564,6 @@ a {
     width: 450px;
 }
 
-#audio-holder-2 {
-}
-
 #seven-sleepers {
     width: 95%;
     margin-left: auto;
@@ -607,14 +579,10 @@ a {
     margin-right: auto;
 }
 
-#audio-holder-2-2 {
-    margin-top: -80px;
-}
-
 #performing-garage {
     padding-top: 100px;
-    padding-left: 120px;
-    width: 85%;
+    padding-left: 17%;
+    width: 83%;
 }
 
 #shaker {
@@ -651,7 +619,7 @@ a {
 
 #signal-escapes-2 {
     padding-top: 30px;
-    padding-left: 120px;
+    padding-left: 15%;
     position: relative;
     width: 85%;
 }
@@ -780,7 +748,7 @@ a {
 
 #tone-poem img {
     padding-top: 10px;
-    padding-left: 120px;
+    padding-left: 17%;
     width: 45%;
 }
 
@@ -838,12 +806,8 @@ a {
 }
 
 #earthly-trio {
-    padding-top:550px;
+    padding-top: 500px;
     width: 50%;
-}
-
-#audio-holder-3 {
-    padding-top: 20px;
 }
 
 /*
@@ -921,10 +885,8 @@ a {
 }
 
 .audio-holder {
-    text-align: center;
-    /*position: sticky;*/
-    /*position: -webkit-sticky;*/
-    /*top: 10px;*/
+    /* background-color: #FF0; */
+    margin-top: 10px;
 }
 
 .📖-root .print-content {
@@ -945,6 +907,7 @@ a {
     max-width: 100%;
     height: 100vh;
 }
+
 .readyForPrint #print_mask
 {
     display: none;
@@ -1037,8 +1000,11 @@ a {
     width: 595px;
     height: 1008px;
     /* debug */
+    /*
     background-color: #CCC;
-    margin: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    */
 }
 
 /* add page left and right */
@@ -1304,10 +1270,12 @@ margin: 0cm !important;
         transform: translate(0, -50%);
         margin-top: 0;
     }
+    /*
     #print
     {
         display: none;
     }
+    */
     #mobile_btn
     {
         display: block;

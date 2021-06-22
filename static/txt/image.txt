@@ -1,4 +1,5 @@
 ///
+
 ///
 
 <div id="photorama" class="image-holder" images="">        
@@ -18,29 +19,14 @@
 
 <div id="stray-sh" class="image-holder" images="">
     <img class="" src="/media/jpg/STRAY-SH.jpg">
-</div>
-<div id="audio-holder-1" class="audio-holder image-float-container">
-    <audio id="audio-1" controls="">
-        <source src="/media/audio/HOWE_Scattering as Behavior.mp3" type="audio/mp3">
-    </audio>
+    <div class="audio-holder">
+        <audio controls="">
+            <source src="/media/audio/HOWE_Scattering as Behavior.mp3" type="audio/mp3">
+        </audio>
+    </div>
 </div>
 <div id="" class="page-image-caption" images="">
     <p>Susan Howe, “Articulation of Sound Forms in Time” from SINGULARITIES (Wesleyan University Press), 1990. Audio: "Scattering As Behavior Toward Risk," from SINGULARITIES (Wesleyan University Press), 1991.</p>
-</div>
-///
-
-<!-- // -->
-<div id="stray-nm" class="image-holder" images="">
-    <img class="" src="/media/jpg/STRAY-NM.jpg">
-
-</div>
-<div id="audio-holder-1-2" class="audio-holder image-float-container">
-    <audio id="audio-2" controls="">
-        <source src="/media/audio/Right_B5-Lone.mp3" type="audio/mp3">
-    </audio>
-</div>
-<div id="" class="page-image-caption" images="">
-    <p>Nathaniel Mackey, “Song of the Andoumboulou: 50” from SPLAY ANTHEM (New Directions), 2006. Audio: an excerpt from "Lone Coast Anacrusis," from NOD HOUSE (New Directions), 2011.</p>
 </div>
 ///
 
@@ -71,12 +57,6 @@
 </div>
 ///
 
-<!-- // -->
-<div id="will-and-be-going-to-2" class="image-holder" images="">
-    <img class="" src="/media/jpg/WILL-AND-BE-GOING-2-v2-fnl_10-inch.jpg">
-</div>
-///
-
 <div id="studio-placard" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/STUDIO-PLACARD_10-inches.jpg">
 </div>
@@ -91,11 +71,11 @@
     <a href="javascript:popup('appendix/paul-elliman')">
         <img class="" src="/media/jpg/Elliman_LB18-scrambled-bag-2.jpg">
     </a>
-</div>
-<div id="audio-holder-2" class="audio-holder">
-    <audio controls="">
-        <source src="/media/audio/NATE_DogonEclipse_30minloop.mp3" type="audio/mp3">
-    </audio>
+    <div class="audio-holder">
+        <audio controls="">
+            <source src="/media/audio/NATE_DogonEclipse_30minloop.mp3" type="audio/mp3">
+        </audio>
+    </div>
 </div>
 ///
 
@@ -104,26 +84,16 @@
 </div>
 ///
 
-<!-- // -->
-<div id="seven-sleepers-1" class="image-holder" images="">
-    <img class="" src="/media/jpg/seven-sleepers-FNL-1-working-FNL-FNL.jpg">
-</div>
-///
-
 <div id="seven-sleepers-2" class="image-holder" images="">
     <img class="" src="/media/jpg/seven-sleepers-FNL-2-working-FNL-FNL.jpg">
-</div>
-<div id="audio-holder-2-2" class="audio-holder">
-    <audio controls="">
-        <source src="/media/audio/Mackey_SONG_50.mp3" type="audio/mp3">
-    </audio>
+    <div class="audio-holder">
+        <audio controls="">
+            <source src="/media/audio/Mackey_SONG_50.mp3" type="audio/mp3">
+        </audio>
+    </div>    
 </div>
 ///
 
-<!-- // -->
-<div id="seven-sleepers-3" class="image-holder" images="">
-    <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
-</div>
 +++
 
 
@@ -141,15 +111,6 @@
 </div>
 <div id="" class="page-image-caption" images="">
     <p>A-SIDE: Original floor design by Elizabeth LeCompte, from The Wooster Group's production EARLY SHAKER SPIRITUALS: A RECORD ALBUM INTERPRETATION. Photographed at the Performing Garage, New York, July 5, 2018.</p>
-</div>
-///
-
-<!-- // -->
-<div id="bside" class="image-holder" images="">
-    <img class="" src="/media/jpg/SE_bside_INVERTED_V3_16x18_Final.jpg">
-</div> 
-<div id="" class="page-image-caption" images="">
-    <p>B-SIDE: Original floor design by Elizabeth LeCompte, from The Wooster Group's production “NEGRO FOLKLORE FROM TEXAS STATE PRISONS”: A RECORD ALBUM INTERPRETATION. Photographed at the Creative Arts Initiative, University of Buffalo, February 9, 2018.</p>
 </div>
 ///
 
@@ -231,10 +192,9 @@
 
 <div id="earthly-trio" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/quick_IMG_6114.jpg">
+    <div class="audio-holder">
+        <audio controls="">
+            <source src="/media/audio/all-at-once-1-4.mp3" type="audio/mp3">
+        </audio>
+    </div>
 </div>
-<div id="audio-holder-3" class="audio-holder">
-    <audio id="audio-4" controls="">
-        <source src="/media/audio/all-at-once-1-4.mp3" type="audio/mp3">
-    </audio>
-</div>
-+++

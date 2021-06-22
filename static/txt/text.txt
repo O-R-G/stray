@@ -17,6 +17,19 @@
 ///
 
 <!-- // -->
+<div id="stray-nm" class="image-holder" images="">
+    <img class="" src="/media/jpg/STRAY-NM.jpg">
+    <div class="audio-holder">
+        <audio controls="">
+            <source src="/media/audio/Right_B5-Lone.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</div>
+<div id="" class="page-image-caption" images="">
+    <p>Nathaniel Mackey, “Song of the Andoumboulou: 50” from SPLAY 
+    ANTHEM (New Directions), 2006. Audio: an excerpt from "Lone Coast
+    Anacrusis," from NOD HOUSE (New Directions), 2011.</p>
+</div>
 ///
 
 <blockquote><blockquote><blockquote><a href="javascript:popup('appendix/nathaniel-mackey')">SONG OF THE ANDOUMBOULOU</a></blockquote><p>has been published in units over the past few decades, and currently comprises 250 units and counting. In Mackey’s essay “Sound and Sentiment, Sound and Symbol,” he speaks of a kind of broken time:</p><blockquote>POETIC LANGUAGE IS LANGUAGE OWNING UP TO BEING AN ORPHAN, TO ITS TENUOUS KINSHIP WITH THE THINGS IT OSTENSIBLY REFERS TO. </blockquote><p>This essay was published in</p><blockquote>THE POLITICS OF POETIC FORM: POETRY AND PUBLIC POLICY </blockquote><p>(ROOF Books, 1990), where writings by Howe and Mackey coexist, albeit incidentally.</p></blockquote></blockquote>
@@ -33,6 +46,9 @@
 ///
 
 <!-- // -->
+<div id="will-and-be-going-to-2" class="image-holder" images="">
+    <img class="" src="/media/jpg/WILL-AND-BE-GOING-2-v2-fnl_10-inch.jpg">
+</div>
 ///
 
 <blockquote><div class="section">11<br>WILL AND BE GOING TO</div><blockquote><p>Within English grammar and verb-tense usage, the simple future tense has these two different forms of</p><blockquote>WILL and BE GOING TO.</blockquote><p>Although the two forms can sometimes be used interchangeably, they often express two very different meanings.</p></blockquote></blockquote>
@@ -50,9 +66,15 @@
 ///
 
 <!-- // -->
+<div id="seven-sleepers-1" class="image-holder" images="">
+    <img class="" src="/media/jpg/seven-sleepers-FNL-1-working-FNL-FNL.jpg">
+</div>
 ///
 
 <!-- // -->
+<div id="seven-sleepers-3" class="image-holder" images="">
+    <img class="" src="/media/jpg/seven-sleeprs-FNL-3-working-FNL-FNL.jpg">
+</div>
 +++
 
 
@@ -66,6 +88,15 @@
 ///
 
 <!-- // -->
+<div id="bside" class="image-holder" images="">
+    <img class="" src="/media/jpg/SE_bside_INVERTED_V3_16x18_Final.jpg">
+</div>
+<div id="" class="page-image-caption" images="">
+    <p>B-SIDE: Original floor design by Elizabeth LeCompte, from The 
+    Wooster Group's production “NEGRO FOLKLORE FROM TEXAS STATE PRISONS”: A
+    RECORD ALBUM INTERPRETATION. Photographed at the Creative Arts
+    Initiative, University of Buffalo, February 9, 2018.</p>
+</div>
 ///
 
 <blockquote><blockquote><p>As the story goes, after seeing the</p><blockquote>EARLY SHAKER SPIRITUALS </blockquote><p>production, Berryman had drafted an email to Valk that he saved on his phone and then showed her on that fateful day in the tea shop. In the email, Berryman had suggested the Group produce another album interpretation, with Black prison work songs.</p><p>Berryman had been closely studying a 1965 vinyl album recorded by folklorist Bruce Jackson, and he wanted people to have the same feeling for the Black prison work songs as they did for the Shaker songs. And as it turned out, Valk had been thinking about developing a follow-up, “B-side” piece, but she didn’t want to do the same thing—she wanted to do something that would complement the first piece by continuing to engage American folklore.</p><p>After their tea-shop encounter, Valk and Berryman agreed to meet again. At their second meeting, she gave Berryman her blessing to make his own “record album interpretation,” but he wanted to develop the material into a Wooster Group production. Berryman expressed that he felt that he could not produce the show on his own, that he needed to learn directly from the Group’s methods and ways of doing things.</p><p>This chance encounter resulted in the Wooster Group’s theater diptych.</p><p>Walk through one door into a circle in a square, into</p><blockquote>EARLY SHAKER SPIRITUALS,</blockquote><p>a ritual community cast out from the Church of England for practicing its radical beliefs. Scorned and threatened, these outcasts resettled in the new American wilderness of the eighteenth century seeking religious freedom in ecstatic song and dance to unsettle religious form.<br><br>Walk through another door and enter</p><blockquote>THE B-SIDE: “NEGRO FOLKLORE FROM TEXAS STATE PRISONS”.</blockquote><p>Enter a young actor in his bedroom transcribing, researching, and interpreting work songs, spirituals, blues and toasts, convict lyrics.<br><br>In 2017, I wrote Valk a letter of my own and sent it. I asked if I could visit the Performing Garage on Wooster Street to speak with her about photographing the stage sets for both plays. I wasn’t sure the how or the what of it, but absent the actors themselves I knew that I wanted to study the sets through images and send them back out into the world.</p><p>But there were other things too, the things that don’t record and won’t register:</p><blockquote>THE SENSATIONS</blockquote><p>and</p><blockquote>THE TRANSDUCTIONS,</blockquote><p>bodies in space, performing as living instruments.</p></blockquote></blockquote>
@@ -174,4 +205,3 @@
 <blockquote><div class="section">2<br>EARTHLY TRIO</div><blockquote>Trumpet player: Nate Wooley.<br>Recorded by Matt Wellins on June 24, 2019, at 225 West 13th Street<br>Song: “Farewell, Earthly Joy”<br>Author: R. Mildred Baker; Shakers.<br>Publisher: The Shaker Society, Sabbathday Lake, ME. © 1967.<br>Performers: Sister R. Mildred Barker with Eldress Gertrude Soule, and Sisters Ethel Peacock, Elsie McCool, Della Haskell, Marie Burgess, Frances Carr, & other members of the Shaker Society, Sabbathday Lake, ME.</blockquote></blockquote>
 
 <blockquote><div class="section">3<br>OUTRO</div><blockquote><p><i>noun</i> INFORMAL<br><br>The concluding section of a piece of music, it is often an instrumental solo played as the song fades out or comes to a full stop.</p></blockquote></blockquote>
-+++
