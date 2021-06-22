@@ -235,26 +235,8 @@ a {
 {
     transform: rotate(180deg);
 }
-.📖-right .appendix-section img.trespassing-img
-{
+.📖-right .appendix-section img.trespassing-img {
     right: 0;
-}
-#text-container, 
-#allcaps-container,
-.mask-text-container,
-.text-container,
-#appendix-container {
-    font-size: 16px;
-    line-height: 20px;
-}
-
-.📖-page #text-container, 
-.📖-page #allcaps-container,
-.📖-page .mask-text-container,
-.📖-page .text-container,
-.📖-page #appendix-container {
-    font-size: 14px;
-    line-height: 16px;
 }
 
 .justify_block {
@@ -332,6 +314,7 @@ a {
 
 .mask-text-container {
     color: transparent;
+    /* color: #999; */
     pointer-events: none;
     width: 100%;
 }
@@ -366,6 +349,7 @@ a {
 
 .columns {
     columns: 2;
+    column-gap: 40px;
 }
 
 .allcaps.viewing {
@@ -520,14 +504,7 @@ a {
     padding-left: 100px;
 }
 
-/* image-holder? */
-
 #stray-sh {
-    width: 45%;
-    float: left;
-}
-
-.📖-page #stray-sh {
     width: 75%;    
     padding-top: 150px;
     margin-left: auto;
@@ -535,11 +512,6 @@ a {
 }
 
 #stray-nm {
-    width: 45%;
-    float: right;
-}
-
-.📖-page #stray-nm {
     width: 75%;
     padding-top: 150px;
     margin-left: auto;
@@ -572,10 +544,6 @@ a {
 
 #tree-ellipse {
     padding-top: 50px;
-    width: 75%;
-}
-
-.📖-left #tree-ellipse {
     width: 100%;
 }
 
@@ -592,9 +560,6 @@ a {
     padding-top: 50px; 
     width: 70%;
     float: left;
-}
-
-.📖-left #grace-walking-and-talking {
 }
 
 #signal-escapes {
@@ -633,9 +598,6 @@ a {
     margin-right: auto;
 }
 
-.📖-left #seven-sleepers {
-}
-
 #seven-sleepers-1,
 #seven-sleepers-2,
 #seven-sleepers-3 {
@@ -644,21 +606,6 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
-
-.📖-left #seven-sleepers-1 {
-}
-
-/*
-#seven-sleepers-2-3 {
-    padding-top: 300px;
-    width: 100%;
-    display: inline-block;
-}
-
-.📖-left #seven-sleepers-2-3 {
-    width: 120%;
-}
-*/
 
 #audio-holder-2-2 {
     margin-top: -80px;
@@ -695,19 +642,8 @@ a {
 
 #record {
     padding-top: 410px;
-    width: 70%;
-}
-
-.📖-left #record {
     width: 80%;
 }
-
-/*
-#on-trespassing {
-    padding-top: 20px;
-    width: 50%;
-}
-*/
 
 #three-felled-trees {
     padding-top: 20px;
@@ -720,16 +656,8 @@ a {
     width: 85%;
 }
 
-.📖-left #signal-escapes-2 {
-    width: 85%;
-}
-
 #on-song {
     padding-top: 40px;
-    width: 75%
-}
-
-.📖-left #on-song {
     width: 85%
 }
 
@@ -856,11 +784,9 @@ a {
     width: 45%;
 }
 
-#wet-words-1 {
-    width: 100%;
-}
-
-#wet-words-2 {
+#wet-words-1, 
+#wet-words-2,
+#wet-words-3 {
     width: initial;
 }
 
@@ -868,18 +794,8 @@ a {
     width: 115%;
 }
 
-#wet-words-2 img{
-}
-
-#wet-words-3 {
-    width: initial;
-}
-
 .📖-left #wet-words-3 {
     width: 115%;
-}
-
-#wet-words-3 img{
 }
 
 #wet-words-3 img {
@@ -941,7 +857,6 @@ a {
     top: 20px;
     right: 20px;
     list-style: none;
-    font-size: 16px;
     line-height: 16px;
     z-index: 1000;
 }
@@ -1114,54 +1029,34 @@ a {
     chapters & pages
 */
 
-/*
-.📖-controls .📖-btn.📖-btn-print {
-    display: none;
-}
-*/
-
-/* 📖-page.📖-left.📖-page3d-back 📖-flow-box #print-container .page { */
-/* tmp to fix, should be better targeted */
-/* 
-.📖-left #print-container, 
-.📖-left #print-container a {
-    background-color: #FFC; 
-    color: #000;
-}
-*/
-
 .chapter {
 }
 
 .page {
     position: relative;
-    /*
+    width: 595px;
+    height: 1008px;
+    /* debug */
     background-color: #CCC;
     margin: 2px;
-    */
 }
 
 /* add page left and right */
 
 
 .page-image-caption {
-    padding-top: 10px;
-    width: 100%;
-}
-
-.📖-left .page-image-caption,
-.📖-right .page-image-caption {
     position: absolute;
+    width: 100%;
     padding-top: 10px;
     padding-right: 100px;
     bottom: -250px;
 }
 
-.📖-left #shaker ~ .page-image-caption {
+#shaker ~ .page-image-caption {
     bottom: -190px;
 }
 
-.📖-right #bside ~ .page-image-caption {
+#bside ~ .page-image-caption {
     bottom: -336px;
 }
 
@@ -1304,10 +1199,6 @@ head is not working for sticky either
 {
     visibility: hidden;
 }
-.preview .📖-controls .📖-btn
-{
-    /* display: none; */
-}
 .image-main-container .mask-image-container
 {
     color: transparent;
@@ -1417,20 +1308,6 @@ margin: 0cm !important;
     {
         display: none;
     }
-    /*#text-container, 
-    #allcaps-container,
-    .mask-text-container,
-    .text-container,
-    #appendix-container
-    {
-        font-size: 13px;
-        line-height: 16px
-    }
-    #chapter-nav
-    {
-        font-size: 13px;
-        line-height: 13px;
-    }*/
     #mobile_btn
     {
         display: block;
