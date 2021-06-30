@@ -2,5 +2,17 @@
 x open-records-generator blockquote debug
 + bindery.js
 + adjust appendices
-- next pass image styling, match to layout
-- sticky divs .head, first-child css
++ next pass image styling, match to layout
+x sticky divs .head, first-child css
+- on /home, make links at top should be APPENDIX and COLOPHON
+  APPENDIX should show all records that are children of Appendix, one after
+  the other. see /preview to see how the appendices appear in the print
+  the web version should match this
+- js window scrolling of dual windows needs debugging for safari
+  sometimes it works, sometimes it does not
+- audio widgets not playable in /images (just a css html thing)
+  these are being read in from static text file in static/text/image.txt
+  and in static/text/text.txt. if adjust css, be sure it works the same in 
+  /preview (which just means it hides the audio controller in /preview,
+  but if moved outside of current div which expect is the issue, then 
+  will no longer css select the right way. 
