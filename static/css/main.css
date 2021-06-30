@@ -659,6 +659,11 @@ img.trespassing-img.reversed {
     visibility: hidden;
 }
 
+#text-container img.trespassing-img {
+    position: absolute;
+    right: 0px;
+}
+
 img.trespassing-img.reversed {
     transform: rotate(180deg);
 }
@@ -1057,11 +1062,10 @@ img.trespassing-img.reversed {
     */
 }
 
-.📖-left .page,
-.📖-right .page {
-    position: initial;
+.print .page {
+    position: relative;
     width: initial;
-    /* height: auto; */
+    height: initial;
 }
 
 .page-image-caption {

@@ -75,7 +75,7 @@ if($current_filename)
 }
 ?>
 <!-- <script src='/static/js/bindery.min.js'></script> -->
-<div id='print-container'>
+<div id='print-container' class='print'>
     <div class='page'>
         <div class='now-container'>
             Printed on <?= $now; ?>.
