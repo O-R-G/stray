@@ -216,16 +216,19 @@ a {
     width: auto;
     height: 900px;
 }
-.appendix-section img.trespassing-img
-{
+
+.📖-left img.trespassing-img, 
+.📖-right img.trespassing-img {
+    width: initial;
     height: 75mm;
     position: absolute;
 }
-.appendix-section img.trespassing-img.reversed
-{
+
+img.trespassing-img.reversed {
     transform: rotate(180deg);
 }
-.📖-right .appendix-section img.trespassing-img {
+
+.📖-right img.trespassing-img {
     right: 0;
 }
 
@@ -611,6 +614,53 @@ a {
 #record {
     padding-top: 410px;
     width: 80%;
+}
+
+#on-trespassing-recto-1 img,
+#on-trespassing-recto-2 img,
+#on-trespassing-recto-3 img,
+#on-trespassing-recto-4 img,
+#on-trespassing-recto-5 img,
+#on-trespassing-recto-6 img,
+#on-trespassing-recto-7 img,
+#on-trespassing-recto-8 img,
+#on-trespassing-recto-9 img,
+#on-trespassing-recto-10 img,
+#on-trespassing-recto-11 img,
+#on-trespassing-recto-12 img,
+#on-trespassing-verso-1 img,
+#on-trespassing-verso-2 img,
+#on-trespassing-verso-3 img,
+#on-trespassing-verso-4 img,
+#on-trespassing-verso-5 img,
+#on-trespassing-verso-6 img,
+#on-trespassing-verso-7 img,
+#on-trespassing-verso-8 img,
+#on-trespassing-verso-9 img,
+#on-trespassing-verso-10 img,
+#on-trespassing-verso-11 img,
+#on-trespassing-verso-12 img {
+    height: 260px;
+    width: auto;
+}
+
+.mask-text-container #on-trespassing-recto-1 img,
+.mask-text-container #on-trespassing-recto-2 img,
+.mask-text-container #on-trespassing-recto-3 img,
+.mask-text-container #on-trespassing-recto-4 img,
+.mask-text-container #on-trespassing-recto-5 img,
+.mask-text-container #on-trespassing-recto-6 img,
+.mask-text-container #on-trespassing-recto-7 img,
+.mask-text-container #on-trespassing-recto-8 img,
+.mask-text-container #on-trespassing-recto-9 img,
+.mask-text-container #on-trespassing-recto-10 img,
+.mask-text-container #on-trespassing-recto-11 img,
+.mask-text-container #on-trespassing-recto-12 img {
+    visibility: hidden;
+}
+
+img.trespassing-img.reversed {
+    transform: rotate(180deg);
 }
 
 #three-felled-trees {
@@ -1007,8 +1057,12 @@ a {
     */
 }
 
-/* add page left and right */
-
+.📖-left .page,
+.📖-right .page {
+    position: initial;
+    width: initial;
+    /* height: auto; */
+}
 
 .page-image-caption {
     position: absolute;

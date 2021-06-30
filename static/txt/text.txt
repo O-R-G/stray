@@ -106,8 +106,72 @@
 ///
 
 <blockquote><div class="section">4<br>STRAYER</div><blockquote><blockquote>STRAY (STRĀ) INTR.V. STRAYED, STRAY•ING, STRAYS 1A. TO MOVE AWAY FROM A GROUP, DEVIATE FROM THE CORRECT COURSE, OR GO BEYOND ESTABLISHED LIMITS. B. TO BECOME LOST. 2. TO WANDER ABOUT WITHOUT A DESTINATION OR PURPOSE; ROAM. SEE SYNONYMS AT <i>WANDER</i>. 3. TO FOLLOW A WINDING COURSE; MEANDER. 4. TO DEVIATE FROM A MORAL, PROPER, OR RIGHT COURSE; ERR. 5. TO BECOME DIVERTED FROM A SUBJECT OR TRAIN OF THOUGHT; DIGRESS: STRAYED FROM THE TOPIC. SEE SYNONYMS AT <i>SWERVE</i>. ◊ N. ONE THAT HAS STRAYED, ESPECIALLY A DOMESTIC ANIMAL WANDERING ABOUT. ◊ ADJ. 1. STRAYING OR HAVING STRAYED; WANDERING OR LOST: STRAY CATS AND DOGS. 2. SCATTERED OR SEPARATE: A FEW STRAY CRUMBS. [MIDDLE ENGLISH <i>STRAIEN</i>, FROM OLD FRENCH <i>ESTRAIER</i>, FROM <i>ESTREE</i>, HIGHWAY, FROM LATIN <i>STRĀTA</i>. SEE <i>STREET</i>.] <br>– STRAY’ER</blockquote></blockquote></blockquote>
+///
+
 <blockquote><div class="section">5<br><a href="javascript:popup('appendix/on-trespassing')">ON TRESPASSING</a></div><blockquote><blockquote>NO<br>NO ON<br>ON TRES<br>ON SONG<br>ON SINGING<br>ON PASSING<br>ON TRESPASS<br>ON TRESPASSING</blockquote>See appendix.</blockquote></blockquote>
 ///
+
+<div id="on-trespassing-recto-1" class="image-holder" images="">
+    <img class="trespassing-img reversed" src="/media/00021.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-2" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00028.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-3" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00025.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-4" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00023.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-5" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00022.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-6" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00026.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-7" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00031.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-8" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00029.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-9" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00025.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-10" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00029.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-11" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00025.jpg">
+</div>
+///
+
+<div id="on-trespassing-recto-12" class="image-holder" images="">
+    <img class="trespassing-img" src="/media/00026.jpg">
+</div>
+///
+
+/// 
 
 <blockquote><div class="section">6<br>THREE FELLED TREES</div><blockquote><p>Intersection of NY-199 + Salisbury Turnpike<br>lat 41.95078, long -73.8168</p></blockquote></blockquote>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
