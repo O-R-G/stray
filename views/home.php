@@ -68,6 +68,7 @@
 <div id = "text" style="display:none"><?= $text_plain; ?></div>
 <div id = 'nav'><a href = 'javascript:popup("appendix", "", "")'>APPENDIX</a><a href = 'javascript:popup("colophon", "", "")'>COLOPHON</a><a href = 'javascript:popup("afterword", "", "")'>APPENDIX</a></div>
 <script>
+
 	var current_letter;
 	var text_plain = '<?= $text_plain_escape; ?>';
 	var text_plain_extended = '<?= $text_plain_extended_escape; ?>';

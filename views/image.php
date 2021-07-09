@@ -41,6 +41,12 @@ $browser = $browser['browser'];
 $isSafari = strtolower($browser) === 'safari';
 
 ?><script>
+    var message = {
+        'window': 'image',
+        'status': 'loaded'
+    };  
+    window.opener.postMessage(JSON.stringify(message), '*');
+
 	var isMobile = <?= json_encode($isMobile); ?>;
 	var audio_position = [];
 	var wH = window.innerHeight;
