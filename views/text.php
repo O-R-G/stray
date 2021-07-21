@@ -22,7 +22,15 @@ $browser = get_browser(null, true);
 $browser = $browser['browser'];
 $isSafari = strtolower($browser) === 'safari';
 
-?><section id="main" class = ''>
+?>
+<script>
+    var message = {
+        'window': 'text',
+        'status': 'loaded'
+    };  
+    window.opener.postMessage(JSON.stringify(message), '*');
+</script>
+<section id="main" class = ''>
 	<ul id = 'chapter-nav'>
 		<li><a href = "#head1">I.</a></li><li><a href = "#head2">II.</a></li><li><a href = "#head3">III.</a></li><li><a href = "#head4">IV.</a></li><li><a href = "#head5">V.</a></li>
 	</ul>
