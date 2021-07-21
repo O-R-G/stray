@@ -65,6 +65,11 @@ a {
     height: 100vh;
 }
 
+#now-container a {
+    color: #00F;
+    border-bottom: 1px solid #00F;
+}
+
 /*#display[chapter='3'],
 #image-container[chapter='3']
 {
@@ -1129,12 +1134,12 @@ head is not working for sticky either
         or moving outside of page div
     */
     position: absolute;
-    top: 130mm;
+    top: 140mm;
     left: -32mm;
     width: 10px;
     height: 26px;
-    border-left: 1px solid;
-    /* transform: rotate(90deg); */
+    /* border-left: 1px solid; */
+    transform: rotate(270deg);
 }
 
 #print-btn {

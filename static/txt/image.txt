@@ -26,7 +26,7 @@
     </div>
 </div>
 <div id="" class="page-image-caption" images="">
-    <p>Susan Howe, “Articulation of Sound Forms in Time” from SINGULARITIES (Wesleyan University Press), 1990. Audio: "Scattering As Behavior Toward Risk," from SINGULARITIES (Wesleyan University Press), 1991.</p>
+    <p>Susan Howe, “Articulation of Sound Forms in Time” from SINGULARITIES (Wesleyan University Press, 1990). Audio: "Scattering As Behavior Toward Risk," from SINGULARITIES.</p>
 </div>
 ///
 

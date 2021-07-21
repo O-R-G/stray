@@ -77,12 +77,13 @@ if($current_filename)
 <!-- <script src='/static/js/bindery.min.js'></script> -->
 <div id='print-container' class='print'>
     <div class='page'>
-        <div class='now-container'>
-            Printed on <?= $now; ?>.
+        <div id='now-container'>
+            Printed on <?= $now; ?>.<br>
+            <a href='https://strayworld.sourcetype.com'>https://strayworld.sourcetype.com</a>
         </div>
         <!--
-        <div id='staple-container' class='small caps'>
-            STAPLE HERE
+        <div id='staple-container' class='small'>
+            https://strayworld.sourcetype.com
         </div>
         -->
     </div><?
@@ -148,7 +149,7 @@ if($current_filename)
     ?><div id="back-cover">
         <?= $current_filename_full ? '<img src="'. $current_filename_full . '" >' : ''; ?>
         <div>
-            SHANNON EBNER: STRAY WORLD is published by SOURCE TYPE, 2021.
+            STRAY WORLD, © by Shannon Ebner and published by SOURCE TYPE, 2021.
         </div>
     </div><? 
 ?></div>
