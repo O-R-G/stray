@@ -16,6 +16,6 @@ x sticky divs .head, first-child css
   /preview (which just means it hides the audio controller in /preview,
   but if moved outside of current div which expect is the issue, then 
   will no longer css select the right way. 
+- /text and /image to pop up next to each other, top-aligned like book spread
+- RM repeated APPENDIX headings on /   
 - sort out .htaccess .git issue (!)
-- first two windows to pop up next to each other
-- repeated APPENDIX headings on /   
