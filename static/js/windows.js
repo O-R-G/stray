@@ -33,14 +33,12 @@ function popup(name, param =false){
     }
     popup_name += name_temp.substring(0, 1).toUpperCase() + name_temp.substring(1).toUpperCase();
 
-    console.log('popup_name = '+popup_name);
-
 	if(name == 'colophon' || name == 'afterword'){
         let popup_width = 645;
         let popup_height = 450;
         let popup_top = window_top;
         let popup_left = window_left + ( window_width - popup_width ) / 2;
-		let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left;
+		let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
 
 		window_text = window.open('/appendix/'+name, popup_name, this_param);
 	}
@@ -49,7 +47,7 @@ function popup(name, param =false){
         let popup_height = 900;
         let popup_top = window_top;
         let popup_left = name == 'text' ? window_left + ( window_width  / 2 ) - popup_width : window_left + ( window_width  / 2 );
-        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left;+',scrollbars=yes';
+        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
 
         return window.open('/'+name, popup_name, this_param);
     }
@@ -64,7 +62,7 @@ function popup(name, param =false){
         let popup_height = 600;
         let popup_top = window_top;
         let popup_left = window_left + ( window_width - popup_width ) / 2;
-        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left;+',scrollbars=yes';
+        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
 
         return window.open('/'+name, popup_name, this_param);
     }
@@ -76,13 +74,18 @@ function popup(name, param =false){
         let popup_left = window_left + ( window_width - popup_width ) / 2;
         if(popup_left < 0)
             popup_left = 0;
+        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
 
-        var this_param = 'resizable,width=800,height=700,top='+popup_top+',left='+popup_left+',scrollbars=yes';
         // return window.open('/chapter'+query, popup_name, this_param);
         return window.open('/zoom-in?filename='+param, 'STRAY. ZOOM-IN', this_param);
     }
     else{
-		var this_param = 'width=645,height=450,top='+popup_top+',left='+popup_left;
+        let popup_width = 645;
+        let popup_height = 450;
+        let popup_top = window_top;
+        let popup_left = window_left + ( window_width - popup_width ) / 2;
+        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
+
 		// return window.open('/chapter'+query, popup_name, this_param);
 		return window.open('/'+name, popup_name, this_param);
 	}
