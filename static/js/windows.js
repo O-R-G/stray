@@ -12,64 +12,79 @@ var ticking = false;
 var current_scroll = false;
 var scroll_timer = null;
 
+var window_top = window.screenTop || window.screenY;
+var window_left = window.screenLeft || window.screenX;
+
 function popup(name, param =false){
-	var this_top = parseInt( Math.random() * (popup_top_max - popup_top_min)) + popup_top_min;
-	var this_left = parseInt( Math.random() * (popup_left_max - popup_left_min)) + popup_left_min;		
-    var window_name = 'STRAY. ';
+    let window_top = window.screenTop || window.screenY;
+    let window_left = window.screenLeft || window.screenX;
+    let window_width = window.innerWidth;
+    let window_height = window.innerHeight;
+    
+			
+    var popup_name = 'STRAY. ';
     var name_temp = name;
     var name_cat = '';
     if( name.indexOf('/') !== false )
     {
         name_cat = name_temp.substring(0, name_temp.indexOf('/'));
-        console.log('cat = '+name_cat);
         name_temp = name_temp.substring(name_temp.indexOf('/'));
-        window_name += name_cat.substring(0, 1).toUpperCase() + name_cat.substring(1);
+        popup_name += name_cat.substring(0, 1).toUpperCase() + name_cat.substring(1);
     }
-    window_name += name_temp.substring(0, 1).toUpperCase() + name_temp.substring(1);
+    popup_name += name_temp.substring(0, 1).toUpperCase() + name_temp.substring(1).toUpperCase();
 
-    console.log('window_name = '+window_name);
+    console.log('popup_name = '+popup_name);
 
-	if(name == 'colophon'){
-		var this_param = 'width=645,height=450,top='+this_top+',left='+this_left;
-		window_text = window.open('/appendix/colophon', window_name, this_param);
+	if(name == 'colophon' || name == 'afterword'){
+        let popup_width = 645;
+        let popup_height = 450;
+        let popup_top = window_top;
+        let popup_left = window_left + ( window_width - popup_width ) / 2;
+		let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left;
+
+		window_text = window.open('/appendix/'+name, popup_name, this_param);
 	}
-	else if(name == 'afterword'){
-		var this_param = 'width=645,height=450,top='+this_top+',left='+this_left;
-		window_text = window.open('/appendix/afterword', window_name, this_param);
-	}
-    else if(name == 'text'){
-        var this_param = 'width=645,height=900,top='+this_top+',left='+this_left+',scrollbars=yes';
-        // return window.open('/chapter'+query, window_name, this_param);
-        return window.open('/'+name, 'STRAY. TEXT', this_param);
+	else if(name == 'text' || name == 'image'){
+        let popup_width = 645;
+        let popup_height = 900;
+        let popup_top = window_top;
+        let popup_left = name == 'text' ? window_left + ( window_width  / 2 ) - popup_width : window_left + ( window_width  / 2 );
+        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left;+',scrollbars=yes';
+
+        return window.open('/'+name, popup_name, this_param);
     }
-    else if(name == 'image' || name == 'mobile'){
-        var this_param = 'width=645,height=900,top='+this_top+',left='+this_left+',scrollbars=yes';
-        // return window.open('/chapter'+query, window_name, this_param);
-        return window.open('/'+name, 'STRAY. IMAGE', this_param);
+    else if(name == 'mobile'){
+        var this_param = 'width=645,height=900,top='+popup_top+',left='+popup_left+',scrollbars=yes';
+        let popup_name = 'STRAY. IMAGE';
+        
+        return window.open('/'+name, popup_name, this_param);
     }
     else if(name == 'print' || name == 'preview' ){
-        var this_param = 'width=900,height=600,top='+this_top+',left='+this_left+',scrollbars=yes';
-        // return window.open('/chapter'+query, window_name, this_param);
-        return window.open('/'+name, 'STRAY. PRINT', this_param);
+        let popup_width = 900;
+        let popup_height = 600;
+        let popup_top = window_top;
+        let popup_left = window_left + ( window_width - popup_width ) / 2;
+        let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left;+',scrollbars=yes';
+
+        return window.open('/'+name, popup_name, this_param);
     }
     else if(name == 'zoom')
     {
-        var this_param = 'resizable,width=800,height=700,top='+this_top+',left='+this_left+',scrollbars=yes';
-        // return window.open('/chapter'+query, window_name, this_param);
+        let popup_width = 800;
+        let popup_height = 700;
+        let popup_top = window_top;
+        let popup_left = window_left + ( window_width - popup_width ) / 2;
+        if(popup_left < 0)
+            popup_left = 0;
+
+        var this_param = 'resizable,width=800,height=700,top='+popup_top+',left='+popup_left+',scrollbars=yes';
+        // return window.open('/chapter'+query, popup_name, this_param);
         return window.open('/zoom-in?filename='+param, 'STRAY. ZOOM-IN', this_param);
     }
-    // else if(name == 'radio'){
-    //     var this_param = 'width=400,height=520,top='+this_top+',left='+this_left;
-    //     window_radio = window.open('/radio', window_name, this_param);
-    // }
-    // else if(name == 'audio'){
-    //     var this_param = 'width=100,height=100,top='+this_top+',left='+this_left;
-    //     window_radio  = window.open('/audio', window_name, this_param);
-    // }
     else{
-		var this_param = 'width=650,height=450,top='+this_top+',left='+this_left;
-		// return window.open('/chapter'+query, window_name, this_param);
-		return window.open('/'+name, window_name, this_param);
+		var this_param = 'width=645,height=450,top='+popup_top+',left='+popup_left;
+		// return window.open('/chapter'+query, popup_name, this_param);
+		return window.open('/'+name, popup_name, this_param);
 	}
 }
 
@@ -165,6 +180,7 @@ function open_duo(){
         return;
       }
     }, false);
+    /*
     window_text.onload = function(){
         window_text.onscroll = function(){
             if(current_scroll != 'image'){
@@ -222,4 +238,5 @@ function open_duo(){
         //     });
         // });
     };
+    */
 }

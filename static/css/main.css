@@ -1014,7 +1014,8 @@ img.trespassing-img.reversed {
 {
     pointer-events: none;
 }
-#image-container .image-holder img
+#image-container .image-holder img,
+#image-container .image-holder audio
 {
     pointer-events: initial;
 }
