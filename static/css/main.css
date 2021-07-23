@@ -890,19 +890,18 @@ img.trespassing-img.reversed {
     padding: 0 5px 0px 5px;
     cursor: pointer;
 }
+
 #chapter-nav a:hover {
     /*text-decoration: underline;*/
     border-bottom: 2px solid #000;
 }
 
 .head {
-    /*
-    background-color: #FF0;
-    position: sticky; 
-    top: 10px;
-    padding-top: 10px;
-    margin-top: -10px;
-    */
+    padding-top: 20px;
+}
+
+.print .head {
+    padding-top: initial;
 }
 
 #print {

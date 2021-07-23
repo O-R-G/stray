@@ -24,6 +24,6 @@ x sticky divs .head, first-child css
   then ignore local copy changes using:
     > git update-index --skip-worktree .htaccess
 + popup windows side by side
-- jump menu css
++ jump menu css
 - mobile pop up windows
 - mobile css
