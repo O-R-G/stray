@@ -46,7 +46,7 @@ function popup(name, param =false){
         let popup_width = 645;
         let popup_height = 900;
         let popup_top = window_top;
-        let popup_left = name == 'text' ? window_left + ( window_width  / 2 ) - popup_width : window_left + ( window_width  / 2 );
+        let popup_left = name == 'image' ? window_left + ( window_width / 2 ) - popup_width : window_left + ( window_width  / 2 ) + 10;
         let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
 
         return window.open('/'+name, popup_name, this_param);
