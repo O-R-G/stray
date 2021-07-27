@@ -1245,6 +1245,11 @@ margin: 0cm !important;
 .mobile blockquote {
     margin-left: 10px;
 }
+.mobile image
+{
+    max-width: 100% !important;
+    height: auto !important;
+}
 @keyframes flashing
 {
     0%{
