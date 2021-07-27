@@ -52,7 +52,7 @@ function popup(name, param =false){
         return window.open('/'+name, popup_name, this_param);
     }
     else if(name == 'mobile'){
-        var this_param = 'width=645,height=900,top=0,left=0,scrollbars=yes';
+        var this_param = '';
         let popup_name = 'STRAY. IMAGE';
         
         return window.open('/'+name, popup_name, this_param);
