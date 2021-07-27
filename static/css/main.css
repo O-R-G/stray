@@ -333,7 +333,10 @@ img.trespassing-img.reversed {
 .mask-text-container .section:first-line {
     color: #000;
 }
-
+.mobile.viewing-text .mask-text-container .section
+{
+    color: #000;
+}
 .mask-text-container a {
     color: rgba(255, 255, 255, 0);
 }
