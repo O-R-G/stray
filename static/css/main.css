@@ -1411,6 +1411,17 @@ margin: 0cm !important;
 {
     width: auto;
 }
+.viewing-image .window-container p,
+.viewing-image .window-container blockquote,
+.viewing-image .window-container .section
+{
+    opacity: 0 !important;
+}
+.viewing-text .window-container img,
+.viewing-text .window-container audio
+{
+    opacity: 0 !important;
+}
 @keyframes flashing
 {
     0%{
