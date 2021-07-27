@@ -1067,6 +1067,8 @@ img.trespassing-img.reversed {
     */
 }
 
+
+
 .print .page {
     position: relative;
     width: initial;
@@ -1235,6 +1237,14 @@ head is not working for sticky either
 /*@page {
 margin: 0cm !important;
 }*/
+.mobile .page
+{
+    width: auto;
+    height:  auto;
+}
+.mobile blockquote {
+    margin-left: 10px;
+}
 @keyframes flashing
 {
     0%{

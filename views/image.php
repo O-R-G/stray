@@ -156,6 +156,7 @@ if($isMobile || $isSafari){
 	else
 	{
 		// body.classList.add('hasTouchScreen');
+		body.classList.add('mobile');
 		body.classList.add('viewing-text');
 		var sText_image_toggle = document.getElementById('text-image-toggle');
 		sText_image_toggle.addEventListener('click', ()=>{
