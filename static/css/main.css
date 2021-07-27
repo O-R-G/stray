@@ -1251,10 +1251,35 @@ margin: 0cm !important;
     height: auto !important;
     /*box-sizing: border-box;*/
 }
+.mobile #a-graphic-tone
+{
+    width: 100%;
+}
 .mobile #a-graphic-tone img
 {
     width: auto;
-    height: 50px !important;
+    height: 65px !important;
+}
+.mobile #a-graphic-tone img:nth-child(2)
+{
+    margin-left: 0;
+}
+.mobile #a-graphic-tone img:nth-child(3)
+{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.mobile #a-graphic-tone img:nth-child(4)
+{
+    margin-left: 60px;
+}
+.mobile #a-graphic-tone img:nth-child(5)
+{
+    margin-left: 70px;
+}
+.mobile #a-graphic-tone img:nth-child(6) {
+    margin-top: -20px;
+    margin-left: 120px;
 }
 @keyframes flashing
 {
