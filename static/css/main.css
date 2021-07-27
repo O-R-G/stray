@@ -1229,6 +1229,7 @@ head is not working for sticky either
 .viewing-text .audio-holder
 {
     visibility: hidden;
+    opacity: 0;
 }
 .image-main-container .mask-image-container
 {
