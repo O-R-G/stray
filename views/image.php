@@ -174,4 +174,12 @@ if($isMobile || $isSafari){
 			// sMain.style.transform = "scale(" + scale + ")";
 		}
 	}
+	console.log(window.innerWidth);
+	var all = document.querySelectorAll('*');
+	[].forEach.call(all, function(el, i){
+		if(el.offsetWidth > window.innerWidth)
+			console.log(el);
+		else if(el.offsetLeft + el.offsetWidth > window.innerWidth)
+			console.log(el);
+	});
 </script>

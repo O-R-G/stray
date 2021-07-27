@@ -1400,6 +1400,13 @@ margin: 0cm !important;
 {
     padding-top: 150px;
 }
+.mobile .page-image-caption {
+    padding-right: 0;
+}
+.mobile audio
+{
+    width: auto;
+}
 @keyframes flashing
 {
     0%{
