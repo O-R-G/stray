@@ -1249,7 +1249,7 @@ margin: 0cm !important;
 {
     max-width: 100% !important;
     height: auto !important;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 }
 .mobile #a-graphic-tone img
 {
