@@ -111,62 +111,62 @@
 <blockquote><div class="section">5<br><a href="javascript:popup('appendix/on-trespassing')">ON TRESPASSING</a></div><blockquote><blockquote>NO<br>NO ON<br>ON TRES<br>ON SONG<br>ON SINGING<br>ON PASSING<br>ON TRESPASS<br>ON TRESPASSING</blockquote></blockquote></blockquote>
 ///
 
-<div id="on-trespassing-recto-1" class="image-holder" images="">
+<div id="on-trespassing-recto-1" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img reversed" src="/media/00021.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-2" class="image-holder" images="">
+<div id="on-trespassing-recto-2" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00028.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-3" class="image-holder" images="">
+<div id="on-trespassing-recto-3" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00025.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-4" class="image-holder" images="">
+<div id="on-trespassing-recto-4" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00023.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-5" class="image-holder" images="">
+<div id="on-trespassing-recto-5" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00022.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-6" class="image-holder" images="">
+<div id="on-trespassing-recto-6" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00026.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-7" class="image-holder" images="">
+<div id="on-trespassing-recto-7" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00031.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-8" class="image-holder" images="">
+<div id="on-trespassing-recto-8" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00029.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-9" class="image-holder" images="">
+<div id="on-trespassing-recto-9" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00025.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-10" class="image-holder" images="">
+<div id="on-trespassing-recto-10" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00029.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-11" class="image-holder" images="">
+<div id="on-trespassing-recto-11" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00025.jpg">
 </div>
 ///
 
-<div id="on-trespassing-recto-12" class="image-holder" images="">
+<div id="on-trespassing-recto-12" class="image-holder text-trepassing-image-holder" images="">
     <img class="trespassing-img" src="/media/00026.jpg">
 </div>
 ///

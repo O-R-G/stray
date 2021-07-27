@@ -1237,6 +1237,10 @@ head is not working for sticky either
 /*@page {
 margin: 0cm !important;
 }*/
+.mobile .mask-text-container .chapter-number
+{
+    color: #000;
+}
 .mobile .page
 {
     width: auto;
@@ -1249,6 +1253,7 @@ margin: 0cm !important;
 {
     max-width: 100% !important;
     height: auto !important;
+    visibility: visible !important;
     /*box-sizing: border-box;*/
 }
 .mobile #a-graphic-tone
@@ -1281,10 +1286,6 @@ margin: 0cm !important;
     margin-top: -20px;
     margin-left: 120px;
 }
-.mobile .trespassing-img
-{
-    height: 85px !important;
-}
 .mobile #wet-words-3 img
 {
     height: 46px !important;
@@ -1311,6 +1312,93 @@ margin: 0cm !important;
 .mobile #wet-words-3 img:nth-child(6)
 {
     height: 48px !important;
+}
+.mobile #elliman
+{
+    width: auto;
+}
+.mobile .trespassing-img
+{
+    height: 70px !important;
+}
+.mobile #on-trespassing-recto-2,
+.mobile #on-trespassing-verso-1
+{
+    /*width: 50%;*/
+    /*display: inline-block;*/
+}
+.mobile #on-trespassing-recto-12
+{
+    margin-bottom: 200px;
+}
+.mobile #on-trespassing-verso-12
+{
+    margin-top: -140px;
+}
+.mobile .mask-image-container .trespassing-img
+{
+    padding-left: 50%;
+}
+.mobile .mask-image-container .trespassing-img.reversed
+{
+    padding-right: 51%;
+    padding-left: 0;
+}
+.mobile .text-trepassing-image-holder
+{
+    width: 49%;
+    text-align: right;
+    margin-bottom: 60px;
+}
+.mobile #will-and-be-going-to-1, 
+.mobile #will-and-be-going-to-2
+{
+    padding-bottom: 120px;
+    width: 48.5%;
+    margin-left:  0;
+    margin-right:  0;
+}
+.mobile #will-and-be-going-to-2
+{
+    padding-left: 52%;
+}
+.mobile #seven-sleepers-1
+{
+    width: 48.5%;
+    margin-left:  0;
+    margin-right:  0;
+    padding-top: 40px;
+}
+.mobile #seven-sleepers
+{
+    width: 48.5%;
+    padding-left: 52%;
+}
+.mobile #seven-sleepers-3
+{
+    width: 48.5%;
+    margin-left:  0;
+    margin-right:  0;
+    padding-bottom: 120px;
+    padding-top: 60px;
+}
+.mobile #seven-sleepers-2
+{
+    width: 48.5%;
+    padding-left: 52%;
+    padding-top: 60px;
+}
+.mobile #ghost-song
+{
+    padding-top: 500px;
+}
+.mobile #record
+{
+    padding-top: 50px;
+}
+.mobile #signal-escapes-2
+{
+    padding-top: 150px;
 }
 @keyframes flashing
 {
