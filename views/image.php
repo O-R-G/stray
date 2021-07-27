@@ -136,7 +136,7 @@ if($isMobile || $isSafari){
 	var sMain = document.getElementById('main');
 	var body = document.body;
 	// hasTouchScreen = true;
-	if(window.innerWidth > 768)
+	if(!isMobile)
 	{
 		
 		[].forEach.call(imgs, function(el, i){

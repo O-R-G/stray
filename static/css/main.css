@@ -1190,14 +1190,14 @@ head is not working for sticky either
 {
     width: 40px;
     height: 50px;
-    display: block;
+    display: none;
     position: fixed;
     bottom: 10px;
     right: 10px;
     z-index: 1000;
     cursor: pointer;
 }
-.hasTouchScreen #text-image-toggle
+.mobile #text-image-toggle
 {
     display: block;
 }
