@@ -1281,6 +1281,37 @@ margin: 0cm !important;
     margin-top: -20px;
     margin-left: 120px;
 }
+.mobile .trespassing-img
+{
+    height: 85px !important;
+}
+.mobile #wet-words-3 img
+{
+    height: 46px !important;
+}
+.mobile #wet-words-3 img:nth-child(2)
+{
+    height: 56px !important;
+    margin-left: 14%;
+}
+.mobile #wet-words-3 img:nth-child(3)
+{
+    height: 60px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mobile #wet-words-3 img:nth-child(4)
+{
+    height: 48px !important;
+}
+.mobile #wet-words-3 img:nth-child(5)
+{
+    height: 48px !important;
+}
+.mobile #wet-words-3 img:nth-child(6)
+{
+    height: 48px !important;
+}
 @keyframes flashing
 {
     0%{
