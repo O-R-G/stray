@@ -1422,6 +1422,11 @@ margin: 0cm !important;
 {
     opacity: 0 !important;
 }
+
+.mobile .window-container p
+{
+    color: black;
+}
 @keyframes flashing
 {
     0%{
@@ -1520,12 +1525,6 @@ margin: 0cm !important;
         transform: translate(0, -50%);
         margin-top: 0;
     }
-    /*
-    #print
-    {
-        display: none;
-    }
-    */
     #mobile_btn
     {
         display: block;
@@ -1534,6 +1533,8 @@ margin: 0cm !important;
     {
         display: none;
     }
+    .radio_text
+    {
+        font-size: 95vw;
+    }
 }
-
-
