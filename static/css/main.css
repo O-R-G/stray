@@ -1250,7 +1250,8 @@ margin: 0cm !important;
     width: auto;
     height:  auto;
 }
-.mobile blockquote {
+.mobile blockquote,
+.mobile .indent {
     margin-left: 10px;
 }
 .mobile img

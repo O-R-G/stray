@@ -9,7 +9,10 @@ $urls = explode('/', 'text');
 $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);
 // $body = $item['body'];
-$body = file_get_contents('static/txt/text.txt');
+if($uri[1] == 'mobile')
+	$body = file_get_contents('static/txt/text-mobile.txt');
+else
+	$body = file_get_contents('static/txt/text.txt');
 $texts = [];
 $chapters = explode('+++', $body);    
 foreach($chapters as $chapter) {
