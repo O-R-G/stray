@@ -1082,16 +1082,37 @@ img.trespassing-img.reversed {
 .page-image-caption {
     position: absolute;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 30px;
     padding-right: 100px;
-    bottom: -250px;
+    bottom: 0px;
+}
+
+#articulation.page-image-caption {
+    bottom: -202px;
 }
 
 #shaker ~ .page-image-caption {
+    bottom: -160px;
+}
+
+.mask-image-container .page-image-caption {
+    color:#000;
+}
+
+.print .page-image-caption {
+    padding-top: 10px;
+    bottom: -250px;
+}
+
+.print #articulation.page-image-caption {
+    bottom: -222px;
+}
+
+.print #shaker ~ .page-image-caption {
     bottom: -190px;
 }
 
-#bside ~ .page-image-caption {
+.print #bside ~ .page-image-caption {
     bottom: -336px;
 }
 
