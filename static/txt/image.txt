@@ -216,7 +216,7 @@
 ///
 
 <div id="g-" class="image-holder" images="">
-    <img class="" src="/media/jpg/G_.jpg">
+    <img class="" src="/media/jpg/FNL_174B9442-2bw_0810_10.jpg">
 </div>
 ///
 

@@ -20,8 +20,7 @@ function popup(name, param =false){
     let window_left = window.screenLeft || window.screenX;
     let window_width = window.innerWidth;
     let window_height = window.innerHeight;
-    
-			
+
     var popup_name = 'STRAY. ';
     var name_temp = name;
     var name_cat = '';
@@ -46,7 +45,7 @@ function popup(name, param =false){
         let popup_width = 645;
         let popup_height = 900;
         let popup_top = window_top;
-        let popup_left = name == 'text' ? window_left + ( window_width / 2 ) - popup_width : window_left + ( window_width  / 2 ) + 10;
+        let popup_left = name == 'image' ? window_left + ( window_width / 2 ) - popup_width : window_left + ( window_width  / 2 ) + 10;
         let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
 
         return window.open('/'+name, popup_name, this_param);
@@ -113,7 +112,6 @@ function open_duo(){
     var window_image_top = 0;
     var window_text_height = 0;
     var window_image_height = 0;
-
 
     window.addEventListener("message", (event) => {
       try {
