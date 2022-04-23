@@ -687,11 +687,14 @@ img.trespassing-img.reversed {
     width: 85%;
 }
 
-#on-song {
-    padding-top: 40px;
-    width: 85%
+#american-photographs {
+    padding-top: 30px;
+    padding-left: 15%;
+    position: relative;
+    width: 85%;
 }
 
+/*
 #american-photographs {
     padding-top: 300px;
     padding-left: 300px;
@@ -699,6 +702,12 @@ img.trespassing-img.reversed {
 
 #american-photographs img {
     width: 300px;
+}
+*/
+
+#on-song {
+    padding-top: 40px;
+    width: 85%
 }
 
 #a-graphic-tone {

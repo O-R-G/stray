@@ -198,6 +198,17 @@
 <div id="signal-escapes-2" class="image-holder" images="">
     <img class="" src="/media/jpg/signal-escapes-2-v2.png">
 </div>
+
+///
+
+<div id="american-photographs" class="image-holder" images="">
+    <img class="" src="/media/jpg/american-photographs.jpg">
+</div>
+
+///
+
+///
+
 +++
 
 
@@ -215,9 +226,6 @@
 </div>
 ///
 
-<div id="g-" class="image-holder" images="">
-    <img class="" src="/media/jpg/FNL_174B9442-2bw_0810_10.jpg">
-</div>
 ///
 
 <div id="tone-poem" class="image-holder" images="">
@@ -254,6 +262,11 @@
 </div>
 ///
 
+<div id="g-" class="image-holder" images="">
+    <img class="" src="/media/jpg/FNL_174B9442-2bw_0810_10.jpg">
+</div>
+
+<!--
 <div id="earthly-trio" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/quick_IMG_6114.jpg">
     <div class="audio-holder">
@@ -262,3 +275,4 @@
         </audio>
     </div>
 </div>
+-->
