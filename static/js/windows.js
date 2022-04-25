@@ -32,7 +32,7 @@ function popup(name, param =false){
     }
     popup_name += name_temp.substring(0, 1).toUpperCase() + name_temp.substring(1).toUpperCase();
 
-	if(name == 'colophon' || name == 'afterword'){
+	if(name == 'colophon' || name == 'afterword' || name == 'instructions-for-use'){
         let popup_width = 645;
         let popup_height = 450;
         let popup_top = window_top;

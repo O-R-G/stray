@@ -202,10 +202,14 @@
 ///
 
 <div id="american-photographs" class="image-holder" images="">
-    <img class="" src="/media/jpg/american-photographs.jpg">
+    <img class="" src="/media/jpg/3_15.jpg">
 </div>
 
 ///
+
+<div id="american-photographs" class="image-holder" images="">
+    <img class="" src="/media/jpg/1_19.jpg">
+</div>
 
 ///
 

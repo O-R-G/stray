@@ -66,7 +66,12 @@
 	</div>
 </div>
 <div id = "text" style="display:none"><?= $text_plain; ?></div>
-<div id = 'nav'><a href = 'javascript:popup("appendix", "", "")'>APPENDIX</a><a href = 'javascript:popup("colophon", "", "")'>COLOPHON</a><a href = 'javascript:popup("afterword", "", "")'>AFTERWORD</a></div>
+<div id = 'nav'>
+<a href = 'javascript:popup("appendix", "", "")'>APPENDIX</a>
+<a href = 'javascript:popup("colophon", "", "")'>COLOPHON</a>
+<a href = 'javascript:popup("afterword", "", "")'>AFTERWORD</a>
+<a href = 'javascript:popup("instructions-for-use", "", "")'>INSTRUCTIONS FOR USE</a>
+</div>
 <script>
 
 	var current_letter;
