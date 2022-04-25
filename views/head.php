@@ -23,15 +23,15 @@ if($uu->id)
     $item = $oo->get($uu->id);
 else
     $item = $oo->get(0);
-$name = ltrim(strip_tags($item["name1"]), ".");
 
 // document title
 $item = $oo->get($uu->id);
-$title = $item["name1"];
+if(isset($item))
+    $title = $item["name1"];
 $site_name = "Stray";
 // require_once("config/url.php");
 $uu = new URL();
-if ($title)
+if (isset($title))
     $title = $site_name." | ".strip_tags($title);
 else
     $title = $site_name;

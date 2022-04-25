@@ -81,6 +81,7 @@ if($current_filename)
             Printed on <?= $now; ?>.<br>
             <a href='https://strayworld.sourcetype.com'>https://strayworld.sourcetype.com</a>
         </div>
+        <div id="cover-image"><img src="media/jpg/quick_IMG_6114.jpg"></div>
         <!--
         <div id='staple-container' class='small'>
             https://strayworld.sourcetype.com

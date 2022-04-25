@@ -24,7 +24,8 @@ if(!function_exists('mb_str_split'))
 }
 function getPlainRadioText($escape = false){
 	global $oo;
-	$text_id = end($oo->urls_to_ids(array('text-radio')));
+	$temp = $oo->urls_to_ids(array('text-radio'));
+	$text_id = end($temp);
 	$text_item = $oo->get($text_id);
 	$text_raw = strip_tags($text_item['body']);
 	$text_raw = str_replace("&nbsp;", " ", $text_raw);
