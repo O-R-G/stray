@@ -52,6 +52,10 @@
 <div id = 'radio_container'>
 	<div id="duo_btn" class="window_btn"></div>
 	<div id="mobile_btn" class="window_btn"></div>
+	<!-- <div id="text_btn" class="window_btn">
+		<div id="image_btn" class="window_btn"></div>
+	</div> -->
+	
 	<div id="radio_slide_0" class="radio_slide not_current">
 		<p id='radio_text_0' class='radio_text'></p>
 		<img id = 'radio_image_0' class = 'radio_image'>
@@ -114,6 +118,26 @@
 		{
 			el.addEventListener('click', ()=>open_duo());
 		}
+		// else if(el.id == 'text_btn')
+		// {
+			
+		// 	el.addEventListener('click', function(){
+		// 		setTimeout(function(){
+		// 			console.log('click text btn');
+		// 			open_duo();
+		// 		}, 1000);
+		// 		// open_duo();
+				
+		// 	});
+		// }
+		// else if(el.id == 'image_btn')
+		// {
+			
+		// 	el.addEventListener('click', function(){
+		// 		console.log('click image btn');
+		// 		open_duo();
+		// 	});
+		// }
 		else if(el.id == 'mobile_btn')
 		{
 			el.addEventListener('click', ()=>{popup('mobile')});

@@ -450,6 +450,14 @@ img.trespassing-img.reversed {
     z-index: 100;
     cursor: pointer;
 }
+#text_btn
+{
+    z-index: 1000;
+}
+#image_btn
+{
+    z-index: 1000;
+}
 .not_current
 {
     display: none;
@@ -462,9 +470,6 @@ img.trespassing-img.reversed {
 {
     display: none;
 }
-
-
-
 
 /* 
     image classes
@@ -1505,6 +1510,10 @@ margin: 0cm !important;
     position: absolute;
     left: 70px;
     top: 420px;
+}
+#zero
+{
+    margin-top: 600px;
 }
 @keyframes flashing
 {

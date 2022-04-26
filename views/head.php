@@ -55,7 +55,7 @@ $isNoto = isset($_GET['noto']);
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <link rel="apple-touch-icon" href="/media/png/apple-touch-icon.png" />
         <link rel="stylesheet" href="<? echo $current_directory; ?>static/css/main.css?<?= $devhash; ?>">    
-        <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+        <!-- <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script> -->
         <script src="/static/js/global.js"></script>
         <script src="/static/js/windows.js"></script>
     </head>

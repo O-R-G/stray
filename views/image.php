@@ -43,8 +43,9 @@ $browser = get_browser(null, true);
 $browser = $browser['browser'];
 $isSafari = strtolower($browser) === 'safari';
 
-?><script>
-    var message = {
+?>
+<script>
+	var message = {
         'window': 'image',
         'status': 'loaded'
     };  
