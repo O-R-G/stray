@@ -337,6 +337,7 @@
   				// else
       // 				current_letter = response['current_pos'];
       			current_letter = response['current_pos'];
+      			console.log(current_letter, textToFeed.length);
       			var wait = 1000 - (Date.now() % 1000);
       			current_letter++;
       			if(current_letter >= textToFeed.length)
