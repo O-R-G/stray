@@ -1,5 +1,5 @@
 <? 
-if ( !$uri[2] ){
+if ( !isset($uri[2]) ){
 	$content = '';
 	$children = $oo->children($item['id']);
 	// var_dump(count($children));

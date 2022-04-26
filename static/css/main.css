@@ -1499,6 +1499,13 @@ margin: 0cm !important;
 {
     color: black;
 }
+#cover-image
+{
+    width: 380px;
+    position: absolute;
+    left: 70px;
+    top: 420px;
+}
 @keyframes flashing
 {
     0%{
