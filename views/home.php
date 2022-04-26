@@ -278,6 +278,7 @@
 			preload(0, textToFeed, filenum_arr, previous_char);
 			c_letter = 0;
 		}
+		console.log(c_letter);
 		return c_letter;
 	}
 	function preload(init_index = 0, words, num_arr, prev_char){
