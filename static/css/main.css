@@ -134,7 +134,11 @@ a {
 #nav a {
     padding-left: 3px;
     padding-right: 3px;
-    margin-left: 10px;
+    margin-left: 10px;        
+    display: inline-block;
+    height: 16px;        
+    width: 20px;
+    overflow: hidden;
 }
 
 #nav a:nth-child(1) {

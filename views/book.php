@@ -38,8 +38,10 @@ $ids = $oo->urls_to_ids($urls);
 $item = $oo->get($ids[0]);    
 $children = $oo->children($item['id']);
 foreach($children as $child) {
-    $pages = explode('///', $child['body']);
-    $appendix[] = $pages;
+    if (strpos($child['name1'], '.') !== 0) {
+        $pages = explode('///', $child['body']);
+        $appendix[] = $pages;
+    }
 }
 
 // build $now
