@@ -28,8 +28,8 @@ if($uri[1] == 'preview')
             ],
             pageSetup: {
                 size: { 
-                    width: <?= ($isPreview) ? "'210mm'" : "'8.25in'"; ?>,
-                    height: <?= ($isPreview) ? "'292mm'" : "'11.625in'"; ?>,  
+                    width: <?= ($isPreview) ? "'8.25in'" : "'8.25in'"; ?>,
+                    height: <?= ($isPreview) ? "'11.625in'" : "'11.625in'"; ?>,  
                 },
                 margin: { 
                     top: '15mm', 
@@ -49,8 +49,8 @@ if($uri[1] == 'preview')
     <style type="text/css">
         <?= ($isPreview) ? "
             :root {
-                --bindery-sheet-width: 210mm;
-                --bindery-sheet-height: 292mm;
+                --bindery-sheet-width: 8.25in;
+                --bindery-sheet-height: 11.625in;
             }
             .📖-print-options,
             .📖-controls .📖-btn {
