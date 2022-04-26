@@ -16,6 +16,8 @@ var window_top = window.screenTop || window.screenY;
 var window_left = window.screenLeft || window.screenX;
 
 function popup(name, param =false){
+    console.log('popup: '+name);
+
     let window_top = window.screenTop || window.screenY;
     let window_left = window.screenLeft || window.screenX;
     let window_width = window.innerWidth;
@@ -42,10 +44,11 @@ function popup(name, param =false){
 		window_text = window.open('/appendix/'+name, popup_name, this_param);
 	}
 	else if(name == 'text' || name == 'image'){
-        let popup_width = 645;
-        let popup_height = 900;
+        let popup_width = 400;
+        let popup_height = 400;
         let popup_top = window_top;
-        let popup_left = name == 'image' ? window_left + ( window_width / 2 ) - popup_width : window_left + ( window_width  / 2 ) + 10;
+        // let popup_left = name == 'image' ? window_left + ( window_width / 2 ) - popup_width : window_left + ( window_width  / 2 ) + 10;
+        let popup_left = name == 'image' ? 0 : 200;
         let this_param = 'width='+popup_width+',height='+popup_height+',top='+popup_top+',left='+popup_left+',scrollbars=yes';
 
         return window.open('/'+name, popup_name, this_param);
@@ -104,7 +107,7 @@ function open_chapter(chapter, query = ''){
 var window_image;
 var window_text;
 function open_duo(){
-    
+    console.log('open_duo');
     window_image = popup('image');
     window_text = popup('text');
 
