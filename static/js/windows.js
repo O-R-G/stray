@@ -106,6 +106,7 @@ function open_chapter(chapter, query = ''){
 }
 var window_image;
 var window_text;
+var douIsOpened = false;
 function open_duo(){
     console.log('open_duo');
     window_image = popup('image');
@@ -115,75 +116,82 @@ function open_duo(){
     var window_image_top = 0;
     var window_text_height = 0;
     var window_image_height = 0;
-
-    window.addEventListener("message", (event) => {
-      try {
-        var message = JSON.parse(event.data);
-        if(message['status'] == 'loaded')
-        {
-            if(message['window'] == 'text'){
-                console.log('text is loaded');
-                window_text.onscroll = function(){
-                    if(current_scroll != 'image'){
-                        current_scroll = 'text';
-                        if (!ticking) {
-                            window.requestAnimationFrame(function() {
-                                window_text_top = window_text.scrollY;
-                                window_image.scrollTo(0,window_text_top);
-                                if(scroll_timer !== null)
-                                    clearTimeout(scroll_timer);
-                                scroll_timer = setTimeout(function(){
-                                    current_scroll = false;
-                                }, 150);
-                            });
-                            ticking = true;
+    if(!douIsOpened)
+    {
+        douIsOpened = true;
+        window.addEventListener("message", (event) => {
+          try {
+            var message = JSON.parse(event.data);
+            // console.log(message);
+            if(message['status'] == 'loaded')
+            {
+                if(message['window'] == 'text'){
+                    console.log('text is loaded');
+                    window_text.onscroll = function(){
+                        if(current_scroll != 'image'){
+                            current_scroll = 'text';
+                            if (!ticking) {
+                                window.requestAnimationFrame(function() {
+                                    window_text_top = window_text.scrollY;
+                                    window_image.scrollTo(0,window_text_top);
+                                    if(scroll_timer !== null)
+                                        clearTimeout(scroll_timer);
+                                    scroll_timer = setTimeout(function(){
+                                        current_scroll = false;
+                                    }, 150);
+                                });
+                                ticking = true;
+                            }
+                            ticking = false;
                         }
-                        ticking = false;
-                    }
-                };
-            }
-            else if(message['window'] == 'image'){
-                window_image.onscroll = function(){
-                    // console.log(current_scroll);
-                    if(current_scroll != 'text'){
-                        current_scroll = 'image';
-                        if (!ticking) {
-                            window.requestAnimationFrame(function() {
-                                window_image_top = window_image.scrollY;
-                                window_text.scrollTo(0,window_image_top);
-                                if(scroll_timer !== null)
-                                    clearTimeout(scroll_timer);
-                                scroll_timer = setTimeout(function(){
-                                    current_scroll = false;
-                                }, 150);
-                            });
-                            ticking = true;
+                    };
+                }
+                else if(message['window'] == 'image'){
+                    console.log('image is loaded');
+                    window_image.onscroll = function(){
+                        // console.log(current_scroll);
+                        if(current_scroll != 'text'){
+                            current_scroll = 'image';
+                            if (!ticking) {
+                                window.requestAnimationFrame(function() {
+                                    window_image_top = window_image.scrollY;
+                                    window_text.scrollTo(0,window_image_top);
+                                    if(scroll_timer !== null)
+                                        clearTimeout(scroll_timer);
+                                    scroll_timer = setTimeout(function(){
+                                        current_scroll = false;
+                                    }, 150);
+                                });
+                                ticking = true;
+                            }
+                            ticking = false;
                         }
-                        ticking = false;
-                    }
-                };
-                    // var imgs = window_image.document.querySelectorAll('#image-container img');
-                    
-                    // [].forEach.call(imgs, function(el, i){
-                    //     el.addEventListener('click', function(){
-                    //         console.log('click');
-                    //         var thisSrc = el.src;
-                    //         if(thisSrc !== null)
-                    //         {
-                    //             var last_slash_pos = thisSrc.lastIndexOf('/');
-                    //             var thisFilename = thisSrc.substring(last_slash_pos+1);
-                    //             // sFilenameInput.value = thisFilename;
-                    //             // sFilenameForm.submit();
-                    //             window_zoom = popup('zoom', thisFilename);
-                    //         }
-                    //     });
-                    // });
+                    };
+                        // var imgs = window_image.document.querySelectorAll('#image-container img');
+                        
+                        // [].forEach.call(imgs, function(el, i){
+                        //     el.addEventListener('click', function(){
+                        //         console.log('click');
+                        //         var thisSrc = el.src;
+                        //         if(thisSrc !== null)
+                        //         {
+                        //             var last_slash_pos = thisSrc.lastIndexOf('/');
+                        //             var thisFilename = thisSrc.substring(last_slash_pos+1);
+                        //             // sFilenameInput.value = thisFilename;
+                        //             // sFilenameForm.submit();
+                        //             window_zoom = popup('zoom', thisFilename);
+                        //         }
+                        //     });
+                        // });
+                }
             }
-        }
-      } catch(error) {
-        return;
-      }
-    }, false);
+          } catch(error) {
+            console.log(error);
+            return;
+          }
+        }, false);
+    }
+    
     /*
     window_text.onload = function(){
         window_text.onscroll = function(){
