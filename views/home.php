@@ -92,7 +92,7 @@
 	var loop_timer = null;
 	var isPlaying = false;
 
-	console.log(radio_slide);
+	// console.log(radio_slide);
 
 	var filenum_arr = <? echo json_encode($filenum_arr); ?>;
 	var letter_display_arr = [];
@@ -166,8 +166,10 @@
 	    var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	function loop_letters(c_letter, words, display_arr, isInitialed = true){
+		console.log("c_letter at the beginning: "+c_letter);
 		if(!isInitialed)
 		{
+			console.log('init');
 			var first_display = display_arr[c_letter];
 			c_letter++;
 			if(c_letter >= words.length)
@@ -238,6 +240,7 @@
 		}
 		else
 		{
+			console.log('inited');
 			image_counter++;
 			var current_slide = radio_slide[image_counter%3];
 			// var last_image = radio_image[(image_counter - 1) % 3];
@@ -278,7 +281,7 @@
 			preload(0, textToFeed, filenum_arr, previous_char);
 			c_letter = 0;
 		}
-		console.log(c_letter);
+		console.log("c_letter at the end: "+c_letter);
 		return c_letter;
 	}
 	function preload(init_index = 0, words, num_arr, prev_char){
