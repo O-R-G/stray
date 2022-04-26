@@ -136,11 +136,16 @@ a {
     padding-right: 3px;
     margin-left: 10px;        
     display: inline-block;
+    /*
     height: 16px;        
     width: 16px;
     overflow: hidden;
+    color: transparent;
+    background-color: #999;
+    */
 }
 
+/*
 #nav a:nth-child(1) {
     color: transparent;
     background-color: #333;
@@ -160,6 +165,7 @@ a {
     color: transparent;
     background-color: #AAA;
 }
+*/
 
 #nav a:hover {
     /* color: #CCC; */
@@ -1044,15 +1050,15 @@ img.trespassing-img.reversed {
     overflow: hidden;
 }
 */
-.print-cover-img
-{
+
+.print-cover-img {
     position: absolute;
     top:0;
     height: 100%;
     left: 0;
 }
-.print-content .image-container
-{
+
+.print-content .image-container {
     position: relative;
 }
 
@@ -1504,15 +1510,15 @@ margin: 0cm !important;
 {
     color: black;
 }
-#cover-image
-{
-    width: 380px;
+
+#cover-image {
+    width: 350px;
     position: absolute;
-    left: 70px;
-    top: 420px;
+    left: 120px;
+    top: 480px;
 }
-#zero
-{
+
+#zero {
     margin-top: 600px;
 }
 @keyframes flashing
@@ -1626,10 +1632,12 @@ margin: 0cm !important;
         font-size: 95vw;
     }
     #nav a {
+        /*
         display: inline-block;
         height: 16px;
         width: 48px;
         overflow: hidden;
+        */
     }
 }
 
