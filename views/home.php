@@ -348,7 +348,7 @@
       				current_letter = 0;
       			preload(current_letter, textToFeed, previous_char);
       			setTimeout(function(){
-      				current_letter = loop_letters(1780, textToFeed, letter_display_arr, false);
+      				current_letter = loop_letters(current_letter, textToFeed, letter_display_arr, false);
       				// already current++ when initiating loop_letters();
       				// so "current_letter" is actually the next next index to preload
       				// current_letter = (current_letter + 2) % text.length;
