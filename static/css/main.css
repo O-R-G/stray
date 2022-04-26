@@ -1521,6 +1521,30 @@ margin: 0cm !important;
 #zero {
     margin-top: 600px;
 }
+#popup-alert
+{
+    display: none;
+    width: 300px;
+    max-width: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1000;
+}
+.viewing-popup-alert #popup-alert
+{
+    display: block;
+}
+#popup-alert-ok
+{
+    padding: 0 5px;
+    margin: 20px auto 0 auto;
+    width: 30px;
+    cursor: pointer;
+}
 @keyframes flashing
 {
     0%{
