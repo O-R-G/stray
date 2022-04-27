@@ -121,7 +121,8 @@ function open_duo(){
         }catch(error){
             console.log('window_image cant be closed');
         }
-        document.body.classList.add('viewing-popup-alert');
+        // document.body.classList.add('viewing-popup-alert');
+        window.alert("Please allow popup windows on this website in your browser settings.");
     }
     else
     {
@@ -179,22 +180,6 @@ function open_duo(){
                                     ticking = false;
                                 }
                             };
-                                // var imgs = window_image.document.querySelectorAll('#image-container img');
-                                
-                                // [].forEach.call(imgs, function(el, i){
-                                //     el.addEventListener('click', function(){
-                                //         console.log('click');
-                                //         var thisSrc = el.src;
-                                //         if(thisSrc !== null)
-                                //         {
-                                //             var last_slash_pos = thisSrc.lastIndexOf('/');
-                                //             var thisFilename = thisSrc.substring(last_slash_pos+1);
-                                //             // sFilenameInput.value = thisFilename;
-                                //             // sFilenameForm.submit();
-                                //             window_zoom = popup('zoom', thisFilename);
-                                //         }
-                                //     });
-                                // });
                         }
                     }
                 } catch(error) {
@@ -204,64 +189,4 @@ function open_duo(){
             }, false);
         }
     }
-
-    /*
-    window_text.onload = function(){
-        window_text.onscroll = function(){
-            if(current_scroll != 'image'){
-                current_scroll = 'text';
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        window_text_top = window_text.scrollY;
-                        window_image.scrollTo(0,window_text_top);
-                        if(scroll_timer !== null)
-                            clearTimeout(scroll_timer);
-                        scroll_timer = setTimeout(function(){
-                            current_scroll = false;
-                        }, 150);
-                    });
-                    ticking = true;
-                }
-                ticking = false;
-            }
-        };
-    };
-    window_image.onload = function(){
-        window_image.onscroll = function(){
-            // console.log(current_scroll);
-            if(current_scroll != 'text'){
-                current_scroll = 'image';
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        window_image_top = window_image.scrollY;
-                        window_text.scrollTo(0,window_image_top);
-                        if(scroll_timer !== null)
-                            clearTimeout(scroll_timer);
-                        scroll_timer = setTimeout(function(){
-                            current_scroll = false;
-                        }, 150);
-                    });
-                    ticking = true;
-                }
-                ticking = false;
-            }
-        };
-        // var imgs = window_image.document.querySelectorAll('#image-container img');
-        
-        // [].forEach.call(imgs, function(el, i){
-        //     el.addEventListener('click', function(){
-        //         console.log('click');
-        //         var thisSrc = el.src;
-        //         if(thisSrc !== null)
-        //         {
-        //             var last_slash_pos = thisSrc.lastIndexOf('/');
-        //             var thisFilename = thisSrc.substring(last_slash_pos+1);
-        //             // sFilenameInput.value = thisFilename;
-        //             // sFilenameForm.submit();
-        //             window_zoom = popup('zoom', thisFilename);
-        //         }
-        //     });
-        // });
-    };
-    */
 }

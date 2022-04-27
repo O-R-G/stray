@@ -202,14 +202,10 @@
 ///
 
 <div id="american-photographs" class="image-holder" images="">
-    <img class="" src="/media/jpg/3_15.jpg">
+    <img class="" src="/media/jpg/4_30.jpg">
 </div>
 
 ///
-
-<div id="american-photographs" class="image-holder" images="">
-    <img class="" src="/media/jpg/1_19.jpg">
-</div>
 
 ///
 
@@ -266,17 +262,11 @@
 </div>
 ///
 
-<div id="g-" class="image-holder" images="">
+<div id="g-" class="image-holder image-float-container" images="">
     <img class="" src="/media/jpg/FNL_174B9442-2bw_0810_10.jpg">
-</div>
-
-<!--
-<div id="earthly-trio" class="image-holder image-float-container" images="">
-    <img class="" src="/media/jpg/quick_IMG_6114.jpg">
     <div class="audio-holder">
         <audio controls="">
             <source src="/media/audio/all-at-once-1-4.mp3" type="audio/mp3">
         </audio>
     </div>
 </div>
--->

@@ -799,12 +799,6 @@ img.trespassing-img.reversed {
     margin-left: 440px;
 }
 
-#g- {
-    width: 60%;
-    padding-top: 400px;
-    float: right;
-}
-
 #on-song-1 {
     padding-top:0px;
 }
@@ -928,10 +922,18 @@ img.trespassing-img.reversed {
     clear: both;
 }
 
+#g- {
+    width: 60%;
+    padding-top: 400px;
+    float: right;
+}
+
+/*
 #earthly-trio {
     padding-top: 500px;
     width: 50%;
 }
+*/
 
 /*
     end images
@@ -1146,6 +1148,17 @@ img.trespassing-img.reversed {
     padding-right: 100px;
     bottom: 0px;
 }
+
+/* dev
+.page-image-caption ~ .screen-spacer {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    background-color: #FF0;
+    opacity: 0.5;
+    bottom: -300px;
+}
+*/
 
 #articulation.page-image-caption {
     bottom: -202px;
