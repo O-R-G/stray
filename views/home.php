@@ -69,10 +69,12 @@
 		<img id = 'radio_image_2' class = 'radio_image'>
 	</div>
 </div>
+<!--
 <div id="popup-alert">
 	<div>It looks like your browser has blocked a popup window. Please click again on the main window to launch the second popup.</div>
 	<div id="popup-alert-ok">[OK]</div>
 </div>
+-->
 <div id = "text" style="display:none"><?= $text_plain; ?></div>
 <div id = 'nav'>
 <a href = 'javascript:popup("appendix", "", "")'>END</a>

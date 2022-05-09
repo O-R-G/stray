@@ -6,7 +6,7 @@ if ( !isset($uri[2]) ){
 	    if ((strpos($child['name1'], '.') !== 0) &&
             ($child['name1'] !== 'Colophon') &&
             ($child['name1'] !== 'Afterword')) {
-                $pages = str_replace('///', '<br><br>', $child['body']);
+                $pages = str_replace('///', '', $child['body']);
         	    $content .= $pages . '<br><br><br><div style="text-align:center;">&mdash;&mdash;&mdash;</div><br><br><br>';
         }
 	}
