@@ -5,9 +5,7 @@
 
 // build $texts[chapters][pages]
 
-$urls = explode('/', 'text');
-$ids = $oo->urls_to_ids($urls);
-$item = $oo->get($ids[0]);
+
 // $body = $item['body'];
 if($uri[1] == 'mobile')
 	$body = file_get_contents('static/txt/text-mobile.txt');
@@ -21,11 +19,6 @@ foreach($chapters as $chapter) {
 }
 
 // build $images[chapters][pages]
-
-$urls = explode('/', 'image');
-$ids = $oo->urls_to_ids($urls);
-$item = $oo->get($ids[0]);
-// $body = $item['body'];
 $body = file_get_contents('static/txt/image.txt');
 $images = [];
 $chapters = explode('+++', $body);

@@ -1149,6 +1149,10 @@ img.trespassing-img.reversed {
     bottom: 0px;
 }
 
+.viewing-text .page-image-caption {
+    opacity: 0;
+}
+
 /* dev
 .page-image-caption ~ .screen-spacer {
     position: absolute;
@@ -1505,7 +1509,7 @@ margin: 0cm !important;
 }
 .mobile audio
 {
-    width: auto;
+    max-width: 100%;
 }
 .viewing-image .window-container p,
 .viewing-image .window-container blockquote,
@@ -1676,6 +1680,21 @@ margin: 0cm !important;
         overflow: hidden;
         */
     }
-}
+    .mobile.viewing-image #image-container.window-container .page-image-caption p
+    {
+        opacity: 1 !important;
+    }
+    .mobile #articulation.page-image-caption
+    {
+        bottom: 0;
+    }
+    .mobile .page-image-caption
+    {
+        position: static;
+    }
+    .mobile .mask-image-container
+    {
+        /*position: static;*/
+    }
 
 }
