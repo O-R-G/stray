@@ -1462,7 +1462,17 @@ margin: 0cm !important;
     margin-left:  0;
     margin-right:  0;
 }
-.mobile #will-and-be-going-to-2
+.mobile #stray-nm, 
+.mobile #stray-sh,
+.mobile #stray-nm + .page-image-caption, 
+.mobile #stray-sh + .page-image-caption{
+    width: 48.5%;
+    margin-left:  0;
+    margin-right:  0;
+}
+.mobile #will-and-be-going-to-2,
+.mobile #stray-sh,
+.mobile #stray-sh + .page-image-caption
 {
     padding-left: 52%;
 }
@@ -1696,5 +1706,8 @@ margin: 0cm !important;
     {
         /*position: static;*/
     }
-
+    .mobile #stray-nm
+    {
+        width: 48.5%;
+    }
 }
