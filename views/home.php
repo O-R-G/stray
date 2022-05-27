@@ -394,7 +394,7 @@
 	      }
 	    }
 	};
-	httpRequest.open('GET', 'https://strayworld.sourcetype.com/now');
+	httpRequest.open('GET', 'https://stray.world/now');
 	httpRequest.send();
 	// [].forEach.call(radio_image, function(el, i){
 	// 	if(!hasTouchScreen){
